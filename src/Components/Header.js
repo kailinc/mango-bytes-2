@@ -1,47 +1,56 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { LinkContainer } from 'react-router-bootstrap';
 import { Navbar, Nav, NavItem, MenuItem, NavDropdown } from 'react-bootstrap';
 
 const Header = () => (
   <Navbar inverse collapseOnSelect>
     <Navbar.Header>
       <Navbar.Brand>
-        <NavLink to="/" activeClassName="is-active" exact={true}>Mango-Bytes</NavLink>
+        <LinkContainer to="/" activeClassName="is-active" exact={true}>
+          <a>Mango-Bytes 2.0</a>
+        </LinkContainer>
       </Navbar.Brand>
       <Navbar.Toggle />
     </Navbar.Header>
     <Navbar.Collapse>
       <Nav>
-        <NavItem eventKey={1}>
-          <NavLink to="/languages" activeClassName="is-active" exact={true}>Languages</NavLink>
-        </NavItem>
-        <NavItem eventKey={2}>
-          <NavLink to="/merchandise" activeClassName="is-active" exact={true}>Merchandise</NavLink>
-        </NavItem>
-        <NavItem eventKey={3}>
-          <NavLink to="/misc" activeClassName="is-active" exact={true}>Misc</NavLink>
-        </NavItem>
-        <NavItem eventKey={4}>
-          <NavLink to="/super-powers" activeClassName="is-active" exact={true}>Super Powers</NavLink>
-        </NavItem>
+        <LinkContainer to="/languages" activeClassName="is-active" exact={true}>
+          <NavItem>Languages</NavItem>
+        </LinkContainer>
+        <LinkContainer to="/merchandise" activeClassName="is-active" exact={true}>
+          <NavItem>Merchandise</NavItem>
+        </LinkContainer>
+        <LinkContainer to="/misc" activeClassName="is-active" exact={true}>
+          <NavItem>Misc</NavItem>
+        </LinkContainer>
+        <LinkContainer to="/super-powers" activeClassName="is-active" exact={true}>
+          <NavItem>Super Powers</NavItem>
+        </LinkContainer>
       </Nav>
       <Nav pullRight>
-        <NavDropdown eventKey={2} title="User" id="basic-nav-dropdown">
-          <MenuItem eventKey={2.1}>Sign Up</MenuItem>
-          <MenuItem eventKey={2.2}>Login</MenuItem>
-          <MenuItem eventKey={2.3}>Change Password</MenuItem>
-          <MenuItem eventKey={2.4}>View Profile</MenuItem>
-          <MenuItem divider />
-          <MenuItem eventKey={2.5}>Log Out</MenuItem>
+        <NavDropdown eventKey={2} title="User" id="basic-nav-dropdown" href="#">
+          <LinkContainer to="/sign-up" activeClassName="is-active" exact={true}>
+            <MenuItem>Sign Up</MenuItem>
+          </LinkContainer>
+          <LinkContainer to="/log-in" activeClassName="is-active" exact={true}>
+            <MenuItem>Log In</MenuItem>
+          </LinkContainer>
+          <LinkContainer to="/change-pwd" activeClassName="is-active" exact={true}>
+            <MenuItem>Change Password</MenuItem>
+          </LinkContainer>
+          <LinkContainer to="/view-profile" activeClassName="is-active" exact={true}>
+            <MenuItem>View Profile</MenuItem>
+          </LinkContainer>
+          <LinkContainer to="/log-out" activeClassName="is-active" exact={true}>
+            <MenuItem>Log Out</MenuItem>
+          </LinkContainer>
         </NavDropdown>
-
-        <NavItem eventKey={1}>
-          <NavLink to="/cart" activeClassName="is-active" exact={true}>Cart</NavLink>
-        </NavItem>
+        <LinkContainer to="/cart" activeClassName="is-active" exact={true}>
+          <NavItem>Cart</NavItem>
+        </LinkContainer>
       </Nav>
     </Navbar.Collapse>
   </Navbar>
 )
-
 
 export default Header;
