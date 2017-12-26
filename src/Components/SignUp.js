@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import API from '../API'
 
 class SignUp extends Component {
   constructor(props) {
@@ -13,7 +12,7 @@ class SignUp extends Component {
       password_confirmation: ''
     }
     this.handleInputChange = this.handleInputChange.bind(this)
-    this.handleSignUp = this.handleSignUp.bind(this)
+    this.onSignUp = this.onSignUp.bind(this)
   }
 
   handleInputChange(event) {
@@ -25,21 +24,17 @@ class SignUp extends Component {
     })
   }
 
-  handleSignUp(e) {
+  onSignUp(e) {
     e.preventDefault()
     const data = {
       credentials: this.state
     }
-    API.signUp(data)
-      .then((response) => console.log('this is response ', response))
-      .catch(() => {
-      window.AppNotify("Something went wrong please try again.")
-    })
+    this.props.handleSignUp(data)
   }
 
   render(){
     return(
-      <form onSubmit={this.handleSignUp}>
+      <form onSubmit={this.onSignUp}>
         <label>First Name</label>
         <input name="firstName" type="text" value={this.state.firstName} onChange={this.handleInputChange}/>
 

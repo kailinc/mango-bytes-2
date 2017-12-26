@@ -6,7 +6,6 @@ class LogOut extends Component {
   componentWillMount() {
     this.logOut()
   }
-
   logOut() {
     const id = this.props.user.id
     const token = this.props.user.token
@@ -16,9 +15,6 @@ class LogOut extends Component {
       })
       .catch((error) => {
         console.log(error)
-        this.setState({
-          loggedOut: false
-        })
       })
   }
   render() {
