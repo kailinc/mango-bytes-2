@@ -13,12 +13,17 @@ class Store extends Component {
         item: [ 'sdfsd']
       }
     }
+    this.handleSignIn = this.handleSignIn.bind(this)
   }
-
+  handleSignIn(user) {
+    this.setState({
+      user
+    })
+  }
   render() {
     return (
       <div>
-        <Routes user={this.state.user} cart={this.state.cart}/>
+        <Routes user={this.state.user} cart={this.state.cart} handleSignIn={this.handleSignIn}/>
       </div>
     )
   }

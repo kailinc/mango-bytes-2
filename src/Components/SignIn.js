@@ -28,7 +28,7 @@ class SignIn extends Component {
       credentials: this.state
     }
     API.signIn(data)
-      .then((response) => console.log('this is token ', response.data.user.token))
+      .then((response) => this.props.handleSignIn(response.data.user))
       .catch((error) => console.log(error))
   }
   render(){
