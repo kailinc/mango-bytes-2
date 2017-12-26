@@ -15,15 +15,13 @@ class Store extends Component {
     }
     this.handleSignIn = this.handleSignIn.bind(this)
     this.handleSignUp = this.handleSignUp.bind(this)
+    this.handleChangePwd = this.handleChangePwd.bind(this)
   }
 
   handleSignUp(data) {
     API.signUp(data)
       .then((response) => {
-        this.setState({
-          user: response.data.user
-        })
-        return <Redirect to="/"/>
+        console.log(response)
       })
       .catch((error) => {
         console.log(error)
@@ -33,8 +31,21 @@ class Store extends Component {
   handleSignIn(data) {
     API.signIn(data)
       .then((response) => {
+        this.setState({
+          user: response.data.user
+        })
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+  }
+
+  handleChangePwd(data) {
+    const id = this.state.user.id
+    const token = this.state.user.token
+    API.changePassword(id, token, data)
+      .then((response) => {
         console.log('this is response', response)
-        return <Redirect to="/"/>
       })
       .catch((error) => {
         console.log(error)
@@ -49,6 +60,7 @@ class Store extends Component {
           cart={this.state.cart}
           handleSignIn={this.handleSignIn}
           handleSignUp={this.handleSignUp}
+          handleChangePwd={this.handleChangePwd}
           token={this.state.user.token}/>
       </div>
     )
