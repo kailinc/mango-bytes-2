@@ -6,11 +6,8 @@ class Store extends Component {
     super(props)
     this.state = {
       user: {
-        userName: undefined,
-        token: undefined
       },
       cart: {
-        item: [ 'sdfsd']
       }
     }
     this.handleSignIn = this.handleSignIn.bind(this)
@@ -23,7 +20,11 @@ class Store extends Component {
   render() {
     return (
       <div>
-        <Routes user={this.state.user} cart={this.state.cart} handleSignIn={this.handleSignIn}/>
+        <Routes
+          user={this.state.user}
+          cart={this.state.cart}
+          handleSignIn={this.handleSignIn}
+          token={this.state.user.token}/>
       </div>
     )
   }

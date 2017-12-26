@@ -29,23 +29,7 @@ const Header = (props) => {
           </LinkContainer>
         </Nav>
         <Nav pullRight>
-          <NavDropdown eventKey={2} title="User" id="basic-nav-dropdown" href="#">
-            <LinkContainer to="/sign-up" activeClassName="is-active" exact={true}>
-              <MenuItem>Sign Up</MenuItem>
-            </LinkContainer>
-            <LinkContainer to="/log-in" activeClassName="is-active" exact={true}>
-              <MenuItem>Log In</MenuItem>
-            </LinkContainer>
-            <LinkContainer to="/change-pwd" activeClassName="is-active" exact={true}>
-              <MenuItem>Change Password</MenuItem>
-            </LinkContainer>
-            <LinkContainer to="/view-profile" activeClassName="is-active" exact={true}>
-              <MenuItem>View Profile</MenuItem>
-            </LinkContainer>
-            <LinkContainer to="/log-out" activeClassName="is-active" exact={true}>
-              <MenuItem>Log Out</MenuItem>
-            </LinkContainer>
-          </NavDropdown>
+          {!!props.token ? <LoggedIn /> : <NotLoggedIn /> }
           <LinkContainer to="/cart" activeClassName="is-active" exact={true}>
             <NavItem>Cart</NavItem>
           </LinkContainer>
@@ -55,4 +39,28 @@ const Header = (props) => {
   </div>)
 }
 
+const LoggedIn = (props) => (
+  <NavDropdown eventKey={2} title="User" id="basic-nav-dropdown" href="#">
+    <LinkContainer to="/view-profile" activeClassName="is-active" exact={true}>
+      <MenuItem>View Profile</MenuItem>
+    </LinkContainer>
+    <LinkContainer to="/change-pwd" activeClassName="is-active" exact={true}>
+      <MenuItem>Change Password</MenuItem>
+    </LinkContainer>
+    <LinkContainer to="/log-out" activeClassName="is-active" exact={true}>
+      <MenuItem>Log Out</MenuItem>
+    </LinkContainer>
+  </NavDropdown>
+)
+
+const NotLoggedIn = (props) => (
+  <NavDropdown eventKey={2} title="User" id="basic-nav-dropdown" href="#">
+      <LinkContainer to="/sign-up" activeClassName="is-active" exact={true}>
+        <MenuItem>Sign Up</MenuItem>
+      </LinkContainer>
+      <LinkContainer to="/log-in" activeClassName="is-active" exact={true}>
+        <MenuItem>Log In</MenuItem>
+      </LinkContainer>
+  </NavDropdown>
+)
 export default Header;

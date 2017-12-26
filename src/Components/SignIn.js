@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import { FormControl, FormGroup, Col, Form, ControlLabel, Checkbox, Button } from 'react-bootstrap';
 import API from '../API.js';
 
@@ -7,7 +8,8 @@ class SignIn extends Component {
     super(props)
     this.state = {
       email: '',
-      password: ''
+      password: '',
+      signedIn: null
     }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleInputChange = this.handleInputChange.bind(this)
@@ -28,10 +30,23 @@ class SignIn extends Component {
       credentials: this.state
     }
     API.signIn(data)
-      .then((response) => this.props.handleSignIn(response.data.user))
-      .catch((error) => console.log(error))
+      .then((response) => {
+        this.setState({
+          signedIn: true
+        })
+        this.props.handleSignIn(response.data.user)
+      })
+      .catch((error) => {
+        this.setState({
+          signedIn: false
+        })
+        console.log(error)
+      })
   }
   render(){
+    if (this.state.signedIn) {
+      return <Redirect to='/'/>
+    }
     return(
       <Form horizontal onSubmit={this.handleSubmit}>
         <FormGroup controlId="formHorizontalEmail">

@@ -10,7 +10,7 @@ import SignIn from './SignIn';
 const Routes = (props) => (
   <BrowserRouter>
     <div>
-      <Header user={props.user} cart={props.cart}/>
+      <Header user={props.user} cart={props.cart} token={props.token}/>
       <Switch>
         <Route path="/" component={Home} exact={true}/>
         <Route path="/cart" render={()=> <Cart cart={props.cart}/>}/>
