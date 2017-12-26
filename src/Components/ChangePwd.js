@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
-import { FormControl, FormGroup, Col, Form, ControlLabel, Checkbox, Button } from 'react-bootstrap';
+import { FormGroup, Col, Form, ControlLabel, Button } from 'react-bootstrap';
 import API from '../API.js';
 
 class ChangePwd extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      email: '',
-      password: '',
-      signedIn: null
+      old: '',
+      new: ''
     }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleInputChange = this.handleInputChange.bind(this)
@@ -27,19 +26,15 @@ class ChangePwd extends Component {
   handleSubmit(e) {
     e.preventDefault()
     const data = {
-      credentials: this.state
+      passwords: this.state
     }
-    API.signIn(data)
+    const id = this.props.user.id
+    const token = this.props.user.token
+    API.changePassword(id,token,data)
       .then((response) => {
-        this.setState({
-          signedIn: true
-        })
-        this.props.handleSignIn(response.data.user)
+        console.log(response)
       })
       .catch((error) => {
-        this.setState({
-          signedIn: false
-        })
         console.log(error)
       })
   }
@@ -51,26 +46,26 @@ class ChangePwd extends Component {
       <Form horizontal onSubmit={this.handleSubmit}>
         <FormGroup controlId="formHorizontalEmail">
           <Col componentClass={ControlLabel} sm={2}>
-            Email
+            Old Password
           </Col>
           <Col sm={10}>
-            <input name="email" type="text" value={this.state.email} onChange={this.handleInputChange}/>
+            <input name="old" type="password" value={this.state.old} onChange={this.handleInputChange}/>
           </Col>
         </FormGroup>
 
         <FormGroup controlId="formHorizontalPassword">
           <Col componentClass={ControlLabel} sm={2}>
-            Password
+            New Password
           </Col>
           <Col sm={10}>
-            <input name="password" type="text" value={this.state.password} onChange={this.handleInputChange}/>
+            <input name="new" type="password" value={this.state.new} onChange={this.handleInputChange}/>
           </Col>
         </FormGroup>
 
         <FormGroup>
           <Col smOffset={2} sm={10}>
             <Button type="submit">
-              Sign in
+              Submit
             </Button>
           </Col>
         </FormGroup>

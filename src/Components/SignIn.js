@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
-import { FormControl, FormGroup, Col, Form, ControlLabel, Checkbox, Button } from 'react-bootstrap';
+import { FormGroup, Col, Form, ControlLabel, Button } from 'react-bootstrap';
 import API from '../API.js';
 
 class SignIn extends Component {

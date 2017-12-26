@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { FormControl, FormGroup, Col, Form, ControlLabel, Button } from 'react-bootstrap';
 import API from '../API'
 
 class SignUp extends Component {
