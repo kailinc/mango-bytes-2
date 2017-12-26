@@ -40,16 +40,15 @@ API.changePassword = function (id,token,data) {
   });
 };
 
-//
-// API.signOut = function () {
-//   return axios({
-//     url: `${origin}/sign-out/${store.user.id}`,
-//     method: 'DELETE',
-//     headers: {
-//       Authorization: `Token token=${store.user.token}`,
-//     },
-//   });
-// };
+API.signOut = function () {
+  return axios({
+    url: `${origin}/sign-out/${store.user.id}`,
+    method: 'DELETE',
+    headers: {
+      Authorization: `Token token=${store.user.token}`,
+    },
+  });
+};
 
 
 export default API

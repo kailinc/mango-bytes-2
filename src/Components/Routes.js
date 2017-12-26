@@ -7,6 +7,7 @@ import Home from './Home';
 import SignUp from './SignUp';
 import SignIn from './SignIn';
 import ChangePwd from './ChangePwd';
+import LogOut from './LogOut';
 
 const Routes = (props) => (
   <BrowserRouter>
@@ -18,6 +19,7 @@ const Routes = (props) => (
         <Route path="/sign-up" render={()=> <SignUp user={props.user} />} exact={true}/>
         <Route path="/log-in" render={()=> <SignIn user={props.user} handleSignIn={props.handleSignIn}/>} exact={true}/>
         <Route path="/change-pwd" render={()=> <ChangePwd user={props.user}/>} exact={true}/>
+        <Route path="/log-out" render={()=> <LogOut user={props.user}/>} exact={true}/>
         <Route component={ NotFoundPage }/>
       </Switch>
     </div>
