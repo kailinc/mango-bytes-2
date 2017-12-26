@@ -1,14 +1,35 @@
 import React, { Component } from 'react';
 import { FormControl, FormGroup, Col, Form, ControlLabel, Checkbox, Button } from 'react-bootstrap';
+import API from '../API.js';
 
 class SignIn extends Component {
   constructor(props) {
     super(props)
+    this.state = {
+      email: '',
+      password: ''
+    }
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleInputChange = this.handleInputChange.bind(this)
   }
+
+  handleInputChange(event) {
+    const target = event.target;
+    const value = target.value;
+    const name = target.name;
+    this.setState({
+      [name]: value
+    })
+  }
+
   handleSubmit(e) {
     e.preventDefault()
-    fetch('/')
+    const data = {
+      credentials: this.state
+    }
+    API.signIn(data)
+      .then((response) => console.log('this is token ', response.data.user.token))
+      .catch((error) => console.log(error))
   }
   render(){
     return(
@@ -18,7 +39,7 @@ class SignIn extends Component {
             Email
           </Col>
           <Col sm={10}>
-            <FormControl type="email" placeholder="Email" />
+            <input name="email" type="text" value={this.state.email} onChange={this.handleInputChange}/>
           </Col>
         </FormGroup>
 
@@ -27,7 +48,7 @@ class SignIn extends Component {
             Password
           </Col>
           <Col sm={10}>
-            <FormControl type="password" placeholder="Password" />
+            <input name="password" type="text" value={this.state.password} onChange={this.handleInputChange}/>
           </Col>
         </FormGroup>
 
