@@ -29,16 +29,17 @@ API.signUp = function (data){
   });
 };
 
-// API.changePassword = function (data) {
-//   return axios({
-//     url: `${origin}/change-password/${store.user.id}`,
-//     method: 'PATCH',
-//     headers: {
-//       Authorization: `Token token=${store.user.token}`,
-//     },
-//     data,
-//   });
-// };
+API.changePassword = function (id,token,data) {
+  return axios({
+    url: `${origin}/change-password/${id}`,
+    method: 'PATCH',
+    headers: {
+      Authorization: `Token token=${token}`,
+    },
+    data,
+  });
+};
+
 //
 // API.signOut = function () {
 //   return axios({
