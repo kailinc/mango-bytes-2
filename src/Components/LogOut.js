@@ -3,36 +3,26 @@ import { Redirect } from 'react-router-dom';
 import API from '../API.js';
 
 class LogOut extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-
-    }
-    this.logOut = this.logOut.bind(this)
+  componentWillMount() {
+    this.logOut()
   }
 
-  LogOut(e) {
-    e.preventDefault()
-    const data = {
-      passwords: this.state
-    }
+  logOut() {
     const id = this.props.user.id
     const token = this.props.user.token
-    API.changePassword(id,token,data)
+    API.signOut(id,token)
       .then((response) => {
         console.log(response)
       })
       .catch((error) => {
         console.log(error)
+        this.setState({
+          loggedOut: false
+        })
       })
   }
-  render()
-    return{
-    if (this.state.signedIn) {
-      return <Redirect to='/'/>
-    }
-    return(
-    )
+  render() {
+    return <Redirect to="/" />
   }
 }
 

@@ -40,12 +40,12 @@ API.changePassword = function (id,token,data) {
   });
 };
 
-API.signOut = function () {
+API.signOut = function (id,token) {
   return axios({
-    url: `${origin}/sign-out/${store.user.id}`,
+    url: `${origin}/sign-out/${id}`,
     method: 'DELETE',
     headers: {
-      Authorization: `Token token=${store.user.token}`,
+      Authorization: `Token token=${token}`,
     },
   });
 };
