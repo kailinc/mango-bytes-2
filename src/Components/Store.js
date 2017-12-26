@@ -5,15 +5,20 @@ class Store extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      user: {},
-      cart: {}
+      user: {
+        userName: undefined,
+        token: undefined
+      },
+      cart: {
+        item: [ 'sdfsd']
+      }
     }
   }
 
   render() {
     return (
       <div>
-        <Routes />
+        <Routes user={this.state.user} cart={this.state.cart}/>
       </div>
     )
   }

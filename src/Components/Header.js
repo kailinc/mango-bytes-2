@@ -1,10 +1,9 @@
 import React from 'react';
 import { LinkContainer } from 'react-router-bootstrap';
-import { Navbar, Nav, NavItem, MenuItem, NavDropdown, FormGroup, FormControl } from 'react-bootstrap';
+import { Navbar, Nav, NavItem, MenuItem, NavDropdown } from 'react-bootstrap';
 
-const Header = () => (
-  <div>
-    <p className="header">Free Shipping for Linux Programmers</p>
+const Header = (props) => {
+  return (<div>
     <Navbar collapseOnSelect>
       <Navbar.Header>
         <Navbar.Brand>
@@ -16,9 +15,6 @@ const Header = () => (
       </Navbar.Header>
       <Navbar.Collapse>
         <Nav>
-          <FormGroup>
-            <FormControl type="text" placeholder="Search" />
-          </FormGroup>
           <LinkContainer to="/languages" activeClassName="is-active" exact={true}>
             <NavItem>Languages</NavItem>
           </LinkContainer>
@@ -56,7 +52,7 @@ const Header = () => (
         </Nav>
       </Navbar.Collapse>
     </Navbar>
-  </div>
-)
+  </div>)
+}
 
 export default Header;

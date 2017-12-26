@@ -6,13 +6,13 @@ import Cart from './Cart';
 import Home from './Home';
 import SignUp from './SignUp';
 
-const Routes = () => (
+const Routes = (props) => (
   <BrowserRouter>
     <div>
-      <Header />
+      <Header user={props.user} cart={props.cart}/>
       <Switch>
         <Route path="/" component={Home} exact={true}/>
-        <Route path="/cart" component={Cart} exact={true}/>
+        <Route path="/cart" render={()=> <Cart cart={props.cart}/>}/>
         <Route path="/sign-up" component={SignUp} exact={true}/>
         <Route component={ NotFoundPage }/>
       </Switch>
