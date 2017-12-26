@@ -16,6 +16,7 @@ const Routes = (props) => (
         <Route path="/cart" render={()=> <Cart cart={props.cart}/>}/>
         <Route path="/sign-up" render={()=> <SignUp user={props.user} />} exact={true}/>
         <Route path="/log-in" render={()=> <SignIn user={props.user} handleSignIn={props.handleSignIn}/>} exact={true}/>
+        <Route path="/change-password" render={()=> <ChangePwd user={props.user} exact={true}/>
         <Route component={ NotFoundPage }/>
       </Switch>
     </div>
