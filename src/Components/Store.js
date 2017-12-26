@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Routes from './Routes';
+import { Redirect } from 'react-router-dom';
+
 import API from '../API';
 
 class Store extends Component {
@@ -17,17 +19,28 @@ class Store extends Component {
 
   handleSignUp(data) {
     API.signUp(data)
-      .then((response) => console.log('this is response ', response))
+      .then((response) => {
+        this.setState({
+          user: response.data.user
+        })
+        return <Redirect to="/"/>
+      })
       .catch((error) => {
         console.log(error)
       })
   }
 
-  handleSignIn(user) {
-    this.setState({
-      user
-    })
+  handleSignIn(data) {
+    API.signIn(data)
+      .then((response) => {
+        console.log('this is response', response)
+        return <Redirect to="/"/>
+      })
+      .catch((error) => {
+        console.log(error)
+      })
   }
+
   render() {
     return (
       <div>

@@ -1,17 +1,14 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
 import { FormGroup, Col, Form, ControlLabel, Button } from 'react-bootstrap';
-import API from '../API.js';
 
 class SignIn extends Component {
   constructor(props) {
     super(props)
     this.state = {
       email: '',
-      password: '',
-      signedIn: null
+      password: ''
     }
-    this.handleSubmit = this.handleSubmit.bind(this)
+    this.onSignIn = this.onSignIn.bind(this)
     this.handleInputChange = this.handleInputChange.bind(this)
   }
 
@@ -24,31 +21,17 @@ class SignIn extends Component {
     })
   }
 
-  handleSubmit(e) {
+  onSignIn(e) {
     e.preventDefault()
     const data = {
       credentials: this.state
     }
-    API.signIn(data)
-      .then((response) => {
-        this.setState({
-          signedIn: true
-        })
-        this.props.handleSignIn(response.data.user)
-      })
-      .catch((error) => {
-        this.setState({
-          signedIn: false
-        })
-        console.log(error)
-      })
+    this.props.handleSignIn(data)
   }
+
   render(){
-    if (this.state.signedIn) {
-      return <Redirect to='/'/>
-    }
     return(
-      <Form horizontal onSubmit={this.handleSubmit}>
+      <Form horizontal onSubmit={this.onSignIn}>
         <FormGroup controlId="formHorizontalEmail">
           <Col componentClass={ControlLabel} sm={2}>
             Email
