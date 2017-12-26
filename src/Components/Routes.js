@@ -19,7 +19,7 @@ const Routes = (props) => (
         <Route path="/sign-up" render={()=> <SignUp handleSignUp={props.handleSignUp}/>} exact={true}/>
         <Route path="/log-in" render={()=> <SignIn handleSignIn={props.handleSignIn}/>} exact={true}/>
         <Route path="/change-pwd" render={()=> <ChangePwd handleChangePwd={props.handleChangePwd}/>} exact={true}/>
-        <Route path="/log-out" render={()=> <LogOut user={props.user}/>} exact={true}/>
+        <Route path="/log-out" render={()=> <LogOut handleLogOut={props.handleLogOut}/>} exact={true}/>
         <Route component={ NotFoundPage }/>
       </Switch>
     </div>

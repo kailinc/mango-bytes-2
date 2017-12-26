@@ -16,6 +16,7 @@ class Store extends Component {
     this.handleSignIn = this.handleSignIn.bind(this)
     this.handleSignUp = this.handleSignUp.bind(this)
     this.handleChangePwd = this.handleChangePwd.bind(this)
+    this.handleLogOut = this.handleLogOut.bind(this)
   }
 
   handleSignUp(data) {
@@ -52,6 +53,22 @@ class Store extends Component {
       })
   }
 
+  handleLogOut() {
+    const id = this.state.user.id
+    const token = this.state.user.token
+    API.signOut(id,token)
+      .then((response) => {
+        console.log(response)
+        this.setState({
+          user: {},
+          cart: {}
+        })
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+  }
+
   render() {
     return (
       <div>
@@ -61,6 +78,7 @@ class Store extends Component {
           handleSignIn={this.handleSignIn}
           handleSignUp={this.handleSignUp}
           handleChangePwd={this.handleChangePwd}
+          handleLogOut={this.handleLogOut}
           token={this.state.user.token}/>
       </div>
     )
