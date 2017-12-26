@@ -5,6 +5,7 @@ import Header from './Header';
 import Cart from './Cart';
 import Home from './Home';
 import SignUp from './SignUp';
+import SignIn from './SignIn';
 
 const Routes = (props) => (
   <BrowserRouter>
@@ -13,7 +14,8 @@ const Routes = (props) => (
       <Switch>
         <Route path="/" component={Home} exact={true}/>
         <Route path="/cart" render={()=> <Cart cart={props.cart}/>}/>
-        <Route path="/sign-up" component={SignUp} exact={true}/>
+        <Route path="/sign-up" render={()=> <SignUp user={props.user} />} exact={true}/>
+        <Route path="/sign-in" render={()=> <SignIn user={props.user} />} exact={true}/>
         <Route component={ NotFoundPage }/>
       </Switch>
     </div>
