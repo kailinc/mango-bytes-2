@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import Routes from './Routes';
 import { Redirect } from 'react-router-dom';
+import AlertContainer from 'react-alert';
 
 import API from '../API';
+import Routes from './Routes';
 
 class Store extends Component {
   constructor(props) {
@@ -69,17 +70,33 @@ class Store extends Component {
       })
   }
 
+  alertOptions = {
+    offset: 14,
+    position: 'bottom left',
+    theme: 'dark',
+    time: 5000,
+    transition: 'scale'
+  }
+
+  showAlert = () => {
+    this.msg.show('Some text or component', {
+      time: 2000,
+      type: 'error',
+      icon: <img src="path/to/some/img/32x32.png" />
+    })
+  }
+
   render() {
     return (
       <div>
         <Routes
-          user={this.state.user}
-          cart={this.state.cart}
           handleSignIn={this.handleSignIn}
           handleSignUp={this.handleSignUp}
           handleChangePwd={this.handleChangePwd}
           handleLogOut={this.handleLogOut}
           token={this.state.user.token}/>
+        <AlertContainer ref={a => this.msg = a} {...this.alertOptions} />
+          <button onClick={this.showAlert}>Show Alert</button>
       </div>
     )
   }
