@@ -4,6 +4,9 @@ import AlertContainer from 'react-alert';
 
 import API from '../API';
 import Routes from './Routes';
+import error from '../assets/error.png';
+import success from '../assets/success.png';
+import info from '../assets/info.png';
 
 class Store extends Component {
   constructor(props) {
@@ -20,12 +23,29 @@ class Store extends Component {
     this.handleLogOut = this.handleLogOut.bind(this)
   }
 
+  alertOptions = {
+    offset: 14,
+    position: 'bottom left',
+    theme: 'dark',
+    time: 5000,
+    transition: 'scale'
+  }
+
+  showAlert = (message, status) => {
+    this.msg.show(message, {
+      time: 2000,
+      type: status,
+      icon: <img src={status}/>
+    })
+  }
+
   handleSignUp(data) {
     API.signUp(data)
       .then((response) => {
-        console.log(response)
+        this.msg.success('You have signed up for an account. Please login to continue.')
       })
       .catch((error) => {
+        this.msg.error('Sorry, there was a problem. Please retry again.')
         console.log(error)
       })
   }
@@ -70,22 +90,6 @@ class Store extends Component {
       })
   }
 
-  alertOptions = {
-    offset: 14,
-    position: 'bottom left',
-    theme: 'dark',
-    time: 5000,
-    transition: 'scale'
-  }
-
-  showAlert = () => {
-    this.msg.show('Some text or component', {
-      time: 2000,
-      type: 'error',
-      icon: <img src="path/to/some/img/32x32.png" />
-    })
-  }
-
   render() {
     return (
       <div>
@@ -96,7 +100,6 @@ class Store extends Component {
           handleLogOut={this.handleLogOut}
           token={this.state.user.token}/>
         <AlertContainer ref={a => this.msg = a} {...this.alertOptions} />
-          <button onClick={this.showAlert}>Show Alert</button>
       </div>
     )
   }
