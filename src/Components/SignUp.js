@@ -32,14 +32,14 @@ class SignUp extends Component {
   onSignUp(e) {
     e.preventDefault()
     if (this.state.password !== this.state.password_confirmation) {
-      console.log('passwords don\'t match')
+      this.msg.error('Sorry the passwords don\'t match. Please try again.')
     } else {
-      console.log('signing up')
+      this.msg.success('we are signning you up!')
+      const data = {
+        credentials: this.state
+      }
+      this.props.handleSignUp(data)
     }
-    // const data = {
-    //   credentials: this.state
-    // }
-    // this.props.handleSignUp(data)
   }
 
   close() {
@@ -50,79 +50,82 @@ class SignUp extends Component {
 
   render(){
     return(
-      <Modal show={this.state.showModal} onHide={this.close}>
-          <Modal.Header closeButton>
-            <Modal.Title>Sign Up</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <Form horizontal onSubmit={this.onSignUp}>
-              <FormGroup controlId="formHorizontalEmail">
-                <Col componentClass={ControlLabel} sm={2}>
-                  First Name
-                </Col>
-                <Col sm={10}>
-                  <input name="firstName" type="text" value={this.state.firstName} onChange={this.handleInputChange} required/>
-                </Col>
-              </FormGroup>
+      <div>
+        <Modal show={this.state.showModal} onHide={this.close}>
+            <Modal.Header closeButton>
+              <Modal.Title>Sign Up</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <Form horizontal onSubmit={this.onSignUp}>
+                <FormGroup controlId="formHorizontalEmail">
+                  <Col componentClass={ControlLabel} sm={2}>
+                    First Name
+                  </Col>
+                  <Col sm={10}>
+                    <input name="firstName" type="text" value={this.state.firstName} onChange={this.handleInputChange} required/>
+                  </Col>
+                </FormGroup>
 
-              <FormGroup controlId="formHorizontalPassword">
-                <Col componentClass={ControlLabel} sm={2}>
-                  Last Name
-                </Col>
-                <Col sm={10}>
-                  <input name="lastName" type="text" value={this.state.lastName} onChange={this.handleInputChange} required/>
-                </Col>
-              </FormGroup>
+                <FormGroup controlId="formHorizontalPassword">
+                  <Col componentClass={ControlLabel} sm={2}>
+                    Last Name
+                  </Col>
+                  <Col sm={10}>
+                    <input name="lastName" type="text" value={this.state.lastName} onChange={this.handleInputChange} required/>
+                  </Col>
+                </FormGroup>
 
-              <FormGroup controlId="formHorizontalPassword">
-                <Col componentClass={ControlLabel} sm={2}>
-                  Coder Name
-                </Col>
-                <Col sm={10}>
-                  <input name="coderName" type="text" value={this.state.coderName} onChange={this.handleInputChange} required/>
-                </Col>
-              </FormGroup>
+                <FormGroup controlId="formHorizontalPassword">
+                  <Col componentClass={ControlLabel} sm={2}>
+                    Coder Name
+                  </Col>
+                  <Col sm={10}>
+                    <input name="coderName" type="text" value={this.state.coderName} onChange={this.handleInputChange} required/>
+                  </Col>
+                </FormGroup>
 
-              <FormGroup controlId="formHorizontalPassword">
-                <Col componentClass={ControlLabel} sm={2}>
-                  Email
-                </Col>
-                <Col sm={10}>
-                  <input name="email" type="email" value={this.state.email} onChange={this.handleInputChange} required/>
-                </Col>
-              </FormGroup>
+                <FormGroup controlId="formHorizontalPassword">
+                  <Col componentClass={ControlLabel} sm={2}>
+                    Email
+                  </Col>
+                  <Col sm={10}>
+                    <input name="email" type="email" value={this.state.email} onChange={this.handleInputChange} required/>
+                  </Col>
+                </FormGroup>
 
-              <FormGroup controlId="formHorizontalPassword">
-                <Col componentClass={ControlLabel} sm={2}>
-                  Password
-                </Col>
-                <Col sm={10}>
-                  <input name="password" type="password" value={this.state.password} onChange={this.handleInputChange} required/>
-                </Col>
-              </FormGroup>
+                <FormGroup controlId="formHorizontalPassword">
+                  <Col componentClass={ControlLabel} sm={2}>
+                    Password
+                  </Col>
+                  <Col sm={10}>
+                    <input name="password" type="password" value={this.state.password} onChange={this.handleInputChange} required/>
+                  </Col>
+                </FormGroup>
 
-              <FormGroup controlId="formHorizontalPassword">
-                <Col componentClass={ControlLabel} sm={2}>
-                  Password Confirmation
-                </Col>
-                <Col sm={10}>
-                  <input name="password_confirmation" type="password" value={this.state.password_confirmation} onChange={this.handleInputChange} required/>
-                </Col>
-              </FormGroup>
+                <FormGroup controlId="formHorizontalPassword">
+                  <Col componentClass={ControlLabel} sm={2}>
+                    Password Confirmation
+                  </Col>
+                  <Col sm={10}>
+                    <input name="password_confirmation" type="password" value={this.state.password_confirmation} onChange={this.handleInputChange} required/>
+                  </Col>
+                </FormGroup>
 
-              <FormGroup>
-                <Col smOffset={2} sm={10}>
-                  <Button type="submit">
-                    Sign up
-                  </Button>
-                </Col>
-              </FormGroup>
-            </Form>
-          </Modal.Body>
-          <Modal.Footer>
-            <Button onClick={this.close}>Close</Button>
-          </Modal.Footer>
-        </Modal>
+                <FormGroup>
+                  <Col smOffset={2} sm={10}>
+                    <Button type="submit">
+                      Sign up
+                    </Button>
+                  </Col>
+                </FormGroup>
+              </Form>
+            </Modal.Body>
+            <Modal.Footer>
+              <Button onClick={this.close}>Close</Button>
+            </Modal.Footer>
+          </Modal>
+        <AlertContainer ref={a => this.msg = a} {...this.alertOptions} />
+      </div>
       )
     }
   }
