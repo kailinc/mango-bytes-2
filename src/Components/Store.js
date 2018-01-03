@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import AlertContainer from 'react-alert';
+import createHistory from 'history/createBrowserHistory'
 
 import API from '../API';
 import Routes from './Routes';
 import error from '../assets/error.png';
 import success from '../assets/success.png';
 import info from '../assets/info.png';
+
+const history = createHistory()
+const location = history.location
 
 class Store extends Component {
   constructor(props) {
@@ -42,7 +46,10 @@ class Store extends Component {
   handleSignUp(data) {
     API.signUp(data)
       .then((response) => {
-        this.msg.success('You have signed up for an account. Please login to continue.')
+        this.msg.success('Yes! You have signed up for an account. Please login to continue.')
+      })
+      .then(()=> {
+        history.push('/log-in')
       })
       .catch((error) => {
         this.msg.error('Sorry, there was a problem. Please retry again.')

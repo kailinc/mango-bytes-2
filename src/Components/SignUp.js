@@ -34,7 +34,6 @@ class SignUp extends Component {
     if (this.state.password !== this.state.password_confirmation) {
       this.msg.error('Sorry the passwords don\'t match. Please try again.')
     } else {
-      this.msg.success('we are signning you up!')
       const data = {
         credentials: this.state
       }
