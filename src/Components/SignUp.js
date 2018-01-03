@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Modal, Form, FormGroup, ControlLabel, Col, Button } from 'react-bootstrap';
+import AlertContainer from 'react-alert';
 
 class SignUp extends Component {
   constructor(props) {
@@ -30,10 +31,15 @@ class SignUp extends Component {
 
   onSignUp(e) {
     e.preventDefault()
-    const data = {
-      credentials: this.state
+    if (this.state.password !== this.state.password_confirmation) {
+      console.log('passwords don\'t match')
+    } else {
+      console.log('signing up')
     }
-    this.props.handleSignUp(data)
+    // const data = {
+    //   credentials: this.state
+    // }
+    // this.props.handleSignUp(data)
   }
 
   close() {
@@ -55,7 +61,7 @@ class SignUp extends Component {
                   First Name
                 </Col>
                 <Col sm={10}>
-                  <input name="firstName" type="text" value={this.state.firstName} onChange={this.handleInputChange}/>
+                  <input name="firstName" type="text" value={this.state.firstName} onChange={this.handleInputChange} required/>
                 </Col>
               </FormGroup>
 
@@ -64,7 +70,7 @@ class SignUp extends Component {
                   Last Name
                 </Col>
                 <Col sm={10}>
-                  <input name="lastName" type="text" value={this.state.lastName} onChange={this.handleInputChange}/>
+                  <input name="lastName" type="text" value={this.state.lastName} onChange={this.handleInputChange} required/>
                 </Col>
               </FormGroup>
 
@@ -73,7 +79,7 @@ class SignUp extends Component {
                   Coder Name
                 </Col>
                 <Col sm={10}>
-                  <input name="coderName" type="text" value={this.state.coderName} onChange={this.handleInputChange}/>
+                  <input name="coderName" type="text" value={this.state.coderName} onChange={this.handleInputChange} required/>
                 </Col>
               </FormGroup>
 
@@ -82,7 +88,7 @@ class SignUp extends Component {
                   Email
                 </Col>
                 <Col sm={10}>
-                  <input name="email" type="email" value={this.state.email} onChange={this.handleInputChange}/>
+                  <input name="email" type="email" value={this.state.email} onChange={this.handleInputChange} required/>
                 </Col>
               </FormGroup>
 
@@ -91,7 +97,7 @@ class SignUp extends Component {
                   Password
                 </Col>
                 <Col sm={10}>
-                  <input name="password" type="password" value={this.state.password} onChange={this.handleInputChange}/>
+                  <input name="password" type="password" value={this.state.password} onChange={this.handleInputChange} required/>
                 </Col>
               </FormGroup>
 
@@ -100,7 +106,7 @@ class SignUp extends Component {
                   Password Confirmation
                 </Col>
                 <Col sm={10}>
-                  <input name="password_confirmation" type="password" value={this.state.password_confirmation} onChange={this.handleInputChange}/>
+                  <input name="password_confirmation" type="password" value={this.state.password_confirmation} onChange={this.handleInputChange} required/>
                 </Col>
               </FormGroup>
 
