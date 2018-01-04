@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { FormGroup, Col, Form, ControlLabel, Button } from 'react-bootstrap';
+import { withAlert } from 'react-alert';
+import { Redirect } from 'react-router-dom';
 
 import API from '../API';
 const store = require('../store')
@@ -10,7 +12,7 @@ class SignIn extends Component {
     this.state = {
       email: '',
       password: '',
-      showModal: true
+      loggedIn: false
     }
     this.onSignIn = this.onSignIn.bind(this)
     this.handleInputChange = this.handleInputChange.bind(this)
@@ -36,10 +38,14 @@ class SignIn extends Component {
         store.user.id = response.data.user.id
         store.user.token = response.data.user.token
         store.user.coderName = response.data.user.coderName
-        console.log('this is store ', store)
       })
+      .then(
+        this.setState({
+          loggedIn: true
+        })
+      )
       .catch((error) => {
-        console.log(error)
+        this.props.alert.error('Incorrect Username/Password.')
       })
   }
 
@@ -50,6 +56,12 @@ class SignIn extends Component {
   }
 
   render(){
+    if (this.state.loggedIn) {
+      return(
+        <Redirect to='/' />
+      )
+    }
+
     return(
       <Form horizontal onSubmit={this.onSignIn}>
         <FormGroup controlId="formHorizontalEmail">
@@ -82,4 +94,4 @@ class SignIn extends Component {
   }
 }
 
-export default SignIn;
+export default withAlert(SignIn);
