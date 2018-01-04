@@ -38,6 +38,7 @@ class SignUp extends Component {
         credentials: this.state
       }
       this.props.handleSignUp(data)
+      this.close()
     }
   }
 

@@ -12,11 +12,11 @@ import LogOut from './LogOut';
 const Routes = (props) => (
   <BrowserRouter>
     <div>
-      <Header user={props.user} cart={props.cart} token={props.token}/>
+      <Header />
       <Switch>
         <Route path="/" component={Home} exact={true}/>
         <Route path="/cart" render={()=> <Cart cart={props.cart}/>}/>
-        <Route path="/sign-up" render={()=> <SignUp handleSignUp={props.handleSignUp}/>} exact={true}/>
+        <Route path="/sign-up" component={SignUp} exact={true}/>
         <Route path="/log-in" render={()=> <SignIn handleSignIn={props.handleSignIn}/>} exact={true}/>
         <Route path="/change-pwd" render={()=> <ChangePwd handleChangePwd={props.handleChangePwd}/>} exact={true}/>
         <Route path="/log-out" render={()=> <LogOut handleLogOut={props.handleLogOut}/>} exact={true}/>

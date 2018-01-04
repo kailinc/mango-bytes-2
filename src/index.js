@@ -6,7 +6,7 @@ import './styles/index.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import registerServiceWorker from './registerServiceWorker';
-import Store from './Components/Store';
+import Routes from './Components/Routes';
 
-ReactDOM.render(<Store />, document.getElementById('root'));
+ReactDOM.render(<Routes />, document.getElementById('root'));
 registerServiceWorker();
