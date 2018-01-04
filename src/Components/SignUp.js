@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Modal, Form, FormGroup, ControlLabel, Col, Button } from 'react-bootstrap';
+import { Redirect } from 'react-router-dom';
 import AlertContainer from 'react-alert';
 
 import API from '../API';
@@ -14,7 +15,8 @@ class SignUp extends Component {
       email: '',
       password: '',
       password_confirmation: '',
-      showModal: true
+      showModal: true,
+      signedUp: false
     }
 
     this.handleInputChange = this.handleInputChange.bind(this)
@@ -43,6 +45,11 @@ class SignUp extends Component {
         .then((response) => {
           this.msg.success('Yes! You have signed up for an account. Please login to continue.')
         })
+        .then(() => {
+          this.setState({
+            signedUp: true
+          })
+        })
         .catch((error) => {
           this.msg.error('Sorry, there was a problem. Please retry again.')
           console.log(error)
@@ -57,6 +64,12 @@ class SignUp extends Component {
   }
 
   render(){
+    if (this.state.signedUp) {
+      return(
+        <Redirect to='/log-in'/>
+      )
+    }
+
     return(
       <div>
         <Modal show={this.state.showModal} onHide={this.close}>
