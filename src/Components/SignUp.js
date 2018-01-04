@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Modal, Form, FormGroup, ControlLabel, Col, Button } from 'react-bootstrap';
+import { Form, FormGroup, ControlLabel, Col, Button } from 'react-bootstrap';
 import { Redirect } from 'react-router-dom';
-import AlertContainer from 'react-alert';
+import { withAlert } from 'react-alert';
 
 import API from '../API';
 
@@ -15,13 +15,12 @@ class SignUp extends Component {
       email: '',
       password: '',
       password_confirmation: '',
-      showModal: true,
       signedUp: false
     }
 
     this.handleInputChange = this.handleInputChange.bind(this)
     this.onSignUp = this.onSignUp.bind(this)
-    this.close = this.close.bind(this)
+    this.redirectToLogin = this.redirectToLogin.bind(this)
   }
 
   handleInputChange(event) {
@@ -36,30 +35,29 @@ class SignUp extends Component {
   onSignUp(e) {
     e.preventDefault()
     if (this.state.password !== this.state.password_confirmation) {
-      this.msg.error('Sorry the passwords don\'t match. Please try again.')
+      this.props.alert.error('Sorry the passwords don\'t match. Please try again.')
     } else {
       const data = {
         credentials: this.state
       }
       API.signUp(data)
         .then((response) => {
-          this.msg.success('Yes! You have signed up for an account. Please login to continue.')
+          this.props.alert.success('Yes! You have signed up for an account. Please login to continue.')
+          console.log('signed up')
         })
         .then(() => {
-          this.setState({
-            signedUp: true
-          })
+          setTimeout(this.redirectToLogin, 4000)
         })
         .catch((error) => {
-          this.msg.error('Sorry, there was a problem. Please retry again.')
+          this.props.alert.error('Sorry, there was a problem. Please retry again.')
           console.log(error)
         })
       }
   }
 
-  close() {
+  redirectToLogin() {
     this.setState({
-      showModal: false
+      signedUp: true
     })
   }
 
@@ -72,82 +70,72 @@ class SignUp extends Component {
 
     return(
       <div>
-        <Modal show={this.state.showModal} onHide={this.close}>
-            <Modal.Header closeButton>
-              <Modal.Title>Sign Up</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-              <Form horizontal onSubmit={this.onSignUp}>
-                <FormGroup controlId="formHorizontalEmail">
-                  <Col componentClass={ControlLabel} sm={2}>
-                    First Name
-                  </Col>
-                  <Col sm={10}>
-                    <input name="firstName" type="text" value={this.state.firstName} onChange={this.handleInputChange} required/>
-                  </Col>
-                </FormGroup>
+        <Form horizontal onSubmit={this.onSignUp}>
+          <FormGroup controlId="formHorizontalEmail">
+            <Col componentClass={ControlLabel} sm={2}>
+              First Name
+            </Col>
+            <Col sm={10}>
+              <input name="firstName" type="text" value={this.state.firstName} onChange={this.handleInputChange} required/>
+            </Col>
+          </FormGroup>
 
-                <FormGroup controlId="formHorizontalPassword">
-                  <Col componentClass={ControlLabel} sm={2}>
-                    Last Name
-                  </Col>
-                  <Col sm={10}>
-                    <input name="lastName" type="text" value={this.state.lastName} onChange={this.handleInputChange} required/>
-                  </Col>
-                </FormGroup>
+          <FormGroup controlId="formHorizontalPassword">
+            <Col componentClass={ControlLabel} sm={2}>
+              Last Name
+            </Col>
+            <Col sm={10}>
+              <input name="lastName" type="text" value={this.state.lastName} onChange={this.handleInputChange} required/>
+            </Col>
+          </FormGroup>
 
-                <FormGroup controlId="formHorizontalPassword">
-                  <Col componentClass={ControlLabel} sm={2}>
-                    Coder Name
-                  </Col>
-                  <Col sm={10}>
-                    <input name="coderName" type="text" value={this.state.coderName} onChange={this.handleInputChange} required/>
-                  </Col>
-                </FormGroup>
+          <FormGroup controlId="formHorizontalPassword">
+            <Col componentClass={ControlLabel} sm={2}>
+              Coder Name
+            </Col>
+            <Col sm={10}>
+              <input name="coderName" type="text" value={this.state.coderName} onChange={this.handleInputChange} required/>
+            </Col>
+          </FormGroup>
 
-                <FormGroup controlId="formHorizontalPassword">
-                  <Col componentClass={ControlLabel} sm={2}>
-                    Email
-                  </Col>
-                  <Col sm={10}>
-                    <input name="email" type="email" value={this.state.email} onChange={this.handleInputChange} required/>
-                  </Col>
-                </FormGroup>
+          <FormGroup controlId="formHorizontalPassword">
+            <Col componentClass={ControlLabel} sm={2}>
+              Email
+            </Col>
+            <Col sm={10}>
+              <input name="email" type="email" value={this.state.email} onChange={this.handleInputChange} required/>
+            </Col>
+          </FormGroup>
 
-                <FormGroup controlId="formHorizontalPassword">
-                  <Col componentClass={ControlLabel} sm={2}>
-                    Password
-                  </Col>
-                  <Col sm={10}>
-                    <input name="password" type="password" value={this.state.password} onChange={this.handleInputChange} required/>
-                  </Col>
-                </FormGroup>
+          <FormGroup controlId="formHorizontalPassword">
+            <Col componentClass={ControlLabel} sm={2}>
+              Password
+            </Col>
+            <Col sm={10}>
+              <input name="password" type="password" value={this.state.password} onChange={this.handleInputChange} required/>
+            </Col>
+          </FormGroup>
 
-                <FormGroup controlId="formHorizontalPassword">
-                  <Col componentClass={ControlLabel} sm={2}>
-                    Password Confirmation
-                  </Col>
-                  <Col sm={10}>
-                    <input name="password_confirmation" type="password" value={this.state.password_confirmation} onChange={this.handleInputChange} required/>
-                  </Col>
-                </FormGroup>
+          <FormGroup controlId="formHorizontalPassword">
+            <Col componentClass={ControlLabel} sm={2}>
+              Password Confirmation
+            </Col>
+            <Col sm={10}>
+              <input name="password_confirmation" type="password" value={this.state.password_confirmation} onChange={this.handleInputChange} required/>
+            </Col>
+          </FormGroup>
 
-                <FormGroup>
-                  <Col smOffset={2} sm={10}>
-                    <Button type="submit">
-                      Sign up
-                    </Button>
-                  </Col>
-                </FormGroup>
-              </Form>
-            </Modal.Body>
-            <Modal.Footer>
-              <Button onClick={this.close}>Close</Button>
-            </Modal.Footer>
-          </Modal>
-        <AlertContainer ref={a => this.msg = a} {...this.alertOptions} />
+          <FormGroup>
+            <Col smOffset={2} sm={10}>
+              <Button type="submit">
+                Sign up
+              </Button>
+            </Col>
+          </FormGroup>
+        </Form>
       </div>
       )
     }
   }
-export default SignUp;
+
+export default withAlert(SignUp);
