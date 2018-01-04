@@ -1,14 +1,11 @@
 import React, { Component  } from 'react';
+import Greeting from './Greeting';
 
 class Home extends Component {
-  constructor(props) {
-    super(props)
-  }
-
   render(props){
     return(
       <div>
-        This is Home
+        <Greeting />
       </div>
     )
   }

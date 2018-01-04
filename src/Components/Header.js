@@ -5,7 +5,8 @@ import { Navbar, Nav, NavItem, MenuItem, NavDropdown } from 'react-bootstrap';
 const store = require('../store')
 
 const Header = (props) => {
-  return (<div>
+  return (<div className="header">
+    <p className="headline">FREE Shipping on Orders Paid with Bitcoin.</p>
     <Navbar collapseOnSelect>
       <Navbar.Header>
         <Navbar.Brand>
@@ -56,7 +57,7 @@ const LoggedIn = (props) => (
 )
 
 const NotLoggedIn = (props) => (
-  <NavDropdown eventKey={2} title="User" id="basic-nav-dropdown" href="#">
+  <NavDropdown eventKey={2} title="Members" id="basic-nav-dropdown" href="#">
       <LinkContainer to="/sign-up" activeClassName="is-active" exact={true}>
         <MenuItem>Sign Up</MenuItem>
       </LinkContainer>

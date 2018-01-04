@@ -13,7 +13,7 @@ import Routes from './Components/Routes'
 const options = {
   position: 'bottom center',
   timeout: 5000,
-  offset: 30,
+  offset: '30',
   transition: 'scale'
 }
 

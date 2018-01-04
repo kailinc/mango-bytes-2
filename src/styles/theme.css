@@ -1,0 +1,62 @@
+.home {
+  background: linear-gradient(-90deg, red, yellow);
+  width: 100%;
+  height: 600px;
+  margin: 0;
+}
+
+.header {
+  margin-bottom: 0;
+}
+
+.headline {
+  margin: auto 0;
+  padding: 2px 0;
+  text-align: center;
+  background-color: black;
+  color: white;
+}
+
+.navbar {
+  margin-bottom: 0px;
+}
+
+.greeting {
+  text-align: center;
+  margin-top: 100px;
+  color: black;
+}
+
+.top h3 {
+  right: 300px;
+  top: 180px;
+  position: absolute;
+}
+
+.top h1 {
+  font-size: 7em;
+  font-weight: bold;
+  margin: 5px;
+}
+
+.top span {
+  color: white;
+}
+
+.bottom {
+  margin-top: 30px;
+}
+
+.bottom button {
+  padding: 10px 20px;
+  margin: 0 5px;
+  color: white;
+  background-color: black;
+  border: none;
+  font-weight: bold;
+}
+
+.bottom button:hover {
+  background-color: white;
+  color: black;
+}
