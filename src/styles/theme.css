@@ -47,7 +47,7 @@
   margin-top: 30px;
 }
 
-.bottom button {
+.bottom a {
   padding: 10px 20px;
   margin: 0 5px;
   background-color: black;
@@ -55,15 +55,12 @@
   font-weight: bold;
 }
 
-.bottom button:hover {
-  background-color: white;
-}
-
-.bottom button a {
+.bottom  a {
   text-decoration: none;
   color: white
 }
-.bottom button a:hover {
+.bottom  a:hover {
   text-decoration: none;
-  color: black
+  color: black;
+  background-color: white;
 }

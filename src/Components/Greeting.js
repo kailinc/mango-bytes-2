@@ -16,12 +16,12 @@ class Greeting extends Component {
             </div>
 
             <div className="bottom">
-              <button><Link to='/all'>SHOP ALL</Link></button>
-              <button><Link to='/points'>POINTS</Link></button>
-              <button><Link to='/stickers'>STICKERS</Link></button>
-              <button><Link to='/swag'>SWAG</Link></button>
-              <button><Link to='/super-power'>SUPER POWER</Link></button>
-              <button><Link to='/misc'>MISC</Link></button>
+              <Link to='/all'>SHOP ALL</Link>
+              <Link to='/points'>POINTS</Link>
+              <Link to='/stickers'>STICKERS</Link>
+              <Link to='/swag'>SWAG</Link>
+              <Link to='/super-power'>SUPER POWER</Link>
+              <Link to='/misc'>MISC</Link>
             </div>
           </div>
 

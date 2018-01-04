@@ -18,23 +18,26 @@ const Header = (props) => {
       </Navbar.Header>
       <Navbar.Collapse>
         <Nav>
-          <LinkContainer to="/languages" activeClassName="is-active" exact={true}>
-            <NavItem>Languages</NavItem>
+          <LinkContainer to="/points" activeClassName="is-active" exact={true}>
+            <NavItem>POINTS</NavItem>
           </LinkContainer>
-          <LinkContainer to="/merchandise" activeClassName="is-active" exact={true}>
-            <NavItem>Merchandise</NavItem>
+          <LinkContainer to="/stickers" activeClassName="is-active" exact={true}>
+            <NavItem>STICKERS</NavItem>
           </LinkContainer>
-          <LinkContainer to="/misc" activeClassName="is-active" exact={true}>
-            <NavItem>Misc</NavItem>
+          <LinkContainer to="/swag" activeClassName="is-active" exact={true}>
+            <NavItem>SWAG</NavItem>
           </LinkContainer>
           <LinkContainer to="/super-powers" activeClassName="is-active" exact={true}>
-            <NavItem>Super Powers</NavItem>
+            <NavItem>SUPER POWERS</NavItem>
+          </LinkContainer>
+          <LinkContainer to="/misc" activeClassName="is-active" exact={true}>
+            <NavItem>MISC</NavItem>
           </LinkContainer>
         </Nav>
         <Nav pullRight>
           {store.user.token ? <LoggedIn /> : <NotLoggedIn /> }
           <LinkContainer to="/cart" activeClassName="is-active" exact={true}>
-            <NavItem>Cart</NavItem>
+            <NavItem>CART</NavItem>
           </LinkContainer>
         </Nav>
       </Navbar.Collapse>
@@ -45,24 +48,24 @@ const Header = (props) => {
 const LoggedIn = (props) => (
   <NavDropdown eventKey={2} title={store.user.coderName} id="basic-nav-dropdown" href="#">
     <LinkContainer to="/view-profile" activeClassName="is-active" exact={true}>
-      <MenuItem>View Profile</MenuItem>
+      <MenuItem>VIEW PROFILE</MenuItem>
     </LinkContainer>
     <LinkContainer to="/change-pwd" activeClassName="is-active" exact={true}>
-      <MenuItem>Change Password</MenuItem>
+      <MenuItem>CHANGE PASSWORD</MenuItem>
     </LinkContainer>
     <LinkContainer to="/log-out" activeClassName="is-active" exact={true}>
-      <MenuItem>Log Out</MenuItem>
+      <MenuItem>LOG OUT</MenuItem>
     </LinkContainer>
   </NavDropdown>
 )
 
 const NotLoggedIn = (props) => (
-  <NavDropdown eventKey={2} title="Members" id="basic-nav-dropdown" href="#">
+  <NavDropdown eventKey={2} title="MEMBERS" id="basic-nav-dropdown" href="#">
       <LinkContainer to="/sign-up" activeClassName="is-active" exact={true}>
-        <MenuItem>Sign Up</MenuItem>
+        <MenuItem>SIGN UP</MenuItem>
       </LinkContainer>
       <LinkContainer to="/log-in" activeClassName="is-active" exact={true}>
-        <MenuItem>Log In</MenuItem>
+        <MenuItem>LOG IN</MenuItem>
       </LinkContainer>
   </NavDropdown>
 )
