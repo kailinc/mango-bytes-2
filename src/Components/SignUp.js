@@ -46,7 +46,7 @@ class SignUp extends Component {
           console.log('signed up')
         })
         .then(() => {
-          setTimeout(this.redirectToLogin, 4000)
+          setTimeout(this.redirectToLogin, 2000)
         })
         .catch((error) => {
           this.props.alert.error('Sorry, there was a problem. Please retry again.')

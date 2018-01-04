@@ -1,15 +1,22 @@
 import React, { Component } from 'react';
 import { FormGroup, Col, Form, ControlLabel, Button } from 'react-bootstrap';
+import { withAlert } from 'react-alert';
+import { Redirect } from 'react-router-dom';
+
+import API from '../API';
+const store = require('../store');
 
 class ChangePwd extends Component {
   constructor(props) {
     super(props)
     this.state = {
       old: '',
-      new: ''
+      new: '',
+      changedPwd: false
     }
     this.onChangePwd = this.onChangePwd.bind(this)
     this.handleInputChange = this.handleInputChange.bind(this)
+    this.redirectToHome = this.redirectToHome.bind(this)
   }
 
   handleInputChange(event) {
@@ -26,10 +33,39 @@ class ChangePwd extends Component {
     const data = {
       passwords: this.state
     }
-    this.props.handleChangePwd(data)
+    const id = store.user.id
+    const token = store.user.token
+    API.changePassword(id, token, data)
+      .then(() => {
+        this.props.alert.success('Your password has been changed.')
+      })
+      .then(() => {
+        this.setState({
+          old: '',
+          new: ''
+        })
+      })
+      .then(() => {
+        setTimeout(this.redirectToHome, 2000)
+      })
+      .catch((error) => {
+        this.props.alert.error('There was a problem changing your password.')
+      })
+  }
+
+  redirectToHome() {
+    this.setState({
+      changedPwd: true
+    })
   }
 
   render(){
+    if (this.state.changedPwd) {
+      return(
+        <Redirect to='/' />
+      )
+    }
+
     return(
       <Form horizontal onSubmit={this.onChangePwd}>
         <FormGroup controlId="formHorizontalEmail">
@@ -62,4 +98,4 @@ class ChangePwd extends Component {
   }
 }
 
-export default ChangePwd;
+export default withAlert(ChangePwd);
