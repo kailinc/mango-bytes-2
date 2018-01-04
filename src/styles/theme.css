@@ -50,7 +50,6 @@
 .bottom button {
   padding: 10px 20px;
   margin: 0 5px;
-  color: white;
   background-color: black;
   border: none;
   font-weight: bold;
@@ -58,5 +57,13 @@
 
 .bottom button:hover {
   background-color: white;
-  color: black;
+}
+
+.bottom button a {
+  text-decoration: none;
+  color: white
+}
+.bottom button a:hover {
+  text-decoration: none;
+  color: black
 }

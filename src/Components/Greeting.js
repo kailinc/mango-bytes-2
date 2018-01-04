@@ -1,5 +1,6 @@
 import React, { Component  } from 'react';
 import { Jumbotron } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 class Greeting extends Component {
   render(props){
@@ -15,11 +16,12 @@ class Greeting extends Component {
             </div>
 
             <div className="bottom">
-              <button>SHOP ALL</button>
-              <button>POINTS</button>
-              <button>STICKERS</button>
-              <button>SWAG</button>
-              <button>MISC</button>
+              <button><Link to='/all'>SHOP ALL</Link></button>
+              <button><Link to='/points'>POINTS</Link></button>
+              <button><Link to='/stickers'>STICKERS</Link></button>
+              <button><Link to='/swag'>SWAG</Link></button>
+              <button><Link to='/super-power'>SUPER POWER</Link></button>
+              <button><Link to='/misc'>MISC</Link></button>
             </div>
           </div>
 
