@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import { FormGroup, Col, Form, ControlLabel, Button, Modal } from 'react-bootstrap';
+import { FormGroup, Col, Form, ControlLabel, Button } from 'react-bootstrap';
+
+import API from '../API';
+const store = require('../store')
 
 class SignIn extends Component {
   constructor(props) {
@@ -28,7 +31,16 @@ class SignIn extends Component {
     const data = {
       credentials: this.state
     }
-    this.props.handleSignIn(data)
+    API.signIn(data)
+      .then((response) => {
+        store.user.id = response.data.user.id
+        store.user.token = response.data.user.token
+        store.user.coderName = response.data.user.coderName
+        console.log('this is store ', store)
+      })
+      .catch((error) => {
+        console.log(error)
+      })
   }
 
   close() {
@@ -39,43 +51,33 @@ class SignIn extends Component {
 
   render(){
     return(
-      <Modal show={this.state.showModal} onHide={this.close}>
-          <Modal.Header closeButton>
-            <Modal.Title>Sign In</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <Form horizontal onSubmit={this.onSignIn}>
-              <FormGroup controlId="formHorizontalEmail">
-                <Col componentClass={ControlLabel} sm={2}>
-                  Email
-                </Col>
-                <Col sm={10}>
-                  <input name="email" type="text" value={this.state.email} onChange={this.handleInputChange}/>
-                </Col>
-              </FormGroup>
+      <Form horizontal onSubmit={this.onSignIn}>
+        <FormGroup controlId="formHorizontalEmail">
+          <Col componentClass={ControlLabel} sm={2}>
+            Email
+          </Col>
+          <Col sm={10}>
+            <input name="email" type="text" value={this.state.email} onChange={this.handleInputChange}/>
+          </Col>
+        </FormGroup>
 
-              <FormGroup controlId="formHorizontalPassword">
-                <Col componentClass={ControlLabel} sm={2}>
-                  Password
-                </Col>
-                <Col sm={10}>
-                  <input name="password" type="text" value={this.state.password} onChange={this.handleInputChange}/>
-                </Col>
-              </FormGroup>
+        <FormGroup controlId="formHorizontalPassword">
+          <Col componentClass={ControlLabel} sm={2}>
+            Password
+          </Col>
+          <Col sm={10}>
+            <input name="password" type="text" value={this.state.password} onChange={this.handleInputChange}/>
+          </Col>
+        </FormGroup>
 
-              <FormGroup>
-                <Col smOffset={2} sm={10}>
-                  <Button type="submit">
-                    Sign in
-                  </Button>
-                </Col>
-              </FormGroup>
-            </Form>
-          </Modal.Body>
-          <Modal.Footer>
-            <Button onClick={this.close}>Close</Button>
-          </Modal.Footer>
-        </Modal>
+        <FormGroup>
+          <Col smOffset={2} sm={10}>
+            <Button type="submit">
+              Sign in
+            </Button>
+          </Col>
+        </FormGroup>
+      </Form>
     )
   }
 }
