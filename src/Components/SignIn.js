@@ -39,13 +39,13 @@ class SignIn extends Component {
         store.user.token = response.data.user.token
         store.user.coderName = response.data.user.coderName
       })
-      .then(
+      .then(() => {
         this.setState({
           loggedIn: true
         })
-      )
+      })
       .catch((error) => {
-        this.props.alert.error('Incorrect Username/Password.')
+        this.props.alert.error('Incorrect username/password.')
       })
   }
 

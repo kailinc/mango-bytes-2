@@ -2,6 +2,8 @@ import React from 'react';
 import { LinkContainer } from 'react-router-bootstrap';
 import { Navbar, Nav, NavItem, MenuItem, NavDropdown } from 'react-bootstrap';
 
+const store = require('../store')
+
 const Header = (props) => {
   return (<div>
     <Navbar collapseOnSelect>
@@ -29,7 +31,7 @@ const Header = (props) => {
           </LinkContainer>
         </Nav>
         <Nav pullRight>
-          {!!props.token ? <LoggedIn /> : <NotLoggedIn /> }
+          {store.user.token ? <LoggedIn /> : <NotLoggedIn /> }
           <LinkContainer to="/cart" activeClassName="is-active" exact={true}>
             <NavItem>Cart</NavItem>
           </LinkContainer>
@@ -40,7 +42,7 @@ const Header = (props) => {
 }
 
 const LoggedIn = (props) => (
-  <NavDropdown eventKey={2} title="User" id="basic-nav-dropdown" href="#">
+  <NavDropdown eventKey={2} title={store.user.coderName} id="basic-nav-dropdown" href="#">
     <LinkContainer to="/view-profile" activeClassName="is-active" exact={true}>
       <MenuItem>View Profile</MenuItem>
     </LinkContainer>

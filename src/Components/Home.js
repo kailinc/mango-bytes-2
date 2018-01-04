@@ -6,7 +6,6 @@ class Home extends Component {
   }
 
   render(props){
-    console.log('this is loggedIn', this.props.justLoggedIn)
     return(
       <div>
         This is Home
