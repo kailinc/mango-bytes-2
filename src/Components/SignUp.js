@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Modal, Form, FormGroup, ControlLabel, Col, Button } from 'react-bootstrap';
 import AlertContainer from 'react-alert';
 
+import API from '../API';
+
 class SignUp extends Component {
   constructor(props) {
     super(props)
@@ -37,9 +39,15 @@ class SignUp extends Component {
       const data = {
         credentials: this.state
       }
-      this.props.handleSignUp(data)
-      this.close()
-    }
+      API.signUp(data)
+        .then((response) => {
+          this.msg.success('Yes! You have signed up for an account. Please login to continue.')
+        })
+        .catch((error) => {
+          this.msg.error('Sorry, there was a problem. Please retry again.')
+          console.log(error)
+        })
+      }
   }
 
   close() {
