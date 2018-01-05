@@ -50,5 +50,13 @@ API.signOut = function (id,token) {
   });
 };
 
+API.getItems = function () {
+  return axios({
+    url: `${origin}/items`,
+    method: 'GET'
+  });
+};
+
+
 
 export default API
