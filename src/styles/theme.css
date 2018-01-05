@@ -23,8 +23,7 @@
 
 .greeting {
   text-align: center;
-  margin-top: 100px;
-  margin-bottom: 100px;
+  margin: 100px 0;
   color: black;
 }
 
@@ -64,4 +63,34 @@
   text-decoration: none;
   color: black;
   background-color: white;
+}
+
+.goals {
+  margin: 20px auto;
+  padding: 0px 300px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.goal {
+  margin:  5px 5px;
+  padding: 10px 20px;
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+}
+
+.goal:hover {
+  transform: scale(1.1);
+  background: black;
+  color: white;
+  border-color: 1px solid white;
+}
+
+.banner {
+  text-align: center;
+  margin: 50px 0;
+  color: black;
 }
