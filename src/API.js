@@ -34,7 +34,7 @@ API.changePassword = function (id,token,data) {
     url: `${origin}/change-password/${id}`,
     method: 'PATCH',
     headers: {
-      Authorization: `Token token=${token}`,
+      Authorization: `Token token=${token}`
     },
     data,
   });
@@ -45,7 +45,7 @@ API.signOut = function (id,token) {
     url: `${origin}/sign-out/${id}`,
     method: 'DELETE',
     headers: {
-      Authorization: `Token token=${token}`,
+      Authorization: `Token token=${token}`
     },
   });
 };
@@ -54,6 +54,16 @@ API.getItems = function () {
   return axios({
     url: `${origin}/items`,
     method: 'GET'
+  });
+};
+
+API.showUser = function (id, token) {
+  return axios({
+    url: `${origin}/users/${id}`,
+    method: 'GET',
+    headers: {
+      Authorization: `Token token=${token}`
+    }
   });
 };
 

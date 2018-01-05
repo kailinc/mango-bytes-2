@@ -4,12 +4,16 @@ import Feed from './Feed';
 import Profile from './Profile';
 import API from '../API';
 
+const store = require('../store')
+
 class Shop extends Component {
   constructor(){
     super()
     this.state = {
-      items: []
+      items: [],
+      user: {}
     }
+    this.getUserInfo = this.getUserInfo.bind(this)
   }
 
   componentWillMount(){
@@ -19,16 +23,31 @@ class Shop extends Component {
           items: response.data.items
         })
       })
+      .then(() => this.getUserInfo())
       .catch((error)=> {
         console.log(error)
       })
   }
 
+  getUserInfo() {
+    if (store.user.token) {
+      API.showUser(store.user.id, store.user.token)
+        .then((response)=>  {
+          this.setState({
+            user: response.data.user
+          })
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    }
+  }
+
   render() {
     return(
       <div>
-        <Feed />
-        <Profile />
+        <Feed items={this.state.items}/>
+        <Profile user={this.state.user} />
       </div>
     )
   }
