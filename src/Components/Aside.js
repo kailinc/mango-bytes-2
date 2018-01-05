@@ -6,8 +6,8 @@ class Aside extends Component {
     return(
       <div>
         <div className='aside-img-div'>
-          <img className="asideImg" src={this.props.img} />
-          <div class="middle">
+          <img className="asideImg" src={this.props.img} alt='aside-img'/>
+          <div className="middle">
             <Link className='goal' to='/'>{this.props.hoverMsg}</Link>
           </div>
         </div>

@@ -9,7 +9,7 @@ import SignUp from './SignUp';
 import SignIn from './SignIn';
 import ChangePwd from './ChangePwd';
 import LogOut from './LogOut';
-
+import Shop from './Shop';
 
 class Routes extends Component {
 
@@ -25,6 +25,7 @@ class Routes extends Component {
               <Route path="/log-in" render={()=> <SignIn handleSignIn={this.props.handleSignIn}/>} exact={true}/>
               <Route path="/change-pwd" render={()=> <ChangePwd handleChangePwd={this.props.handleChangePwd}/>} exact={true}/>
               <Route path="/log-out" render={()=> <LogOut handleLogOut={this.props.handleLogOut}/>} exact={true}/>
+              <Route path="/all" component={Shop} />
               <Route component={ NotFoundPage }/>
             </Switch>
           </div>
