@@ -42,10 +42,11 @@ class Banner extends Component {
 
         <div className="bottom">
           <form onSubmit={this.handleSubmit}>
-            <input type='text' value={this.state.goal} onChange={this.handleChange}/>
+            <label>
+              <input type='text' value={this.state.goal} onChange={this.handleChange}/>
+            </label>
           </form>
         </div>
-
       </div>
     )
   }
