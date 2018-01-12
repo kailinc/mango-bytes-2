@@ -13,7 +13,7 @@ class Shop extends Component {
     this.state = {
       items: [],
       user: {},
-      headline: 'All Items'
+      headline: 'ALL ITEMS'
     }
     this.getUserInfo = this.getUserInfo.bind(this)
   }
@@ -47,10 +47,12 @@ class Shop extends Component {
 
   render() {
     return(
-      <div className='shop'>
+      <div>
         <Headline headline={this.state.headline}/>
-        <Profile user={this.state.user} />
-        <Feed items={this.state.items}/>
+        <div className='store'>
+          <Profile user={this.state.user} />
+          <Feed items={this.state.items}/>
+        </div>
       </div>
     )
   }

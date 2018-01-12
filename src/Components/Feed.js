@@ -7,7 +7,6 @@ class Feed extends Component {
     return(
       <div className='feed-container'>
         <div>
-          <h3>Headline</h3>
           <NavDropdown eventKey={2} title="Sort By" id="basic-nav-dropdown" href="#">
             <LinkContainer to="/view-profile" activeClassName="is-active" exact={true}>
               <MenuItem>NEWEST ADDED</MenuItem>

@@ -215,19 +215,38 @@ a {
   text-decoration: none;
 }
 
-.shop {
-  margin: 0 100px;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: center;
-  width: 100%;
-}
-
 .profile-container {
-  width: 20%;
+  background-color: grey;
+  border: 1px solid black;
+  width: 30%;
 }
 
 .feed-container {
-  width: 80%;
+  width: 70%;
+  background-color: blue;
+  border: 1px solid black;
+}
+
+.title {
+  text-align: center;
+}
+
+.store {
+  display: flex;
+  margin: 25px 40px;
+}
+
+.profile-hr {
+  background-color: white;
+  text-align: center;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+.profile-hr p {
+  margin-bottom: 0;
+}
+
+.left, .right {
+  padding: 0 20px;
 }
