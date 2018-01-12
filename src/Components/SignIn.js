@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { FormGroup, Col, Form, ControlLabel, Button } from 'react-bootstrap';
 import { withAlert } from 'react-alert';
 import { Redirect } from 'react-router-dom';
 

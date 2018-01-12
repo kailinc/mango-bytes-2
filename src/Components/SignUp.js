@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Form, FormGroup, ControlLabel, Col, Button } from 'react-bootstrap';
 import { Redirect } from 'react-router-dom';
 import { withAlert } from 'react-alert';
 
@@ -69,71 +68,33 @@ class SignUp extends Component {
     }
 
     return(
-      <div>
-        <Form horizontal onSubmit={this.onSignUp}>
-          <FormGroup controlId="formHorizontalEmail">
-            <Col componentClass={ControlLabel} sm={2}>
-              First Name
-            </Col>
-            <Col sm={10}>
-              <input name="firstName" type="text" value={this.state.firstName} onChange={this.handleInputChange} required/>
-            </Col>
-          </FormGroup>
-
-          <FormGroup controlId="formHorizontalPassword">
-            <Col componentClass={ControlLabel} sm={2}>
-              Last Name
-            </Col>
-            <Col sm={10}>
-              <input name="lastName" type="text" value={this.state.lastName} onChange={this.handleInputChange} required/>
-            </Col>
-          </FormGroup>
-
-          <FormGroup controlId="formHorizontalPassword">
-            <Col componentClass={ControlLabel} sm={2}>
-              Coder Name
-            </Col>
-            <Col sm={10}>
-              <input name="coderName" type="text" value={this.state.coderName} onChange={this.handleInputChange} required/>
-            </Col>
-          </FormGroup>
-
-          <FormGroup controlId="formHorizontalPassword">
-            <Col componentClass={ControlLabel} sm={2}>
-              Email
-            </Col>
-            <Col sm={10}>
-              <input name="email" type="email" value={this.state.email} onChange={this.handleInputChange} required/>
-            </Col>
-          </FormGroup>
-
-          <FormGroup controlId="formHorizontalPassword">
-            <Col componentClass={ControlLabel} sm={2}>
-              Password
-            </Col>
-            <Col sm={10}>
-              <input name="password" type="password" value={this.state.password} onChange={this.handleInputChange} required/>
-            </Col>
-          </FormGroup>
-
-          <FormGroup controlId="formHorizontalPassword">
-            <Col componentClass={ControlLabel} sm={2}>
-              Password Confirmation
-            </Col>
-            <Col sm={10}>
-              <input name="password_confirmation" type="password" value={this.state.password_confirmation} onChange={this.handleInputChange} required/>
-            </Col>
-          </FormGroup>
-
-          <FormGroup>
-            <Col smOffset={2} sm={10}>
-              <Button type="submit">
-                Sign up
-              </Button>
-            </Col>
-          </FormGroup>
-        </Form>
-      </div>
+      <form onSubmit={this.onSignUp}>
+        <label>
+          <input name='firstName' type="text" required value={this.state.firstName} onChange={this.handleInputChange}/>
+          <div class="label-text">First Name</div>
+        </label>
+        <label>
+          <input name='lastName' type="text" required value={this.state.lastName} onChange={this.handleInputChange}/>
+          <div class="label-text">Last Name</div>
+        </label>
+        <label>
+          <input name='coderName' type="text" required value={this.state.coderName} onChange={this.handleInputChange}/>
+          <div class="label-text">Coder Name</div>
+        </label>
+        <label>
+          <input name='email' type="email" required value={this.state.email} onChange={this.handleInputChange}/>
+          <div class="label-text">E-mail</div>
+        </label>
+        <label>
+          <input name="password" type='password' value={this.state.password} onChange={this.handleInputChange} required/>
+          <div class="label-text">Password</div>
+        </label>
+        <label>
+          <input name="password_confirmation" type='password' value={this.state.password_confirmation} onChange={this.handleInputChange} required/>
+          <div class="label-text">Password Confirmation</div>
+        </label>
+        <button>Submit</button>
+      </form>
       )
     }
   }
