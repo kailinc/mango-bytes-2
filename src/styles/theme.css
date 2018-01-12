@@ -223,6 +223,7 @@ a {
 
 .feed-container {
   width: 70%;
+  padding: 0px 20px;
 }
 
 .title {
@@ -251,4 +252,40 @@ a {
 
 .increase-pts {
   color: green;
+}
+
+.filters {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+.filters ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.filters ul li {
+  float: left;
+  margin: 0px 10px;
+}
+
+.filters ul li a {
+  display: block;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+/* Change the link color to #111 (black) on hover */
+.filter-options:hover {
+  cursor: pointer;
+  color: red;
+}
+
+.filter-header {
+  background-color: #f0f0f0;
 }

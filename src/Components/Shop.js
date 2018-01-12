@@ -49,6 +49,7 @@ class Shop extends Component {
     return(
       <div>
         <Headline headline={this.state.headline}/>
+        <hr></hr>
         <div className='store'>
           <Profile user={this.state.user} />
           <Feed items={this.state.items}/>
