@@ -67,33 +67,22 @@ class ChangePwd extends Component {
     }
 
     return(
-      <Form horizontal onSubmit={this.onChangePwd}>
-        <FormGroup controlId="formHorizontalEmail">
-          <Col componentClass={ControlLabel} sm={2}>
-            Old Password
-          </Col>
-          <Col sm={10}>
-            <input name="old" type="password" value={this.state.old} onChange={this.handleInputChange}/>
-          </Col>
-        </FormGroup>
-
-        <FormGroup controlId="formHorizontalPassword">
-          <Col componentClass={ControlLabel} sm={2}>
-            New Password
-          </Col>
-          <Col sm={10}>
-            <input name="new" type="password" value={this.state.new} onChange={this.handleInputChange}/>
-          </Col>
-        </FormGroup>
-
-        <FormGroup>
-          <Col smOffset={2} sm={10}>
-            <Button type="submit">
-              Submit
-            </Button>
-          </Col>
-        </FormGroup>
-      </Form>
+      <div>
+        <div className='title'>
+          <h1>Change Your Password</h1>
+        </div>
+        <form onSubmit={this.onChangePwd}>
+          <label>
+            <input name='old' type="password" required value={this.state.old} onChange={this.handleInputChange}/>
+            <div class="label-text">Old Password</div>
+          </label>
+          <label>
+            <input name='new' type="password" required value={this.state.new} onChange={this.handleInputChange}/>
+            <div class="label-text">New Password</div>
+          </label>
+          <button>Submit</button>
+        </form>
+      </div>
     )
   }
 }

@@ -62,17 +62,22 @@ class SignIn extends Component {
     }
 
     return(
-      <form onSubmit={this.onSignIn}>
-        <label>
-          <input name='email' type="email" required value={this.state.email} onChange={this.handleInputChange}/>
-          <div class="label-text">Email</div>
-        </label>
-        <label>
-          <input name="password" type='password' value={this.state.password} onChange={this.handleInputChange} required/>
-          <div class="label-text">Password</div>
-        </label>
-        <button>Submit</button>
-      </form>
+      <div>
+        <div className='title'>
+          <h1>Welcome Back!</h1>
+        </div>
+        <form onSubmit={this.onSignIn}>
+          <label>
+            <input name='email' type="email" required value={this.state.email} onChange={this.handleInputChange}/>
+            <div class="label-text">Email</div>
+          </label>
+          <label>
+            <input name="password" type='password' value={this.state.password} onChange={this.handleInputChange} required/>
+            <div class="label-text">Password</div>
+          </label>
+          <button>Submit</button>
+        </form>
+      </div>
     )
   }
 }
