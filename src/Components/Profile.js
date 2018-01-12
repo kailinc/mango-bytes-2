@@ -11,7 +11,7 @@ class Profile extends Component {
             <h5>Chen</h5>
           </div>
           <div className='right'>
-            <img src='https://www.shareicon.net/data/128x128/2016/09/15/829444_man_512x512.png'></img>
+            <img src='https://www.shareicon.net/data/128x128/2016/09/15/829444_man_512x512.png' alt='profile'></img>
           </div>
         </div>
         <div className='profile-hr'>

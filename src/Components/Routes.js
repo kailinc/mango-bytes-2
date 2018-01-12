@@ -11,11 +11,12 @@ import ChangePwd from './ChangePwd';
 import LogOut from './LogOut';
 import Shop from './Shop';
 
+const store = require('../store')
 class Routes extends Component {
 
   render() {
     return(
-        <BrowserRouter>
+        <BrowserRouter forceRefresh={store.user.token}>
           <div>
             <Header />
             <Switch>

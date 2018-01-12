@@ -29,7 +29,7 @@ class Banner extends Component {
   }
 
   render(){
-    let goals = this.state.goals.map((goal) => <span className="goal">{goal}</span> )
+    let goals = this.state.goals.map((goal, index) => <span className="goal" key={index}>{goal}</span> )
     return(
       <div className='banner'>
         <h5>2018 RESOLUTIONS</h5>
