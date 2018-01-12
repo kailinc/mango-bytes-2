@@ -214,3 +214,20 @@ label input:valid + .label-text {
 a {
   text-decoration: none;
 }
+
+.shop {
+  margin: 0 100px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.profile-container {
+  width: 20%;
+}
+
+.feed-container {
+  width: 80%;
+}

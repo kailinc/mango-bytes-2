@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
-class Profile extends Component {
+class Headline extends Component {
   render() {
     return(
       <div>
-        <h3>Name: {this.props.user.name}</h3>
+        <h3>{this.props.headline}</h3>
       </div>
     )
   }
 }
 
-export default Profile;
+export default Headline;

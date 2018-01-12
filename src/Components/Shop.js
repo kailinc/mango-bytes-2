@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import Feed from './Feed';
 import Profile from './Profile';
+import Headline from './Headline';
 import API from '../API';
 
 const store = require('../store')
@@ -11,7 +12,8 @@ class Shop extends Component {
     super()
     this.state = {
       items: [],
-      user: {}
+      user: {},
+      headline: 'All Items'
     }
     this.getUserInfo = this.getUserInfo.bind(this)
   }
@@ -45,9 +47,10 @@ class Shop extends Component {
 
   render() {
     return(
-      <div>
-        <Feed items={this.state.items}/>
+      <div className='shop'>
+        <Headline headline={this.state.headline}/>
         <Profile user={this.state.user} />
+        <Feed items={this.state.items}/>
       </div>
     )
   }
