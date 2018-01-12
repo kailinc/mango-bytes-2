@@ -19,7 +19,7 @@ class Profile extends Component {
         </div>
         <div className='aside-container'>
           <div className='left'>
-            <p>JavaScript: 0 +2</p>
+            <p>JavaScript: 0 <span className='increase-pts'>+2</span></p>
             <p>Python: 0 +2</p>
             <p>C: 0 +2</p>
             <p>C#: 0 +2</p>
