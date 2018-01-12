@@ -224,7 +224,7 @@ a {
 
 .feed-container {
   width: 70%;
-  padding: 0px 20px;
+  padding: 0 20px;
 }
 
 .title {
@@ -303,8 +303,17 @@ button {
   text-transform: uppercase;
   transition: all 200ms;
 }
+
 button:hover, button:focus {
   background-color: white;
   color: #333333;
   outline: 0;
+}
+
+.items {
+  display: flex;
+  margin: 20px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
