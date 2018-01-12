@@ -14,6 +14,7 @@ class LogOut extends Component {
       .then((response) => {
         store.user = {}
       })
+      .then( ()=> window.location.reload(true))
       .catch((error) => {
         this.props.alert.error('There was a problem logging you out.')
       })

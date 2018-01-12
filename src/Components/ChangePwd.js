@@ -73,11 +73,11 @@ class ChangePwd extends Component {
         <form onSubmit={this.onChangePwd}>
           <label>
             <input name='old' type="password" required value={this.state.old} onChange={this.handleInputChange}/>
-            <div class="label-text">Old Password</div>
+            <div className="label-text">Old Password</div>
           </label>
           <label>
             <input name='new' type="password" required value={this.state.new} onChange={this.handleInputChange}/>
-            <div class="label-text">New Password</div>
+            <div className="label-text">New Password</div>
           </label>
           <button>Submit</button>
         </form>

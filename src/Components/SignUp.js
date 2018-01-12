@@ -75,27 +75,27 @@ class SignUp extends Component {
         <form className='sign-up-form' onSubmit={this.onSignUp}>
           <label>
             <input name='firstName' type="text" required value={this.state.firstName} onChange={this.handleInputChange}/>
-            <div class="label-text">First Name</div>
+            <div className="label-text">First Name</div>
           </label>
           <label>
             <input name='lastName' type="text" required value={this.state.lastName} onChange={this.handleInputChange}/>
-            <div class="label-text">Last Name</div>
+            <div className="label-text">Last Name</div>
           </label>
           <label>
             <input name='coderName' type="text" required value={this.state.coderName} onChange={this.handleInputChange}/>
-            <div class="label-text">Coder Name</div>
+            <div className="label-text">Coder Name</div>
           </label>
           <label>
             <input name='email' type="email" required value={this.state.email} onChange={this.handleInputChange}/>
-            <div class="label-text">Email</div>
+            <div className="label-text">Email</div>
           </label>
           <label>
             <input name="password" type='password' value={this.state.password} onChange={this.handleInputChange} required/>
-            <div class="label-text">Password</div>
+            <div className="label-text">Password</div>
           </label>
           <label>
             <input name="password_confirmation" type='password' value={this.state.password_confirmation} onChange={this.handleInputChange} required/>
-            <div class="label-text">Password Confirmation</div>
+            <div className="label-text">Password Confirmation</div>
           </label>
           <button>Submit</button>
         </form>
