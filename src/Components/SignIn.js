@@ -63,33 +63,17 @@ class SignIn extends Component {
     }
 
     return(
-      <Form horizontal onSubmit={this.onSignIn}>
-        <FormGroup controlId="formHorizontalEmail">
-          <Col componentClass={ControlLabel} sm={2}>
-            Email
-          </Col>
-          <Col sm={10}>
-            <input name="email" type="text" value={this.state.email} onChange={this.handleInputChange}/>
-          </Col>
-        </FormGroup>
-
-        <FormGroup controlId="formHorizontalPassword">
-          <Col componentClass={ControlLabel} sm={2}>
-            Password
-          </Col>
-          <Col sm={10}>
-            <input name="password" type="text" value={this.state.password} onChange={this.handleInputChange}/>
-          </Col>
-        </FormGroup>
-
-        <FormGroup>
-          <Col smOffset={2} sm={10}>
-            <Button type="submit">
-              Sign in
-            </Button>
-          </Col>
-        </FormGroup>
-      </Form>
+      <form onSubmit={this.onSignIn}>
+        <label>
+          <input name='email' type="email" required value={this.state.email} onChange={this.handleInputChange}/>
+          <div class="label-text">Email</div>
+        </label>
+        <label>
+          <input name="password" type='password' value={this.state.password} onChange={this.handleInputChange} required/>
+          <div class="label-text">Password</div>
+        </label>
+        <button>Submit</button>
+      </form>
     )
   }
 }
