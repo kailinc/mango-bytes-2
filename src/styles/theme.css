@@ -331,10 +331,15 @@ a {
 }
 
 .item:hover {
-  cursor: pointer;
   border-color: black;
 }
 
 .info {
   line-height: 10px;
+  text-align: center;
+}
+
+.attributes, ul {
+  list-style: none;
+  padding: 2px 0px;
 }

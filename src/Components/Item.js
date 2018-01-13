@@ -27,21 +27,22 @@ class Item extends Component {
 
   render() {
     const attributesArray = [{javascript: 10},{ python: 10}, {css: 10}]
-    const attributes = attributesArray.map((attribute, index)=> <li key={index}>{Object.keys(attribute)[0]}: +{Object.values(attribute)[0]}</li>)
+    const attributes = attributesArray.map((attribute, index)=> <li
+      key={index}
+      className='attributes'>
+      {Object.keys(attribute)[0]}: <span className='increase-pts'>+{Object.values(attribute)[0]}</span>
+    </li>)
     return(
       <div className='item'>
         <div className='aside-img-div'>
           <img src={this.props.item.img} alt='product'/>
         </div>
         <div className='info'>
-          <p className='item-name'>{this.props.item.name}</p>
-          <div className='items'>
-            <h5>Attributes</h5>
-            <p>DevCred: +{this.props.item.devCred}</p>
+          <h4>{this.props.item.name}</h4>
               <ul>
                 { attributes }
               </ul>
-          </div>
+              <p>DevCred: <span className='increase-pts'>+{this.props.item.devCred}</span></p>
           <p>${this.props.item.basePrice}.00</p>
 
           <div className='items'>
