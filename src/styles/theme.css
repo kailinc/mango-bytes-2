@@ -6,7 +6,6 @@
 }
 
 .header {
-  margin-bottom: 0;
   position: fixed;
   width: 100%;
   z-index: 10;
@@ -20,10 +19,6 @@
   text-align: center;
   background-color: black;
   color: white;
-}
-
-.navbar {
-  margin-bottom: 0px;
 }
 
 .greeting {
@@ -382,4 +377,8 @@ a {
   background-position: center;
   background-size: cover;
   transition: 0.5s;
+}
+
+.content {
+  margin-top: 100px;
 }

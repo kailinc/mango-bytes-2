@@ -44,7 +44,7 @@ class Item extends Component {
           <div className='item-img' style={backgroundImg}>
           </div>
           <div className='item-msg'>
-            <Link to='/'>VIEW</Link>
+            <Link to={ '/item/' + this.props.item.id }>VIEW</Link>
           </div>
         </div>
         <div className='info'>
