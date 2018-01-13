@@ -75,7 +75,7 @@ class SignIn extends Component {
             <input name="password" type='password' value={this.state.password} onChange={this.handleInputChange} required/>
             <div className="label-text">Password</div>
           </label>
-          <button>Submit</button>
+          <button className='submit-button' >Submit</button>
         </form>
       </div>
     )

@@ -5,7 +5,7 @@ import Item from './Item';
 
 class Feed extends Component {
   render() {
-    const items = this.props.items.map(() => <Item />)
+    const items = this.props.items.map((item, index) => <Item key={item.id} item={item}/>)
     return(
       <div className='feed-container'>
         <Filters />

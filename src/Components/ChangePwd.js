@@ -79,7 +79,7 @@ class ChangePwd extends Component {
             <input name='new' type="password" required value={this.state.new} onChange={this.handleInputChange}/>
             <div className="label-text">New Password</div>
           </label>
-          <button>Submit</button>
+          <button className='submit-button' >Submit</button>
         </form>
       </div>
     )

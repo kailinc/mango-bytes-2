@@ -97,7 +97,7 @@ class SignUp extends Component {
             <input name="password_confirmation" type='password' value={this.state.password_confirmation} onChange={this.handleInputChange} required/>
             <div className="label-text">Password Confirmation</div>
           </label>
-          <button>Submit</button>
+          <button className='submit-button'>Submit</button>
         </form>
       </div>
       )
