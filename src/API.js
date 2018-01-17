@@ -57,6 +57,13 @@ API.getItems = function () {
   });
 };
 
+API.getItem = function (id) {
+  return axios({
+    url: `${origin}/items/${id}`,
+    method: 'GET'
+  });
+};
+
 API.showUser = function (id, token) {
   return axios({
     url: `${origin}/users/${id}`,
