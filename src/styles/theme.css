@@ -382,3 +382,22 @@ a {
 .content {
   margin-top: 100px;
 }
+
+.itemPage {
+  margin: auto 100px;
+  padding: 20px;
+}
+
+.itemProfile {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.itemImgs, .itemInfo {
+  width: 50%;
+}
+
+.mainImg {
+  width: 70%;
+}
