@@ -1,8 +1,6 @@
 import React, { Component  } from 'react';
 
 import API from '../API';
-import Headline from './Headline';
-import Aside from './Aside';
 
 class ItemPage extends Component {
   constructor(){
