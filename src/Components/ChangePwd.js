@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { withAlert } from 'react-alert';
 import { Redirect } from 'react-router-dom';
 
 import API from '../API';
@@ -36,9 +35,6 @@ class ChangePwd extends Component {
     const token = store.user.token
     API.changePassword(id, token, data)
       .then(() => {
-        this.props.alert.success('Your password has been changed.')
-      })
-      .then(() => {
         this.setState({
           old: '',
           new: ''
@@ -48,7 +44,7 @@ class ChangePwd extends Component {
         setTimeout(this.redirectToHome, 2000)
       })
       .catch((error) => {
-        this.props.alert.error('There was a problem changing your password.')
+        console.log(error)
       })
   }
 
@@ -86,4 +82,4 @@ class ChangePwd extends Component {
   }
 }
 
-export default withAlert(ChangePwd);
+export default ChangePwd;

@@ -1,22 +1,18 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
-import { withAlert } from 'react-alert';
+import { connect } from 'react-redux';
 
 import API from '../API';
-
-const store = require('../store');
+import { signOut } from '../actions/user';
 
 class LogOut extends Component {
-  componentWillMount() {
-    const id = store.user.id
-    const token = store.user.token
-    API.signOut(id,token)
+  componentDidMount() {
+    API.signOut(this.props.user.id, this.props.user.token)
       .then((response) => {
-        store.user = {}
+        this.props.dispatch(signOut())
       })
-      .then( ()=> window.location.reload(true))
       .catch((error) => {
-        this.props.alert.error('There was a problem logging you out.')
+        console.log(error)
       })
   }
   render() {
@@ -24,4 +20,10 @@ class LogOut extends Component {
   }
 }
 
-export default withAlert(LogOut);
+const mapStateToProps = (state, props) => {
+  return {
+    user: state.user
+  };
+};
+
+export default connect(mapStateToProps)(LogOut);

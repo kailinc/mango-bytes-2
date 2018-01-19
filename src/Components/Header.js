@@ -3,8 +3,6 @@ import { LinkContainer } from 'react-router-bootstrap';
 import { Navbar, Nav, NavItem, MenuItem, NavDropdown } from 'react-bootstrap';
 import { connect } from 'react-redux';
 
-import { getToken } from '../actions/user';
-
 const Header = (props) => {
   return (<div className="header">
     <p className="headline">FREE Shipping on Orders Paid with Bitcoin.</p>

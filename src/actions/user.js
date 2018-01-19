@@ -12,3 +12,7 @@ export const signIn = ({id, firstName, lastName, coderName, token, skills, power
       fourScreen
     }
 });
+
+export const signOut = () => ({
+  type: 'SIGN_OUT'
+})
