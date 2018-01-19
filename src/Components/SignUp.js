@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
-import { withAlert } from 'react-alert';
 
 import API from '../API';
 
@@ -34,21 +33,26 @@ class SignUp extends Component {
   onSignUp(e) {
     e.preventDefault()
     if (this.state.password !== this.state.password_confirmation) {
-      this.props.alert.error('Sorry the passwords don\'t match. Please try again.')
+      this.setState({
+        msg: 'Sorry the passwords don\'t match. Please try again.'
+      })
     } else {
       const data = {
         credentials: this.state
       }
       API.signUp(data)
         .then((response) => {
-          this.props.alert.success('Yes! You have signed up for an account. Please login to continue.')
-          console.log('signed up')
+          this.setState({
+            msg: 'Yes! You have signed up for an account. Please login to continue.'
+          })
         })
         .then(() => {
           setTimeout(this.redirectToLogin, 2000)
         })
         .catch((error) => {
-          this.props.alert.error('Sorry, there was a problem. Please retry again.')
+          this.setState({
+            msg: 'Sorry, there was a problem. Please retry again.'
+          })
           console.log(error)
         })
       }
@@ -72,6 +76,7 @@ class SignUp extends Component {
         <div className='title'>
           <h1>Sign Up to Join the Team!</h1>
         </div>
+        {<p>{this.state.msg}</p>}
         <form className='sign-up-form' onSubmit={this.onSignUp}>
           <label>
             <input name='firstName' type="text" required value={this.state.firstName} onChange={this.handleInputChange}/>
@@ -104,4 +109,4 @@ class SignUp extends Component {
     }
   }
 
-export default withAlert(SignUp);
+export default SignUp;
