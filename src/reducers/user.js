@@ -3,7 +3,10 @@ const userReducerDefaultState = {
   firstName: '',
   lastName: '',
   coderName: '',
-  token: 0
+  token: 0,
+  skills: [],
+  powers: [],
+  devCred: 0
 };
 
 const userReducer = (state = userReducerDefaultState, action) => {

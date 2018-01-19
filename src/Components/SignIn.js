@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
-// import { withAlert } from 'react-alert';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { signIn } from '../actions/user';
 
 import API from '../API';
-const store = require('../store')
 
 class SignIn extends Component {
   constructor(props) {
@@ -14,7 +12,8 @@ class SignIn extends Component {
     this.state = {
       email: '',
       password: '',
-      loggedIn: false
+      loggedIn: false,
+      errorMsg: ''
     }
     this.onSignIn = this.onSignIn.bind(this)
     this.handleInputChange = this.handleInputChange.bind(this)
@@ -45,6 +44,9 @@ class SignIn extends Component {
         })
       })
       .catch((error) => {
+        this.setState({
+          errorMsg: 'Incorrect username/password.'
+        })
         console.log(error)
       })
   }
@@ -68,6 +70,7 @@ class SignIn extends Component {
           <h1>Welcome Back!</h1>
         </div>
         <form onSubmit={this.onSignIn}>
+          {this.state.errorMsg}
           <label>
             <input name='email' type="email" required value={this.state.email} onChange={this.handleInputChange}/>
             <div className="label-text">Email</div>
