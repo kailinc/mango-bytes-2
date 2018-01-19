@@ -22,6 +22,10 @@ import configureStore from './store/configureStore';
 
 const store = configureStore()
 
+store.subscribe(() =>
+  console.log(store.getState())
+)
+
 class Root extends Component  {
   render () {
     return (

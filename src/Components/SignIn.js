@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-import { withAlert } from 'react-alert';
+// import { withAlert } from 'react-alert';
 import { Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+
+import { signIn } from '../actions/user';
 
 import API from '../API';
 const store = require('../store')
@@ -34,9 +37,7 @@ class SignIn extends Component {
     }
     API.signIn(data)
       .then((response) => {
-        store.user.id = response.data.user.id
-        store.user.token = response.data.user.token
-        store.user.coderName = response.data.user.coderName
+        this.props.dispatch(signIn(response.data.user))
       })
       .then(() => {
         this.setState({
@@ -44,7 +45,7 @@ class SignIn extends Component {
         })
       })
       .catch((error) => {
-        this.props.alert.error('Incorrect username/password.')
+        console.log(error)
       })
   }
 
@@ -82,4 +83,4 @@ class SignIn extends Component {
   }
 }
 
-export default withAlert(SignIn);
+export default connect()(SignIn);
