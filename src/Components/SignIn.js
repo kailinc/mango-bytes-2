@@ -70,7 +70,7 @@ class SignIn extends Component {
           <h1>Welcome Back!</h1>
         </div>
         <form onSubmit={this.onSignIn}>
-          {this.state.errorMsg}
+          {<p className='errorMsg'>{this.state.errorMsg}</p>}
           <label>
             <input name='email' type="email" required value={this.state.email} onChange={this.handleInputChange}/>
             <div className="label-text">Email</div>

@@ -1,8 +1,9 @@
 import React from 'react';
 import { LinkContainer } from 'react-router-bootstrap';
 import { Navbar, Nav, NavItem, MenuItem, NavDropdown } from 'react-bootstrap';
+import { connect } from 'react-redux';
 
-const store = require('../store')
+import { getToken } from '../actions/user';
 
 const Header = (props) => {
   return (<div className="header">
@@ -35,7 +36,7 @@ const Header = (props) => {
           </LinkContainer>
         </Nav>
         <Nav pullRight>
-          {store.user.token ? <LoggedIn /> : <NotLoggedIn /> }
+          {props.user.token ? <LoggedIn coderName={props.user.coderName}/> : <NotLoggedIn /> }
           <LinkContainer to="/cart" activeClassName="is-active" exact={true}>
             <NavItem>CART</NavItem>
           </LinkContainer>
@@ -46,7 +47,7 @@ const Header = (props) => {
 }
 
 const LoggedIn = (props) => (
-  <NavDropdown eventKey={2} title={store.user.coderName} id="basic-nav-dropdown" href="#">
+  <NavDropdown eventKey={2} title={props.coderName} id="basic-nav-dropdown" href="#">
     <LinkContainer to="/view-profile" activeClassName="is-active" exact={true}>
       <MenuItem>VIEW PROFILE</MenuItem>
     </LinkContainer>
@@ -69,4 +70,11 @@ const NotLoggedIn = (props) => (
       </LinkContainer>
   </NavDropdown>
 )
-export default Header;
+
+const mapStateToProps = (state, props) => {
+  return {
+    user: state.user
+  };
+};
+
+export default connect(mapStateToProps)(Header);

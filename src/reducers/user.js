@@ -3,7 +3,7 @@ const userReducerDefaultState = {
   firstName: '',
   lastName: '',
   coderName: '',
-  token: 0,
+  token: null,
   skills: [],
   powers: [],
   devCred: 0
