@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+
+import { addItem } from '../actions/cart';
+import ItemForm from './ItemForm';
 
 class Item extends Component {
   constructor(props){
@@ -16,6 +20,8 @@ class Item extends Component {
     this.setState((prevState) => ({
       quantity: prevState.quantity + 1
     }))
+    const item = this.props.item
+    this.props.dispatch(addItem(item))
   }
 
   minus() {
@@ -58,15 +64,11 @@ class Item extends Component {
               <p>DevCred: <span className='increase-pts'>+{this.props.item.devCred}</span></p>
           <p>${this.props.item.basePrice}.00</p>
 
-          <div className='items'>
-            <button onClick={this.add}>+</button>
-            <p>{this.state.quantity}</p>
-            <button onClick={this.minus}>-</button>
-          </div>
+          <ItemForm item={this.props.item}/>
         </div>
       </div>
     )
   }
 }
 
-export default Item;
+export default connect()(Item);
