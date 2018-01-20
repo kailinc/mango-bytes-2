@@ -11,14 +11,9 @@ export const newCart = ([{ id, name, devCred, basePrice, attributes, img, quanti
   }]
 })
 
-export const addItem = ({ description = '', note = '', amount = 0, createdAt = 0 } = {}) => ({
+export const addItem = (updatedCart) => ({
     type: 'ADD_ITEM',
-    item: {
-      description,
-      note,
-      amount,
-      createdAt
-    }
+    items: updatedCart
 });
 
 export const removeExpense = ({ id } = {}) => ({

@@ -10,11 +10,11 @@ const cartReducer = (state = cartReducerDefaultState, action) => {
         ...state,
         items: action.items
       };
-    case 'ADD_EXPENSE':
-      return [
+    case 'ADD_ITEM':
+      return {
         ...state,
-        action.item
-      ];
+        items: action.items
+      };
     default:
       return state;
   }
