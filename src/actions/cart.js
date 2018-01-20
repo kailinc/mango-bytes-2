@@ -1,9 +1,19 @@
-import uuid from 'uuid';
+export const newCart = ([{ id, name, devCred, basePrice, attributes, img, quantity }]) => ({
+  type: 'NEW_CART',
+  items: [{
+    id,
+    name,
+    devCred,
+    basePrice,
+    attributes,
+    img,
+    quantity
+  }]
+})
 
 export const addItem = ({ description = '', note = '', amount = 0, createdAt = 0 } = {}) => ({
     type: 'ADD_ITEM',
     item: {
-      id: uuid(),
       description,
       note,
       amount,

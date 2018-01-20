@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import { newCart } from '../actions/cart';
+
 class ItemForm extends Component {
   constructor(props){
     super(props)
@@ -25,9 +27,17 @@ class ItemForm extends Component {
     let cart
     if (itemsArray.length === 0) {
       cart = createCart(this.state.item)
-    } else {
-
+      this.props.dispatch(newCart(cart))
     }
+    // } else {
+    //   for (let i = 0; i < itemsArray.length; i++) {
+    //     if (itemsArray[i].id === this.state.item.id) {
+    //       itemsArray[i].quantity += 1
+    //     } else {
+    //       itemsArray.push(this.state.item)
+    //     }
+    //   }
+    // }
 
     // for (let i = 0; i < items.length; i++) {
     //   if (items[i].id === this.state.item.id) {
