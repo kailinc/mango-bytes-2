@@ -1,35 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
 
-import { addItem } from '../actions/cart';
 import ItemForm from './ItemForm';
 
 class Item extends Component {
   constructor(props){
     super()
-    this.state = {
-      quantity: 0
-    }
-
-    this.add = this.add.bind(this)
-    this.minus = this.minus.bind(this)
-  }
-
-  add() {
-    this.setState((prevState) => ({
-      quantity: prevState.quantity + 1
-    }))
-    const item = this.props.item
-    this.props.dispatch(addItem(item))
-  }
-
-  minus() {
-    if (this.state.quantity > 0) {
-      this.setState((prevState) => ({
-        quantity: prevState.quantity - 1
-      }))
-    }
   }
 
   render() {
@@ -71,4 +47,4 @@ class Item extends Component {
   }
 }
 
-export default connect()(Item);
+export default Item;
