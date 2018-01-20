@@ -28,7 +28,7 @@ class ItemForm extends Component {
         if (itemsArray[i].id === this.state.item.id) {
           itemsArray[i].quantity += 1
           this.props.dispatch(addItem(itemsArray))
-        } else {
+        } else if ( i === itemsArray.length - 1 ) {
           let item = this.state.item
           item.quantity = 1
           let newCart = itemsArray.concat(item)
