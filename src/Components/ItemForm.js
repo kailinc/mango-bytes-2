@@ -39,10 +39,19 @@ class ItemForm extends Component {
   }
 
   minus() {
+    const itemsArray = this.props.cart.items
     if (this.state.quantity > 0) {
       this.setState((prevState) => ({
         quantity: prevState.quantity - 1
       }))
+      for (let i = 0; i < itemsArray.length; i++) {
+        if (itemsArray[i].id === this.state.item.id) {
+            itemsArray[i].quantity -= 1
+            this.props.dispatch(addItem(itemsArray))
+        }
+      }
+      // subtract quantity by 1
+      // remove the item from the cart if the quantity is 0
     }
   }
   render(){
