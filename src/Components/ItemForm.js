@@ -46,11 +46,15 @@ class ItemForm extends Component {
       }))
       for (let i = 0; i < itemsArray.length; i++) {
         if (itemsArray[i].id === this.state.item.id) {
+          if (itemsArray[i].quantity === 1) {
+            itemsArray.splice(i)
+            this.props.dispatch(addItem(itemsArray))
+          } else {
             itemsArray[i].quantity -= 1
             this.props.dispatch(addItem(itemsArray))
+          }
         }
       }
-      // subtract quantity by 1
       // remove the item from the cart if the quantity is 0
     }
   }
