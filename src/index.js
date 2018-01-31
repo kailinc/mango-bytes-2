@@ -9,12 +9,16 @@ import { Provider } from 'react-redux';
 
 import Routes from './Components/Routes'
 import configureStore from './store/configureStore';
+import { loadState, saveState } from './localStorage';
 
-const store = configureStore()
+const persistedState = loadState()
 
-store.subscribe(() =>
+const store = configureStore(persistedState)
+
+store.subscribe(() => {
+  saveState(store.getState())
   console.log(store.getState())
-)
+})
 
 class Root extends Component  {
   render () {
