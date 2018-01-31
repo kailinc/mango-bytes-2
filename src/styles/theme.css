@@ -226,6 +226,7 @@ a {
 
 .feed-container {
   width: 800px;
+  margin: 0 30px;
 }
 
 .title {
@@ -234,6 +235,8 @@ a {
 
 .store {
   margin: 25px 40px;
+  display: flex;
+  align-items: flex-start;
 }
 
 .profile-hr {
