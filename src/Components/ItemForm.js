@@ -55,7 +55,6 @@ class ItemForm extends Component {
           }
         }
       }
-      // remove the item from the cart if the quantity is 0
     }
   }
   render(){

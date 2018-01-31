@@ -11,6 +11,7 @@ import ChangePwd from './ChangePwd';
 import LogOut from './LogOut';
 import Shop from './Shop';
 import ItemPage from './ItemPage';
+import Footer from './Footer';
 
 class Routes extends Component {
 
@@ -32,6 +33,7 @@ class Routes extends Component {
                 <Route component={ NotFoundPage }/>
               </Switch>
             </div>
+            <Footer />
           </div>
         </BrowserRouter>
     )
