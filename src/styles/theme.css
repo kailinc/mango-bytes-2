@@ -401,3 +401,24 @@ a {
 .mainImg {
   width: 70%;
 }
+
+.footer {
+  background: #191919;
+  padding: 40px;
+  display:flex;
+  flex-direction:row;
+}
+
+.footer h3 {
+  color:#FFF;
+  font-size: .875em;
+}
+
+.footer div {
+  width: 250px;
+}
+
+.footer p {
+  color: #999;
+  font-size: .688em;
+}
