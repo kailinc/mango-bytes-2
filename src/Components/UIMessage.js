@@ -3,8 +3,8 @@ import React, { Component  } from 'react';
 class UIMessage extends Component {
   render(){
     return(
-      <div>
-        <p className={this.props.type}>{this.props.msg}</p>
+      <div className={this.props.type + " ui-container"}>
+        <h4>{this.props.msg}</h4>
       </div>
     )
   }

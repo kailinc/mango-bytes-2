@@ -425,3 +425,18 @@ a {
   color: #999;
   font-size: .688em;
 }
+
+.ui-container {
+  padding: 14px 21px;
+  margin: 0 20px;
+  border-radius: 10px;
+}
+
+.success {
+  background: #fcfff5;
+  border: 1px solid #a3c293;
+}
+
+.success h4 {
+  color: #1a531b;
+}
