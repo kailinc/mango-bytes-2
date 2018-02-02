@@ -449,3 +449,12 @@ a {
 .error h4 {
   color: #db2828;
 }
+
+.warning {
+  background: #fff8db;
+  border: 1px solid #b58105;
+}
+
+.warning h4 {
+  color: #b58105;
+}
