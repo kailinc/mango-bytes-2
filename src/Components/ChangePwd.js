@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import API from '../API';
 import UIMessage from './UIMessage';
-const store = require('../store');
-
 
 class ChangePwd extends Component {
   constructor(props) {
@@ -43,8 +42,8 @@ class ChangePwd extends Component {
     const data = {
       passwords: this.state
     }
-    const id = store.user.id
-    const token = store.user.token
+    const id = this.props.user.id
+    const token = this.props.user.token
     API.changePassword(id, token, data)
       .then(() => {
         this.setState({
@@ -53,6 +52,13 @@ class ChangePwd extends Component {
         })
       })
       .then(() => {
+        this.setState({
+          ui: {
+            type: 'success',
+            msg: 'Password change is successful! We are redirecting you to home page',
+            display: true
+          }
+        })
         setTimeout(this.redirectToHome, 2000)
       })
       .catch((error) => {
@@ -104,4 +110,10 @@ class ChangePwd extends Component {
   }
 }
 
-export default ChangePwd;
+const mapStateToProps = (state, props) => {
+  return {
+    user: state.user
+  };
+};
+
+export default connect(mapStateToProps)(ChangePwd);
