@@ -440,3 +440,12 @@ a {
 .success h4 {
   color: #1a531b;
 }
+
+.error {
+  background: #ffe8e6;
+  border: 1px solid #db2828;
+}
+
+.error h4 {
+  color: #db2828;
+}

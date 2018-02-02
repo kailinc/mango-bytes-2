@@ -16,7 +16,7 @@ class SignIn extends Component {
       loggedIn: false,
       ui: {
         msg: 'hehehehehehe',
-        type: 'success',
+        type: 'error',
         display: true
       }
     }
