@@ -15,9 +15,9 @@ class SignIn extends Component {
       password: '',
       loggedIn: false,
       ui: {
-        msg: 'hehehehehehe',
-        type: 'warning',
-        display: true
+        msg: '',
+        type: '',
+        display: false
       }
     }
     this.onSignIn = this.onSignIn.bind(this)

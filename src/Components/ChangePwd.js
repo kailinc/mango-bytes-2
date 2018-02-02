@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 
 import API from '../API';
+import UIMessage from './UIMessage';
 const store = require('../store');
+
 
 class ChangePwd extends Component {
   constructor(props) {
@@ -10,11 +12,21 @@ class ChangePwd extends Component {
     this.state = {
       old: '',
       new: '',
-      changedPwd: false
+      changedPwd: false,
+      ui: {
+        type: '',
+        msg: '',
+        display: false
+      }
     }
     this.onChangePwd = this.onChangePwd.bind(this)
     this.handleInputChange = this.handleInputChange.bind(this)
     this.redirectToHome = this.redirectToHome.bind(this)
+    this.handleChildUnmount = this.handleChildUnmount.bind(this)
+  }
+
+  handleChildUnmount(){
+    this.setState({ui: { display:false }});
   }
 
   handleInputChange(event) {
@@ -44,6 +56,13 @@ class ChangePwd extends Component {
         setTimeout(this.redirectToHome, 2000)
       })
       .catch((error) => {
+        this.setState({
+          ui: {
+            type: 'error',
+            msg: 'Passwords don\'t match',
+            display: true
+          }
+        })
         console.log(error)
       })
   }
@@ -66,6 +85,9 @@ class ChangePwd extends Component {
         <div className='title'>
           <h1>Change Your Password</h1>
         </div>
+        { this.state.ui.display ? <UIMessage type={this.state.ui.type}
+                                            msg={this.state.ui.msg}
+                                            unmountMe={this.handleChildUnmount} /> : null}
         <form onSubmit={this.onChangePwd}>
           <label>
             <input name='old' type="password" required value={this.state.old} onChange={this.handleInputChange}/>
