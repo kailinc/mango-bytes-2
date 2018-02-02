@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 
 import API from '../API';
+import UIMessage from './UIMessage';
 
 class SignUp extends Component {
   constructor(props) {
@@ -13,12 +14,22 @@ class SignUp extends Component {
       email: '',
       password: '',
       password_confirmation: '',
-      signedUp: false
+      signedUp: false,
+      ui: {
+        type: '',
+        msg: '',
+        display: false
+      }
     }
 
     this.handleInputChange = this.handleInputChange.bind(this)
     this.onSignUp = this.onSignUp.bind(this)
     this.redirectToLogin = this.redirectToLogin.bind(this)
+    this.handleChildUnmount = this.handleChildUnmount.bind(this)
+  }
+
+  handleChildUnmount(){
+    this.setState({ui: { display:false }});
   }
 
   handleInputChange(event) {
@@ -34,7 +45,11 @@ class SignUp extends Component {
     e.preventDefault()
     if (this.state.password !== this.state.password_confirmation) {
       this.setState({
-        msg: 'Sorry the passwords don\'t match. Please try again.'
+        ui: {
+          type: 'error',
+          msg: 'Sorry the passwords don\'t match. Please try again.',
+          display: true
+        }
       })
     } else {
       const data = {
@@ -43,7 +58,11 @@ class SignUp extends Component {
       API.signUp(data)
         .then((response) => {
           this.setState({
-            msg: 'Yes! You have signed up for an account. Please login to continue.'
+            ui: {
+              type: 'success',
+              msg: 'Yes! You have signed up for an account. Please login to continue.',
+              display: true
+            }
           })
         })
         .then(() => {
@@ -51,7 +70,11 @@ class SignUp extends Component {
         })
         .catch((error) => {
           this.setState({
-            msg: 'Sorry, there was a problem. Please retry again.'
+            ui: {
+              type: 'error',
+              msg: 'This account is already taken. Please try again.',
+              display: true
+            }
           })
           console.log(error)
         })
@@ -76,6 +99,9 @@ class SignUp extends Component {
         <div className='title'>
           <h1>Sign Up to Join the Team!</h1>
         </div>
+        { this.state.ui.display ? <UIMessage type={this.state.ui.type}
+                                            msg={this.state.ui.msg}
+                                            unmountMe={this.handleChildUnmount} /> : null}
         {<p>{this.state.msg}</p>}
         <form className='sign-up-form' onSubmit={this.onSignUp}>
           <label>
