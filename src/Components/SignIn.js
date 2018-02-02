@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { signIn } from '../actions/user';
 
 import API from '../API';
+import UIMessage from './UIMessage';
 
 class SignIn extends Component {
   constructor(props) {
@@ -13,7 +14,11 @@ class SignIn extends Component {
       email: '',
       password: '',
       loggedIn: false,
-      errorMsg: ''
+      ui: {
+        msg: '',
+        type: null,
+        display: false
+      }
     }
     this.onSignIn = this.onSignIn.bind(this)
     this.handleInputChange = this.handleInputChange.bind(this)
@@ -45,7 +50,11 @@ class SignIn extends Component {
       })
       .catch((error) => {
         this.setState({
-          errorMsg: 'Incorrect username/password.'
+          ui: {
+            msg: "Incorrect email and passoword.",
+            type: "error",
+            display: true
+          }
         })
         console.log(error)
       })
@@ -70,7 +79,7 @@ class SignIn extends Component {
           <h1>Welcome Back!</h1>
         </div>
         <form onSubmit={this.onSignIn}>
-          {<p className='errorMsg'>{this.state.errorMsg}</p>}
+          { this.state.ui.display &&<UIMessage type={this.state.ui.type} msg={this.state.ui.msg}/>}
           <label>
             <input name='email' type="email" required value={this.state.email} onChange={this.handleInputChange}/>
             <div className="label-text">Email</div>
