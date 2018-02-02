@@ -23,6 +23,11 @@ class SignIn extends Component {
     this.onSignIn = this.onSignIn.bind(this)
     this.handleInputChange = this.handleInputChange.bind(this)
     this.close = this.close.bind(this)
+    this.handleChildUnmount = this.handleChildUnmount.bind(this)
+  }
+
+  handleChildUnmount(){
+    this.setState({ui: { display:false }});
   }
 
   handleInputChange(event) {
@@ -79,7 +84,9 @@ class SignIn extends Component {
           <h1>Welcome Back!</h1>
         </div>
         <form onSubmit={this.onSignIn}>
-          { this.state.ui.display &&<UIMessage type={this.state.ui.type} msg={this.state.ui.msg}/>}
+          { this.state.ui.display ? <UIMessage type={this.state.ui.type}
+                                              msg={this.state.ui.msg}
+                                              unmountMe={this.handleChildUnmount} /> : null}
           <label>
             <input name='email' type="email" required value={this.state.email} onChange={this.handleInputChange}/>
             <div className="label-text">Email</div>
