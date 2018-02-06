@@ -1,19 +1,16 @@
-export const newCart = ({ id, name, devCred, basePrice, attributes, img, quantity }) => ({
+export const newCart = (item) => ({
   type: 'NEW_CART',
-  items: [{
-    id,
-    name,
-    devCred,
-    basePrice,
-    attributes,
-    img,
-    quantity
-  }]
+  item: item
 })
 
 export const addItem = (updatedCart) => ({
     type: 'ADD_ITEM',
     items: updatedCart
+});
+
+export const eraseStorage = () => ({
+    type: 'NEW_STORAGE',
+    items: []
 });
 
 export const removeExpense = ({ id } = {}) => ({

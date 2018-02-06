@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { newCart, addItem, increaseQuantity } from '../actions/cart';
+import { newCart, addItem, increaseQuantity, eraseStorage } from '../actions/cart';
 import Cart from '../objects/cart';
 
 class ItemForm extends Component {
@@ -16,6 +16,7 @@ class ItemForm extends Component {
   }
 
   add() {
+    // this.props.dispatch(eraseStorage())
     let curItem = {
       id: this.state.item.id,
       name: this.state.item.name,
@@ -25,8 +26,12 @@ class ItemForm extends Component {
       img: this.state.item.img,
       quantity: 1
     }
-    if (this.state.item.length === 0 ) {
-      console.log('add: there is nothing in the cart')
+    if (this.props.cart.items.length === 0 ) {
+      this.props.dispatch(newCart(curItem))
+    } else if (this.props.cart.items.hasItem(curItem.id)) {
+      // increase quantity
+    } else {
+      // add the item to the cart
     }
   }
 
