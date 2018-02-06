@@ -9,8 +9,8 @@ export const updateQuantity = (itemId, quantity) => ({
     quantity: quantity
 });
 
-export const eraseStorage = () => ({
-    type: 'NEW_STORAGE',
+export const clearCart = () => ({
+    type: 'CLEAR_CART',
     items: []
 });
 

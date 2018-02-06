@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { newCart, updateQuantity, eraseStorage } from '../actions/cart';
+import { newCart, updateQuantity, clearCart } from '../actions/cart';
 import { itemExists } from '../helpers/cart';
 
 class ItemForm extends Component {
@@ -16,7 +16,7 @@ class ItemForm extends Component {
   }
 
   add() {
-    // this.props.dispatch(eraseStorage())
+    // this.props.dispatch(clearCart())
     let curItem = {
       id: this.state.item.id,
       name: this.state.item.name,

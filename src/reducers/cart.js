@@ -23,7 +23,7 @@ const cartReducer = (state = cartReducerDefaultState, action) => {
           return cur
         }).filter((item) => item.quantity >= 0)
       });
-    case 'NEW_STORAGE':
+    case 'CLEAR_CART':
       return {
         ...state,
         items: action.items
