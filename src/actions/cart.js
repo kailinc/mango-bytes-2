@@ -3,6 +3,11 @@ export const newCart = (item) => ({
   item: item
 })
 
+export const addItem = (item) => ({
+  type: 'ADD_ITEM',
+  item: item
+})
+
 export const updateQuantity = (itemId, quantity) => ({
     type: 'UPDATE_QUANTITY',
     itemId: itemId,
@@ -13,8 +18,3 @@ export const clearCart = () => ({
     type: 'CLEAR_CART',
     items: []
 });
-
-export const addItem = (item) => ({
-  type: 'ADD_ITEM',
-  item: item
-})
