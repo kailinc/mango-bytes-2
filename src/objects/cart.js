@@ -15,14 +15,10 @@ Cart.prototype.itemExists = function (itemId) {
   return false
 }
 
-//Methods needed
-
-// add item to cart
 Cart.prototype.addItem = function (item) {
   this.items.push(item)
 }
 
-// increase quantity
 Cart.prototype.updateQuantity = function (itemId, num) {
   for (let i = 0; i < this.items.length; i++) {
     if (this.items[i].id === itemId) {
@@ -34,11 +30,13 @@ Cart.prototype.updateQuantity = function (itemId, num) {
   }
 }
 
-// remove item from cart
 Cart.prototype.removeItem = function (index) {
   this.items.splice(index,1)
 }
 
+Cart.prototype.clearCart = function () {
+  this.items = []
+}
 // get the total price
 
 // get all the attribtues

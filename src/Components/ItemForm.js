@@ -25,21 +25,9 @@ class ItemForm extends Component {
       img: this.state.item.img,
       quantity: 1
     }
-    // if (this.props.cart.items.length === 0) {
-    //   this.props.dispatch(newCart(curItem))
-    // }
-
-    // } else if (this.props.cart.items.includes(this.item.id)) {
-    //   console.log('adding one to this item')
-    // } else {
-    //   console.log('item does not exist. adding new item to the cart')
-    // }
-
-    let cart = new Cart(curItem)
-    console.log('add: this is cart ', cart)
-    cart.updateQuantity(curItem.id, -10)
-    console.log('add: this is cart after changeQuantity', cart)
-
+    if (this.state.item.length === 0 ) {
+      console.log('add: there is nothing in the cart')
+    }
   }
 
   minus() {
