@@ -37,9 +37,8 @@ class ItemForm extends Component {
 
     let cart = new Cart(curItem)
     console.log('add: this is cart ', cart)
-    console.log('add: adding things to cart')
-    cart.addItem({id: 12321})
-    console.log('add: this is cart ', cart)
+    cart.updateQuantity(curItem.id, -10)
+    console.log('add: this is cart after changeQuantity', cart)
 
   }
 
