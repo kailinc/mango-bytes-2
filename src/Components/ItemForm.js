@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { newCart, updateQuantity, clearCart, addItem } from '../actions/cart';
-import { itemExists } from '../helpers/cart';
+import { itemExists, getQuantity } from '../helpers/cart';
 
 class ItemForm extends Component {
   constructor(props){
     super(props)
     this.state = {
-      quantity: 0,
+      quantity: getQuantity(this.props.cart.items, this.props.item.id),
       item: this.props.item
     }
     this.add = this.add.bind(this)
@@ -17,6 +17,9 @@ class ItemForm extends Component {
 
   add() {
     // this.props.dispatch(clearCart())
+    this.setState((prevState) => {
+      quantity: prevState.quantity += 1
+    })
     let curItem = {
       id: this.state.item.id,
       name: this.state.item.name,
@@ -36,6 +39,9 @@ class ItemForm extends Component {
   }
 
   minus() {
+    this.setState((prevState) => {
+      quantity: prevState.quantity -= 1
+    })
     let curItem = {
       id: this.state.item.id,
       name: this.state.item.name,
@@ -55,7 +61,7 @@ class ItemForm extends Component {
     return(
       <div className='items'>
         <button onClick={this.add}>+</button>
-        <p>{this.state.quantity}</p>l
+        <p>{this.state.quantity}</p>
         <button onClick={this.minus}>-</button>
       </div>
     )
@@ -68,10 +74,5 @@ const mapStateToProps = (state, props) => {
     cart: state.cart
   };
 };
-
-const createCart = function(item) {
-  item.quantity = 1
-  return [item]
-}
 
 export default connect(mapStateToProps)(ItemForm);
