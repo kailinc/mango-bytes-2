@@ -3,9 +3,10 @@ export const newCart = (item) => ({
   item: item
 })
 
-export const addItem = (updatedCart) => ({
-    type: 'ADD_ITEM',
-    items: updatedCart
+export const updateQuantity = (itemId, quantity) => ({
+    type: 'UPDATE_QUANTITY',
+    itemId: itemId,
+    quantity: quantity
 });
 
 export const eraseStorage = () => ({

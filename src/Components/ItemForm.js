@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { newCart, addItem, increaseQuantity, eraseStorage } from '../actions/cart';
-import Cart from '../objects/cart';
+import { newCart, updateQuantity, eraseStorage } from '../actions/cart';
+import { itemExists } from '../helpers/cart';
 
 class ItemForm extends Component {
   constructor(props){
@@ -28,31 +28,33 @@ class ItemForm extends Component {
     }
     if (this.props.cart.items.length === 0 ) {
       this.props.dispatch(newCart(curItem))
-    } else if (this.props.cart.items.hasItem(curItem.id)) {
-      // increase quantity
-    } else {
-      // add the item to the cart
+    } else if (itemExists(this.props.cart.items, curItem.id)) {
+      this.props.dispatch(updateQuantity(curItem.id, curItem.quantity))
     }
+    // } else {
+    //   // add the item to the cart
+    // }
   }
 
   minus() {
-    const itemsArray = this.props.cart.items
-    if (this.state.quantity > 0) {
-      this.setState((prevState) => ({
-        quantity: prevState.quantity - 1
-      }))
-      for (let i = 0; i < itemsArray.length; i++) {
-        if (itemsArray[i].id === this.state.item.id) {
-          if (itemsArray[i].quantity === 1) {
-            itemsArray.splice(i)
-            this.props.dispatch(addItem(itemsArray))
-          } else {
-            itemsArray[i].quantity -= 1
-            this.props.dispatch(addItem(itemsArray))
-          }
-        }
-      }
-    }
+  //   const itemsArray = this.props.cart.items
+  //   if (this.state.quantity > 0) {
+  //     this.setState((prevState) => ({
+  //       quantity: prevState.quantity - 1
+  //     }))
+  //     for (let i = 0; i < itemsArray.length; i++) {
+  //       if (itemsArray[i].id === this.state.item.id) {
+  //         if (itemsArray[i].quantity === 1) {
+  //           itemsArray.splice(i)
+  //           this.props.dispatch(addItem(itemsArray))
+  //         } else {
+  //           itemsArray[i].quantity -= 1
+  //           this.props.dispatch(addItem(itemsArray))
+  //         }
+  //       }
+  //     }
+  //   }
+    console.log('ok')
   }
   render(){
     return(
