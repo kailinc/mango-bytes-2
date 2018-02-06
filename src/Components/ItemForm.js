@@ -24,7 +24,7 @@ class ItemForm extends Component {
       basePrice: this.state.item.basePrice,
       attributes: this.state.item.attributes,
       img: this.state.item.img,
-      quantity: 1
+      quantity: -1
     }
     if (this.props.cart.items.length === 0 ) {
       this.props.dispatch(newCart(curItem))
