@@ -37,8 +37,9 @@ class ItemForm extends Component {
 
     let cart = new Cart(curItem)
     console.log('add: this is cart ', cart)
-    console.log('add: this is itemExists ', cart.itemExists(curItem.id))
-    console.log('add: this is itemExists ', cart.itemExists(2323))
+    console.log('add: adding things to cart')
+    cart.addItem({id: 12321})
+    console.log('add: this is cart ', cart)
 
   }
 
