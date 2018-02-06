@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { newCart, addItem, increaseQuantity } from '../actions/cart';
+import Cart from '../objects/cart';
 
 class ItemForm extends Component {
   constructor(props){
@@ -15,7 +16,6 @@ class ItemForm extends Component {
   }
 
   add() {
-    // create cart if there is nothing in it with an item
     let curItem = {
       id: this.state.item.id,
       name: this.state.item.name,
@@ -25,14 +25,21 @@ class ItemForm extends Component {
       img: this.state.item.img,
       quantity: 1
     }
-    if (this.props.cart.items.length === 0) {
-      this.props.dispatch(newCart(curItem))
-    }
+    // if (this.props.cart.items.length === 0) {
+    //   this.props.dispatch(newCart(curItem))
+    // }
+
     // } else if (this.props.cart.items.includes(this.item.id)) {
     //   console.log('adding one to this item')
     // } else {
     //   console.log('item does not exist. adding new item to the cart')
     // }
+
+    let cart = new Cart(curItem)
+    console.log('add: this is cart ', cart)
+    console.log('add: this is itemExists ', cart.itemExists(curItem.id))
+    console.log('add: this is itemExists ', cart.itemExists(2323))
+
   }
 
   minus() {

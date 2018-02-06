@@ -13,7 +13,6 @@ class Shop extends Component {
       user: {},
       headline: 'ALL ITEMS'
     }
-    this.getUserInfo = this.getUserInfo.bind(this)
   }
 
   componentWillMount(){
