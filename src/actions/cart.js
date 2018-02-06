@@ -1,4 +1,4 @@
-export const newCart = ([{ id, name, devCred, basePrice, attributes, img, quantity }]) => ({
+export const newCart = ({ id, name, devCred, basePrice, attributes, img, quantity }) => ({
   type: 'NEW_CART',
   items: [{
     id,

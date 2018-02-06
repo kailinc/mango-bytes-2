@@ -43,6 +43,7 @@ class SignUp extends Component {
 
   onSignUp(e) {
     e.preventDefault()
+    document.body.scrollTop = 0
     document.documentElement.scrollTop = 0
     if (this.state.password !== this.state.password_confirmation) {
       this.setState({

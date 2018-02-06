@@ -5,8 +5,6 @@ import Profile from './Profile';
 import Headline from './Headline';
 import API from '../API';
 
-const store = require('../store')
-
 class Shop extends Component {
   constructor(){
     super()
@@ -25,25 +23,24 @@ class Shop extends Component {
           items: response.data.items
         })
       })
-      .then(() => this.getUserInfo())
       .catch((error)=> {
         console.log(error)
       })
   }
 
-  getUserInfo() {
-    if (store.user.token) {
-      API.showUser(store.user.id, store.user.token)
-        .then((response)=>  {
-          this.setState({
-            user: response.data.user
-          })
-        })
-        .catch((error) => {
-          console.log(error)
-        })
-    }
-  }
+  // getUserInfo() {
+  //   if (store.user.token) {
+  //     API.showUser(store.user.id, store.user.token)
+  //       .then((response)=>  {
+  //         this.setState({
+  //           user: response.data.user
+  //         })
+  //       })
+  //       .catch((error) => {
+  //         console.log(error)
+  //       })
+  //   }
+  // }
 
   render() {
     return(
