@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { newCart, updateQuantity, clearCart } from '../actions/cart';
+import { newCart, updateQuantity, clearCart, addItem } from '../actions/cart';
 import { itemExists } from '../helpers/cart';
 
 class ItemForm extends Component {
@@ -24,16 +24,15 @@ class ItemForm extends Component {
       basePrice: this.state.item.basePrice,
       attributes: this.state.item.attributes,
       img: this.state.item.img,
-      quantity: -1
+      quantity: 1
     }
     if (this.props.cart.items.length === 0 ) {
       this.props.dispatch(newCart(curItem))
     } else if (itemExists(this.props.cart.items, curItem.id)) {
       this.props.dispatch(updateQuantity(curItem.id, curItem.quantity))
+    } else {
+      this.props.dispatch(addItem(curItem))
     }
-    // } else {
-    //   // add the item to the cart
-    // }
   }
 
   minus() {

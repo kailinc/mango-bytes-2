@@ -14,13 +14,7 @@ export const clearCart = () => ({
     items: []
 });
 
-export const removeExpense = ({ id } = {}) => ({
-  type: 'REMOVE_EXPENSE',
-  id
+export const addItem = (item) => ({
+  type: 'ADD_ITEM',
+  item: item
 })
-
-export const editExpense = (id, updates) => ({
-  type: 'EDIT_EXPENSE',
-  id,
-  updates
-});

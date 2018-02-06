@@ -9,11 +9,6 @@ const cartReducer = (state = cartReducerDefaultState, action) => {
       return Object.assign({}, state, {
         items: [action.item]
       });
-    case 'ADD_ITEM':
-      return {
-        ...state,
-        items: action.items
-      };
     case 'UPDATE_QUANTITY':
       return Object.assign({}, state, {
         items: state.items.map((cur, i) => {
@@ -28,6 +23,11 @@ const cartReducer = (state = cartReducerDefaultState, action) => {
         ...state,
         items: action.items
       };
+    case 'ADD_ITEM':
+        return {
+            ...state,
+            items: state.items.concat([action.item])
+        };
     default:
       return state;
   }
