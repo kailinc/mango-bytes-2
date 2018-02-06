@@ -35,7 +35,7 @@ const Header = (props) => {
         </Nav>
         <Nav pullRight>
           {props.user.token ? <LoggedIn coderName={props.user.coderName}/> : <NotLoggedIn /> }
-          <LinkContainer to="/cart" activeClassName="is-active" exact={true}>
+          <LinkContainer to="/checkout" activeClassName="is-active" exact={true}>
             <NavItem>CART</NavItem>
           </LinkContainer>
         </Nav>
