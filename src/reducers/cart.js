@@ -16,7 +16,7 @@ const cartReducer = (state = cartReducerDefaultState, action) => {
             cur.quantity += action.quantity
           }
           return cur
-        }).filter((item) => item.quantity >= 0)
+        }).filter((item) => item.quantity > 0)
       });
     case 'CLEAR_CART':
       return {

@@ -36,24 +36,20 @@ class ItemForm extends Component {
   }
 
   minus() {
-  //   const itemsArray = this.props.cart.items
-  //   if (this.state.quantity > 0) {
-  //     this.setState((prevState) => ({
-  //       quantity: prevState.quantity - 1
-  //     }))
-  //     for (let i = 0; i < itemsArray.length; i++) {
-  //       if (itemsArray[i].id === this.state.item.id) {
-  //         if (itemsArray[i].quantity === 1) {
-  //           itemsArray.splice(i)
-  //           this.props.dispatch(addItem(itemsArray))
-  //         } else {
-  //           itemsArray[i].quantity -= 1
-  //           this.props.dispatch(addItem(itemsArray))
-  //         }
-  //       }
-  //     }
-  //   }
-    console.log('ok')
+    let curItem = {
+      id: this.state.item.id,
+      name: this.state.item.name,
+      devCred: this.state.item.devCred,
+      basePrice: this.state.item.basePrice,
+      attributes: this.state.item.attributes,
+      img: this.state.item.img,
+      quantity: -1
+    }
+    if (this.props.cart.items.length > 0) {
+      if (itemExists(this.props.cart.items, curItem.id)) {
+        this.props.dispatch(updateQuantity(curItem.id, curItem.quantity))
+      }
+    }
   }
   render(){
     return(
