@@ -6,9 +6,13 @@ class CartTable extends Component {
   render() {
     return (
       <div className="cart-table">
-        <div>
-          <Link to='/all'>Continue Shopping</Link>
-          <h3>Your Bag</h3>
+        <div className="cart-header">
+          <p><Link to='/all'>Continue Shopping</Link>
+          <br></br>
+            <span>YOUR BAG</span>
+            <br></br>
+            Mango-Bytes gives you free shipping and no hassle returns on every order.
+          </p>
         </div>
         <div>
 

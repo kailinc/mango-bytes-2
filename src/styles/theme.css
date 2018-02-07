@@ -468,3 +468,24 @@ a {
   width: 30%;
   margin: 10px;
 }
+
+.cart-header {
+  width: 100%;
+  background-color: #eee;
+  padding: 20px;
+  margin-bottom: 20px;
+  font-size: 12px;
+  color: #666;
+}
+
+.cart-header span {
+  color: #FA5400;
+  font-size: 20px;
+  line-height: 1.2em;
+  letter-spacing: 0.025em;
+  font-weight: bold;
+}
+
+.cart-header a {
+  color: #666;
+}
