@@ -459,7 +459,7 @@ a {
   color: #b58105;
 }
 
-.cart-table {
+.cart-table-wrap {
   width: 65%;
   margin: 10px;
 }
@@ -473,7 +473,6 @@ a {
   width: 100%;
   background-color: #eee;
   padding: 20px;
-  margin-bottom: 20px;
   font-size: 12px;
   color: #666;
 }
@@ -488,4 +487,21 @@ a {
 
 .cart-header a {
   color: #666;
+}
+
+.cart-header p {
+  margin-bottom: 0px;
+}
+
+.cart-header h3 {
+  color: black;
+  margin-top: 10px;
+}
+
+.cart-table {
+  border: 1px solid #eee;
+}
+
+.bold {
+  margin-bottom: 20px;
 }

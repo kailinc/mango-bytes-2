@@ -4,7 +4,7 @@ class OrderSummary extends Component {
   render() {
     return (
       <div className="order-summary">
-        This is Order Summary
+        Summary
       </div>
     )
   }
