@@ -15,12 +15,9 @@ class CartTable extends Component {
 
   render() {
     const items = this.state.items.map((item, i)=> <CheckoutItem key={i} item={item}/>)
-    const emptyMsg = <p> <span>There are no items in your cart.</span>
-      <br></br>
-      If you have an account with us, please login to see items you previously added.
-                     </p>
+    const emptyMsg = <p> <span>There are no items in your cart.</span><br></br>If you have an account with us, please login to see items you previously added.</p>
     return (
-      <div className="cart-table-wrap">
+      <div className="cart-col">
         <div className="cart-header bold">
           <p><Link to='/all'>Continue Shopping</Link>
           <br></br>
@@ -30,7 +27,7 @@ class CartTable extends Component {
           </p>
         </div>
         <div className="cart-header">
-          <h3>YOUR BAG (2)</h3>
+          <h3>YOUR BAG ({this.state.items.length})</h3>
         </div>
         <div className="cart-table">
           {this.state.items.length > 0 ? items : emptyMsg }

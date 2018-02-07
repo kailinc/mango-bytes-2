@@ -459,12 +459,12 @@ a {
   color: #b58105;
 }
 
-.cart-table-wrap {
+.cart-col {
   width: 65%;
   margin: 10px;
 }
 
-.order-summary {
+.order-col {
   width: 30%;
   margin: 10px;
 }
