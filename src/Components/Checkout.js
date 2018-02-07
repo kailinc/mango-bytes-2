@@ -7,8 +7,8 @@ class Checkout extends Component {
   render() {
     return (
       <div className="store">
-        <OrderSummary />
-        <CartTable />
+          <CartTable/>
+          <OrderSummary />
       </div>
     )
   }

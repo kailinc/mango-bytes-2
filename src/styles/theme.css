@@ -234,7 +234,7 @@ a {
 }
 
 .store {
-  margin: 25px 40px;
+  margin: 25px 125px;
   display: flex;
   align-items: flex-start;
 }
@@ -457,4 +457,14 @@ a {
 
 .warning h4 {
   color: #b58105;
+}
+
+.cart-table {
+  width: 65%;
+  margin: 10px;
+}
+
+.order-summary {
+  width: 30%;
+  margin: 10px;
 }

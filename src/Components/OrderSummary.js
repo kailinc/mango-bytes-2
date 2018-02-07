@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class OrderSummary extends Component {
   render() {
     return (
-      <div className="">
+      <div className="order-summary">
         This is Order Summary
       </div>
     )
