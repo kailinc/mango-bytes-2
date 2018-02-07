@@ -500,6 +500,12 @@ a {
 
 .cart-table {
   border: 1px solid #eee;
+  color: #666;
+  padding: 20px;
+}
+
+.cart-table p span {
+  font-weight: bold;
 }
 
 .bold {
