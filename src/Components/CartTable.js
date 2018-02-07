@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
+import CheckoutItem from './CheckoutItem';
+
 class CartTable extends Component {
   constructor(props) {
     super(props)
@@ -12,7 +14,7 @@ class CartTable extends Component {
   }
 
   render() {
-    console.log('CartTable: this is items', this.state.items)
+    const items = this.state.items.map((item, i)=> <CheckoutItem key={i} item={item}/>)
     return (
       <div className="cart-table-wrap">
         <div className="cart-header bold">
@@ -27,6 +29,7 @@ class CartTable extends Component {
           <h3>YOUR BAG (2)</h3>
         </div>
         <div className="cart-table">
+          {items}
         </div>
       </div>
     )
