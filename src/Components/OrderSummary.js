@@ -11,18 +11,34 @@ class OrderSummary extends Component {
   render() {
     return (
       <div className="order-col">
-        <div className="summary">
-          <h3>Summary</h3>
-          <h5>Items: {this.props.cart.items.length}</h5>
-          <h5>Product Total:</h5>
-          <h5>Delivery: Free</h5>
-          <h5>Estimated Taxes: </h5>
-          <h5>Total: </h5>
+        <div className="summary-content">
+          <div className="summary-row">
+            <h3>Summary</h3>
+          </div>
+          <div className="summary-row">
+            <h5>Items: {this.props.cart.items.length}</h5>
+          </div>
+          <div className="summary-row">
+            <h5>Product Total:</h5>
+          </div>
+          <div className="summary-row">
+            <h5>Delivery: Free</h5>
+          </div>
+          <div className="summary-row">
+            <h5>Estimated Taxes: </h5>
+          </div>
+          <div className="summary-row">
+            <h5>Total: </h5>
+          </div>
+        <div className="summary-row">
           <form>
             <label>Coupon Code</label>
             <input/>
           </form>
+        </div>
+        <div className="summary-row">
           <button>Checkout</button>
+        </div>
         </div>
       </div>
     )

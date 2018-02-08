@@ -511,3 +511,15 @@ a {
 .bold {
   margin-bottom: 20px;
 }
+
+.summary-content {
+  background-color: #191919;
+}
+
+.summary-row {
+  padding: 14px 20px;
+  border-top: 1px solid #333;
+  border-bottom: 1px solid #000;
+  color: #efefef;
+  font-size: 14px;
+}
