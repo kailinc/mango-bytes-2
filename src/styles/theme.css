@@ -522,4 +522,17 @@ a {
   border-bottom: 1px solid #000;
   color: #efefef;
   font-size: 14px;
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.summary-row h3 {
+  color: #FA5400;
+}
+
+.increase-pts {
+  font-weight: bold;
+  color: #00f260;
+  letter-spacing: 0.15em;
 }

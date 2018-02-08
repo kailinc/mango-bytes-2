@@ -13,26 +13,38 @@ class OrderSummary extends Component {
       <div className="order-col">
         <div className="summary-content">
           <div className="summary-row">
-            <h3>Summary</h3>
+            <h3>SUMMARY</h3>
           </div>
           <div className="summary-row">
-            <h5>Items: {this.props.cart.items.length}</h5>
+            <p>ITEMS:</p>
+            <p> {this.props.cart.items.length}</p>
           </div>
           <div className="summary-row">
-            <h5>Product Total:</h5>
+            <p>GAINS:</p>
+            <div>
+              <p>JavaScript: <span className="increase-pts">+2</span></p>
+              <p>JavaScript: <span className="increase-pts">+2</span></p>
+            </div>
           </div>
           <div className="summary-row">
-            <h5>Delivery: Free</h5>
+            <p>PRODUCT TOTAL:</p>
+            <p>$0.00</p>
           </div>
           <div className="summary-row">
-            <h5>Estimated Taxes: </h5>
+            <p>DELIVERY AND HANDLING:</p>
+            <p><span className="increase-pts">FREE</span></p>
           </div>
           <div className="summary-row">
-            <h5>Total: </h5>
+            <p>ESTIMATED TAXES:</p>
+            <p>$0.00</p>
+          </div>
+          <div className="summary-row">
+            <p>TOTAL:</p>
+            <p>$0.00</p>
           </div>
         <div className="summary-row">
           <form>
-            <label>Coupon Code</label>
+            <label>COUPON CODE</label>
             <input/>
           </form>
         </div>
