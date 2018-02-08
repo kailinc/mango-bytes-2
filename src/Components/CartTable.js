@@ -27,7 +27,7 @@ class CartTable extends Component {
           </p>
         </div>
         <div className="cart-header">
-          <h3>YOUR BAG ({this.state.items.length})</h3>
+          <h3>Step 1. Review Your Order</h3>
         </div>
         <div className="cart-table">
           {this.state.items.length > 0 ? items : emptyMsg }

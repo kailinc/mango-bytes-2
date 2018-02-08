@@ -569,6 +569,7 @@ a {
   border-radius: 2px;
   text-align: center;
   letter-spacing: .1em;
+  margin: 0;
 }
 
 .promo-btn {
@@ -579,4 +580,12 @@ a {
   color: white;
   border-radius: 2px;
   border: 0;
+  margin-top: 20px;
+}
+
+.checkout-info {
+  text-align:left;
+  font-size: 11px;
+  color: white;
+  margin-bottom: 0;
 }

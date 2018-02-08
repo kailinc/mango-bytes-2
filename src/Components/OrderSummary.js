@@ -39,12 +39,18 @@ class OrderSummary extends Component {
             <p>$0.00</p>
           </div>
           <div className="summary-row">
+            <p>DISCOUNTS:</p>
+            <p>$0.00</p>
+          </div>
+          <div className="summary-row">
             <p>TOTAL:</p>
             <p>$0.00</p>
           </div>
         <div className="summary-row">
           <form className="checkout-form">
+            <p className="checkout-info">PROMO CODES ARE CASE SENSITIVE</p>
             <input placeholder="PROMO CODE"/>
+            <p className="checkout-info">Casing & hyphens must be exact</p>
             <button className="promo-btn">APPLY</button>
           </form>
         </div>
