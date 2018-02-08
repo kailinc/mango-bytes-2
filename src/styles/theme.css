@@ -254,10 +254,6 @@ a {
   padding: 0 20px;
 }
 
-.increase-pts {
-  color: green;
-}
-
 .filters {
   border-top: 1px solid black;
   border-bottom: 1px solid black;
@@ -543,4 +539,14 @@ a {
   font-weight: bold;
   color: #00f260;
   letter-spacing: 0.15em;
+}
+
+.checkout-btn {
+  width: 100%;
+  padding: 5px 10px;
+  background-color: #FA5400;
+  color: white;
+  border: 0;
+  border-radius: 2px;
+  font-size: 14px;
 }

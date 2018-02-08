@@ -46,10 +46,11 @@ class OrderSummary extends Component {
           <form>
             <label>COUPON CODE</label>
             <input/>
+            <button>APPLY</button>
           </form>
         </div>
         <div className="summary-row">
-          <button>Checkout</button>
+          <button className="checkout-btn">CHECKOUT</button>
         </div>
         </div>
       </div>
