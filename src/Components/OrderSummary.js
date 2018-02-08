@@ -43,10 +43,9 @@ class OrderSummary extends Component {
             <p>$0.00</p>
           </div>
         <div className="summary-row">
-          <form>
-            <label>COUPON CODE</label>
-            <input/>
-            <button>APPLY</button>
+          <form className="checkout-form">
+            <input placeholder="PROMO CODE"/>
+            <button className="promo-btn">APPLY</button>
           </form>
         </div>
         <div className="summary-row">
