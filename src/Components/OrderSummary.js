@@ -12,7 +12,7 @@ class OrderSummary extends Component {
     return (
       <div className="order-col">
         <div className="summary-content">
-          <div className="summary-row">
+          <div className="summary-header">
             <h3>SUMMARY</h3>
           </div>
           <div className="summary-row">

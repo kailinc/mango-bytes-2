@@ -527,7 +527,15 @@ a {
   justify-content: space-between;
 }
 
-.summary-row h3 {
+.summary-header {
+  padding: 20px;
+  border-top: 1px solid #333;
+  border-bottom: 1px solid #000;
+  color: #efefef;
+  text-align: center;
+}
+
+.summary-header h3 {
   color: #FA5400;
 }
 
