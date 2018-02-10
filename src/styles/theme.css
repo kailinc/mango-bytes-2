@@ -604,3 +604,14 @@ a {
 .item-hr-img {
   width: 150px;
 }
+
+.table-header {
+  width: 100%;
+  display:flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  border-bottom: 1px solid black;
+  color: black;
+  font-weight: bold;
+}
