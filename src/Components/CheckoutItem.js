@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import ItemForm from './ItemForm';
+
 class CheckoutItem extends Component {
   constructor(props) {
     super(props)
@@ -12,7 +14,7 @@ class CheckoutItem extends Component {
     return(
       <div className="item-hr">
         <div>
-          <img src={this.state.item.img} />
+          <img className='item-hr-img' src={this.state.item.img} />
         </div>
         <div>
           <p>{this.state.item.name}</p>
@@ -23,7 +25,7 @@ class CheckoutItem extends Component {
           <p>${this.state.item.basePrice.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,')}</p>
         </div>
         <div>
-          <p>{this.state.item.quantity}</p>
+          <ItemForm item={this.state.item}/>
         </div>
         <div>
           <p>${(this.state.item.quantity * this.state.item.basePrice).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,')}</p>
