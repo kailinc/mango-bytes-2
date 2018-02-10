@@ -9,7 +9,8 @@ class CartTable extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      items: this.props.cart.items
+      items: this.props.cart.items,
+      currentStage: 0
     }
   }
 

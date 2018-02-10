@@ -589,3 +589,11 @@ a {
   color: white;
   margin-bottom: 0;
 }
+
+.item-hr {
+  width: 100%;
+  display:flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+}
