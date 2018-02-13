@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-import Feed from './Feed';
-import Profile from './Profile';
-import Headline from './Headline';
+import Feed from '../Components/Feed';
+import Profile from '../Components/Profile';
+import Headline from '../Components/Headline';
 import API from '../API';
 
 class Shop extends Component {

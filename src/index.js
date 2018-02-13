@@ -7,7 +7,7 @@ import React, { Component } from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux';
 
-import Routes from './Components/Routes'
+import Routes from './routes/Routes'
 import configureStore from './store/configureStore';
 import { loadState, saveState } from './localStorage';
 

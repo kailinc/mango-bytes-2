@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import NotFoundPage from './NotFoundPage';
-import Header from './Header';
-import Checkout from './Checkout';
-import Home from './Home';
-import SignUp from './SignUp';
-import SignIn from './SignIn';
-import ChangePwd from './ChangePwd';
-import LogOut from './LogOut';
-import Shop from './Shop';
-import ItemPage from './ItemPage';
-import Footer from './Footer';
+import NotFoundPage from '../pages/NotFoundPage';
+import Header from '../Components/Header';
+import Checkout from '../pages/Checkout';
+import Home from '../pages/Home';
+import SignUp from '../pages/SignUp';
+import SignIn from '../pages/SignIn';
+import ChangePwd from '../pages/ChangePwd';
+import LogOut from '../pages/LogOut';
+import Shop from '../pages/Shop';
+import ItemPage from '../pages/ItemPage';
+import Footer from '../Components/Footer';
 
 class Routes extends Component {
 

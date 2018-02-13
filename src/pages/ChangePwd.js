@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import API from '../API';
-import UIMessage from './UIMessage';
+import UIMessage from '../Components/UIMessage';
 
 class ChangePwd extends Component {
   constructor(props) {

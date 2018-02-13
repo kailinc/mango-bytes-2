@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 
 import API from '../API';
-import UIMessage from './UIMessage';
+import UIMessage from '../Components/UIMessage';
 
 class SignUp extends Component {
   constructor(props) {

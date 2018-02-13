@@ -1,8 +1,8 @@
 import React, { Component  } from 'react';
 
-import Greeting from './Greeting';
-import Banner from './Banner';
-import Aside from './Aside';
+import Greeting from '../Components/Greeting';
+import Banner from '../Components/Banner';
+import Aside from '../Components/Aside';
 import riseImg from '../assets/rise-and-code.jpg';
 import hackathonImg from '../assets/hackathon.jpg';
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-import OrderSummary from './OrderSummary';
-import CartTable from './CartTable';
+import OrderSummary from '../Components/OrderSummary';
+import CartTable from '../Components/CartTable';
 
 class Checkout extends Component {
   render() {

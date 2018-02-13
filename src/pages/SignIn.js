@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { signIn } from '../actions/user';
 
 import API from '../API';
-import UIMessage from './UIMessage';
+import UIMessage from '../Components/UIMessage';
 
 class SignIn extends Component {
   constructor(props) {
