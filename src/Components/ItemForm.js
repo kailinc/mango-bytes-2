@@ -7,20 +7,27 @@ import { itemExists, getQuantity } from '../helpers/cart';
 class ItemForm extends Component {
   constructor(props){
     super(props)
-    this.add = this.add.bind(this)
-    this.minus = this.minus.bind(this)
+    this.addOne = this.addOne.bind(this)
+    this.minusOne = this.minusOne.bind(this)
+    this.reformatItem = this.reformatItem.bind(this)
   }
 
-  add() {
-    let curItem = {
+  // need a better name
+  reformatItem() {
+    return {
       id: this.props.item.id,
       name: this.props.item.name,
       devCred: this.props.item.devCred,
       basePrice: this.props.item.basePrice,
       attributes: this.props.item.attributes,
       img: this.props.item.img,
-      quantity: 1
+      quantity: 0
     }
+  }
+
+  addOne() {
+    let curItem = this.reformatItem();
+    curItem.quantity = 1;
     if (this.props.cart.items.length === 0 ) {
       this.props.dispatch(newCart(curItem))
     } else if (itemExists(this.props.cart.items, curItem.id)) {
@@ -30,16 +37,8 @@ class ItemForm extends Component {
     }
   }
 
-  minus() {
-    let curItem = {
-      id: this.props.item.id,
-      name: this.props.item.name,
-      devCred: this.props.item.devCred,
-      basePrice: this.props.item.basePrice,
-      attributes: this.props.item.attributes,
-      img: this.props.item.img,
-      quantity: -1
-    }
+  minusOne() {
+    let curItem = this.reformatItem();
     if (this.props.cart.items.length > 0) {
       if (itemExists(this.props.cart.items, curItem.id)) {
         this.props.dispatch(updateQuantity(curItem.id, -1))
@@ -49,9 +48,9 @@ class ItemForm extends Component {
   render(){
     return(
       <div className='items'>
-        <button onClick={this.add}>+</button>
+        <button onClick={this.addOne}>+</button>
         <p>{this.props.item.quantity ? this.props.item.quantity : getQuantity(this.props.cart.items, this.props.item.id)}</p>
-        <button onClick={this.minus}>-</button>
+        <button onClick={this.minusOne}>-</button>
       </div>
     )
   }
