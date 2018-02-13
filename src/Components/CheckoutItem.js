@@ -10,7 +10,6 @@ class CheckoutItem extends Component {
     }
   }
   render() {
-    console.log('checkoutItem: this is item ', this.state.item)
     return(
       <div className="item-hr">
         <div>

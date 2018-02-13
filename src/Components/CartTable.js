@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import CheckoutItem from './CheckoutItem';
+import { clearCart } from '../actions/cart';
 
 class CartTable extends Component {
   constructor(props) {
@@ -12,12 +13,17 @@ class CartTable extends Component {
       items: this.props.cart.items,
       currentStage: 0
     }
+    this.clearCart = this.clearCart.bind(this);
+  }
+
+  clearCart() {
+    this.props.dispatch(clearCart());
   }
 
   render() {
     const items = this.state.items.map((item, i)=> <CheckoutItem key={i} item={item}/>)
     const label = <div className='table-header'><h4>Product</h4><h4>Description</h4><h4>Price</h4><h4>Quantity</h4><h4>Total</h4></div>
-    const itemsList = <div>{label}{items}</div>
+    const itemsList = <div>{label}{items}<button onClick={this.clearCart}>Clear Cart</button></div>
     const emptyMsg = <p> <span>There are no items in your cart.</span><br></br>If you have an account with us, please login to see items you previously added.</p>
     return (
       <div className="cart-col">
