@@ -3,11 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class OrderSummary extends Component {
-  constructur(props) {
-    this.state = {
-      cart: this.props.cart
-    }
-  }
+
   render() {
     return (
       <div className="order-col">

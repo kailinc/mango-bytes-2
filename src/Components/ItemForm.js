@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { newCart, updateQuantity, clearCart, addItem } from '../actions/cart';
+import { newCart, updateQuantity, addItem } from '../actions/cart';
 import { itemExists, getQuantity } from '../helpers/cart';
 
 class ItemForm extends Component {
@@ -12,7 +12,6 @@ class ItemForm extends Component {
     this.reformatItem = this.reformatItem.bind(this)
   }
 
-  // need a better name
   reformatItem() {
     return {
       id: this.props.item.id,

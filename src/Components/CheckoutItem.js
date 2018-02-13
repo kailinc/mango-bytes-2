@@ -18,7 +18,7 @@ class CheckoutItem extends Component {
     return(
       <div className="item-hr">
         <div>
-          <img className='item-hr-img' src={this.props.item.img} />
+          <img className='item-hr-img' src={this.props.item.img} alt="an item in your cart"/>
         </div>
         <div>
           <p>{this.props.item.name}</p>

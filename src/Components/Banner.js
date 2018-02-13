@@ -13,9 +13,8 @@ class Banner extends Component {
 
   handleSubmit(e){
     e.preventDefault();
-    let goal = this.state.goal
     this.setState((prevState)=> {
-      goals: prevState.goals.push(goal)
+      goals: prevState.goals.push(this.state.goal)
     })
     this.setState({
       goal: ''
