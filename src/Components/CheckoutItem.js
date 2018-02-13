@@ -21,22 +21,22 @@ class CheckoutItem extends Component {
     return(
       <div className="item-hr">
         <div>
-          <img className='item-hr-img' src={this.state.item.img} />
+          <img className='item-hr-img' src={this.props.item.img} />
         </div>
         <div>
-          <p>{this.state.item.name}</p>
-          <p>{this.state.item.devCred}</p>
-          <p>{this.state.item.attributes}</p>
+          <p>{this.props.item.name}</p>
+          <p>{this.props.item.devCred}</p>
+          <p>{this.props.item.attributes}</p>
         </div>
         <div>
-          <p>${this.state.item.basePrice.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,')}</p>
+          <p>${this.props.item.basePrice.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,')}</p>
         </div>
         <div>
-          <ItemForm item={this.state.item}/>
+          <ItemForm item={this.props.item}/>
           <button onClick={this.removeItem}>Remove</button>
         </div>
         <div>
-          <p>${(this.state.item.quantity * this.state.item.basePrice).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,')}</p>
+          <p>${(this.props.item.quantity * this.props.item.basePrice).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,')}</p>
         </div>
       </div>
     )
