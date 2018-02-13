@@ -23,6 +23,11 @@ const cartReducer = (state = cartReducerDefaultState, action) => {
           return cur
         }).filter((item) => item.quantity > 0)
       });
+    case 'REMOVE_ITEM':
+      return {
+        ...state,
+        items: state.items.filter( item => item.id != action.itemId)
+      };
     case 'CLEAR_CART':
       return {
         ...state,
