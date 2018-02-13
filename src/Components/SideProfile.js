@@ -1,21 +1,23 @@
 import React, { Component } from 'react';
 
-class Profile extends Component {
+import { connect } from 'react-redux';
+
+class SideProfile extends Component {
   render() {
     return(
       <div className='profile-container'>
         <div className='aside-container'>
           <div className='left'>
-            <h3>100 +2</h3>
-            <h5>Kailin </h5>
-            <h5>Chen</h5>
+            <h3>{this.props.user.devCred}</h3>
+            <h5>{this.props.user.firstName}</h5>
+            <h5>{this.props.user.lastName}</h5>
           </div>
           <div className='right'>
             <img src='https://www.shareicon.net/data/128x128/2016/09/15/829444_man_512x512.png' alt='profile'></img>
           </div>
         </div>
         <div className='profile-hr'>
-          <p>KaiBoard</p>
+          <p>{this.props.user.coderName}</p>
         </div>
         <div className='aside-container'>
           <div className='left'>
@@ -48,4 +50,10 @@ class Profile extends Component {
   }
 }
 
-export default Profile;
+const mapStateToProps = (state, props) => {
+  return {
+    user: state.user
+  };
+};
+
+export default connect(mapStateToProps)(SideProfile);

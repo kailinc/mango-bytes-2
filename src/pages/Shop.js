@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import Feed from '../Components/Feed';
-import Profile from '../Components/Profile';
+import SideProfile from '../Components/SideProfile';
 import Headline from '../Components/Headline';
 import API from '../API';
 
@@ -10,7 +10,6 @@ class Shop extends Component {
     super()
     this.state = {
       items: [],
-      user: {},
       headline: 'ALL ITEMS'
     }
   }
@@ -27,27 +26,13 @@ class Shop extends Component {
       })
   }
 
-  // getUserInfo() {
-  //   if (store.user.token) {
-  //     API.showUser(store.user.id, store.user.token)
-  //       .then((response)=>  {
-  //         this.setState({
-  //           user: response.data.user
-  //         })
-  //       })
-  //       .catch((error) => {
-  //         console.log(error)
-  //       })
-  //   }
-  // }
-
   render() {
     return(
       <div>
         <Headline headline={this.state.headline}/>
         <hr></hr>
         <div className='store'>
-          <Profile user={this.state.user} />
+          <SideProfile/>
           <Feed items={this.state.items}/>
         </div>
       </div>
