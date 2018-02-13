@@ -7,52 +7,42 @@ import { itemExists, getQuantity } from '../helpers/cart';
 class ItemForm extends Component {
   constructor(props){
     super(props)
-    this.state = {
-      quantity: getQuantity(this.props.cart.items, this.props.item.id),
-      item: this.props.item
-    }
     this.add = this.add.bind(this)
     this.minus = this.minus.bind(this)
   }
 
   add() {
-    this.setState((prevState) => {
-      quantity: prevState.quantity += 1
-    })
     let curItem = {
-      id: this.state.item.id,
-      name: this.state.item.name,
-      devCred: this.state.item.devCred,
-      basePrice: this.state.item.basePrice,
-      attributes: this.state.item.attributes,
-      img: this.state.item.img,
+      id: this.props.item.id,
+      name: this.props.item.name,
+      devCred: this.props.item.devCred,
+      basePrice: this.props.item.basePrice,
+      attributes: this.props.item.attributes,
+      img: this.props.item.img,
       quantity: 1
     }
     if (this.props.cart.items.length === 0 ) {
       this.props.dispatch(newCart(curItem))
     } else if (itemExists(this.props.cart.items, curItem.id)) {
-      this.props.dispatch(updateQuantity(curItem.id, curItem.quantity))
+      this.props.dispatch(updateQuantity(curItem.id, 1))
     } else {
       this.props.dispatch(addItem(curItem))
     }
   }
 
   minus() {
-    this.setState((prevState) => {
-      quantity: prevState.quantity -= 1
-    })
     let curItem = {
-      id: this.state.item.id,
-      name: this.state.item.name,
-      devCred: this.state.item.devCred,
-      basePrice: this.state.item.basePrice,
-      attributes: this.state.item.attributes,
-      img: this.state.item.img,
+      id: this.props.item.id,
+      name: this.props.item.name,
+      devCred: this.props.item.devCred,
+      basePrice: this.props.item.basePrice,
+      attributes: this.props.item.attributes,
+      img: this.props.item.img,
       quantity: -1
     }
     if (this.props.cart.items.length > 0) {
       if (itemExists(this.props.cart.items, curItem.id)) {
-        this.props.dispatch(updateQuantity(curItem.id, curItem.quantity))
+        this.props.dispatch(updateQuantity(curItem.id, -1))
       }
     }
   }
@@ -60,7 +50,7 @@ class ItemForm extends Component {
     return(
       <div className='items'>
         <button onClick={this.add}>+</button>
-        <p>{this.state.quantity}</p>
+        <p>{this.props.item.quantity ? this.props.item.quantity : getQuantity(this.props.cart.items, this.props.item.id)}</p>
         <button onClick={this.minus}>-</button>
       </div>
     )
@@ -69,7 +59,6 @@ class ItemForm extends Component {
 
 const mapStateToProps = (state, props) => {
   return {
-    user: state.user,
     cart: state.cart
   };
 };
