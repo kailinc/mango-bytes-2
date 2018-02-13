@@ -8,14 +8,11 @@ import { removeItem } from '../actions/cart';
 class CheckoutItem extends Component {
   constructor(props) {
     super(props)
-    this.state = {
-      item: this.props.item
-    }
     this.removeItem = this.removeItem.bind(this);
   }
 
   removeItem() {
-    this.props.dispatch(removeItem(this.state.item.id));
+    this.props.dispatch(removeItem(this.props.item.id));
   }
   render() {
     return(
