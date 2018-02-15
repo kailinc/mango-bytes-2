@@ -26,7 +26,7 @@ class OrderSummary extends Component {
           </div>
           <div className="summary-row">
             <p>PRODUCT TOTAL:</p>
-            <p>{getTotal(this.props.cart.items.length)}</p>
+            <p>{getTotal(this.props.cart.items)}</p>
           </div>
           <div className="summary-row">
             <p>DELIVERY AND HANDLING:</p>

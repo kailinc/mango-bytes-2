@@ -19,9 +19,11 @@ export const getQuantity = function (items, itemId) {
 
 // get total price
 export const getTotal = function (items) {
+  let total = 0
   for (let i = 0; i < items.length; i++) {
-    
+    total += items[i].quantity * items[i].basePrice
   }
+  return total
 }
 // calculate taxes
 
