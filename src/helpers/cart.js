@@ -25,6 +25,7 @@ export const getTotal = function (items) {
   }
   return total
 }
-// calculate taxes
 
-//
+export const convertToDollars = function (num) {
+  return '$' + num.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g)
+}
