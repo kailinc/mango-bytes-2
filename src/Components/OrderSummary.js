@@ -7,9 +7,22 @@ class OrderSummary extends Component {
   constructor(props){
     super(props)
     this.state = {
-      discountCode: '',
-      discountValue: 0
+      promoCode: '',
+      promoValue: 0
     }
+    this.submitPromo = this.submitPromo.bind(this)
+    this.handleChange = this.handleChange.bind(this)
+  }
+
+  handleChange(e) {
+    this.setState({promoCode: e.target.value})
+    console.log('promocode is now', this.state.promoCode)
+  }
+
+  submitPromo(e) {
+    e.preventDefault();
+    console.log('you are submitting a promo code', this.state.promoCode)
+
   }
 
   render() {
@@ -56,9 +69,9 @@ class OrderSummary extends Component {
             <p>{convertToDollars(total)}</p>
           </div>
         <div className="summary-row">
-          <form className="checkout-form">
+          <form className="checkout-form" onSubmit={this.submitPromo}>
             <p className="checkout-info">PROMO CODES ARE CASE SENSITIVE</p>
-            <input placeholder="PROMO CODE"/>
+            <input placeholder="PROMO CODE" value={this.state.promoCode} onChange={this.handleChange}/>
             <p className="checkout-info">Casing & hyphens must be exact</p>
             <button className="promo-btn">APPLY</button>
           </form>
