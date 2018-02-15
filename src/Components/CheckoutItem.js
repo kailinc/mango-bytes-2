@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import ItemForm from './ItemForm';
 import { removeItem } from '../actions/cart';
+import { convertToDollars } from '../helpers/cart';
 
 class CheckoutItem extends Component {
   constructor(props) {
@@ -26,14 +27,14 @@ class CheckoutItem extends Component {
           <p>{this.props.item.attributes}</p>
         </div>
         <div>
-          <p>${this.props.item.basePrice.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,')}</p>
+          <p>{convertToDollars(this.props.item.basePrice)}</p>
         </div>
         <div>
           <ItemForm item={this.props.item}/>
           <button onClick={this.removeItem}>Remove</button>
         </div>
         <div>
-          <p>${(this.props.item.quantity * this.props.item.basePrice).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,')}</p>
+          <p>{convertToDollars(this.props.item.basePrice * this.props.item.quantity)}</p>
         </div>
       </div>
     )

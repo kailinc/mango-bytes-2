@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 import ItemForm from './ItemForm';
+import { convertToDollars } from '../helpers/cart';
 
 class Item extends Component {
   constructor(props){
@@ -38,7 +39,7 @@ class Item extends Component {
                 { attributes }
               </ul>
               <p>DevCred: <span className='increase-pts'>+{this.props.item.devCred}</span></p>
-          <p>${this.props.item.basePrice}.00</p>
+          <p>{convertToDollars(this.props.item.basePrice)}</p>
 
           <ItemForm item={this.props.item}/>
         </div>
