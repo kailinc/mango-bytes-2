@@ -16,3 +16,13 @@ export const getQuantity = function (items, itemId) {
   }
   return 0
 }
+
+// get total price
+export const getTotal = function (items) {
+  for (let i = 0; i < items.length; i++) {
+    
+  }
+}
+// calculate taxes
+
+//

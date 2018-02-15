@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
 
+import { getTotal } from '../helpers/cart';
+
 class OrderSummary extends Component {
 
   render() {
@@ -24,7 +26,7 @@ class OrderSummary extends Component {
           </div>
           <div className="summary-row">
             <p>PRODUCT TOTAL:</p>
-            <p>$0.00</p>
+            <p>{getTotal(this.props.cart.items.length)}</p>
           </div>
           <div className="summary-row">
             <p>DELIVERY AND HANDLING:</p>
