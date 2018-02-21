@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 
 import { getTotal, convertToDollars } from '../helpers/cart';
 
+require('dotenv').config()
+
 class OrderSummary extends Component {
   constructor(props){
     super(props)
@@ -21,13 +23,12 @@ class OrderSummary extends Component {
 
   submitPromo(e) {
     e.preventDefault();
-    console.log('you are submitting a promo code', this.state.promoCode)
-
+    console.log('submitPromo: this is env ', process.env['PROMO_CODES'])
   }
 
   render() {
     const productTotal = getTotal(this.props.cart.items)
-    const subTotal = productTotal - this.state.discountValue
+    const subTotal = productTotal - this.state.promoValue
     const taxes = subTotal * 0.0625
     const total = subTotal + taxes
 
