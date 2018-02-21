@@ -1,9 +1,10 @@
 
-![Landing  Page](https://raw.githubusercontent.com/kailinc/airkicks-front-end/basic/docAssets/wireframes/wireframe1.jpg)
+![Landing  Page](https://raw.githubusercontent.com/kailinc/mango-bytes-2/master/public/HomePage.png)
 
-![Shopping Page ](https://raw.githubusercontent.com/kailinc/airkicks-front-end/basic/docAssets/wireframes/wireframe1.jpg)
+![Shopping Page ](https://raw.githubusercontent.com/kailinc/mango-bytes-2/master/public/shopping.png)
 
-![Checkout Page ](https://raw.githubusercontent.com/kailinc/airkicks-front-end/basic/docAssets/wireframes/wireframe1.jpg)
+![Checkout Page ](https://raw.githubusercontent.com/kailinc/mango-bytes-2/master/public/Checkout.png)
+
 ## Introduction
 
 Mango-Bytes 2.0 is a make believe e-commerce store that developers can spend money
