@@ -58,6 +58,14 @@ URL of Backend API: https://damp-hamlet-57878.herokuapp.com
 
 ## Development Process
 
+  Since this was a redo of a previous project, I used previous project's wireframes,
+code, and ideas. The previous project did not incorporate React, React-Redux,
+and React Router. I had to modify pre-existing code. Before this project, I did not
+know how to use React Router and React Redux. Before writing code for this project,
+I took a Udemy lesson on Redux. Then I read the documentations for React Router and
+React Redux.
+
+
 ## Problem Solving Strategy
 
 ## Unsolved Problems
