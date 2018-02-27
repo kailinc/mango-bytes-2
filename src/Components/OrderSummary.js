@@ -24,16 +24,17 @@ class OrderSummary extends Component {
     e.preventDefault();
     if ( this.state.promoCode == process.env.REACT_APP_PROMO_CODE) {
       this.setState({
-        promoValue: 500
+        promoValue: 10
       })
     }
   }
 
   render() {
     const productTotal = getTotal(this.props.cart.items)
-    const subTotal = productTotal - this.state.promoValue
-    const taxes = subTotal * 0.0625
-    const total = subTotal + taxes
+    const taxes = productTotal * 0.0625
+    const total = productTotal + taxes
+    const afterDiscount = total - this.state.promoValue >= 0 ? total - this.state.promoValue : 0
+    const discountValue = total - this.state.promoValue >= 0 ? this.state.promoValue : total
 
     return (
       <div className="order-col">
@@ -66,18 +67,18 @@ class OrderSummary extends Component {
           </div>
           <div className="summary-row">
             <p>DISCOUNTS:</p>
-            <p>$0.00</p>
+            <p>{convertToDollars(discountValue)}</p>
           </div>
           <div className="summary-row">
             <p>TOTAL:</p>
-            <p>{convertToDollars(total)}</p>
+            <p>{convertToDollars(afterDiscount)}</p>
           </div>
         <div className="summary-row">
           <form className="checkout-form" onSubmit={this.submitPromo}>
             <p className="checkout-info">PROMO CODES ARE CASE SENSITIVE</p>
             <input placeholder="PROMO CODE" value={this.state.promoCode} onChange={this.handleChange}/>
             <p className="checkout-info">Casing & hyphens must be exact</p>
-            <button className="promo-btn">APPLY</button>
+            <button className="promo-btn" onSubmit={this.submitPromo}>APPLY</button>
           </form>
         </div>
         <div className="summary-row">
