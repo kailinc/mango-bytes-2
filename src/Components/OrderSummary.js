@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { getTotal, convertToDollars } from '../helpers/cart';
 
-require('dotenv').config()
+const dotenv = require('dotenv')
 
 class OrderSummary extends Component {
   constructor(props){
@@ -18,12 +18,15 @@ class OrderSummary extends Component {
 
   handleChange(e) {
     this.setState({promoCode: e.target.value})
-    console.log('promocode is now', this.state.promoCode)
   }
 
   submitPromo(e) {
     e.preventDefault();
-    console.log('submitPromo: this is env ', process.env['PROMO_CODES'])
+    if ( this.state.promoCode == process.env.REACT_APP_PROMO_CODE) {
+      this.setState({
+        promoValue: 500
+      })
+    }
   }
 
   render() {
