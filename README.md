@@ -48,7 +48,13 @@ URL of Backend API: https://damp-hamlet-57878.herokuapp.com
 
 ## Wireframes
 
-## User Stories
+-  A user wants to add an item to the cart.
+-  A user wants to remove an item from the cart.
+-  A user wants to change the quantity from the cart.
+-  A user wants to log in to get information about the account.
+-  A user wants to change his or her password to prevent people from hacking the account.
+-  A user wants to log out after a shopping session.
+-  A user wants to pay for the items inorder to get them.
 
 ## Development Process
 
