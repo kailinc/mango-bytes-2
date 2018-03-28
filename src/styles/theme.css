@@ -537,8 +537,15 @@ a {
 
 .increase-pts {
   font-weight: bold;
-  color: #00f260;
   letter-spacing: 0.15em;
+}
+
+.green {
+  color: #0f9b0f;
+}
+
+.checkout-green {
+  color: #00f260;
 }
 
 .checkout-btn {

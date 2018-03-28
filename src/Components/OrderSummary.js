@@ -49,8 +49,8 @@ class OrderSummary extends Component {
           <div className="summary-row">
             <p>GAINS:</p>
             <div>
-              <p>JavaScript: <span className="increase-pts">+2</span></p>
-              <p>JavaScript: <span className="increase-pts">+2</span></p>
+              <p>JavaScript: <span className="increase-pts checkout-green">+2</span></p>
+              <p>JavaScript: <span className="increase-pts checkout-green">+2</span></p>
             </div>
           </div>
           <div className="summary-row">

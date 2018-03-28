@@ -14,7 +14,7 @@ class Item extends Component {
     const attributes = attributesArray.map((attribute, index)=> <li
       key={index}
       className='attributes'>
-      {attribute.name}: <span className='increase-pts'>+{attribute.exp}</span>
+      {attribute.name}: <span className='increase-pts green'>+{attribute.exp}</span>
     </li>)
     const imgUrl = this.props.item.img
     const backgroundImg = {
