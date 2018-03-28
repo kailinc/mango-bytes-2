@@ -10,11 +10,11 @@ class Item extends Component {
   }
 
   render() {
-    const attributesArray = [{javascript: 10},{ python: 10}, {css: 10}]
+    const attributesArray = this.props.item.attributes
     const attributes = attributesArray.map((attribute, index)=> <li
       key={index}
       className='attributes'>
-      {Object.keys(attribute)[0]}: <span className='increase-pts'>+{Object.values(attribute)[0]}</span>
+      {attribute.name}: <span className='increase-pts'>+{attribute.exp}</span>
     </li>)
     const imgUrl = this.props.item.img
     const backgroundImg = {
