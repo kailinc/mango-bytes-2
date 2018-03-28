@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Skill from './Skill';
 
 import { connect } from 'react-redux';
 
@@ -21,11 +22,10 @@ class SideProfile extends Component {
         </div>
         <div className='aside-container'>
           <div className='left'>
+            <Skill/>
             <p>JavaScript: 0 <span className='increase-pts'>+2</span></p>
             <p>Python: 0 +2</p>
             <p>C: 0 +2</p>
-            <p>C#: 0 +2</p>
-            <p>C++: 0 +2</p>
             <p>CSS: 0 +2</p>
             <p>GO: 0 +2</p>
             <p>HTML: 0 +2</p>
