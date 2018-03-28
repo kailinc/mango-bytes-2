@@ -5,6 +5,14 @@ import { connect } from 'react-redux';
 
 class SideProfile extends Component {
   render() {
+    const skillArray1 = ["JavaScript", "Angular", "C", "Css", "Django", "Ember", "Go", "Html"]
+    const skillArray2 = ["Java", "MongoDB", "Sql", "Node", "Python", "Rails", "React", "Ruby"]
+    const skill1 = <div className="left">
+      { skillArray1.map(( skill, index ) => <Skill key={index} skill={skill}/>) }
+      </div>
+    const skill2 = <div className="right">
+      { skillArray2.map(( skill, index ) => <Skill key={index} skill={skill}/>) }
+      </div>
     return(
       <div className='profile-container'>
         <div className='aside-container'>
@@ -21,29 +29,8 @@ class SideProfile extends Component {
           <p>{this.props.user.coderName}</p>
         </div>
         <div className='aside-container'>
-          <div className='left'>
-            <Skill/>
-            <p>JavaScript: 0 <span className='increase-pts'>+2</span></p>
-            <p>Python: 0 +2</p>
-            <p>C: 0 +2</p>
-            <p>CSS: 0 +2</p>
-            <p>GO: 0 +2</p>
-            <p>HTML: 0 +2</p>
-            <p>JAVA: 0 +2</p>
-            <p>Ruby: 0 +2</p>
-          </div>
-          <div className='right'>
-            <p>Angular: 0 +2</p>
-            <p>React: 0 +2</p>
-            <p>BootStrap: 0 +2</p>
-            <p>Django: 0 +2</p>
-            <p>Ember: 0 +2</p>
-            <p>MongoDB: 0 +2</p>
-            <p>MySQL: 0 +2</p>
-            <p>Node: 0 +2</p>
-            <p>Rails: 0 +2</p>
-            <p>SASS: 0 +2</p>
-          </div>
+          {skill1}
+          {skill2}
         </div>
       </div>
     )

@@ -5,7 +5,7 @@ class Skill extends Component {
   render(){
     return(
       <div>
-        <p>Ruby: 0 +2</p>
+        <p>{this.props.skill}: 0 +{}</p>
       </div>
     )
   }
