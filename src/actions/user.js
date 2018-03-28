@@ -1,4 +1,4 @@
-export const signIn = ({id, firstName, lastName, coderName, token, skills, powers, devCred}, fourScreen = {}) => ({
+export const signIn = ({id, firstName, lastName, coderName, token, skills, powers, devCred,JavaScript, Python, C, Css, Go, Html, Java, Ruby, Angular, React, BootStrap, Django, Ember, MongoDB, Sql, Node, Rails}, fourScreen = {}) => ({
     type: 'SIGN_IN',
     user: {
       id,
@@ -9,7 +9,24 @@ export const signIn = ({id, firstName, lastName, coderName, token, skills, power
       skills,
       powers,
       devCred,
-      fourScreen
+      fourScreen,
+      Angular,
+      JavaScript,
+      Python,
+      C,
+      Css,
+      Go,
+      Html,
+      Java,
+      Ruby,
+      React,
+      BootStrap,
+      Django,
+      Ember,
+      MongoDB,
+      Sql,
+      Node,
+      Rails
     }
 });
 
