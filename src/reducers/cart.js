@@ -1,6 +1,7 @@
 const cartReducerDefaultState = {
   items: [],
-  cost: 0
+  cost: 0,
+  attributes: []
 };
 
 const cartReducer = (state = cartReducerDefaultState, action) => {
@@ -33,6 +34,10 @@ const cartReducer = (state = cartReducerDefaultState, action) => {
         ...state,
         items: action.items
       };
+    case 'NEW_ATTRIBUTES':
+      return Object.assign({}, state, {
+        attributes: [action.attributes]
+      });
     default:
       return state;
   }

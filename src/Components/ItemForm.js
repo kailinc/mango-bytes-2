@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { newCart, updateQuantity, addItem } from '../actions/cart';
+import { newCart, updateQuantity, addItem, newAttributes } from '../actions/cart';
 import { itemExists, getQuantity } from '../helpers/cart';
 
 class ItemForm extends Component {
@@ -9,10 +9,11 @@ class ItemForm extends Component {
     super(props)
     this.addOne = this.addOne.bind(this)
     this.minusOne = this.minusOne.bind(this)
-    this.reformatItem = this.reformatItem.bind(this)
+    this.formatItem = this.formatItem.bind(this)
+    this.formatAttributes = this.formatAttributes.bind(this)
   }
 
-  reformatItem() {
+  formatItem() {
     return {
       item_id: this.props.item.id,
       name: this.props.item.name,
@@ -24,11 +25,27 @@ class ItemForm extends Component {
     }
   }
 
+  formatAttributes() {
+    let attributes = this.props.item.attributes;
+    let formatted = []
+    for (let i = 0; i < attributes.length; i++) {
+      const attribute = {
+        name: attributes[i].name,
+        exp: attributes[i].exp
+      }
+      formatted.push(attribute);
+    }
+    return formatted;
+  }
+
   addOne() {
-    let curItem = this.reformatItem();
+    let curItem = this.formatItem();
     curItem.quantity = 1;
+    let attributes = this.formatAttributes();
+
     if (this.props.cart.items.length === 0 ) {
       this.props.dispatch(newCart(curItem))
+      this.props.dispatch(newAttributes(attributes))
     } else if (itemExists(this.props.cart.items, curItem.item_id)) {
       this.props.dispatch(updateQuantity(curItem.item_id, 1))
     } else {

@@ -23,3 +23,8 @@ export const removeItem = (item_id) => ({
     type: 'REMOVE_ITEM',
     item_id: item_id
 });
+
+export const newAttributes = (attributes) => ({
+    type: 'NEW_ATTRIBUTES',
+    attributes: attributes
+});
