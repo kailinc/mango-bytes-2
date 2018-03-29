@@ -39,8 +39,8 @@ class ItemForm extends Component {
   minusOne() {
     let curItem = this.reformatItem();
     if (this.props.cart.items.length > 0) {
-      if (itemExists(this.props.cart.items, curItem.id)) {
-        this.props.dispatch(updateQuantity(curItem.id, -1))
+      if (itemExists(this.props.cart.items, curItem.item_id)) {
+        this.props.dispatch(updateQuantity(curItem.item_id, -1))
       }
     }
   }

@@ -19,7 +19,7 @@ export const clearCart = () => ({
     items: []
 });
 
-export const removeItem = (itemId) => ({
+export const removeItem = (item_id) => ({
     type: 'REMOVE_ITEM',
-    itemId: itemId
+    item_id: item_id
 });
