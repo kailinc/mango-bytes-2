@@ -14,7 +14,7 @@ class ItemForm extends Component {
 
   reformatItem() {
     return {
-      id: this.props.item.id,
+      item_id: this.props.item.id,
       name: this.props.item.name,
       devCred: this.props.item.devCred,
       basePrice: this.props.item.basePrice,
@@ -29,8 +29,8 @@ class ItemForm extends Component {
     curItem.quantity = 1;
     if (this.props.cart.items.length === 0 ) {
       this.props.dispatch(newCart(curItem))
-    } else if (itemExists(this.props.cart.items, curItem.id)) {
-      this.props.dispatch(updateQuantity(curItem.id, 1))
+    } else if (itemExists(this.props.cart.items, curItem.item_id)) {
+      this.props.dispatch(updateQuantity(curItem.item_id, 1))
     } else {
       this.props.dispatch(addItem(curItem))
     }
@@ -48,7 +48,7 @@ class ItemForm extends Component {
     return(
       <div className='items'>
         <button onClick={this.addOne}>+</button>
-        <p>{this.props.item.quantity ? this.props.item.quantity : getQuantity(this.props.cart.items, this.props.item.id)}</p>
+        <p>{getQuantity(this.props.cart.items, this.props.item.id)}</p>
         <button onClick={this.minusOne}>-</button>
       </div>
     )

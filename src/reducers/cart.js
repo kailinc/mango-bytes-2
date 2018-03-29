@@ -17,7 +17,7 @@ const cartReducer = (state = cartReducerDefaultState, action) => {
     case 'UPDATE_QUANTITY':
       return Object.assign({}, state, {
         items: state.items.map((cur, i) => {
-          if (cur.id === action.itemId) {
+          if (cur.item_id === action.item_id) {
             cur.quantity += action.quantity
           }
           return cur

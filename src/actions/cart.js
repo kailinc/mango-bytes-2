@@ -8,9 +8,9 @@ export const addItem = (item) => ({
   item: item
 })
 
-export const updateQuantity = (itemId, quantity) => ({
+export const updateQuantity = (item_id, quantity) => ({
     type: 'UPDATE_QUANTITY',
-    itemId: itemId,
+    item_id: item_id,
     quantity: quantity
 });
 

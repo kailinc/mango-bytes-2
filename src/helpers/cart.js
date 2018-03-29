@@ -1,7 +1,7 @@
 
-export const itemExists = function (items, itemId) {
+export const itemExists = function (items, item_id) {
   for (let i = 0; i < items.length; i++) {
-    if (items[i].id === itemId) {
+    if (items[i].item_id === item_id) {
       return true
     }
   }
@@ -10,7 +10,7 @@ export const itemExists = function (items, itemId) {
 
 export const getQuantity = function (items, itemId) {
   for (let i = 0; i < items.length; i++) {
-    if (items[i].id === itemId) {
+    if (items[i].item_id === itemId) {
       return items[i].quantity
     }
   }
