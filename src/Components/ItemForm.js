@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { newCart, updateQuantity, addItem, newAttributes } from '../actions/cart';
+import { newCart, updateQuantity, addItem, newAttributes, updateAttributes, addAttributes } from '../actions/cart';
 import { itemExists, getQuantity } from '../helpers/cart';
 
 class ItemForm extends Component {
@@ -48,8 +48,10 @@ class ItemForm extends Component {
       this.props.dispatch(newAttributes(attributes))
     } else if (itemExists(this.props.cart.items, curItem.item_id)) {
       this.props.dispatch(updateQuantity(curItem.item_id, 1))
+      this.props.dispatch(updateAttributes(attributes, 1))
     } else {
       this.props.dispatch(addItem(curItem))
+//      this.props.dispatch(addAttributes(attributes, 1))
     }
   }
 
