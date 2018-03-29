@@ -56,10 +56,13 @@ class ItemForm extends Component {
   }
 
   minusOne() {
-    let curItem = this.reformatItem();
+    let curItem = this.formatItem();
+    let attributes = this.formatAttributes();
+
     if (this.props.cart.items.length > 0) {
       if (itemExists(this.props.cart.items, curItem.item_id)) {
         this.props.dispatch(updateQuantity(curItem.item_id, -1))
+        this.props.dispatch(updateAttributes(attributes, -1))
       }
     }
   }

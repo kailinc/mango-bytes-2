@@ -47,7 +47,7 @@ const cartReducer = (state = cartReducerDefaultState, action) => {
             }
           }
           return cur
-        })
+        }).filter((attribute) => attribute.exp > 0)
       });
     default:
       return state;
