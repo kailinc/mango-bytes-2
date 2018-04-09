@@ -45,7 +45,7 @@ class ItemForm extends Component {
       this.props.dispatch(newAttributes(attributes))
     } else if (itemExists(this.props.cart.items, curItem.item_id)) {
       this.props.dispatch(updateQuantity(curItem.item_id, 1))
-//      this.props.dispatch(updateAttributes(attributes, 1))
+      this.props.dispatch(updateAttributes(attributes, 1))
     } else {
 //      let atts = seperateAttr(this.props.cart.attributes, attributes);
 //      let newAtt = atts[0];

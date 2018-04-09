@@ -39,15 +39,16 @@ const cartReducer = (state = cartReducerDefaultState, action) => {
         attributes: action.attributes
       });
     case 'UPDATE_ATTRIBUTES':
+      let attObj = {}
+      for (let att in action.attributes) {
+         if (state.attributes.hasOwnProperty(att)) {
+           attObj[att] = action.attributes[att] + state.attributes[att]
+         } else {
+           attObj[att] = action.attributes[att]
+         }
+      }
       return Object.assign({}, state, {
-        attributes: state.attributes.map((cur) => {
-          for (let i = 0; i < action.attributes.length; i++) {
-            if (cur.name === action.attributes[i].name) {
-              cur.exp += (action.attributes[i].exp * action.quantity)
-            }
-          }
-          return cur
-        }).filter((attribute) => attribute.exp > 0)
+        attributes: attObj
       });
     case 'ADD_ATTRIBUTES':
         return {
