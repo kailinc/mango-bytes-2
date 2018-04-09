@@ -42,9 +42,12 @@ const cartReducer = (state = cartReducerDefaultState, action) => {
       let attObj = {}
       for (let att in action.attributes) {
          if (state.attributes.hasOwnProperty(att)) {
-           attObj[att] = action.attributes[att] + state.attributes[att]
+           attObj[att] = (action.attributes[att] * action.quantity) + state.attributes[att]
          } else {
-           attObj[att] = action.attributes[att]
+           attObj[att] = action.attributes[att] * action.quantity
+         }
+         if (attObj[att] < 0) {
+           delete attObj[att]
          }
       }
       return Object.assign({}, state, {
