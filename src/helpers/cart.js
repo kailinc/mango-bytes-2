@@ -45,3 +45,12 @@ export const seperateAttr = function (curAttributes, attributes) {
   }
   return [newAtt, dupAtt]
 }
+
+export const getAttr = function (attributes, skill) {
+  for (let i = 0; i < attributes.length; i++) {
+    if (attributes[i].name === skill) {
+      return attributes[i].exp;
+    }
+  }
+  return 0;
+}
