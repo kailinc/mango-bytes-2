@@ -39,7 +39,8 @@ const cartReducer = (state = cartReducerDefaultState, action) => {
         attributes: action.attributes
       });
     case 'UPDATE_ATTRIBUTES':
-      let attObj = {}
+      let attObj = Object.assign({}, state.attributes);
+
       for (let att in action.attributes) {
          if (state.attributes.hasOwnProperty(att)) {
            attObj[att] = (action.attributes[att] * action.quantity) + state.attributes[att]
@@ -50,9 +51,10 @@ const cartReducer = (state = cartReducerDefaultState, action) => {
            delete attObj[att]
          }
       }
-      return Object.assign({}, state, {
+      return {
+        ...state,
         attributes: attObj
-      });
+      };
     case 'ADD_ATTRIBUTES':
         return {
             ...state,
