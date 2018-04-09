@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { newCart, updateQuantity, addItem, newAttributes, updateAttributes, addAttributes } from '../actions/cart';
-import { itemExists, getQuantity } from '../helpers/cart';
+import { itemExists, getQuantity, seperateAttr } from '../helpers/cart';
 
 class ItemForm extends Component {
   constructor(props){
@@ -50,8 +50,13 @@ class ItemForm extends Component {
       this.props.dispatch(updateQuantity(curItem.item_id, 1))
       this.props.dispatch(updateAttributes(attributes, 1))
     } else {
+      let atts = seperateAttr(this.props.cart.attributes, attributes);
+      let newAtt = atts[0];
+      let dupAtt = atts[1];
+
       this.props.dispatch(addItem(curItem))
-//      this.props.dispatch(addAttributes(attributes, 1))
+    //  this.props.dispatch(updateAttributes(duplicateAttr, 1))
+  //    this.props.dispatch(addAttributes(newAttr, 1))
     }
   }
 

@@ -29,3 +29,19 @@ export const getTotal = function (items) {
 export const convertToDollars = function (num) {
   return '$' + num.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g)
 }
+
+export const seperateAttr = function (curAttributes, attributes) {
+  let newAtt = attributes.splice(0);
+  let dupAtt = []
+
+  for (let i = 0; i < curAttributes.length; i++) {
+    for (let j = 0; j < newAtt.length; j++) {
+      if (curAttributes[i].name === newAtt[j].name) {
+        const removed = newAtt.splice(j, 1);
+        dupAtt.push(removed[0]);
+        break;
+      }
+    }
+  }
+  return [newAtt, dupAtt]
+}
