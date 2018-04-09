@@ -6,17 +6,11 @@ import Attribute from './Attribute';
 
 class Skill extends Component {
   render(){
-    // const attribute = getAttr(this.props.cart.attributes, this.props.skill)
     const exp = this.props.user.token ? this.props.user[this.props.skill] : 0
-    // const num = this.props.user.token ? attribute: 0
-    // return(
-    //   <div>
-    //     <p>{this.props.skill}: {exp} <Attribute num={num}/></p>
-    //   </div>
-    // )
+    const num = this.props.cart.attributes[this.props.skill] || 0
     return(
       <div>
-        <p>{this.props.skill}: {exp}</p>
+        <p>{this.props.skill}: {exp} <Attribute num={num}/></p>
       </div>
     )
   }
