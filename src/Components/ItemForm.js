@@ -27,15 +27,12 @@ class ItemForm extends Component {
 
   formatAttributes() {
     let attributes = this.props.item.attributes;
-    let formatted = []
+    let formatted = {}
     for (let i = 0; i < attributes.length; i++) {
-      const attribute = {
-        name: attributes[i].name,
-        exp: attributes[i].exp
-      }
-      formatted.push(attribute);
+      formatted[attributes[i].name] = attributes[i].exp
     }
     return formatted;
+
   }
 
   addOne() {
@@ -45,29 +42,29 @@ class ItemForm extends Component {
 
     if (this.props.cart.items.length === 0 ) {
       this.props.dispatch(newCart(curItem))
-      this.props.dispatch(newAttributes(attributes))
+//      this.props.dispatch(newAttributes(attributes))
     } else if (itemExists(this.props.cart.items, curItem.item_id)) {
       this.props.dispatch(updateQuantity(curItem.item_id, 1))
-      this.props.dispatch(updateAttributes(attributes, 1))
+//      this.props.dispatch(updateAttributes(attributes, 1))
     } else {
-      let atts = seperateAttr(this.props.cart.attributes, attributes);
-      let newAtt = atts[0];
-      let dupAtt = atts[1];
+//      let atts = seperateAttr(this.props.cart.attributes, attributes);
+//      let newAtt = atts[0];
+//      let dupAtt = atts[1];
 
       this.props.dispatch(addItem(curItem))
-      this.props.dispatch(updateAttributes(dupAtt, 1));
-      this.props.dispatch(addAttributes(newAtt));
+//      this.props.dispatch(updateAttributes(dupAtt, 1));
+//      this.props.dispatch(addAttributes(newAtt));
     }
   }
 
   minusOne() {
     let curItem = this.formatItem();
-    let attributes = this.formatAttributes();
+//    let attributes = this.formatAttributes();
 
     if (this.props.cart.items.length > 0) {
       if (itemExists(this.props.cart.items, curItem.item_id)) {
         this.props.dispatch(updateQuantity(curItem.item_id, -1))
-        this.props.dispatch(updateAttributes(attributes, -1))
+//        this.props.dispatch(updateAttributes(attributes, -1))
       }
     }
   }
