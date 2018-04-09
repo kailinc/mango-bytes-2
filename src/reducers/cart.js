@@ -1,7 +1,7 @@
 const cartReducerDefaultState = {
   items: [],
   cost: 0,
-  attributes: []
+  attributes: {}
 };
 
 const cartReducer = (state = cartReducerDefaultState, action) => {
