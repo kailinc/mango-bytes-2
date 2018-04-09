@@ -34,3 +34,8 @@ export const updateAttributes = (attributes, quantity) => ({
     attributes: attributes,
     quantity: quantity
 });
+
+export const addAttributes = (attributes) => ({
+    type: 'ADD_ATTRIBUTES',
+    attributes: attributes
+});

@@ -49,6 +49,11 @@ const cartReducer = (state = cartReducerDefaultState, action) => {
           return cur
         }).filter((attribute) => attribute.exp > 0)
       });
+    case 'ADD_ATTRIBUTES':
+        return {
+            ...state,
+            attributes: state.attributes.concat(action.attributes)
+        };
     default:
       return state;
   }

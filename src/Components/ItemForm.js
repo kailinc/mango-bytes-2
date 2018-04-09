@@ -56,7 +56,7 @@ class ItemForm extends Component {
 
       this.props.dispatch(addItem(curItem))
       this.props.dispatch(updateAttributes(dupAtt, 1));
-  //    this.props.dispatch(addAttributes(newAttr, 1))
+      this.props.dispatch(addAttributes(newAtt));
     }
   }
 
