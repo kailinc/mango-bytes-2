@@ -47,7 +47,7 @@ const cartReducer = (state = cartReducerDefaultState, action) => {
          } else {
            attObj[att] = action.attributes[att] * action.quantity
          }
-         if (attObj[att] < 0) {
+         if (attObj[att] <= 0) {
            delete attObj[att]
          }
       }
