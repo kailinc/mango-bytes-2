@@ -20,6 +20,12 @@ class Checkout extends Component {
     this.setState((prevState) => {
       return {stage: prevState.stage + 1}
     })
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    });
+
   }
 
   determineContent() {
