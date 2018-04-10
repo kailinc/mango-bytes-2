@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import OrderSummary from '../Components/OrderSummary';
 import ItemTable from '../Components/ItemTable';
 import Shipping from '../Components/Shipping';
+import Payment from '../Components/Payment';
 
 class Checkout extends Component {
   constructor() {
@@ -27,7 +28,10 @@ class Checkout extends Component {
         return <ItemTable stage={this.state.stage}/>;
         break;
       case 1:
-        return <Shipping/>
+        return <Shipping handleAdvance={() => this.advance()}/>
+        break;
+      case 2:
+        return <Payment/>
         break;
       default:
         break;

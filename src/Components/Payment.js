@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Shipping extends Component {
+class Payment extends Component {
   constructor() {
     super()
     this.state = {
@@ -12,18 +12,18 @@ class Shipping extends Component {
     return (
       <div className="cart-col">
         <div className="cart-header">
-          <h3>Step 2. Shipping Information</h3>
+          <h3>Step 3. Payment</h3>
         </div>
         <div className="cart-table">
-          <p>fill out some information</p>
+          <p>payment information and stuff</p>
           <form>
             <input/>
           </form>
         </div>
-        <button onClick={this.props.handleAdvance}>Payment</button>
+        <button>Place Order</button>
       </div>
     )
   }
 }
 
-export default Shipping;
+export default Payment;
