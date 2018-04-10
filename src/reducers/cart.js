@@ -60,6 +60,11 @@ const cartReducer = (state = cartReducerDefaultState, action) => {
             ...state,
             attributes: state.attributes.concat(action.attributes)
         };
+    case 'CLEAR_ATTRIBUTES':
+      return {
+        ...state,
+        attributes: action.attributes
+      };
     default:
       return state;
   }

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import CheckoutItem from './CheckoutItem';
-import { clearCart } from '../actions/cart';
+import { clearCart, clearAttributes } from '../actions/cart';
 
 class CartTable extends Component {
   constructor(props) {
@@ -18,6 +18,7 @@ class CartTable extends Component {
 
   clearCart() {
     this.props.dispatch(clearCart());
+    this.props.dispatch(clearAttributes());
   }
 
   render() {

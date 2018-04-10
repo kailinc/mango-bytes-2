@@ -39,3 +39,8 @@ export const addAttributes = (attributes) => ({
     type: 'ADD_ATTRIBUTES',
     attributes: attributes
 });
+
+export const clearAttributes = () => ({
+    type: 'CLEAR_ATTRIBUTES',
+    attributes: {}
+});
