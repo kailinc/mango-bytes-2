@@ -11,6 +11,9 @@ class LogOut extends Component {
       .then((response) => {
         this.props.dispatch(signOut())
       })
+      .then(() => {
+        localStorage.clear()
+      })
       .catch((error) => {
         console.log(error)
       })

@@ -22,9 +22,9 @@ class CheckoutItem extends Component {
           <img className='item-hr-img' src={this.props.item.img} alt="an item in your cart"/>
         </div>
         <div>
-          <p>{this.props.item.name}</p>
+          <h3>{this.props.item.name}</h3>
           <p>{this.props.item.devCred}</p>
-          <p>{this.props.item.attributes}</p>
+          { this.props.item.attributes.map((cur) => <p>{cur.name}: +{cur.exp}</p> ) }
         </div>
         <div>
           <p>{convertToDollars(this.props.item.basePrice)}</p>
