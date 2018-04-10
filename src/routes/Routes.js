@@ -12,6 +12,7 @@ import LogOut from '../pages/LogOut';
 import Shop from '../pages/Shop';
 import ItemPage from '../pages/ItemPage';
 import Footer from '../Components/Footer';
+import Confirmation from '../pages/Confirmation';
 
 class Routes extends Component {
 
@@ -30,6 +31,7 @@ class Routes extends Component {
                 <Route path="/log-out" render={()=> <LogOut handleLogOut={this.props.handleLogOut}/>} exact={true}/>
                 <Route path="/all" component={Shop} />
                 <Route path="/item/:id" component={ItemPage} />
+                <Route path="/confirmation" component={Confirmation} />
                 <Route component={ NotFoundPage }/>
               </Switch>
             </div>

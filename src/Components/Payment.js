@@ -1,14 +1,27 @@
 import React, { Component } from 'react';
 
+import { Redirect } from 'react-router-dom';
+
 class Payment extends Component {
   constructor() {
     super()
     this.state = {
-      name: ''
+      name: '',
+      paymentSuccess: false
     }
+    this.handlePayment = this.handlePayment.bind(this);
+  }
+
+  handlePayment() {
+    this.setState({
+      paymentSuccess: true
+    })
   }
 
   render() {
+    if (this.state.paymentSuccess) {
+      return <Redirect to="/confirmation"/>
+    }
     return (
       <div className="cart-col">
         <div className="cart-header">
@@ -20,7 +33,7 @@ class Payment extends Component {
             <input/>
           </form>
         </div>
-        <button>Place Order</button>
+        <button onClick={this.handlePayment}>Place Order</button>
       </div>
     )
   }
