@@ -13,7 +13,7 @@ class CheckoutItem extends Component {
   }
 
   removeItem() {
-    this.props.dispatch(removeItem(this.props.item.id));
+    this.props.dispatch(removeItem(this.props.item.item_id));
   }
   render() {
     return(
