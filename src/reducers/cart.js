@@ -38,6 +38,11 @@ const cartReducer = (state = cartReducerDefaultState, action) => {
       return Object.assign({}, state, {
         attributes: action.attributes
       });
+    case 'ADD_ATTRIBUTES':
+        return {
+            ...state,
+            attributes: state.attributes.concat(action.attributes)
+        };
     case 'UPDATE_ATTRIBUTES':
       let attObj = Object.assign({}, state.attributes);
 
@@ -55,11 +60,21 @@ const cartReducer = (state = cartReducerDefaultState, action) => {
         ...state,
         attributes: attObj
       };
-    case 'ADD_ATTRIBUTES':
-        return {
-            ...state,
-            attributes: state.attributes.concat(action.attributes)
-        };
+    case 'REMOVE_ATTRIBUTES':
+      let newAtt = Object.assign({}, state.attributes);
+
+      for (let i = 0; i < action.attributes.length; i++) {
+          let name = action.attributes[i].name
+          let exp = action.attributes[i].exp
+          newAtt[name] = newAtt[name] - (exp * action.quantity)
+          if (newAtt[name] <= 0) {
+            delete newAtt[name]
+          }
+      }
+      return {
+        ...state,
+        attributes: newAtt
+      };
     case 'CLEAR_ATTRIBUTES':
       return {
         ...state,

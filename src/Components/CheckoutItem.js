@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import ItemForm from './ItemForm';
-import { removeItem } from '../actions/cart';
+import { removeItem, removeAttributes } from '../actions/cart';
 import { convertToDollars } from '../helpers/cart';
 
 class CheckoutItem extends Component {
@@ -14,6 +14,9 @@ class CheckoutItem extends Component {
 
   removeItem() {
     this.props.dispatch(removeItem(this.props.item.item_id));
+    this.props.dispatch(removeAttributes(this.props.item.attributes, this.props.item.quantity))
+    console.log("removeItem(): this is attributes", this.props.item.attributes);
+    console.log("removeItem(): this is quantity", this.props.item.quantity);
   }
   render() {
     return(

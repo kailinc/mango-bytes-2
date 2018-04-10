@@ -14,18 +14,24 @@ export const updateQuantity = (item_id, quantity) => ({
     quantity: quantity
 });
 
-export const clearCart = () => ({
-    type: 'CLEAR_CART',
-    items: []
-});
 
 export const removeItem = (item_id) => ({
     type: 'REMOVE_ITEM',
     item_id: item_id
 });
 
+export const clearCart = () => ({
+    type: 'CLEAR_CART',
+    items: []
+});
+
 export const newAttributes = (attributes) => ({
     type: 'NEW_ATTRIBUTES',
+    attributes: attributes
+});
+
+export const addAttributes = (attributes) => ({
+    type: 'ADD_ATTRIBUTES',
     attributes: attributes
 });
 
@@ -35,9 +41,10 @@ export const updateAttributes = (attributes, quantity) => ({
     quantity: quantity
 });
 
-export const addAttributes = (attributes) => ({
-    type: 'ADD_ATTRIBUTES',
-    attributes: attributes
+export const removeAttributes = (attributes, quantity) => ({
+    type: 'REMOVE_ATTRIBUTES',
+    attributes: attributes,
+    quantity: quantity
 });
 
 export const clearAttributes = () => ({
