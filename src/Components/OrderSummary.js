@@ -49,8 +49,7 @@ class OrderSummary extends Component {
           <div className="summary-row">
             <p>GAINS:</p>
             <div>
-              <p>JavaScript: <span className="increase-pts checkout-green">+2</span></p>
-              <p>JavaScript: <span className="increase-pts checkout-green">+2</span></p>
+              {Object.keys(this.props.cart.attributes).map((key) => <p>{key}: <span className="increase-pts checkout-green">+{this.props.cart.attributes[key]}</span></p>)}
             </div>
           </div>
           <div className="summary-row">
