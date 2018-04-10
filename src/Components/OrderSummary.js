@@ -14,10 +14,17 @@ class OrderSummary extends Component {
     }
     this.submitPromo = this.submitPromo.bind(this)
     this.handleChange = this.handleChange.bind(this)
+    this.handleCheckout = this.handleCheckout.bind(this)
   }
 
   handleChange(e) {
     this.setState({promoCode: e.target.value})
+  }
+
+  handleCheckout() {
+    if (this.props.cart.items.length > 0) {
+      this.props.handleCheckout();
+    }
   }
 
   submitPromo(e) {
@@ -72,17 +79,19 @@ class OrderSummary extends Component {
             <p>TOTAL:</p>
             <p>{convertToDollars(afterDiscount)}</p>
           </div>
-        <div className="summary-row">
-          <form className="checkout-form" onSubmit={this.submitPromo}>
-            <p className="checkout-info">PROMO CODES ARE CASE SENSITIVE</p>
-            <input placeholder="PROMO CODE" value={this.state.promoCode} onChange={this.handleChange}/>
-            <p className="checkout-info">Casing & hyphens must be exact</p>
-            <button className="promo-btn" onSubmit={this.submitPromo}>APPLY</button>
-          </form>
-        </div>
-        <div className="summary-row">
-          <button className="checkout-btn">CHECKOUT</button>
-        </div>
+        {
+          this.props.stage === 0 ? <div><div className="summary-row">
+            <form className="checkout-form" onSubmit={this.submitPromo}>
+              <p className="checkout-info">PROMO CODES ARE CASE SENSITIVE</p>
+              <input placeholder="PROMO CODE" value={this.state.promoCode} onChange={this.handleChange}/>
+              <p className="checkout-info">Casing & hyphens must be exact</p>
+              <button className="promo-btn" onSubmit={this.submitPromo}>APPLY</button>
+            </form>
+          </div>
+          <div className="summary-row">
+            <button className="checkout-btn" onClick={this.handleCheckout}>CHECKOUT</button>
+          </div></div> : <p></p>
+        }
         </div>
       </div>
     )
