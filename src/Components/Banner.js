@@ -40,9 +40,9 @@ class Banner extends Component {
         </div>
 
         <div className="bottom">
-          <form onSubmit={this.handleSubmit}>
-            <label>
-              <input type='text' value={this.state.goal} onChange={this.handleChange}/>
+          <form className="goalForm" onSubmit={this.handleSubmit}>
+            <label className="goalLabel">
+              <input className="goalInput" type='text' value={this.state.goal} onChange={this.handleChange}/>
             </label>
           </form>
         </div>

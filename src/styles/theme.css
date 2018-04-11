@@ -95,19 +95,19 @@
   color: black;
 }
 
-form {
+.goalForm {
   text-align: center;
   margin: 0 auto;
 }
 
-label {
+.goalLabel {
   display: block;
   letter-spacing: 4px;
   padding-top: 30px;
   text-align: center;
 }
 
-label .label-text {
+.goalLabel .label-text {
   color: #9B9B9B;
   /*this is so that when a user clicks on label, you can input text into the input*/
   cursor: text;
@@ -122,7 +122,7 @@ label .label-text {
   transition: all 0.3s;
 }
 
-label input {
+.goalLabel .goalInput {
   background-color: transparent;
   border: 0;
   border-bottom: 2px solid #4A4A4A;
@@ -138,12 +138,12 @@ label input {
   width: 200px;
 }
 
-label input:focus {
+.goalLabel .goalInput:focus {
   max-width: 100%;
-  /*when user focuses on the input, the width increases to 400px, this makes the border line larger*/
   width: 400px;
 }
-label input:focus + .label-text {
+
+.goalLabel .goalInput:focus + .label-text {
   color: #F0F0F0;
   font-size: 13px;
   -moz-transform: translateY(-74px);
@@ -151,10 +151,8 @@ label input:focus + .label-text {
   -webkit-transform: translateY(-74px);
   transform: translateY(-74px);
 }
-/*if there is value at the input of label, the label does not collapse back together
-it will stay on top
-this is so cool*/
-label input:valid + .label-text {
+
+.goalLabel .goalInput:valid + .label-text {
   font-size: 13px;
   -moz-transform: translateY(-74px);
   -ms-transform: translateY(-74px);
