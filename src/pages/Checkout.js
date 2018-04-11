@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
 
+import { StripeProvider } from 'react-stripe-elements';
+
 import OrderSummary from '../Components/OrderSummary';
 import ItemTable from '../Components/ItemTable';
 import Shipping from '../Components/Shipping';
 import Payment from '../Components/Payment';
+
+const dotenv = require('dotenv')
+
 
 class Checkout extends Component {
   constructor() {
@@ -37,7 +42,10 @@ class Checkout extends Component {
         return <Shipping handleAdvance={() => this.advance()}/>
         break;
       case 2:
-        return <Payment/>
+        return (
+          <StripeProvider apiKey={process.env.STRIPE_API_KEY}>
+            <Payment/>
+          </StripeProvider>)
         break;
       default:
         break;
