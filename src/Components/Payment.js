@@ -32,7 +32,7 @@ class Payment extends Component {
         </div>
         <div className="cart-table">
           <Elements>
-            <InjectedCheckoutForm />
+            <InjectedCheckoutForm fontSize="18px"/>
           </Elements>
         </div>
         <button onClick={this.handlePayment}>Place Order</button>

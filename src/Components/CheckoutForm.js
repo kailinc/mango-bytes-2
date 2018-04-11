@@ -1,5 +1,14 @@
 import React, {Component} from 'react';
-import { injectStripe } from 'react-stripe-elements';
+import { injectStripe,
+	CardElement,
+  CardNumberElement,
+  CardExpiryElement,
+  CardCVCElement,
+  PostalCodeElement,
+  PaymentRequestButtonElement,
+  StripeProvider,
+  Elements,
+} from 'react-stripe-elements';
 
 import CardSection from './CardSection';
 
@@ -16,11 +25,58 @@ class CheckoutForm extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <CardSection />
-        <button>Confirm order</button>
+          <form onSubmit={this.handleSubmit}>
+						<label>
+              Name on Card
+            </label>
+            <label>
+              Card number
+              <CardNumberElement
+                {...createOptions(this.props.fontSize)}
+              />
+            </label>
+            <label>
+              Expiration date
+              <CardExpiryElement
+                {...createOptions(this.props.fontSize)}
+              />
+            </label>
+            <label>
+              CVC
+              <CardCVCElement
+                {...createOptions(this.props.fontSize)}
+              />
+            </label>
+            <label>
+              Postal code
+              <PostalCodeElement
+                {...createOptions(this.props.fontSize)}
+              />
+            </label>
+            <button>Pay</button>
+          </form>
       </form>
     );
   }
 }
+
+const createOptions = (fontSize) => {
+  return {
+    style: {
+      base: {
+        fontSize,
+        color: '#424770',
+        letterSpacing: '0.025em',
+        fontFamily: 'Source Code Pro, Menlo, monospace',
+        '::placeholder': {
+          color: '#aab7c4',
+        },
+      },
+      invalid: {
+        color: '#9e2146',
+      },
+    },
+  };
+};
 
 export default injectStripe(CheckoutForm);
