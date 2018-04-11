@@ -620,3 +620,23 @@ a {
   color: black;
   font-weight: bold;
 }
+
+.inputBox {
+  padding: 13px 10px 13px 0;
+}
+
+.inputField {
+  padding: 0 14px;
+  border: 1px solid #c8cbcc;
+  height: 48px;
+  transition: all .3s;
+}
+
+.inputField:focus {
+  border-bottom: 2px solid black;
+  outline-width: 0;
+}
+
+.half {
+  width: 50%;
+}
