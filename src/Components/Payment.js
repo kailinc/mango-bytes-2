@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 
 import { Redirect } from 'react-router-dom';
+import {Elements} from 'react-stripe-elements';
+
+import InjectedCheckoutForm from './CheckoutForm';
 
 class Payment extends Component {
   constructor() {
@@ -28,10 +31,9 @@ class Payment extends Component {
           <h3>Step 3. Payment</h3>
         </div>
         <div className="cart-table">
-          <p>payment information and stuff</p>
-          <form>
-            <input/>
-          </form>
+          <Elements>
+            <InjectedCheckoutForm />
+          </Elements>
         </div>
         <button onClick={this.handlePayment}>Place Order</button>
       </div>

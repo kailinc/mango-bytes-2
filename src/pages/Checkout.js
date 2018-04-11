@@ -43,7 +43,7 @@ class Checkout extends Component {
         break;
       case 2:
         return (
-          <StripeProvider apiKey={process.env.STRIPE_API_KEY}>
+          <StripeProvider apiKey="pk_test_54gJjeqvMB18TplKh34AQioV">
             <Payment/>
           </StripeProvider>)
         break;
