@@ -662,3 +662,8 @@ a {
   background-color: white;
   pointer-events: none;
 }
+
+.inputBox .inputField:valid + .inputLabel{
+  font-size: 12px;
+  top: -55px;
+}

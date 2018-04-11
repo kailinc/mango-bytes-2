@@ -62,7 +62,7 @@ class Shipping extends Component {
           <form>
 
             <div className="inputBox">
-              <input className="inputField half" required/>
+              <input type="text" className="inputField half" required/>
               <label className="inputLabel">FIRST NAME</label>
             </div>
 
