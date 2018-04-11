@@ -623,20 +623,42 @@ a {
 
 .inputBox {
   padding: 13px 10px 13px 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .inputField {
+  margin-top: 34px;
   padding: 0 14px;
   border: 1px solid #c8cbcc;
   height: 48px;
   transition: all .3s;
 }
 
-.inputField:focus {
+.inputBox .inputField:focus + .inputLabel {
+  top: -55px;
+  font-size: 12px;
+}
+
+.inputBox .inputField:focus {
   border-bottom: 2px solid black;
   outline-width: 0;
 }
 
 .half {
   width: 50%;
+}
+
+.inputLabel {
+  font-size: 14px;
+  transition: all .3s;
+  padding: 2px 5px 1px 5px;
+  margin-left: 10px;
+  position: relative;
+  left: 0;
+  top: -34px;
+  cursor: text;
+  width: 7em;
+  background-color: white;
+  pointer-events: none;
 }
