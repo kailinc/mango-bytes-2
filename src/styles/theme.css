@@ -673,10 +673,10 @@ a {
   border-bottom: 2px solid #009736;
 }
 
-.inputBox .inputField:invalid + .inputLabel{
+.inputBox .touched:invalid + .inputLabel{
   color: #f00;
 }
 
-.inputField:invalid {
+.touched:invalid {
   border-bottom: 2px solid #f00;
 }

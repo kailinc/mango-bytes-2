@@ -4,19 +4,21 @@ class InputBox extends Component {
   constructor() {
     super()
     this.state = {
-      class: ''
+      inputClass: 'inputField half'
     }
     this.addTouchedClass = this.addTouchedClass.bind(this);
   }
 
   addTouchedClass() {
-    console.log("input is clicked");
+    this.setState((prevState) => {
+      return { inputClass: prevState.inputClass + " touched" }
+    })
   }
   render() {
     return (
       <div className="inputBox">
-        <input type="text" className="inputField half" required onClick={this.addTouchedClass}/>
-        <label className="inputLabel">FIRST NAME</label>
+        <input type="text" className={this.state.inputClass} required onClick={this.addTouchedClass}/>
+        <label className="inputLabel">{this.props.label}</label>
       </div>
     )
   }

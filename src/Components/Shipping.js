@@ -68,7 +68,7 @@ class Shipping extends Component {
           <hr></hr>
           <h3>Shipping Address</h3>
           <form>
-            <InputBox/>
+            <InputBox label="FIRST NAME"/>
           </form>
 
           <h3>Delivery Method</h3>
