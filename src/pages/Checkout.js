@@ -7,9 +7,6 @@ import ItemTable from '../Components/ItemTable';
 import Shipping from '../Components/Shipping';
 import Payment from '../Components/Payment';
 
-const dotenv = require('dotenv')
-
-
 class Checkout extends Component {
   constructor() {
     super()
@@ -37,16 +34,13 @@ class Checkout extends Component {
     switch(this.state.stage) {
       case 0:
         return <ItemTable stage={this.state.stage}/>;
-        break;
       case 1:
         return <Shipping handleAdvance={() => this.advance()}/>
-        break;
       case 2:
         return (
           <StripeProvider apiKey="pk_test_54gJjeqvMB18TplKh34AQioV">
             <Payment/>
           </StripeProvider>)
-        break;
       default:
         break;
     }

@@ -1,16 +1,10 @@
 import React, {Component} from 'react';
 import { injectStripe,
-	CardElement,
   CardNumberElement,
   CardExpiryElement,
   CardCVCElement,
   PostalCodeElement,
-  PaymentRequestButtonElement,
-  StripeProvider,
-  Elements,
 } from 'react-stripe-elements';
-
-import CardSection from './CardSection';
 
 class CheckoutForm extends Component {
   handleSubmit = (e) => {

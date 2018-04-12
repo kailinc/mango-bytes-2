@@ -1,7 +1,7 @@
 import React, { Component  } from 'react';
 
 import { connect } from 'react-redux';
-import { getAttr } from '../helpers/cart';
+
 import Attribute from './Attribute';
 
 class Skill extends Component {

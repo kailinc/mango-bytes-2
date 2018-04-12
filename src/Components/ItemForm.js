@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { newCart, updateQuantity, addItem, newAttributes, updateAttributes, addAttributes } from '../actions/cart';
-import { itemExists, getQuantity, seperateAttr } from '../helpers/cart';
+import { newCart, updateQuantity, addItem, newAttributes, updateAttributes } from '../actions/cart';
+import { itemExists, getQuantity } from '../helpers/cart';
 
 class ItemForm extends Component {
   constructor(props){

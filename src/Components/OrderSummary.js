@@ -29,7 +29,7 @@ class OrderSummary extends Component {
 
   submitPromo(e) {
     e.preventDefault();
-    if ( this.state.promoCode == process.env.REACT_APP_PROMO_CODE) {
+    if ( this.state.promoCode === process.env.REACT_APP_PROMO_CODE) {
       this.setState({
         promoValue: 10
       })
