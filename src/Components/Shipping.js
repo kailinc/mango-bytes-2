@@ -68,7 +68,17 @@ class Shipping extends Component {
           <hr></hr>
           <h3>Shipping Address</h3>
           <form>
-            <InputBox label="FIRST NAME"/>
+            <InputBox label="FIRST NAME" size="half"/>
+            <InputBox label="LAST NAME" size="half"/>
+            <InputBox label="STREET ADDRESS, PO BOX"/>
+            <InputBox label="APARTMENT, SUITE, BUILDING, FLOOR (OPTIONAL)"/>
+            <InputBox label="CITY/TOWN" size="half"/>
+            <InputBox label="STATE" size="half"/>
+            <InputBox label="ZIP CODE" size="half"/>
+            <InputBox label="COUNTRY"/>
+
+            <InputBox label="PHONE NUMBER"/>
+            <InputBox label="EMAIL"/>
           </form>
 
           <h3>Delivery Method</h3>

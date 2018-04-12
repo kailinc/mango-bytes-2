@@ -4,9 +4,17 @@ class InputBox extends Component {
   constructor() {
     super()
     this.state = {
-      inputClass: 'inputField half'
+      inputClass: 'inputField'
     }
     this.addTouchedClass = this.addTouchedClass.bind(this);
+  }
+
+  componentDidMount() {
+    if (this.props.size) {
+      this.setState((prevState) => {
+        return { inputClass: prevState.inputClass + " "+ this.props.size }
+      })
+    }
   }
 
   addTouchedClass() {
@@ -14,6 +22,7 @@ class InputBox extends Component {
       return { inputClass: prevState.inputClass + " touched" }
     })
   }
+
   render() {
     return (
       <div className="inputBox">
