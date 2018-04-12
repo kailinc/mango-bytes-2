@@ -58,6 +58,7 @@ class Shipping extends Component {
         <div className="cart-table">
           <h3>Delivery Method</h3>
           <label>Please allow 2-3 days for processing</label>
+          <hr></hr>
           <h3>Shipping Address</h3>
           <form>
 
