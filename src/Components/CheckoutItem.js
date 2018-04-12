@@ -15,9 +15,8 @@ class CheckoutItem extends Component {
   removeItem() {
     this.props.dispatch(removeItem(this.props.item.item_id));
     this.props.dispatch(removeAttributes(this.props.item.attributes, this.props.item.quantity))
-    console.log("removeItem(): this is attributes", this.props.item.attributes);
-    console.log("removeItem(): this is quantity", this.props.item.quantity);
   }
+
   render() {
     return(
       <div className="item-hr">
@@ -27,7 +26,7 @@ class CheckoutItem extends Component {
         <div>
           <h3>{this.props.item.name}</h3>
           <p>{this.props.item.devCred}</p>
-          { this.props.item.attributes.map((cur) => <p>{cur.name}: +{cur.exp}</p> ) }
+          { this.props.item.attributes.map((cur, index) => <p key={index}>{cur.name}: +{cur.exp}</p> ) }
         </div>
         <div>
           <p>{convertToDollars(this.props.item.basePrice)}</p>
