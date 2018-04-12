@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 
+import InputBox from './InputBox';
+
 class Shipping extends Component {
   constructor() {
     super()
     this.state = {
       name: ''
     }
+    this.addTouchedClass = this.addTouchedClass.bind(this);
   }
 
   // render() {
@@ -49,6 +52,10 @@ class Shipping extends Component {
   //     </div>
   //   )
   // }
+
+  addTouchedClass() {
+    console.log("input is clicked");
+  }
   render() {
     return (
       <div className="cart-col">
@@ -61,12 +68,7 @@ class Shipping extends Component {
           <hr></hr>
           <h3>Shipping Address</h3>
           <form>
-
-            <div className="inputBox">
-              <input type="text" className="inputField half" required/>
-              <label className="inputLabel">FIRST NAME</label>
-            </div>
-
+            <InputBox/>
           </form>
 
           <h3>Delivery Method</h3>

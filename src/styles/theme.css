@@ -673,10 +673,6 @@ a {
   border-bottom: 2px solid #009736;
 }
 
-.inputField:valid {
-  border-bottom: 2px solid #009736;
-}
-
 .inputBox .inputField:invalid + .inputLabel{
   color: #f00;
 }
