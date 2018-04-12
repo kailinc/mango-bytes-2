@@ -67,20 +67,20 @@ class Shipping extends Component {
           <label>Please allow 2-3 days for processing</label>
           <hr></hr>
           <h3>Shipping Address</h3>
-          <form>
+          <form className="form">
             <InputBox label="FIRST NAME" size="half"/>
             <InputBox label="LAST NAME" size="half"/>
-            <InputBox label="STREET ADDRESS, PO BOX"/>
-            <InputBox label="APARTMENT, SUITE, BUILDING, FLOOR (OPTIONAL)"/>
+            <InputBox label="STREET ADDRESS, PO BOX" size="full"/>
+            <InputBox label="APARTMENT, SUITE, BUILDING, FLOOR (OPTIONAL)" size="full"/>
             <InputBox label="CITY/TOWN" size="half"/>
             <InputBox label="STATE" size="half"/>
             <InputBox label="ZIP CODE" size="half"/>
-            <InputBox label="COUNTRY"/>
+            <InputBox label="COUNTRY" size="full"/>
 
-            <InputBox label="PHONE NUMBER"/>
-            <InputBox label="EMAIL"/>
+            <InputBox label="PHONE NUMBER" size="full"/>
+            <InputBox label="EMAIL" size="full"/>
           </form>
-
+          <hr></hr>
           <h3>Delivery Method</h3>
           <label>FedEx (3-5 Day Delivery)</label>
         </div>

@@ -628,7 +628,6 @@ a {
 }
 
 .inputField {
-  margin-top: 34px;
   padding: 0 14px;
   border: 1px solid #c8cbcc;
   height: 48px;
@@ -649,6 +648,10 @@ a {
   width: 50%;
 }
 
+.full {
+  width: 100%;
+}
+
 .inputLabel {
   font-size: 14px;
   transition: all .3s;
@@ -657,8 +660,8 @@ a {
   position: relative;
   left: 0;
   top: -34px;
+  width: max-content;
   cursor: text;
-  width: 7em;
   background-color: white;
   pointer-events: none;
 }
@@ -679,4 +682,10 @@ a {
 
 .touched:invalid {
   border-bottom: 2px solid #f00;
+}
+
+.form {
+  display: flex;
+  direction: row;
+  flex-wrap: wrap;
 }

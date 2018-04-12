@@ -4,17 +4,16 @@ class InputBox extends Component {
   constructor() {
     super()
     this.state = {
-      inputClass: 'inputField'
+      inputClass: 'inputField',
+      inputBoxClass: 'inputBox'
     }
     this.addTouchedClass = this.addTouchedClass.bind(this);
   }
 
   componentDidMount() {
-    if (this.props.size) {
-      this.setState((prevState) => {
-        return { inputClass: prevState.inputClass + " "+ this.props.size }
-      })
-    }
+    this.setState((prevState) => {
+      return { inputBoxClass: prevState.inputBoxClass + " " + this.props.size }
+    })
   }
 
   addTouchedClass() {
@@ -25,7 +24,7 @@ class InputBox extends Component {
 
   render() {
     return (
-      <div className="inputBox">
+      <div className={this.state.inputBoxClass}>
         <input type="text" className={this.state.inputClass} required onClick={this.addTouchedClass}/>
         <label className="inputLabel">{this.props.label}</label>
       </div>
