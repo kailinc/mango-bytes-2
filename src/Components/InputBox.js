@@ -5,9 +5,13 @@ class InputBox extends Component {
     super()
     this.state = {
       inputClass: 'inputField',
-      inputBoxClass: 'inputBox'
+      inputBoxClass: 'inputBox',
+      value: ''
     }
+
     this.addTouchedClass = this.addTouchedClass.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+
   }
 
   componentDidMount() {
@@ -22,10 +26,17 @@ class InputBox extends Component {
     })
   }
 
+  handleChange(e) {
+    let value = e.target.value;
+    this.setState({
+      value: value
+    })
+  }
+
   render() {
     return (
       <div className={this.state.inputBoxClass}>
-        <input type="text" className={this.state.inputClass} required onClick={this.addTouchedClass}/>
+        <input value={this.state.value} type="text" className={this.state.inputClass} required onClick={this.addTouchedClass} onChange={this.handleChange}/>
         <label className="inputLabel">{this.props.label}</label>
       </div>
     )
