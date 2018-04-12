@@ -5,8 +5,7 @@ class InputBox extends Component {
     super()
     this.state = {
       inputClass: 'inputField',
-      inputBoxClass: 'inputBox',
-      value: ''
+      inputBoxClass: 'inputBox'
     }
 
     this.addTouchedClass = this.addTouchedClass.bind(this);
@@ -28,15 +27,14 @@ class InputBox extends Component {
 
   handleChange(e) {
     let value = e.target.value;
-    this.setState({
-      value: value
-    })
+    console.log("inputBox: value is ", value);
+    this.props.updateValue(this.props.field, value)
   }
 
   render() {
     return (
       <div className={this.state.inputBoxClass}>
-        <input value={this.state.value} type="text" className={this.state.inputClass} required onClick={this.addTouchedClass} onChange={this.handleChange}/>
+        <input value={this.props.value} type="text" className={this.state.inputClass} required onClick={this.addTouchedClass} onChange={(e) => this.handleChange(e)}/>
         <label className="inputLabel">{this.props.label}</label>
       </div>
     )
