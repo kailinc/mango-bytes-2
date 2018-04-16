@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-// import { StripeProvider } from 'react-stripe-elements';
+import { StripeProvider } from 'react-stripe-elements';
 
 import OrderSummary from '../Components/OrderSummary';
 import ItemTable from '../Components/ItemTable';
@@ -36,13 +36,11 @@ class Checkout extends Component {
         return <ItemTable stage={this.state.stage}/>;
       case 1:
         return <Shipping handleAdvance={() => this.advance()}/>
-      // case 2:
-      //   return (
-      //     <StripeProvider apiKey="pk_test_54gJjeqvMB18TplKh34AQioV">
-      //       <Payment/>
-      //     </StripeProvider>)
       case 2:
-        return <Payment/>
+        return (
+          <StripeProvider apiKey="pk_test_54gJjeqvMB18TplKh34AQioV">
+            <Payment/>
+          </StripeProvider>)
       default:
         break;
     }

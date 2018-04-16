@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
 import { Redirect } from 'react-router-dom';
-// import {Elements} from 'react-stripe-elements';
-
+import { Elements } from 'react-stripe-elements';
+import { connect } from 'react-redux';
 import InjectedCheckoutForm from './CheckoutForm';
 
 class Payment extends Component {
@@ -31,9 +31,9 @@ class Payment extends Component {
           <h3>Step 3. Payment</h3>
         </div>
         <div className="cart-table">
-          {/* <Elements> */}
-            <InjectedCheckoutForm fontSize="18px"/>
-          {/* </Elements> */}
+          <Elements>
+            <InjectedCheckoutForm fontSize="18px" userToken={this.props.user.token} userEmail={this.props.user.email}/>
+          </Elements>
         </div>
         <button onClick={this.handlePayment}>Place Order</button>
       </div>
@@ -41,4 +41,10 @@ class Payment extends Component {
   }
 }
 
-export default Payment;
+const mapStateToProps = (state, props) => {
+  return {
+    user: state.user
+  };
+};
+
+export default connect(mapStateToProps)(Payment);
