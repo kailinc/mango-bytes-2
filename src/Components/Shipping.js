@@ -24,6 +24,15 @@ class Shipping extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentWillMount() {
+    if (this.props.user.token) {
+      this.setState({
+        firstName: this.props.user.firstName,
+        lastName: this.props.user.lastName
+      })
+    }
+  }
+
   updateValue(field, value) {
     this.setState({
       [field]: value
@@ -82,4 +91,10 @@ class Shipping extends Component {
   }
 }
 
-export default connect()(Shipping);
+const mapStateToProps = (state, props) => {
+  return {
+    user: state.user
+  };
+};
+
+export default connect(mapStateToProps)(Shipping);
