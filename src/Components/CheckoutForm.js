@@ -44,9 +44,11 @@ class CheckoutForm extends Component {
     let invoice = 123
     let shipping = this.props.shipping
     let description = "Charge for Cart on Mango Bytes 2"
+    let amount = 999
+    let currency = "usd"
 
     this.props.stripe.createToken({name: name})
-      .then((response) => API.checkout(response.token.id, token, email, invoice, shipping, description))
+      .then((response) => API.checkout(response.token.id, token, email, invoice, shipping, description, amount, currency))
       .catch((err) => console.log(err));
 
   }
