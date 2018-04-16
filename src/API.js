@@ -74,7 +74,7 @@ API.showUser = function (id, token) {
   });
 };
 
-API.checkout = function (stripeToken, userToken, email, invoice, shipping, description, amount, currency) {
+API.checkout = function (stripeToken, userToken, email, shipping, description, amount, currency, userId) {
   return axios({
     url: `${origin}/charges`,
     method: 'POST',
@@ -85,11 +85,11 @@ API.checkout = function (stripeToken, userToken, email, invoice, shipping, descr
       charge: {
         stripeToken: stripeToken,
         email: email,
-        invoice: invoice,
         shipping: shipping,
         description: description,
         amount: amount,
-        currency: currency
+        currency: currency,
+        userId: userId
       }
     }
    })

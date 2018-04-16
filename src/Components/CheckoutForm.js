@@ -41,14 +41,16 @@ class CheckoutForm extends Component {
     let name = this.props.shipping.name
     let token = this.props.user.token
     let email = this.props.user.email
-    let invoice = 123
     let shipping = this.props.shipping
     let description = "Charge for Cart on Mango Bytes 2"
     let amount = 999
+    // let amount = this.props.cart.cost
     let currency = "usd"
+    let userId = this.props.user.id
+    let cartId = this.props.cart.id
 
     this.props.stripe.createToken({name: name})
-      .then((response) => API.checkout(response.token.id, token, email, invoice, shipping, description, amount, currency))
+      .then((response) => API.checkout(response.token.id, token, email, shipping, description, amount, currency, userId, cartId))
       .catch((err) => console.log(err));
 
   }
