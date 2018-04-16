@@ -32,7 +32,7 @@ class Payment extends Component {
         </div>
         <div className="cart-table">
           <Elements>
-            <InjectedCheckoutForm fontSize="18px" userToken={this.props.user.token} userEmail={this.props.user.email}/>
+            <InjectedCheckoutForm fontSize="18px"/>
           </Elements>
         </div>
         <button onClick={this.handlePayment}>Place Order</button>
@@ -41,10 +41,11 @@ class Payment extends Component {
   }
 }
 
-const mapStateToProps = (state, props) => {
-  return {
-    user: state.user
-  };
-};
+// const mapStateToProps = (state, props) => {
+//   return {
+//     user: state.user
+//   };
+// };
 
-export default connect(mapStateToProps)(Payment);
+// export default connect(mapStateToProps)(Payment);
+export default Payment;

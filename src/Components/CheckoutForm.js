@@ -6,7 +6,7 @@ import { injectStripe,
   PostalCodeElement,
 } from 'react-stripe-elements';
 
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 
 import API from '../API';
 
@@ -24,7 +24,7 @@ class CheckoutForm extends Component {
     e.preventDefault();
 
     this.props.stripe.createToken({name: 'Jenny Rosen'})
-      .then((data) => API.checkout(data.token.id, this.props.userToken, this.props.userEmail))
+      .then((data) => API.checkout(data.token.id, this.props.user.token, this.props.user.email))
       .catch((err) => console.log(err));
 
   }
@@ -84,11 +84,11 @@ const createOptions = (fontSize) => {
   };
 };
 
-// const mapStateToProps = (state, props) => {
-//   return {
-//     user: state.user
-//   };
-// };
+const mapStateToProps = (state, props) => {
+  return {
+    user: state.user
+  };
+};
 
-export default injectStripe(CheckoutForm);
-// export default connect(mapStateToProps)(CheckoutForm);
+// export default injectStripe(CheckoutForm);
+export default connect(mapStateToProps)(injectStripe(CheckoutForm));
