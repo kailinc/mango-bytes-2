@@ -41,11 +41,4 @@ class Payment extends Component {
   }
 }
 
-// const mapStateToProps = (state, props) => {
-//   return {
-//     user: state.user
-//   };
-// };
-
-// export default connect(mapStateToProps)(Payment);
 export default Payment;

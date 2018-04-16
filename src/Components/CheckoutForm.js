@@ -22,9 +22,31 @@ class CheckoutForm extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    let name = this.props.user.token ? this.props.user.firstName + " " + this.props.user.lastName : "Guest"
+    // check login
+    // if logged in, diff order of api calls
+
+    // member checkout
+    // may already have source and customer for stripe
+    // if have source for stripe,  use that stripe make charge
+    // if don't have source, customer on stripe
+    // create token, create custoemr, create charge
+    // after charge, update cart, user
+
+    // guest checkout
+    // make token, send to back end
+    // back end, create customer, charge
+    // after charge, redirect to confirmation page
+
+
+    let name = this.props.shipping.name
+    let token = this.props.user.token
+    let email = this.props.user.email
+    let invoice = 123
+    let shipping = this.props.shipping
+    let description = "Charge for Cart on Mango Bytes 2"
+
     this.props.stripe.createToken({name: name})
-      .then((data) => API.checkout(data.token.id, this.props.user.token, this.props.user.email))
+      .then((response) => API.checkout(response.token.id, token, email, invoice, shipping, description))
       .catch((err) => console.log(err));
 
   }
@@ -87,7 +109,8 @@ const createOptions = (fontSize) => {
 const mapStateToProps = (state, props) => {
   return {
     user: state.user,
-    cart: state.cart
+    cart: state.cart,
+    shipping: state.shipping
   };
 };
 

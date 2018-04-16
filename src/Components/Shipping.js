@@ -28,7 +28,8 @@ class Shipping extends Component {
     if (this.props.user.token) {
       this.setState({
         firstName: this.props.user.firstName,
-        lastName: this.props.user.lastName
+        lastName: this.props.user.lastName,
+        email: this.props.user.email
       })
     }
   }
@@ -54,6 +55,7 @@ class Shipping extends Component {
       phone: this.state.phone
     }
     this.props.dispatch(newShipping(data));
+    this.props.handleAdvance();
   }
 
   render() {
@@ -71,7 +73,7 @@ class Shipping extends Component {
             <InputBox label="FIRST NAME" size="half" updateValue={this.updateValue} value={this.state.firstName} field="firstName" type="text"/>
             <InputBox label="LAST NAME" size="half" updateValue={this.updateValue} value={this.state.lastName} field="lastName" type="text"/>
             <InputBox label="STREET ADDRESS, PO BOX" size="full" updateValue={this.updateValue} value={this.state.address} field="address" type="text"/>
-            <InputBox label="APARTMENT, SUITE, BUILDING, FLOOR (OPTIONAL)" size="full" updateValue={this.updateValue} value={this.state.apt} field="apt" type="text"/>
+            <InputBox label="APARTMENT, SUITE, BUILDING, FLOOR" size="full" updateValue={this.updateValue} value={this.state.apt} field="apt" type="text"/>
             <InputBox label="CITY/TOWN" size="half" updateValue={this.updateValue} value={this.state.city} field="city" type="text"/>
             <InputBox label="STATE" size="half" updateValue={this.updateValue} value={this.state.state} field="state" type="text"/>
             <InputBox label="ZIP CODE" size="half" updateValue={this.updateValue} value={this.state.zip} field="zipCode" type="number"/>
