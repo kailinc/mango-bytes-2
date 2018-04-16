@@ -74,6 +74,28 @@ API.showUser = function (id, token) {
   });
 };
 
+API.checkout = function (stripeToken, userToken, email) {
+  return axios({
+    url: `${origin}/charges`,
+    method: 'POST',
+    headers: {
+      Authorization: `Token token=${userToken}`
+    },
+    data: {
+      charge: {
+        stripeToken: stripeToken,
+        email: email
+      }
+    }
+   })
+}
+// API.createCustomer = function (data) {
+//   return axios({
+//     url: `https://api.stripe.com/customers`,
+//     user: 'sk_test_q60nMuMw7awlmcjHAOQdTSu0',
+//     data
+//   })
+// }
 
 
 export default API

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import { Redirect } from 'react-router-dom';
-import {Elements} from 'react-stripe-elements';
+// import {Elements} from 'react-stripe-elements';
 
 import InjectedCheckoutForm from './CheckoutForm';
 
@@ -31,9 +31,9 @@ class Payment extends Component {
           <h3>Step 3. Payment</h3>
         </div>
         <div className="cart-table">
-          <Elements>
+          {/* <Elements> */}
             <InjectedCheckoutForm fontSize="18px"/>
-          </Elements>
+          {/* </Elements> */}
         </div>
         <button onClick={this.handlePayment}>Place Order</button>
       </div>
