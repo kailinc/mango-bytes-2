@@ -20,21 +20,22 @@ class InputBox extends Component {
   }
 
   addTouchedClass() {
-    this.setState((prevState) => {
-      return { inputClass: prevState.inputClass + " touched" }
-    })
+    if (!this.state.inputClass.includes("touched")) {
+      this.setState((prevState) => {
+        return { inputClass: prevState.inputClass + " touched" }
+      })
+    }
   }
 
   handleChange(e) {
     let value = e.target.value;
-    console.log("inputBox: value is ", value);
     this.props.updateValue(this.props.field, value)
   }
 
   render() {
     return (
       <div className={this.state.inputBoxClass}>
-        <input value={this.props.value} type="text" className={this.state.inputClass} required onClick={this.addTouchedClass} onChange={(e) => this.handleChange(e)}/>
+        <input value={this.props.value} type={this.props.type} className={this.state.inputClass} required onClick={this.addTouchedClass} onChange={(e) => this.handleChange(e)}/>
         <label className="inputLabel">{this.props.label}</label>
       </div>
     )
