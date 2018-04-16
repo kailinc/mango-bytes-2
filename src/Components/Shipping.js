@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import InputBox from './InputBox';
+
+import { newShipping } from '../actions/shipping';
 
 class Shipping extends Component {
   constructor() {
@@ -41,7 +44,7 @@ class Shipping extends Component {
       name: this.state.firstName + " " + this.state.lastName,
       phone: this.state.phone
     }
-    console.log("handleSubmit() this is data", data);
+    this.props.dispatch(newShipping(data));
   }
 
   render() {
@@ -79,4 +82,4 @@ class Shipping extends Component {
   }
 }
 
-export default Shipping;
+export default connect()(Shipping);
