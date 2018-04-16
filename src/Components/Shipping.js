@@ -18,6 +18,7 @@ class Shipping extends Component {
       email: ''
     }
     this.updateValue = this.updateValue.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   updateValue(field, value) {
@@ -25,6 +26,22 @@ class Shipping extends Component {
       [field]: value
     })
     console.log("Shipping: value is ", value);
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    let data = {
+      address: {
+        line1: this.state.address,
+        line2: this.state.apt,
+        city: this.state.city,
+        postal_code: this.state.zipCode,
+        state: this.state.state,
+        country: this.state.country
+      },
+      name: this.state.firstName + " " + this.state.lastName,
+      phone: this.state.phone
+    }
   }
 
   render() {
@@ -38,7 +55,7 @@ class Shipping extends Component {
           <label>Please allow 2-3 days for processing</label>
           <hr></hr>
           <h3>Shipping Address</h3>
-          <form className="form">
+          <form className="form" onSubmit={this.handleSubmit}>
             <InputBox label="FIRST NAME" size="half" updateValue={this.updateValue} value={this.state.firstName} field="firstName"/>
             <InputBox label="LAST NAME" size="half" updateValue={this.updateValue} value={this.state.lastName} field="lastName"/>
             <InputBox label="STREET ADDRESS, PO BOX" size="full" updateValue={this.updateValue} value={this.state.address} field="address"/>
@@ -50,6 +67,7 @@ class Shipping extends Component {
 
             <InputBox label="PHONE NUMBER" size="full" updateValue={this.updateValue} value={this.state.phone} field="phone"/>
             <InputBox label="EMAIL" size="full" updateValue={this.updateValue} value={this.state.email} field="email"/>
+            <button onSubmit={this.handleSubmit} type="submit" value="Submit">Submit</button>
           </form>
           <hr></hr>
           <h3>Delivery Method</h3>

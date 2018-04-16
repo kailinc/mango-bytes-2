@@ -22,8 +22,8 @@ class CheckoutForm extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-
-    this.props.stripe.createToken({name: 'Jenny Rosen'})
+    let name = this.props.user.token ? this.props.user.firstName + " " + this.props.user.lastName : "Guest"
+    this.props.stripe.createToken({name: name})
       .then((data) => API.checkout(data.token.id, this.props.user.token, this.props.user.email))
       .catch((err) => console.log(err));
 
@@ -86,9 +86,9 @@ const createOptions = (fontSize) => {
 
 const mapStateToProps = (state, props) => {
   return {
-    user: state.user
+    user: state.user,
+    cart: state.cart
   };
 };
 
-// export default injectStripe(CheckoutForm);
 export default connect(mapStateToProps)(injectStripe(CheckoutForm));
