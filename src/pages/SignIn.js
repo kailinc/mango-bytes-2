@@ -3,9 +3,10 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { signIn } from '../actions/user';
-
+import { setCurCart } from '../actions/cart';
 import API from '../API';
 import UIMessage from '../Components/UIMessage';
+import { getCurCart } from '../helpers/cart';
 
 class SignIn extends Component {
   constructor(props) {
@@ -50,9 +51,8 @@ class SignIn extends Component {
         return [response.data.user.id, response.data.user.token]
       })
       .then((data) => API.getOwnCart(data[0], data[1]))
-      .then((response.data.carts) => {
-        
-      })
+      .then((response) => response.data.carts.filter((cart) => !cart.isPaid))
+      .then((data) => this.props.dispatch(setCurCart(data[0].items)))
       .then(() => {
         this.setState({
           loggedIn: true

@@ -3,6 +3,11 @@ export const newCart = (item) => ({
   item: item
 })
 
+export const setCurCart = (items) => ({
+  type: 'SET_CUR_CART',
+  items: items
+})
+
 export const addItem = (item) => ({
   type: 'ADD_ITEM',
   item: item
