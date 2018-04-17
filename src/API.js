@@ -95,5 +95,15 @@ API.checkout = function (stripeToken, userToken, email, shipping, description, a
    })
 }
 
+API.getOwnCart = function (id,token) {
+  return axios({
+    url: `${origin}/own-carts/${id}`,
+    method: 'GET',
+    headers: {
+      Authorization: `Token token=${token}`
+    }
+  });
+};
+
 
 export default API

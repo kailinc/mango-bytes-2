@@ -47,6 +47,11 @@ class SignIn extends Component {
     API.signIn(data)
       .then((response) => {
         this.props.dispatch(signIn(response.data.user))
+        return [response.data.user.id, response.data.user.token]
+      })
+      .then((data) => API.getOwnCart(data[0], data[1]))
+      .then((response.data.carts) => {
+        
       })
       .then(() => {
         this.setState({
