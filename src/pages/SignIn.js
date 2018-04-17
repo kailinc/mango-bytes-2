@@ -52,7 +52,11 @@ class SignIn extends Component {
       })
       .then((data) => API.getOwnCart(data[0], data[1]))
       .then((response) => response.data.carts.filter((cart) => !cart.isPaid))
-      .then((data) => this.props.dispatch(setCurCart(data[0].items)))
+      .then((data) => {
+        if (data.length > 0) {
+          this.props.dispatch(setCurCart(data[0].items))
+        }
+      })
       .then(() => {
         this.setState({
           loggedIn: true
