@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import API from '../API';
+import userAPI from '../API/user';
 import UIMessage from '../Components/UIMessage';
 
 class ChangePwd extends Component {
@@ -44,7 +44,7 @@ class ChangePwd extends Component {
     }
     const id = this.props.user.id
     const token = this.props.user.token
-    API.changePassword(id, token, data)
+    userAPI.changePassword(id, token, data)
       .then(() => {
         this.setState({
           old: '',
