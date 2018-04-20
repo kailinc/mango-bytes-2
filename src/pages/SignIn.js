@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 
 import { signIn } from '../actions/user';
 import { setCurCart, updateAttributes } from '../actions/cart';
-import API from '../API';
+import userAPI from '../API/user';
+import cartAPI from '../API/cart';
 import UIMessage from '../Components/UIMessage';
 import { getCurCart, formatAttributes } from '../helpers/cart';
 
@@ -45,12 +46,12 @@ class SignIn extends Component {
     const data = {
       credentials: this.state
     }
-    API.signIn(data)
+    userAPI.signIn(data)
       .then((response) => {
         this.props.dispatch(signIn(response.data.user))
         return [response.data.user.id, response.data.user.token]
       })
-      .then((data) => API.getOwnCart(data[0], data[1]))
+      .then((data) => cartAPI.getOwnCart(data[0], data[1]))
       .then((response) => response.data.carts.filter((cart) => !cart.isPaid))
       .then((data) => {
         if (data.length > 0) {

@@ -1,7 +1,18 @@
 import axios from 'axios'
-const API = {}
+const cartAPI = {}
 
-API.checkout = function (stripeToken, userToken, email, shipping, description, amount, currency, userId) {
+const config = {
+  production: {
+    api: 'https://damp-hamlet-57878.herokuapp.com'
+  },
+  development: {
+    api: 'http://localhost:4741'
+  }
+}
+
+const origin = config[process.env.NODE_ENV].api
+
+cartAPI.checkout = function (stripeToken, userToken, email, shipping, description, amount, currency, userId) {
   return axios({
     url: `${origin}/charges`,
     method: 'POST',
@@ -22,7 +33,7 @@ API.checkout = function (stripeToken, userToken, email, shipping, description, a
    })
 }
 
-API.getOwnCart = function (id,token) {
+cartAPI.getOwnCart = function (id,token) {
   return axios({
     url: `${origin}/own-carts/${id}`,
     method: 'GET',
@@ -33,4 +44,4 @@ API.getOwnCart = function (id,token) {
 };
 
 
-export default API
+export default cartAPI

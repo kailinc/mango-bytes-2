@@ -1,5 +1,5 @@
 import axios from 'axios'
-const API = {}
+const itemAPI = {}
 
 const config = {
   production: {
@@ -12,18 +12,18 @@ const config = {
 
 const origin = config[process.env.NODE_ENV].api
 
-API.getItems = function () {
+itemAPI.getItems = function () {
   return axios({
     url: `${origin}/items`,
     method: 'GET'
   });
 };
 
-API.getItem = function (id) {
+itemAPI.getItem = function (id) {
   return axios({
     url: `${origin}/items/${id}`,
     method: 'GET'
   });
 };
 
-export default API
+export default itemAPI

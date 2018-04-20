@@ -1,5 +1,5 @@
 import axios from 'axios'
-const API = {}
+const userAPI = {}
 
 const config = {
   production: {
@@ -13,7 +13,7 @@ const config = {
 const origin = config[process.env.NODE_ENV].api
 
 // USER API
-API.signIn = function (data){
+userAPI.signIn = function (data){
   return axios({
     url: origin + '/sign-in',
     method: 'POST',
@@ -21,7 +21,7 @@ API.signIn = function (data){
   });
 };
 
-API.signUp = function (data){
+userAPI.signUp = function (data){
   return axios({
     url: origin + '/sign-up',
     method: 'POST',
@@ -29,7 +29,7 @@ API.signUp = function (data){
   });
 };
 
-API.changePassword = function (id,token,data) {
+userAPI.changePassword = function (id,token,data) {
   return axios({
     url: `${origin}/change-password/${id}`,
     method: 'PATCH',
@@ -40,7 +40,7 @@ API.changePassword = function (id,token,data) {
   });
 };
 
-API.signOut = function (id,token) {
+userAPI.signOut = function (id,token) {
   return axios({
     url: `${origin}/sign-out/${id}`,
     method: 'DELETE',
@@ -50,7 +50,7 @@ API.signOut = function (id,token) {
   });
 };
 
-API.showUser = function (id, token) {
+userAPI.showUser = function (id, token) {
   return axios({
     url: `${origin}/users/${id}`,
     method: 'GET',
@@ -60,4 +60,4 @@ API.showUser = function (id, token) {
   });
 };
 
-export default API
+export default userAPI
