@@ -56,7 +56,6 @@ class SignIn extends Component {
         if (data.length > 0) {
           this.props.dispatch(setCurCart(data[0].items))
         }
-        return data
       })
       .then(() => {
         if (this.props.cart.items.length > 0) {
