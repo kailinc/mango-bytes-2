@@ -56,3 +56,8 @@ export const clearAttributes = () => ({
     type: 'CLEAR_ATTRIBUTES',
     attributes: {}
 });
+
+export const updateId = (id) => ({
+    type: 'UPDATE_ID',
+    id: id
+});

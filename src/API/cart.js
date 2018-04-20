@@ -23,6 +23,17 @@ cartAPI.create = function (token,data) {
   });
 };
 
+cartAPI.update = function (cartId,token,data) {
+  return axios({
+    url: `${origin}/update-cart/${cartId}`,
+    method: 'PATCH',
+    headers: {
+      Authorization: `Token token=${token}`
+    },
+    data
+  });
+};
+
 cartAPI.checkout = function (stripeToken, userToken, email, shipping, description, amount, currency, userId) {
   return axios({
     url: `${origin}/charges`,

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { newCart, updateQuantity, addItem, newAttributes, updateAttributes } from '../actions/cart';
+import { newCart, updateQuantity, addItem, newAttributes, updateAttributes, updateId } from '../actions/cart';
 import { itemExists, getQuantity } from '../helpers/cart';
 import cartAPI from '../API/cart';
 
@@ -51,12 +51,22 @@ class ItemForm extends Component {
           }
         }
         cartAPI.create(this.props.user.token, data)
-          .then((response) => console.log(response))
+          .then((response) => this.props.dispatch(updateId(response.data.cart.id)))
           .catch((err) => console.log(err))
       }
     } else if (itemExists(this.props.cart.items, item.item_id)) {
       this.props.dispatch(updateQuantity(item.item_id, 1))
       this.props.dispatch(updateAttributes(attributes, 1))
+      if (this.props.user.token) {
+        let data = {
+          cart: {
+            items: this.props.cart.items
+          }
+        }
+        cartAPI.update(this.props.cart.id, this.props.user.token, data)
+          .then((data) => console.log(data))
+          .catch((err) => console.log(err))
+      }
     } else {
       this.props.dispatch(addItem(item))
       this.props.dispatch(updateAttributes(attributes, 1));

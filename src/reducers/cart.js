@@ -1,7 +1,8 @@
 const cartReducerDefaultState = {
   items: [],
   cost: 0,
-  attributes: {}
+  attributes: {},
+  id: ''
 };
 
 const cartReducer = (state = cartReducerDefaultState, action) => {
@@ -9,6 +10,10 @@ const cartReducer = (state = cartReducerDefaultState, action) => {
     case 'NEW_CART':
       return Object.assign({}, state, {
         items: [action.item]
+      });
+    case 'UPDATE_ID':
+      return Object.assign({}, state, {
+        id: action.id
       });
     case 'SET_CUR_CART':
       return Object.assign({}, state, {
