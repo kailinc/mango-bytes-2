@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 
-import API from '../API';
+import userAPI from '../API/user';
 import UIMessage from '../Components/UIMessage';
 
 class SignUp extends Component {
@@ -57,7 +57,7 @@ class SignUp extends Component {
       const data = {
         credentials: this.state
       }
-      API.signUp(data)
+      userAPI.signUp(data)
         .then((response) => {
           this.setState({
             ui: {
