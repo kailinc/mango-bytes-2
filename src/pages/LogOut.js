@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import API from '../API';
+import userAPI from '../API/user';
 import { signOut } from '../actions/user';
 
 class LogOut extends Component {
   componentDidMount() {
-    API.signOut(this.props.user.id, this.props.user.token)
+    userAPI.signOut(this.props.user.id, this.props.user.token)
       .then((response) => {
         this.props.dispatch(signOut())
       })
