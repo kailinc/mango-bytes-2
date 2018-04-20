@@ -3,10 +3,10 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { signIn } from '../actions/user';
-import { setCurCart } from '../actions/cart';
+import { setCurCart, updateAttributes } from '../actions/cart';
 import API from '../API';
 import UIMessage from '../Components/UIMessage';
-import { getCurCart } from '../helpers/cart';
+import { getCurCart, formatAttributes } from '../helpers/cart';
 
 class SignIn extends Component {
   constructor(props) {
@@ -55,6 +55,15 @@ class SignIn extends Component {
       .then((data) => {
         if (data.length > 0) {
           this.props.dispatch(setCurCart(data[0].items))
+        }
+        return data
+      })
+      .then(() => {
+        if (this.props.cart.items.length > 0) {
+          this.props.cart.items.forEach((item) => {
+            let attributes = formatAttributes(item.attributes)
+            this.props.dispatch(updateAttributes(attributes, item.quantity))
+          })
         }
       })
       .then(() => {
@@ -111,4 +120,10 @@ class SignIn extends Component {
   }
 }
 
-export default connect()(SignIn);
+const mapStateToProps = (state, props) => {
+  return {
+    cart: state.cart
+  };
+};
+
+export default connect(mapStateToProps)(SignIn);

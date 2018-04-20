@@ -54,3 +54,11 @@ export const getAttr = function (attributes, skill) {
   }
   return 0;
 }
+
+export const formatAttributes = function (attributes) {
+    let formatted = {}
+    for (let i = 0; i < attributes.length; i++) {
+      formatted[attributes[i].name] = attributes[i].exp
+    }
+    return formatted;
+}
