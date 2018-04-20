@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import { newCart, updateQuantity, addItem, newAttributes, updateAttributes } from '../actions/cart';
 import { itemExists, getQuantity } from '../helpers/cart';
+import cartAPI from '../API/cart';
 
 class ItemForm extends Component {
   constructor(props){
@@ -43,6 +44,16 @@ class ItemForm extends Component {
     if (this.props.cart.items.length === 0 ) {
       this.props.dispatch(newCart(item))
       this.props.dispatch(newAttributes(attributes))
+      if (this.props.user.token) {
+        let data = {
+          cart: {
+            items: [item]
+          }
+        }
+        cartAPI.create(this.props.user.token, data)
+          .then((response) => console.log(response))
+          .catch((err) => console.log(err))
+      }
     } else if (itemExists(this.props.cart.items, item.item_id)) {
       this.props.dispatch(updateQuantity(item.item_id, 1))
       this.props.dispatch(updateAttributes(attributes, 1))
@@ -79,7 +90,8 @@ class ItemForm extends Component {
 
 const mapStateToProps = (state, props) => {
   return {
-    cart: state.cart
+    cart: state.cart,
+    user: state.user
   };
 };
 

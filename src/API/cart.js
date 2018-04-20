@@ -12,6 +12,17 @@ const config = {
 
 const origin = config[process.env.NODE_ENV].api
 
+cartAPI.create = function (token,data) {
+  return axios({
+    url: `${origin}/carts`,
+    method: 'POST',
+    headers: {
+      Authorization: `Token token=${token}`
+    },
+    data
+  });
+};
+
 cartAPI.checkout = function (stripeToken, userToken, email, shipping, description, amount, currency, userId) {
   return axios({
     url: `${origin}/charges`,
