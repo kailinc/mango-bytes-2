@@ -1,6 +1,6 @@
 import React, { Component  } from 'react';
 
-import API from '../API';
+import itemAPI from '../API/item';
 
 class ItemPage extends Component {
   constructor(){
@@ -12,7 +12,7 @@ class ItemPage extends Component {
   }
 
   componentWillMount(){
-    API.getItem(this.props.match.params.id)
+    itemAPI.getItem(this.props.match.params.id)
       .then((response) => {
         this.setState({
           item: response.data.item

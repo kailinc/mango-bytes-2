@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import Feed from '../Components/Feed';
 import SideProfile from '../Components/SideProfile';
 import Headline from '../Components/Headline';
-import API from '../API';
+import itemAPI from '../API/item';
 
 class Shop extends Component {
   constructor(){
@@ -15,7 +15,7 @@ class Shop extends Component {
   }
 
   componentWillMount(){
-    API.getItems()
+    itemAPI.getItems()
       .then((response) => {
         this.setState({
           items: response.data.items
