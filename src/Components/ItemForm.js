@@ -63,6 +63,7 @@ class ItemForm extends Component {
         .then(() => {
           if (this.props.cart.items.length === 0) {
             cartAPI.destroy(this.props.cart.id, this.props.user.token)
+              .then(() => this.props.dispatch(updateId("")))
               .catch((err) => console.log(err))
           }
         })
