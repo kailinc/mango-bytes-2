@@ -3,8 +3,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import ItemForm from './ItemForm';
-import { removeItem, removeAttributes } from '../actions/cart';
+import { removeItem, removeAttributes, updateId } from '../actions/cart';
 import { convertToDollars } from '../helpers/cart';
+import cartAPI from '../API/cart';
 
 class CheckoutItem extends Component {
   constructor(props) {
@@ -15,6 +16,22 @@ class CheckoutItem extends Component {
   removeItem() {
     this.props.dispatch(removeItem(this.props.item.item_id));
     this.props.dispatch(removeAttributes(this.props.item.attributes, this.props.item.quantity))
+    if (this.props.user.token) {
+      let data = {
+        cart: {
+          items: this.props.cart.items
+        }
+      }
+      cartAPI.update(this.props.cart.id, this.props.user.token, data)
+        .then(() => {
+          if (this.props.cart.items.length === 0) {
+            cartAPI.destroy(this.props.cart.id, this.props.user.token)
+              .then(() => this.props.dispatch(updateId("")))
+              .catch((err) => console.log(err))
+          }
+        })
+        .catch((err) => console.log(err))
+    }
   }
 
   render() {
@@ -43,4 +60,11 @@ class CheckoutItem extends Component {
   }
 }
 
-export default connect()(CheckoutItem);
+const mapStateToProps = (state, props) => {
+  return {
+    user: state.user,
+    cart: state.cart
+  };
+};
+
+export default connect(mapStateToProps)(CheckoutItem);
