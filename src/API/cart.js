@@ -66,4 +66,15 @@ cartAPI.getOwnCart = function (id,token) {
 };
 
 
+cartAPI.destroy = function (id,token) {
+  return axios({
+    url: `${origin}/carts/${id}`,
+    method: 'DELETE',
+    headers: {
+      Authorization: `Token token=${token}`
+    }
+  });
+};
+
+
 export default cartAPI

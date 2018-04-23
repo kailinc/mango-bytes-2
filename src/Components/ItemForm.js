@@ -60,6 +60,12 @@ class ItemForm extends Component {
         }
       }
       cartAPI.update(this.props.cart.id, this.props.user.token, data)
+        .then(() => {
+          if (this.props.cart.items.length === 0) {
+            cartAPI.destroy(this.props.cart.id, this.props.user.token)
+              .catch((err) => console.log(err))
+          }
+        })
         .catch((err) => console.log(err))
     }
   }
