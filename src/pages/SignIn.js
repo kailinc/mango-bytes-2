@@ -49,9 +49,9 @@ class SignIn extends Component {
     userAPI.signIn(data)
       .then((response) => {
         this.props.dispatch(signIn(response.data.user))
-        return [response.data.user.id, response.data.user.token]
+        // return [response.data.user.id, response.data.user.token]
       })
-      .then((data) => cartAPI.getOwnCart(data[0], data[1]))
+      .then(() => cartAPI.getOwnCart(this.props.user.id, this.props.user.token))
       .then((response) => response.data.carts.filter((cart) => !cart.isPaid))
       .then((data) => {
         if (data.length > 0) {
@@ -123,7 +123,8 @@ class SignIn extends Component {
 
 const mapStateToProps = (state, props) => {
   return {
-    cart: state.cart
+    cart: state.cart,
+    user: state.user
   };
 };
 
