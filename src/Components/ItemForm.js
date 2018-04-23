@@ -52,6 +52,18 @@ class ItemForm extends Component {
     }
   }
 
+  updateCartAPI() {
+    if (this.props.user.token) {
+      let data = {
+        cart: {
+          items: this.props.cart.items
+        }
+      }
+      cartAPI.update(this.props.cart.id, this.props.user.token, data)
+        .catch((err) => console.log(err))
+    }
+  }
+
   addOne() {
     let attributes = this.formatAttributes();
     let item = this.formatItem();
@@ -63,28 +75,11 @@ class ItemForm extends Component {
     } else if (itemExists(this.props.cart.items, item.item_id)) {
       this.props.dispatch(updateQuantity(item.item_id, 1))
       this.props.dispatch(updateAttributes(attributes, 1))
-      if (this.props.user.token) {
-        let data = {
-          cart: {
-            items: this.props.cart.items
-          }
-        }
-        cartAPI.update(this.props.cart.id, this.props.user.token, data)
-          .catch((err) => console.log(err))
-      }
+      this.updateCartAPI()
     } else {
       this.props.dispatch(addItem(item))
       this.props.dispatch(updateAttributes(attributes, 1))
-      if (this.props.user.token) {
-        let data = {
-          cart: {
-            items: this.props.cart.items
-          }
-        }
-        cartAPI.update(this.props.cart.id, this.props.user.token, data)
-          .then((data) => console.log(data))
-          .catch((err) => console.log(err))
-        }
+      this.updateCartAPI()
     }
   }
 
