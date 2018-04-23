@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { signIn } from '../actions/user';
-import { setCurCart, updateAttributes } from '../actions/cart';
+import { setCurCart, updateAttributes, updateId } from '../actions/cart';
 import userAPI from '../API/user';
 import cartAPI from '../API/cart';
 import UIMessage from '../Components/UIMessage';
@@ -56,6 +56,7 @@ class SignIn extends Component {
       .then((data) => {
         if (data.length > 0) {
           this.props.dispatch(setCurCart(data[0].items))
+          this.props.dispatch(updateId(data[0].id))
         }
       })
       .then(() => {
