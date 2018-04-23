@@ -13,6 +13,8 @@ class ItemForm extends Component {
     this.minusOne = this.minusOne.bind(this)
     this.formatItem = this.formatItem.bind(this)
     this.formatAttributes = this.formatAttributes.bind(this)
+    this.createCartAPI = this.createCartAPI.bind(this)
+    this.updateCartAPI = this.updateCartAPI.bind(this)
   }
 
   formatItem() {
@@ -37,6 +39,19 @@ class ItemForm extends Component {
 
   }
 
+  createCartAPI (item) {
+    if (this.props.user.token != null) {
+      let data = {
+        cart: {
+          items: [item]
+        }
+      }
+      cartAPI.create(this.props.user.token, data)
+        .then((response) => this.props.dispatch(updateId(response.data.cart.id)))
+        .catch((err) => console.log(err))
+    }
+  }
+
   addOne() {
     let attributes = this.formatAttributes();
     let item = this.formatItem();
@@ -44,18 +59,8 @@ class ItemForm extends Component {
     if (this.props.cart.items.length === 0 ) {
       this.props.dispatch(newCart(item))
       this.props.dispatch(newAttributes(attributes))
-      if (this.props.user.token) {
-        let data = {
-          cart: {
-            items: [item]
-          }
-        }
-        cartAPI.create(this.props.user.token, data)
-          .then((response) => this.props.dispatch(updateId(response.data.cart.id)))
-          .catch((err) => console.log(err))
-      }
+      this.createCartAPI(item)
     } else if (itemExists(this.props.cart.items, item.item_id)) {
-      console.log("item exists");
       this.props.dispatch(updateQuantity(item.item_id, 1))
       this.props.dispatch(updateAttributes(attributes, 1))
       if (this.props.user.token) {
@@ -68,7 +73,6 @@ class ItemForm extends Component {
           .catch((err) => console.log(err))
       }
     } else {
-      console.log("adding new item");
       this.props.dispatch(addItem(item))
       this.props.dispatch(updateAttributes(attributes, 1))
       if (this.props.user.token) {
