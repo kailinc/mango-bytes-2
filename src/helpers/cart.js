@@ -62,3 +62,21 @@ export const formatAttributes = function (attributes) {
     }
     return formatted;
 }
+
+export const formatItems = function (items) {
+  let modItems = []
+  let length = items.length
+  for(let i = 0; i < length; i++) {
+    const item = {
+        item_id: items[i].item_id,
+        name: items[i].name,
+        devCred: items[i].devCred,
+        basePrice: items[i].basePrice,
+        attributes: items[i].attributes,
+        img: items[i].img,
+        quantity: items[i].quantity
+    }
+    modItems.push(item)
+  }
+  return modItems
+}

@@ -7,7 +7,7 @@ import { setCurCart, updateAttributes, updateId } from '../actions/cart';
 import userAPI from '../API/user';
 import cartAPI from '../API/cart';
 import UIMessage from '../Components/UIMessage';
-import { getCurCart, formatAttributes } from '../helpers/cart';
+import { getCurCart, formatAttributes, formatItems } from '../helpers/cart';
 
 class SignIn extends Component {
   constructor(props) {
@@ -49,13 +49,13 @@ class SignIn extends Component {
     userAPI.signIn(data)
       .then((response) => {
         this.props.dispatch(signIn(response.data.user))
-        // return [response.data.user.id, response.data.user.token]
       })
       .then(() => cartAPI.getOwnCart(this.props.user.id, this.props.user.token))
       .then((response) => response.data.carts.filter((cart) => !cart.isPaid))
       .then((data) => {
         if (data.length > 0) {
-          this.props.dispatch(setCurCart(data[0].items))
+          let curCart = formatItems(data[0].items)
+          this.props.dispatch(setCurCart(curCart))
           this.props.dispatch(updateId(data[0].id))
         }
       })
