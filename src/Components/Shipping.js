@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import InputBox from './InputBox';
-
+import BackBtn from './BackBtn';
 import { newShipping } from '../actions/shipping';
 
 class Shipping extends Component {
@@ -65,6 +65,7 @@ class Shipping extends Component {
           <h3>Step 2. Shipping Information</h3>
         </div>
         <div className="cart-table">
+          <BackBtn backward={this.props.handleBackward}/>
           <h3>Delivery Method</h3>
           <label>Please allow 2-3 days for processing</label>
           <hr></hr>

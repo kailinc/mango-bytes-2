@@ -15,6 +15,7 @@ class Checkout extends Component {
     }
 
     this.advance = this.advance.bind(this);
+    this.backward = this.backward.bind(this);
     this.determineContent = this.determineContent.bind(this);
   }
 
@@ -27,7 +28,12 @@ class Checkout extends Component {
       left: 0,
       behavior: 'smooth'
     });
+  }
 
+  backward() {
+    this.setState((prevState) => {
+      return { stage: prevState.stage - 1 }
+    })
   }
 
   determineContent() {
@@ -35,11 +41,11 @@ class Checkout extends Component {
       case 0:
         return <ItemTable stage={this.state.stage}/>;
       case 1:
-        return <Shipping handleAdvance={() => this.advance()}/>
+        return <Shipping handleAdvance={() => this.advance()} handleBackward={() => this.backward()}/>
       case 2:
         return (
           <StripeProvider apiKey="pk_test_54gJjeqvMB18TplKh34AQioV">
-            <Payment/>
+            <Payment handleBackward={() => this.backward()}/>
           </StripeProvider>)
       default:
         break;
