@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import CheckoutItem from './CheckoutItem';
-import { clearCart, clearAttributes } from '../actions/cart';
+import { clearCart, clearAttributes, updateId } from '../actions/cart';
+import cartAPI from '../API/cart';
 
 class ItemTable extends Component {
   constructor(props) {
@@ -18,6 +19,11 @@ class ItemTable extends Component {
   clearCart() {
     this.props.dispatch(clearCart());
     this.props.dispatch(clearAttributes());
+    if (this.props.user.token) {
+      cartAPI.destroy(this.props.cart.id, this.props.user.token)
+        .then(() => this.props.dispatch(updateId("")))
+        .catch((err) => console.log(err))
+    }
   }
 
   render() {
@@ -49,7 +55,8 @@ class ItemTable extends Component {
 
 const mapStateToProps = (state, props) => {
   return {
-    cart: state.cart
+    cart: state.cart,
+    user: state.user
   };
 };
 
