@@ -88,7 +88,6 @@ class Shipping extends Component {
           <h3>Delivery Method</h3>
           <label>FedEx (3-5 Day Delivery)</label>
         </div>
-        <button onClick={this.props.handleAdvance}>Payment</button>
       </div>
     )
   }

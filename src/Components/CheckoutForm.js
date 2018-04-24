@@ -22,21 +22,6 @@ class CheckoutForm extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    // check login
-    // if logged in, diff order of api calls
-
-    // member checkout
-    // may already have source and customer for stripe
-    // if have source for stripe,  use that stripe make charge
-    // if don't have source, customer on stripe
-    // create token, create custoemr, create charge
-    // after charge, update cart, user
-
-    // guest checkout
-    // make token, send to back end
-    // back end, create customer, charge
-    // after charge, redirect to confirmation page
-
 
     let name = this.props.shipping.name
     let token = this.props.user.token
@@ -85,7 +70,7 @@ class CheckoutForm extends Component {
                 {...createOptions(this.props.fontSize)}
               />
             </label>
-            <button>Pay</button>
+            <button>Place Order</button>
           </form>
     );
   }
