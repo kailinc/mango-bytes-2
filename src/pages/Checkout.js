@@ -5,6 +5,7 @@ import { StripeProvider } from 'react-stripe-elements';
 import OrderSummary from '../Components/OrderSummary';
 import ItemTable from '../Components/ItemTable';
 import Shipping from '../Components/Shipping';
+import ForceLogin from '../Components/ForceLogin';
 import Payment from '../Components/Payment';
 
 class Checkout extends Component {
@@ -41,8 +42,10 @@ class Checkout extends Component {
       case 0:
         return <ItemTable stage={this.state.stage}/>;
       case 1:
-        return <Shipping handleAdvance={() => this.advance()} handleBackward={() => this.backward()}/>
+        return <ForceLogin handleAdvance={() => this.advance()} handleBackward={() => this.backward()}/>
       case 2:
+        return <Shipping handleAdvance={() => this.advance()} handleBackward={() => this.backward()}/>
+      case 3:
         return (
           <StripeProvider apiKey="pk_test_54gJjeqvMB18TplKh34AQioV">
             <Payment handleBackward={() => this.backward()}/>
