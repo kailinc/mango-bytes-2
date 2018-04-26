@@ -34,24 +34,14 @@ cartAPI.update = function (cartId,token,data) {
   });
 };
 
-cartAPI.checkout = function (stripeToken, userToken, email, shipping, description, amount, currency, userId) {
+cartAPI.checkout = function (userToken, data) {
   return axios({
     url: `${origin}/charges`,
     method: 'POST',
     headers: {
       Authorization: `Token token=${userToken}`
     },
-    data: {
-      charge: {
-        stripeToken: stripeToken,
-        email: email,
-        shipping: shipping,
-        description: description,
-        amount: amount,
-        currency: currency,
-        userId: userId
-      }
-    }
+    data
    })
 }
 

@@ -22,20 +22,27 @@ class CheckoutForm extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-
     let name = this.props.shipping.name
-    let token = this.props.user.token
-    let email = this.props.user.email
-    let shipping = this.props.shipping
-    let description = "Charge for Cart on Mango Bytes 2"
-    let amount = 999
+    let data = {
+      charge: {
+        stripeToken: null,
+        email: this.props.user.email,
+        shipping: this.props.shipping,
+        description: "Charge for order on Mango Bytes 2",
+        amount: 999,
+        currency: "usd",
+        userId: this.props.user.id,
+        cartId: this.props.cart.id
+      }
+    }
     // let amount = this.props.cart.cost
-    let currency = "usd"
-    let userId = this.props.user.id
-    let cartId = this.props.cart.id
 
     this.props.stripe.createToken({name: name})
-      .then((response) => cartAPI.checkout(response.token.id, token, email, shipping, description, amount, currency, userId, cartId))
+      .then((response) =>  {
+        data.charge.stripeToken = response.token.id
+        cartAPI.checkout(this.props.user.token, data)
+          .then((response) => console.log(response))
+      })
       .catch((err) => console.log(err));
 
   }
