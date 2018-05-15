@@ -5,7 +5,23 @@ import UIMessage from '../Components/UIMessage';
 
 class Form extends Component {
   render(){
-    const inputs = this.props.fields.map((cur) => <InputBox label={cur.label.toUpperCase()} size={cur.size} updateValue={this.props.updateValue} value={cur.value} field={cur.label} type={cur.label != 'email' || cur.label != 'passoword' ? cur.label : 'text'}/>)
+    const inputs = this.props.fields.map((cur, index) => {
+      let label = 'text'
+      if (cur.label === 'email') {
+        label = 'email';
+      } else if (cur.label.includes('password')) {
+        label = 'password';
+      }
+
+      return <InputBox
+        key={index}
+        label={cur.label.toUpperCase()}
+        size={cur.size}
+        updateValue={this.props.updateValue}
+        value={cur.value} field={cur.label}
+        type={label}/>
+    })
+
     return(
       <form className="signIn" onSubmit={this.props.onSubmit}>
         { this.props.uiDisplay ? <UIMessage type={this.props.uiType}

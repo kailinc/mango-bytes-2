@@ -3,6 +3,7 @@ import { Redirect } from 'react-router-dom';
 
 import userAPI from '../API/user';
 import UIMessage from '../Components/UIMessage';
+import Form from '../Components/Form';
 
 class SignUp extends Component {
   constructor(props) {
@@ -22,7 +23,7 @@ class SignUp extends Component {
       }
     }
 
-    this.handleInputChange = this.handleInputChange.bind(this)
+    this.updateValue = this.updateValue.bind(this)
     this.onSignUp = this.onSignUp.bind(this)
     this.redirectToLogin = this.redirectToLogin.bind(this)
     this.handleChildUnmount = this.handleChildUnmount.bind(this)
@@ -32,12 +33,9 @@ class SignUp extends Component {
     this.setState({ui: { display:false }});
   }
 
-  handleInputChange(event) {
-    const target = event.target;
-    const value = target.value;
-    const name = target.name;
+  updateValue(field, value) {
     this.setState({
-      [name]: value
+      [field]: value
     })
   }
 
@@ -96,42 +94,16 @@ class SignUp extends Component {
       )
     }
 
+    const fields = Object.keys(this.state).filter((cur) => cur != 'ui' && cur != 'signedUp').map((cur) => {
+        return { label: cur, value: this.state[cur], size: 'half' }
+    })
+
     return(
       <div>
         <div className='title'>
           <h1>Sign Up to Join the Team!</h1>
         </div>
-        { this.state.ui.display ? <UIMessage type={this.state.ui.type}
-                                            msg={this.state.ui.msg}
-                                            unmountMe={this.handleChildUnmount} /> : null}
-        {<p>{this.state.msg}</p>}
-        <form className='sign-up-form' onSubmit={this.onSignUp}>
-          <label>
-            <input name='firstName' type="text" required value={this.state.firstName} onChange={this.handleInputChange}/>
-            <div className="label-text">First Name</div>
-          </label>
-          <label>
-            <input name='lastName' type="text" required value={this.state.lastName} onChange={this.handleInputChange}/>
-            <div className="label-text">Last Name</div>
-          </label>
-          <label>
-            <input name='coderName' type="text" required value={this.state.coderName} onChange={this.handleInputChange}/>
-            <div className="label-text">Coder Name</div>
-          </label>
-          <label>
-            <input name='email' type="email" required value={this.state.email} onChange={this.handleInputChange}/>
-            <div className="label-text">Email</div>
-          </label>
-          <label>
-            <input name="password" type='password' value={this.state.password} onChange={this.handleInputChange} required/>
-            <div className="label-text">Password</div>
-          </label>
-          <label>
-            <input name="password_confirmation" type='password' value={this.state.password_confirmation} onChange={this.handleInputChange} required/>
-            <div className="label-text">Password Confirmation</div>
-          </label>
-          <button className='submit-button'>Submit</button>
-        </form>
+        <Form fields={fields} updateValue={this.updateValue} uiType={this.state.ui.type} uiMsg={this.state.ui.msg} unmountMe={this.handleChildUnmount} onSubmit={this.onSignUp} uiDisplay={this.state.ui.display}/>
       </div>
       )
     }
