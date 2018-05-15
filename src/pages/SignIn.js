@@ -94,7 +94,8 @@ class SignIn extends Component {
         <Redirect to='/' />
       )
     }
-    const fields = [{value: 'email', size: 'full'}, {value: 'password', size: 'full'}];
+    const fields = [{ label: 'email', value: this.state.email, size: 'half'},
+                    { label: 'password', value: this.state.password, size: 'half'}];
     return(
       <div>
         <div className='title'>
