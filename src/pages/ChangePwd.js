@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import userAPI from '../API/user';
 import UIMessage from '../Components/UIMessage';
+import Form from '../Components/Form';
 
 class ChangePwd extends Component {
   constructor(props) {
@@ -19,7 +20,7 @@ class ChangePwd extends Component {
       }
     }
     this.onChangePwd = this.onChangePwd.bind(this)
-    this.handleInputChange = this.handleInputChange.bind(this)
+    this.updateValue = this.updateValue.bind(this)
     this.redirectToHome = this.redirectToHome.bind(this)
     this.handleChildUnmount = this.handleChildUnmount.bind(this)
   }
@@ -28,12 +29,9 @@ class ChangePwd extends Component {
     this.setState({ui: { display:false }});
   }
 
-  handleInputChange(event) {
-    const target = event.target;
-    const value = target.value;
-    const name = target.name;
+  updateValue(field, value) {
     this.setState({
-      [name]: value
+      [field]: value
     })
   }
 
@@ -86,25 +84,16 @@ class ChangePwd extends Component {
       )
     }
 
+    const fields = Object.keys(this.state).filter((cur) => cur === 'old' || cur === 'new').map((cur) => {
+        return { label: cur, value: this.state[cur], size: 'half' }
+    })
+
     return(
       <div>
         <div className='title'>
           <h1>Change Your Password</h1>
         </div>
-        { this.state.ui.display ? <UIMessage type={this.state.ui.type}
-                                            msg={this.state.ui.msg}
-                                            unmountMe={this.handleChildUnmount} /> : null}
-        <form onSubmit={this.onChangePwd}>
-          <label>
-            <input name='old' type="password" required value={this.state.old} onChange={this.handleInputChange}/>
-            <div className="label-text">Old Password</div>
-          </label>
-          <label>
-            <input name='new' type="password" required value={this.state.new} onChange={this.handleInputChange}/>
-            <div className="label-text">New Password</div>
-          </label>
-          <button className='submit-button' >Submit</button>
-        </form>
+        <Form fields={fields} updateValue={this.updateValue} uiType={this.state.ui.type} uiMsg={this.state.ui.msg} unmountMe={this.handleChildUnmount} onSubmit={this.onChangePwd} uiDisplay={this.state.ui.display}/>
       </div>
     )
   }

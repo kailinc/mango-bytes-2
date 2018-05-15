@@ -9,7 +9,7 @@ class Form extends Component {
       let label = 'text'
       if (cur.label === 'email') {
         label = 'email';
-      } else if (cur.label.includes('password')) {
+      } else if (cur.label.includes('password') || cur.label === 'old' || cur.label === 'new') {
         label = 'password';
       }
 
