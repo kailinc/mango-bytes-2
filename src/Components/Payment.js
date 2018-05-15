@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 import { Redirect } from 'react-router-dom';
 import { Elements } from 'react-stripe-elements';
-import { connect } from 'react-redux';
 import InjectedCheckoutForm from './CheckoutForm';
 import BackBtn from './BackBtn';
 
