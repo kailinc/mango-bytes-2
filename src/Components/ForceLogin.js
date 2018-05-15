@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import userAPI from '../API/user';
+import cartAPI from '../API/cart';
+import { signIn } from '../actions/user';
+import { updateId } from '../actions/cart';
 
 import BackBtn from './BackBtn';
 import Form from './Form';
@@ -69,7 +72,7 @@ class ForceLogin extends Component {
           this.setState({
             ui: {
               type: 'success',
-              msg: 'Yes! You have signed up for an account. Please login to continue.',
+              msg: 'Yes! You have signed up for an account. We are logging you in.',
               display: true
             }
           })
@@ -78,7 +81,8 @@ class ForceLogin extends Component {
           let data = {
             credentials: this.state
           }
-          this.onSignIn())
+          this.onSignIn()
+        })
         .catch((error) => {
           this.setState({
             ui: {
@@ -92,13 +96,25 @@ class ForceLogin extends Component {
       }
   }
 
-  onSignIn(e) {
-    e.preventDefault();
+  onSignIn() {
     let data = {
       credentials: this.state
     }
     userAPI.signIn(data)
-      .then(() => cartAPI.create())
+      .then((response) => {
+        this.props.dispatch(signIn(response.data.user))
+      })
+      .then(() => {
+        let data = {
+          cart: {
+            items: this.props.cart.items
+          }
+        }
+        cartAPI.create(this.props.user.token, data)
+          .then((response) => this.props.dispatch(updateId(response.data.cart.id)))
+          .then(() => this.props.handleAdvance())
+          .catch((err) => console.log(err))
+      })
       .catch((err) => console.log(err) )
   }
 
@@ -136,7 +152,8 @@ class ForceLogin extends Component {
 
 const mapStateToProps = (state, props) => {
   return {
-    user: state.user
+    user: state.user,
+    cart: state.cart
   };
 };
 
