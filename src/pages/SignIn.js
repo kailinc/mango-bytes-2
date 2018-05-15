@@ -6,7 +6,7 @@ import { signIn } from '../actions/user';
 import { setCurCart, updateAttributes, updateId } from '../actions/cart';
 import userAPI from '../API/user';
 import cartAPI from '../API/cart';
-import { getCurCart, formatAttributes, formatItems } from '../helpers/cart';
+import { formatAttributes, formatItems } from '../helpers/cart';
 
 import Form from '../Components/Form';
 

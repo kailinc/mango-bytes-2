@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import { connect } from 'react-redux';
 import BackBtn from './BackBtn';
 
 class ForceLogin extends Component {
@@ -7,8 +8,11 @@ class ForceLogin extends Component {
     super()
   }
 
-  // componentWillMount() {
-  // }
+  componentWillMount() {
+    if (this.props.user.token) {
+      this.props.handleAdvance();
+    }
+  }
 
   render() {
     return (
@@ -35,4 +39,10 @@ class ForceLogin extends Component {
   }
 }
 
-export default ForceLogin;
+const mapStateToProps = (state, props) => {
+  return {
+    user: state.user
+  };
+};
+
+export default connect(mapStateToProps)(ForceLogin);

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 
 import userAPI from '../API/user';
-import UIMessage from '../Components/UIMessage';
 import Form from '../Components/Form';
 
 class SignUp extends Component {
@@ -94,7 +93,7 @@ class SignUp extends Component {
       )
     }
 
-    const fields = Object.keys(this.state).filter((cur) => cur != 'ui' && cur != 'signedUp').map((cur) => {
+    const fields = Object.keys(this.state).filter((cur) => cur !== 'ui' && cur !== 'signedUp').map((cur) => {
         return { label: cur, value: this.state[cur], size: 'half' }
     })
 
