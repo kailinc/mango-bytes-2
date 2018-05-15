@@ -31,6 +31,7 @@ class ForceLogin extends Component {
     this.updateValue = this.updateValue.bind(this)
     this.onSignUp = this.onSignUp.bind(this)
     this.onSignIn = this.onSignIn.bind(this)
+    this.signIn = this.signIn.bind(this)
   }
 
   componentWillMount() {
@@ -81,7 +82,7 @@ class ForceLogin extends Component {
           let data = {
             credentials: this.state
           }
-          this.onSignIn()
+          this.signIn()
         })
         .catch((error) => {
           this.setState({
@@ -96,7 +97,7 @@ class ForceLogin extends Component {
       }
   }
 
-  onSignIn() {
+  signIn() {
     let data = {
       credentials: this.state
     }
@@ -115,13 +116,29 @@ class ForceLogin extends Component {
           .then(() => this.props.handleAdvance())
           .catch((err) => console.log(err))
       })
-      .catch((err) => console.log(err) )
+      .catch((err) => {
+        this.setState({
+          ui: {
+            type: 'error',
+            msg: 'Incorrect email/password. Please try again.',
+            display: true
+          }
+        })
+        console.log(err)
+      })
   }
 
+  onSignIn(e) {
+    e.preventDefault()
+    this.signIn();
+  }
 
 
   render() {
     const signUpfields = Object.keys(this.state).filter((cur) => cur !== 'ui' && cur !== 'signedUp' && cur !== 'loggedIn').map((cur) => {
+        return { label: cur, value: this.state[cur], size: 'half' }
+    })
+    const signInfields = Object.keys(this.state).filter((cur) => cur === 'email' || cur === 'password').map((cur) => {
         return { label: cur, value: this.state[cur], size: 'half' }
     })
 
@@ -141,6 +158,7 @@ class ForceLogin extends Component {
 
             <div className="left">
               <p>Sign In</p>
+                <Form fields={signInfields} updateValue={this.updateValue} uiType={this.state.ui.type} uiMsg={this.state.ui.msg} unmountMe={this.handleChildUnmount} onSubmit={this.onSignIn} uiDisplay={this.state.ui.display}/>
             </div>
 
           </div>
