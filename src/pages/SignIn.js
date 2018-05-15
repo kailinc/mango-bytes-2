@@ -6,8 +6,9 @@ import { signIn } from '../actions/user';
 import { setCurCart, updateAttributes, updateId } from '../actions/cart';
 import userAPI from '../API/user';
 import cartAPI from '../API/cart';
-import UIMessage from '../Components/UIMessage';
 import { getCurCart, formatAttributes, formatItems } from '../helpers/cart';
+
+import Form from '../Components/Form';
 
 class SignIn extends Component {
   constructor(props) {
@@ -23,21 +24,18 @@ class SignIn extends Component {
       }
     }
     this.onSignIn = this.onSignIn.bind(this)
-    this.handleInputChange = this.handleInputChange.bind(this)
     this.close = this.close.bind(this)
     this.handleChildUnmount = this.handleChildUnmount.bind(this)
+    this.updateValue = this.updateValue.bind(this)
   }
 
   handleChildUnmount(){
     this.setState({ui: { display:false }});
   }
 
-  handleInputChange(event) {
-    const target = event.target;
-    const value = target.value;
-    const name = target.name;
+  updateValue(field, value) {
     this.setState({
-      [name]: value
+      [field]: value
     })
   }
 
@@ -96,26 +94,13 @@ class SignIn extends Component {
         <Redirect to='/' />
       )
     }
-
+    const fields = [{value: 'email', size: 'full'}, {value: 'password', size: 'full'}];
     return(
       <div>
         <div className='title'>
           <h1>Welcome Back!</h1>
         </div>
-        <form onSubmit={this.onSignIn}>
-          { this.state.ui.display ? <UIMessage type={this.state.ui.type}
-                                              msg={this.state.ui.msg}
-                                              unmountMe={this.handleChildUnmount} /> : null}
-          <label>
-            <input name='email' type="email" required value={this.state.email} onChange={this.handleInputChange}/>
-            <div className="label-text">Email</div>
-          </label>
-          <label>
-            <input name="password" type='password' value={this.state.password} onChange={this.handleInputChange} required/>
-            <div className="label-text">Password</div>
-          </label>
-          <button className='submit-button' >Submit</button>
-        </form>
+        <Form fields={fields} updateValue={this.updateValue} uiType={this.state.ui.type} uiMsg={this.state.ui.msg} unmountMe={this.handleChildUnmount} onSubmit={this.onSignIn} uiDisplay={this.state.ui.display}/>
       </div>
     )
   }

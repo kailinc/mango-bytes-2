@@ -37,15 +37,30 @@ class Checkout extends Component {
     })
   }
 
+  // determineContent() {
+  //   switch(this.state.stage) {
+  //     case 0:
+  //       return <ItemTable stage={this.state.stage}/>;
+  //     case 1:
+  //       return <ForceLogin handleAdvance={() => this.advance()} handleBackward={() => this.backward()}/>
+  //     case 2:
+  //       return <Shipping handleAdvance={() => this.advance()} handleBackward={() => this.backward()}/>
+  //     case 3:
+  //       return (
+  //         <StripeProvider apiKey="pk_test_54gJjeqvMB18TplKh34AQioV">
+  //           <Payment handleBackward={() => this.backward()}/>
+  //         </StripeProvider>)
+  //     default:
+  //       break;
+  //   }
+  // }
   determineContent() {
     switch(this.state.stage) {
       case 0:
         return <ItemTable stage={this.state.stage}/>;
       case 1:
-        return <ForceLogin handleAdvance={() => this.advance()} handleBackward={() => this.backward()}/>
-      case 2:
         return <Shipping handleAdvance={() => this.advance()} handleBackward={() => this.backward()}/>
-      case 3:
+      case 2:
         return (
           <StripeProvider apiKey="pk_test_54gJjeqvMB18TplKh34AQioV">
             <Payment handleBackward={() => this.backward()}/>

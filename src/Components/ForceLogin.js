@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import BackBtn from './BackBtn';
+
 class ForceLogin extends Component {
   constructor() {
     super()
@@ -14,8 +16,19 @@ class ForceLogin extends Component {
         <div className="cart-header">
           <h3>Step 2. Sign Up/Log In</h3>
         </div>
-        <div>
-          please log in or sign up to continue
+        <div className="cart-table">
+          <BackBtn backward={this.props.handleBackward}/>
+          <div class="">
+
+            <div class="right">
+              <p>Sign Up</p>
+            </div>
+
+            <div class="left">
+              <p>Sign In</p>
+            </div>
+
+          </div>
         </div>
       </div>
     )

@@ -716,3 +716,9 @@ label {
 .StripeElement--webkit-autofill {
   background-color: #fefde5 !important;
 }
+
+.signIn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
