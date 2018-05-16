@@ -11,6 +11,7 @@ import { connect } from 'react-redux';
 import cartAPI from '../API/cart';
 import userAPI from '../API/user';
 import { updateAttr } from '../actions/user';
+import { clearCart, clearAttributes, updateId } from '../actions/cart';
 
 class CheckoutForm extends Component {
   constructor() {
@@ -64,9 +65,11 @@ class CheckoutForm extends Component {
                 .then(() => {
                   userAPI.showUser(this.props.user.id, this.props.user.token)
                     .then(response => this.props.dispatch(updateAttr(response.data.user)))
-                    .then(() => console.log('updated'))
                     .catch((err) => console.log(err))
                 })
+                .then(() => this.props.dispatch(clearCart()))
+                .then(() => this.props.dispatch(clearAttributes()))
+                .then(() => this.props.dispatch(updateId('')))
                 .catch((err)=> console.log(err))
             })
             .catch((err) => console.log(err))
