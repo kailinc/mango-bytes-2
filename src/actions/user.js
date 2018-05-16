@@ -34,3 +34,29 @@ export const signIn = ({id, firstName, lastName, coderName, token, skills, power
 export const signOut = () => ({
   type: 'SIGN_OUT'
 })
+
+export const updateAttr = ({ powers, devCred,JavaScript, Python, C, Css, Go, Html, Java, Ruby, Angular, React, BootStrap, Django, Ember, MongoDB, Sql, Node, Rails}, fourScreen = {}) => ({
+  type: 'UPDATE_ATTRIBUTES',
+  user: {
+    powers,
+    devCred,
+    fourScreen,
+    Angular,
+    JavaScript,
+    Python,
+    C,
+    Css,
+    Go,
+    Html,
+    Java,
+    Ruby,
+    React,
+    BootStrap,
+    Django,
+    Ember,
+    MongoDB,
+    Sql,
+    Node,
+    Rails
+  }
+})

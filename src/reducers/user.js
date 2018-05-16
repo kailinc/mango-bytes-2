@@ -21,6 +21,11 @@ const userReducer = (state = userReducerDefaultState, action) => {
         ...state,
         ...userReducerDefaultState
       };
+    case 'UPDATE_ATTRIBUTES':
+      return {
+        ...state,
+        ...action.user
+      };
     default:
       return state;
   }

@@ -10,6 +10,7 @@ import { connect } from 'react-redux';
 
 import cartAPI from '../API/cart';
 import userAPI from '../API/user';
+import { updateAttr } from '../actions/user';
 
 class CheckoutForm extends Component {
   constructor() {
@@ -60,7 +61,12 @@ class CheckoutForm extends Component {
                 }
               }
               cartAPI.update(this.props.cart.id, this.props.user.token, data)
-                .then((response)=> console.log(response))
+                .then(() => {
+                  userAPI.showUser(this.props.user.id, this.props.user.token)
+                    .then(response => this.props.dispatch(updateAttr(response.data.user)))
+                    .then(() => console.log('updated'))
+                    .catch((err) => console.log(err))
+                })
                 .catch((err)=> console.log(err))
             })
             .catch((err) => console.log(err))
