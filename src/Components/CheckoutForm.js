@@ -41,15 +41,35 @@ class CheckoutForm extends Component {
     this.props.stripe.createToken({name: name})
       .then((response) =>  {
         data.charge.stripeToken = response.token.id
-        cartAPI.checkout(this.props.user.token, data)})
-      .then(() =>  {
-        let data = {
-          user: this.props.cart.attributes
-        }
-        userAPI.update(this.props.user.id, this.props.user.token, data)
-          .then((response) => console.log(response))
-          .catch((err) => console.log(err));
+        cartAPI.checkout(this.props.user.token, data)
+          .then(() => {
+            let data = {
+              user: {}
+            }
+            Object.keys(this.props.cart.attributes).forEach((cur) => {
+              data.user[cur] = this.props.cart.attributes[cur] + this.props.user[cur]
+            })
+            return data
+          })
+          .then((data) => {
+            userAPI.update(this.props.user.id, this.props.user.token, data)
+            .then((response) => console.log(response))
+            .catch((err) => console.log(err))
+          })
+          .catch((err) => console.log(err))
       })
+      // .then(() =>  {
+      //   let data = {
+      //     user: {}
+      //   }
+      //   Object.keys(this.props.cart.attributes).forEach((cur) => {
+      //     data.user[cur] = this.props.cart.attributes[cur] + this.props.user[cur]
+      //   })
+      //   console.log('this is data', data)
+      //   // userAPI.update(this.props.user.id, this.props.user.token, data)
+      //   //   .then((response) => console.log(response))
+      //   //   .catch((err) => console.log(err));
+      // })
       .catch((err) => console.log(err));
 
   }
