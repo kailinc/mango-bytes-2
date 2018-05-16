@@ -53,23 +53,20 @@ class CheckoutForm extends Component {
           })
           .then((data) => {
             userAPI.update(this.props.user.id, this.props.user.token, data)
-            .then((response) => console.log(response))
+            .then(() => {
+              let data = {
+                cart: {
+                  isPaid: true
+                }
+              }
+              cartAPI.update(this.props.cart.id, this.props.user.token, data)
+                .then((response)=> console.log(response))
+                .catch((err)=> console.log(err))
+            })
             .catch((err) => console.log(err))
           })
           .catch((err) => console.log(err))
       })
-      // .then(() =>  {
-      //   let data = {
-      //     user: {}
-      //   }
-      //   Object.keys(this.props.cart.attributes).forEach((cur) => {
-      //     data.user[cur] = this.props.cart.attributes[cur] + this.props.user[cur]
-      //   })
-      //   console.log('this is data', data)
-      //   // userAPI.update(this.props.user.id, this.props.user.token, data)
-      //   //   .then((response) => console.log(response))
-      //   //   .catch((err) => console.log(err));
-      // })
       .catch((err) => console.log(err));
 
   }
