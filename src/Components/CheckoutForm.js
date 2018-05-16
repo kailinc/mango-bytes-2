@@ -9,6 +9,7 @@ import { injectStripe,
 import { connect } from 'react-redux';
 
 import cartAPI from '../API/cart';
+import userAPI from '../API/user';
 
 class CheckoutForm extends Component {
   constructor() {
@@ -40,8 +41,14 @@ class CheckoutForm extends Component {
     this.props.stripe.createToken({name: name})
       .then((response) =>  {
         data.charge.stripeToken = response.token.id
-        cartAPI.checkout(this.props.user.token, data)
+        cartAPI.checkout(this.props.user.token, data)})
+      .then(() =>  {
+        let data = {
+          user: this.props.cart.attributes
+        }
+        userAPI.update(this.props.user.id, this.props.user.token, data)
           .then((response) => console.log(response))
+          .catch((err) => console.log(err));
       })
       .catch((err) => console.log(err));
 

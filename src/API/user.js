@@ -60,4 +60,15 @@ userAPI.showUser = function (id, token) {
   });
 };
 
+userAPI.update = function (id,token,data) {
+  return axios({
+    url: `${origin}/update-user/${id}`,
+    method: 'PATCH',
+    headers: {
+      Authorization: `Token token=${token}`
+    },
+    data
+  });
+};
+
 export default userAPI
