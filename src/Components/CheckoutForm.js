@@ -65,16 +65,12 @@ class CheckoutForm extends Component {
                 .then(() => {
                   userAPI.showUser(this.props.user.id, this.props.user.token)
                     .then(response => this.props.dispatch(updateAttr(response.data.user)))
-                    .catch((err) => console.log(err))
                 })
                 .then(() => this.props.dispatch(clearCart()))
                 .then(() => this.props.dispatch(clearAttributes()))
                 .then(() => this.props.dispatch(updateId('')))
-                .catch((err)=> console.log(err))
             })
-            .catch((err) => console.log(err))
           })
-          .catch((err) => console.log(err))
       })
       .catch((err) => console.log(err));
 

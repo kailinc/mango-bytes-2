@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 
-import { StripeProvider } from 'react-stripe-elements';
+// import { StripeProvider } from 'react-stripe-elements';
 
 import OrderSummary from '../Components/OrderSummary';
 import ItemTable from '../Components/ItemTable';
 import Shipping from '../Components/Shipping';
 import ForceLogin from '../Components/ForceLogin';
-import Payment from '../Components/Payment';
+// import Payment from '../Components/Payment';
+import TestPayment from '../Components/TestPayment';
 
 class Checkout extends Component {
   constructor() {
@@ -46,10 +47,12 @@ class Checkout extends Component {
       case 2:
         return <Shipping handleAdvance={() => this.advance()} handleBackward={() => this.backward()}/>
       case 3:
-        return (
-          <StripeProvider apiKey="pk_test_54gJjeqvMB18TplKh34AQioV">
-            <Payment handleBackward={() => this.backward()}/>
-          </StripeProvider>)
+        return <TestPayment/>
+      // case 4:
+      //   return (
+      //     <StripeProvider apiKey="pk_test_54gJjeqvMB18TplKh34AQioV">
+      //       <Payment handleBackward={() => this.backward()}/>
+      //     </StripeProvider>)
       default:
         break;
     }
