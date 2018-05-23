@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 
 import InputBox from './InputBox';
 import BackBtn from './BackBtn';
-import Card from './Card';
 import { newShipping } from '../actions/shipping';
 
 class Shipping extends Component {
@@ -88,7 +87,6 @@ class Shipping extends Component {
           <hr></hr>
           <h3>Delivery Method</h3>
           <label>FedEx (3-5 Day Delivery)</label>
-          <Card/>
         </div>
       </div>
     )
