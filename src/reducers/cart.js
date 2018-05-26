@@ -90,7 +90,7 @@ const cartReducer = (state = cartReducerDefaultState, action) => {
         ...state,
         attributes: action.attributes
       };
-    case 'ADD_DEVCRED':
+    case 'UPDATE_DEVCRED':
         return {
             ...state,
             devCred: state.devCred + action.devCred

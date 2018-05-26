@@ -62,7 +62,7 @@ export const updateId = (id) => ({
     id: id
 });
 
-export const addDevCred = (devCred) => ({
-  type: 'ADD_DEVCRED',
+export const updateDevCred = (devCred) => ({
+  type: 'UPDATE_DEVCRED',
   devCred: devCred
 })
