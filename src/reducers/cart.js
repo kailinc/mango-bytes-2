@@ -105,6 +105,11 @@ const cartReducer = (state = cartReducerDefaultState, action) => {
             ...state,
             productTotal: state.productTotal + action.productTotal
         };
+    case 'CLEAR_PRODUCT_TOTAL':
+        return {
+            ...state,
+            productTotal: 0
+        };
     default:
       return state;
   }

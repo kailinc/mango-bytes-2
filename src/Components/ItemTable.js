@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import CheckoutItem from './CheckoutItem';
-import { clearCart, clearAttributes, updateId, resetDevCred } from '../actions/cart';
+import { clearCart, clearAttributes, updateId, resetDevCred, clearProductTotal } from '../actions/cart';
 import cartAPI from '../API/cart';
 
 class ItemTable extends Component {
@@ -19,6 +19,7 @@ class ItemTable extends Component {
   clearCart() {
     this.props.dispatch(clearCart());
     this.props.dispatch(clearAttributes());
+    this.props.dispatch(clearProductTotal());
     if (this.props.user.token) {
       cartAPI.destroy(this.props.cart.id, this.props.user.token)
         .then(() => this.props.dispatch(updateId("")))
