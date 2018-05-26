@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import ItemForm from './ItemForm';
-import { removeItem, removeAttributes, updateId } from '../actions/cart';
+import { removeItem, removeAttributes, updateId, updateDevCred } from '../actions/cart';
 import { convertToDollars } from '../helpers/cart';
 import cartAPI from '../API/cart';
 
@@ -14,8 +14,10 @@ class CheckoutItem extends Component {
   }
 
   removeItem() {
+    let devCred = this.props.item.quantity * this.props.item.devCred * -1
     this.props.dispatch(removeItem(this.props.item.item_id));
     this.props.dispatch(removeAttributes(this.props.item.attributes, this.props.item.quantity))
+    this.props.dispatch(updateDevCred(devCred))
     if (this.props.user.token) {
       let data = {
         cart: {
