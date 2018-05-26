@@ -10,7 +10,7 @@ class OrderSummary extends Component {
     super(props)
     this.state = {
       promoCode: '',
-      promoValue: 0
+      promoValue: 0,
     }
     this.submitPromo = this.submitPromo.bind(this)
     this.handleChange = this.handleChange.bind(this)
@@ -37,9 +37,8 @@ class OrderSummary extends Component {
   }
 
   render() {
-    const productTotal = getTotal(this.props.cart.items)
-    const taxes = productTotal * 0.0625
-    const total = productTotal + taxes
+    const taxes = this.props.cart.productTotal * 0.0625
+    const total = this.props.cart.productTotal + taxes
     const afterDiscount = total - this.state.promoValue >= 0 ? total - this.state.promoValue : 0
     const discountValue = total - this.state.promoValue >= 0 ? this.state.promoValue : total
 
@@ -62,7 +61,7 @@ class OrderSummary extends Component {
           </div>
           <div className="summary-row">
             <p>PRODUCT TOTAL:</p>
-            <p>{convertToDollars(productTotal)}</p>
+            <p>{convertToDollars(this.props.cart.productTotal)}</p>
           </div>
           <div className="summary-row">
             <p>DELIVERY AND HANDLING:</p>
