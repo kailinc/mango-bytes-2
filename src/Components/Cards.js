@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 
 import cartAPI from '../API/cart';
 import userAPI from '../API/user';
@@ -14,6 +15,7 @@ class Cards extends React.Component {
       this.state = {
           loading: true,
           stripeLoading: true,
+          paid: false
       };
 
       this.onStripeUpdate = this.onStripeUpdate.bind(this);
@@ -112,16 +114,19 @@ class Cards extends React.Component {
             .then(() => {
               userAPI.showUser(this.props.user.id, this.props.user.token)
                 .then(response => this.props.dispatch(updateAttr(response.data.user)))
+                .then(() => this.setState({ paid: true }))
             })
-            .then(() => this.props.dispatch(clearCart()))
-            .then(() => this.props.dispatch(clearAttributes()))
-            .then(() => this.props.dispatch(updateId('')))
         })
       })
       .catch((err) => console.log(err));
   }
 
   render() {
+      if (this.state.paid) {
+        return(
+          <Redirect to="/confirmation" />
+        )
+      }
       const { stripeLoading, loading } = this.state;
       return (
           <div>
