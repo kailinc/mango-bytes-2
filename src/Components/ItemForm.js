@@ -81,12 +81,12 @@ class ItemForm extends Component {
       this.props.dispatch(newCart(item))
       this.props.dispatch(newAttributes(attributes))
       this.createCartAPI(item)
-    } else if (itemExists(this.props.cart.items, item.item_id)) {
-      this.props.dispatch(updateQuantity(item.item_id, 1))
-      this.props.dispatch(updateAttributes(attributes, 1))
-      this.updateCartAPI()
     } else {
-      this.props.dispatch(addItem(item))
+      if (itemExists(this.props.cart.items, item.item_id)) {
+        this.props.dispatch(updateQuantity(item.item_id, 1))
+      } else {
+        this.props.dispatch(addItem(item))
+      }
       this.props.dispatch(updateAttributes(attributes, 1))
       this.updateCartAPI()
     }
