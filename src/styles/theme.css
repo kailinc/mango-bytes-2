@@ -741,3 +741,26 @@ label {
   font-size: 14px;
   margin: 20px auto;
 }
+
+.confirmItems {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.confirmItems div {
+  box-sizing: border-box;
+  width: 140px;
+  height: 140px;
+}
+
+.confirmAttr {
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+  flex-wrap: wrap;
+}
+
+.confirmAttr p {
+  margin: 10px;
+}
