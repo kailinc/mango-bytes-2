@@ -3,7 +3,8 @@ const cartReducerDefaultState = {
   productTotal: 0,
   attributes: {},
   id: '',
-  devCred: 0
+  devCred: 0,
+  productFinal: 0
 };
 
 const cartReducer = (state = cartReducerDefaultState, action) => {
@@ -109,6 +110,11 @@ const cartReducer = (state = cartReducerDefaultState, action) => {
         return {
             ...state,
             productTotal: 0
+        };
+    case 'UPDATE_PRODUCT_FINAL':
+        return {
+            ...state,
+            productFinal: action.productFinal
         };
     default:
       return state;

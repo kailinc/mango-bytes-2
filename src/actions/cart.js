@@ -79,3 +79,8 @@ export const updateProductTotal = (productTotal) => ({
 export const clearProductTotal = () => ({
   type: 'CLEAR_PRODUCT_TOTAL'
 })
+
+export const updateProductFinal = (productFinal) => ({
+  type: 'UPDATE_PRODUCT_FINAL',
+  productFinal: productFinal
+})
