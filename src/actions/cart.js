@@ -66,3 +66,7 @@ export const updateDevCred = (devCred) => ({
   type: 'UPDATE_DEVCRED',
   devCred: devCred
 })
+
+export const resetDevCred = () => ({
+  type: 'RESET_DEVCRED'
+})

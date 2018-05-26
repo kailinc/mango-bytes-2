@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import CheckoutItem from './CheckoutItem';
-import { clearCart, clearAttributes, updateId } from '../actions/cart';
+import { clearCart, clearAttributes, updateId, resetDevCred } from '../actions/cart';
 import cartAPI from '../API/cart';
 
 class ItemTable extends Component {
@@ -24,6 +24,7 @@ class ItemTable extends Component {
         .then(() => this.props.dispatch(updateId("")))
         .catch((err) => console.log(err))
     }
+    this.props.dispatch(resetDevCred());
   }
 
   render() {

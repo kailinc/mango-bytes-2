@@ -95,6 +95,11 @@ const cartReducer = (state = cartReducerDefaultState, action) => {
             ...state,
             devCred: state.devCred + action.devCred
         };
+    case 'RESET_DEVCRED':
+        return {
+            ...state,
+            devCred: 0
+        };
     default:
       return state;
   }
