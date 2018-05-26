@@ -39,8 +39,9 @@ class Cards extends React.Component {
       this.loadStripe(() => {
           this.stripehandler = window.StripeCheckout.configure({
               key: 'pk_test_54gJjeqvMB18TplKh34AQioV',
-              image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
+              image: 'https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX3900421.jpg',
               locale: 'auto',
+              amount: 1234,
               token: (token) => {
                   this.setState({ loading: true });
                   this.handleToken(token);
@@ -63,9 +64,10 @@ class Cards extends React.Component {
 
   onStripeUpdate(e:Object) {
       this.stripehandler.open({
-          name: 'Mango Bytes Payment',
+          name: 'Mango Bytes 2.0 Order',
           description: 'Gains for the Brain',
           panelLabel: 'Pay',
+          email: '1@1',
           allowRememberMe: false,
       });
       e.preventDefault();
