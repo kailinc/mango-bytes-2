@@ -41,7 +41,7 @@ class Cards extends React.Component {
               key: 'pk_test_54gJjeqvMB18TplKh34AQioV',
               image: 'https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX3900421.jpg',
               locale: 'auto',
-              amount: 1234,
+              amount: this.props.cart.productFinal,
               token: (token) => {
                   this.setState({ loading: true });
                   this.handleToken(token);
@@ -67,7 +67,6 @@ class Cards extends React.Component {
           name: 'Mango Bytes 2.0 Order',
           description: 'Gains for the Brain',
           panelLabel: 'Pay',
-          email: '1@1',
           allowRememberMe: false,
       });
       e.preventDefault();

@@ -24,9 +24,10 @@ class OrderSummary extends Component {
 
   handleCheckout() {
     if (this.props.cart.items.length > 0) {
-      this.props.handleCheckout();
       const total = this.props.cart.productTotal * 1.0625
       const productFinal = total - this.state.promoValue >= 0 ? total - this.state.promoValue : 0
+      this.props.dispatch(updateProductFinal(productFinal));
+      this.props.handleCheckout();
     }
   }
 
