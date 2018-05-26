@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { getTotal, convertToDollars } from '../helpers/cart';
+import { updateProductFinal } from '../actions/cart';
 
 const dotenv = require('dotenv')
 
@@ -24,6 +25,8 @@ class OrderSummary extends Component {
   handleCheckout() {
     if (this.props.cart.items.length > 0) {
       this.props.handleCheckout();
+      const total = this.props.cart.productTotal * 1.0625
+      const productFinal = total - this.state.promoValue >= 0 ? total - this.state.promoValue : 0
     }
   }
 
@@ -41,7 +44,6 @@ class OrderSummary extends Component {
     const total = this.props.cart.productTotal + taxes
     const afterDiscount = total - this.state.promoValue >= 0 ? total - this.state.promoValue : 0
     const discountValue = total - this.state.promoValue >= 0 ? this.state.promoValue : total
-
     return (
       <div className="order-col">
         <div className="summary-content">
