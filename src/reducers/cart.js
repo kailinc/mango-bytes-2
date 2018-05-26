@@ -2,7 +2,8 @@ const cartReducerDefaultState = {
   items: [],
   cost: 0,
   attributes: {},
-  id: ''
+  id: '',
+  devCred: 0
 };
 
 const cartReducer = (state = cartReducerDefaultState, action) => {
@@ -89,6 +90,11 @@ const cartReducer = (state = cartReducerDefaultState, action) => {
         ...state,
         attributes: action.attributes
       };
+    case 'ADD_DEVCRED':
+        return {
+            ...state,
+            devCred: state.devCred + action.devCred
+        };
     default:
       return state;
   }

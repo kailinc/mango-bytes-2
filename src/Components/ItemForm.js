@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { newCart, updateQuantity, addItem, newAttributes, updateAttributes, updateId } from '../actions/cart';
+import { newCart, updateQuantity, addItem, newAttributes, updateAttributes, updateId, addDevCred } from '../actions/cart';
 import { itemExists, getQuantity } from '../helpers/cart';
 import cartAPI from '../API/cart';
 
@@ -78,14 +78,17 @@ class ItemForm extends Component {
     if (this.props.cart.items.length === 0 ) {
       this.props.dispatch(newCart(item))
       this.props.dispatch(newAttributes(attributes))
+      this.props.dispatch(addDevCred(100))
       this.createCartAPI(item)
     } else if (itemExists(this.props.cart.items, item.item_id)) {
       this.props.dispatch(updateQuantity(item.item_id, 1))
       this.props.dispatch(updateAttributes(attributes, 1))
       this.updateCartAPI()
+      this.props.dispatch(addDevCred(100))
     } else {
       this.props.dispatch(addItem(item))
       this.props.dispatch(updateAttributes(attributes, 1))
+      this.props.dispatch(addDevCred(100))
       this.updateCartAPI()
     }
   }
