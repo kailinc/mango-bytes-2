@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { newCart, updateQuantity, addItem, newAttributes, updateAttributes, updateId, updateDevCred } from '../actions/cart';
+import { newCart, updateQuantity, addItem, newAttributes, updateAttributes, updateId, updateDevCred, updateProductTotal } from '../actions/cart';
 import { itemExists, getQuantity } from '../helpers/cart';
 import cartAPI from '../API/cart';
 
@@ -75,22 +75,24 @@ class ItemForm extends Component {
     let attributes = this.formatAttributes();
     let item = this.formatItem();
     let devCred = this.props.item.devCred;
+    let productTotal = this.props.item.basePrice;
+
     if (this.props.cart.items.length === 0 ) {
       this.props.dispatch(newCart(item))
       this.props.dispatch(newAttributes(attributes))
-      this.props.dispatch(updateDevCred(devCred))
       this.createCartAPI(item)
     } else if (itemExists(this.props.cart.items, item.item_id)) {
       this.props.dispatch(updateQuantity(item.item_id, 1))
       this.props.dispatch(updateAttributes(attributes, 1))
       this.updateCartAPI()
-      this.props.dispatch(updateDevCred(devCred))
     } else {
       this.props.dispatch(addItem(item))
       this.props.dispatch(updateAttributes(attributes, 1))
-      this.props.dispatch(updateDevCred(devCred))
       this.updateCartAPI()
     }
+
+    this.props.dispatch(updateDevCred(devCred))
+    this.props.dispatch(updateProductTotal(productTotal))
   }
 
   minusOne() {

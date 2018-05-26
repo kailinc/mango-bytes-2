@@ -70,3 +70,8 @@ export const updateDevCred = (devCred) => ({
 export const resetDevCred = () => ({
   type: 'RESET_DEVCRED'
 })
+
+export const updateProductTotal = (productTotal) => ({
+  type: 'UPDATE_PRODUCT_TOTAL',
+  productTotal: productTotal
+})

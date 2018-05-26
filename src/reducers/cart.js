@@ -1,6 +1,6 @@
 const cartReducerDefaultState = {
   items: [],
-  cost: 0,
+  productTotal: 0,
   attributes: {},
   id: '',
   devCred: 0
@@ -99,6 +99,11 @@ const cartReducer = (state = cartReducerDefaultState, action) => {
         return {
             ...state,
             devCred: 0
+        };
+    case 'UPDATE_PRODUCT_TOTAL':
+        return {
+            ...state,
+            productTotal: state.productTotal + action.productTotal
         };
     default:
       return state;
