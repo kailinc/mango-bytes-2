@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
-import { Link, Redirect } from 'react-router-dom';
 
-import { clearCart, clearAttributes, updateId, clearProductTotal, updateProductFinal, resetDevCred } from '../actions/cart';
-
-import chatImg from '../assets/chat.png';
-import callImg from '../assets/call.png';
+import { getNum } from '../helpers/attributes';
 
 class Profile extends Component {
   constructor(props) {
@@ -17,6 +13,17 @@ class Profile extends Component {
   }
 
   render(){
+    const attributes = Object.keys(this.props.user).filter((cur) => cur !== 'id' && cur !== 'token' && cur !== 'devCred' && cur !== 'email' && cur !== 'fourScreen' && cur !== 'powers' ).map( (cur, index) => {
+      const level = this.props.user[cur]
+      const tileNum = getNum(level)
+      return (
+          <div className="badgeContainer">
+            <span className={"tile " + tileNum}>
+            </span>
+            <p className="tileLabel">{cur}</p>
+            <p>{level}</p>
+          </div>)
+    })
     return(
       <div>
         <div className="profile landingPic">
@@ -33,46 +40,7 @@ class Profile extends Component {
         </div>
         <h1 className="profHeader">Attributes</h1>
         <div className="tiles">
-          <div className="badgeContainer">
-            <span className="tile tile0">
-                <p className="tileLabel">JavaScript</p>
-            </span>
-            <p>100</p>
-          </div>
-          <span className="tile tile1">
-              <p className="attr">JavaScript</p>
-          </span>
-          <span className="tile tile2">
-              <p className="attr">JavaScript</p>
-          </span>
-          <span className="tile tile4">
-              <p className="attr">JavaScript</p>
-          </span>
-          <span className="tile tile8">
-              <p className="attr">JavaScript</p>
-          </span>
-          <span className="tile tile16">
-              <p className="attr">JavaScript</p>
-          </span>
-          <span className="tile tile64">
-              <p className="attr">JavaScript</p>
-          </span>
-          <span className="tile tile128">
-              <p className="attr">JavaScript</p>
-          </span>
-          <span className="tile tile256">
-              <p className="attr">JavaScript</p>
-          </span>
-          <span className="tile tile512">
-              <p className="attr">JavaScript</p>
-          </span>
-          <span className="tile tile1024">
-              <p className="attr">JavaScript</p>
-          </span>
-          <span className="tile tile2048">
-              <p className="attr">JavaScript</p>
-          </span>
-
+          {attributes}
         </div>
         <h1 className="profHeader">Super Power</h1>
         <div className="store confirmTable">
@@ -84,7 +52,8 @@ class Profile extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    cart: state.cart
+    cart: state.cart,
+    user: state.user
   };
 };
 

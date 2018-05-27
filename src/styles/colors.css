@@ -2,67 +2,67 @@
   box-shadow: 0 0 40px 10px #ec2;
 }
 
+.tilex0 {
+  background-color: #dcb;
+}
+
 .tile0 {
   background-color: #dcb;
 }
 
 .tile1 {
-  background-color: #dcb;
-}
-
-.tile2 {
   background-color: #eee;
 }
 
-.tile4 {
+.tile2 {
   background-color: #eec;
 }
 
-.tile8 {
+.tile3 {
   color: #ffe;
   background-color: #fb8;
 }
 
-.tile16 {
+.tile4 {
   color: #ffe;
   background-color: #f96;
 }
 
-.tile32 {
+.tile5 {
   color: #ffe;
   background-color: #f75;
 }
 
-.tile64 {
+.tile6 {
   color: #ffe;
   background-color: #f53;
 }
 
-.tile128 {
+.tile7 {
   color: #ffe;
   background-color: #ec7;
   font-size: 45px;
 }
 
-.tile256 {
+.tile8 {
   color: #ffe;
   background-color: #ec6;
   font-size: 45px;
 }
 
-.tile512 {
+.tile9 {
   color: #ffe;
   background-color: #ec5;
   font-size: 45px;
 }
 
-.tile1024 {
+.tile10 {
   color: #fff;
   background-color: #ec3;
   font-size: 35px;
 }
 
-.tile2048 {
+.tile11 {
   color: #fff;
   background-color: #ec2;
   font-size: 35px;

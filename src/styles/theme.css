@@ -805,25 +805,24 @@ label {
 }
 
 .tile {
-  width: 70px;
-  height: 70px;
+  width: 100px;
+  height: 100px;
   margin: 30px;
-  line-height: 70px;
+  line-height: 90px;
   display: inline-block;
   font-weight: bold;
   vertical-align: middle;
   border-radius: 7px;
   transform: rotate(45deg);
+  z-index: 1;
 }
 
 .tileLabel {
-  transform: rotate(-45deg);
   font-size: 20px;
   letter-spacing: .2em;
-  text-align: center;
+  margin-top: -80px;
+  z-index:10;
   position: relative;
-  right: 25px;
-  top: 20px;
 }
 
 .tiles{
@@ -835,8 +834,11 @@ label {
 
 .badgeContainer {
   text-align: center;
+  margin-bottom: 10px;
 }
 
 .badgeContainer p {
-  font-size: 20px;
+  font-size: 14px;
+  z-index:10;
+  position: relative;
 }
