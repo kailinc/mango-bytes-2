@@ -797,3 +797,46 @@ label {
   font-weight: bold;
   color: #000046;
 }
+
+.profHeader {
+  margin: 0 65px;
+  margin-bottom: 20px;
+  text-decoration: underline;
+}
+
+.tile {
+  width: 70px;
+  height: 70px;
+  margin: 30px;
+  line-height: 70px;
+  display: inline-block;
+  font-weight: bold;
+  vertical-align: middle;
+  border-radius: 7px;
+  transform: rotate(45deg);
+}
+
+.tileLabel {
+  transform: rotate(-45deg);
+  font-size: 20px;
+  letter-spacing: .2em;
+  text-align: center;
+  position: relative;
+  right: 25px;
+  top: 20px;
+}
+
+.tiles{
+  margin: 25px 125px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.badgeContainer {
+  text-align: center;
+}
+
+.badgeContainer p {
+  font-size: 20px;
+}

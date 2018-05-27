@@ -31,8 +31,51 @@ class Profile extends Component {
             </div>
           </div>
         </div>
-        <div className="store confirmTable">
+        <h1 className="profHeader">Attributes</h1>
+        <div className="tiles">
+          <div className="badgeContainer">
+            <span className="tile tile0">
+                <p className="tileLabel">JavaScript</p>
+            </span>
+            <p>100</p>
+          </div>
+          <span className="tile tile1">
+              <p className="attr">JavaScript</p>
+          </span>
+          <span className="tile tile2">
+              <p className="attr">JavaScript</p>
+          </span>
+          <span className="tile tile4">
+              <p className="attr">JavaScript</p>
+          </span>
+          <span className="tile tile8">
+              <p className="attr">JavaScript</p>
+          </span>
+          <span className="tile tile16">
+              <p className="attr">JavaScript</p>
+          </span>
+          <span className="tile tile64">
+              <p className="attr">JavaScript</p>
+          </span>
+          <span className="tile tile128">
+              <p className="attr">JavaScript</p>
+          </span>
+          <span className="tile tile256">
+              <p className="attr">JavaScript</p>
+          </span>
+          <span className="tile tile512">
+              <p className="attr">JavaScript</p>
+          </span>
+          <span className="tile tile1024">
+              <p className="attr">JavaScript</p>
+          </span>
+          <span className="tile tile2048">
+              <p className="attr">JavaScript</p>
+          </span>
 
+        </div>
+        <h1 className="profHeader">Super Power</h1>
+        <div className="store confirmTable">
         </div>
       </div>
     )
