@@ -43,7 +43,19 @@ class Profile extends Component {
           {attributes}
         </div>
         <h1 className="profHeader">Super Power</h1>
-        <div className="store confirmTable">
+        <div className="tiles">
+          <div className='superPowerContainer'>
+            <h3 className='spLabel'>Super Power Name</h3>
+            <p className="spText">long funny description about the super power</p>
+          </div>
+          <div className='superPowerContainer'></div>
+          <div className='superPowerContainer'></div>
+          <div className='superPowerContainer'></div>
+          <div className='superPowerContainer'></div>
+          <div className='superPowerContainer'></div>
+          <div className='superPowerContainer'></div>
+          <div className='superPowerContainer'></div>
+          <div className='superPowerContainer'></div>
         </div>
       </div>
     )
