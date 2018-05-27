@@ -114,6 +114,14 @@ class Cards extends React.Component {
             .then(() => {
               userAPI.showUser(this.props.user.id, this.props.user.token)
                 .then(response => this.props.dispatch(updateAttr(response.data.user)))
+                .then( () =>  {
+                  let data = {
+                    user: {
+                      devCred: this.props.cart.devCred
+                    }
+                  }
+                  userAPI.update(this.props.user.id, this.props.user.token, data)
+                })
                 .then(() => this.setState({ paid: true }))
             })
         })
