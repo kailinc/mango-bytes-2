@@ -1,8 +1,11 @@
-.home {
-  background: linear-gradient(-90deg, red, yellow);
+.landingPic {
   width: 100%;
   height: 600px;
   margin: 0;
+}
+
+.home {
+  background: linear-gradient(-90deg, red, yellow);
 }
 
 .header {
@@ -763,4 +766,34 @@ label {
 
 .confirmAttr p {
   margin: 10px;
+}
+
+.profile {
+  background: linear-gradient(180deg,#5433FF,#20BDFF, #A5FECB);
+}
+
+.profileLabel {
+  display: flex;
+  padding-top: 200px;
+  flex-direction: column;
+  text-align: center;
+}
+
+.profileDes {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
+}
+
+.profileDes h3 {
+  margin: 0px 30px;
+  letter-spacing: 0.2em;
+  color: white;
+}
+
+.coderName {
+  font-size: 10em;
+  font-weight: bold;
+  color: #000046;
 }

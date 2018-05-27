@@ -6,7 +6,7 @@ class Greeting extends Component {
   render(props){
     return(
       <div>
-        <Jumbotron className="home">
+        <Jumbotron className="home landingPic">
           <div className="greeting">
             <div className='top'>
               <h3>Calling All Developers</h3>

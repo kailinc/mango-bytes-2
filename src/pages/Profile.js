@@ -18,9 +18,23 @@ class Profile extends Component {
 
   render(){
     return(
-        <div className="store confirmTable">
-        user profile
+      <div>
+        <div className="profile landingPic">
+          <div className="profileLabel">
+            <div>
+              <span className="coderName">MUDA BISH</span>
+            </div>
+            <div className="profileDes">
+              <h3>KAI-LIN </h3>
+              <h3>CHEN</h3>
+              <h3>DEVCRED 500,000</h3>
+            </div>
+          </div>
         </div>
+        <div className="store confirmTable">
+
+        </div>
+      </div>
     )
   }
 }
