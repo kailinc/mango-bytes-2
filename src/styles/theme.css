@@ -818,11 +818,11 @@ label {
 }
 
 .tileLabel {
-  font-size: 20px;
   letter-spacing: .2em;
-  margin-top: -80px;
+  margin-top: -90px;
   z-index:10;
   position: relative;
+  font-weight: bold;
 }
 
 .tiles{
@@ -838,7 +838,7 @@ label {
 }
 
 .badgeContainer p {
-  font-size: 14px;
+  font-size: 18px;
   z-index:10;
   position: relative;
 }

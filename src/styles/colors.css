@@ -19,51 +19,78 @@
 }
 
 .tile3 {
-  color: #ffe;
   background-color: #fb8;
 }
 
 .tile4 {
-  color: #ffe;
   background-color: #f96;
 }
 
 .tile5 {
-  color: #ffe;
   background-color: #f75;
 }
 
 .tile6 {
-  color: #ffe;
   background-color: #f53;
 }
 
 .tile7 {
-  color: #ffe;
   background-color: #ec7;
-  font-size: 45px;
 }
 
 .tile8 {
-  color: #ffe;
   background-color: #ec6;
-  font-size: 45px;
 }
 
 .tile9 {
-  color: #ffe;
   background-color: #ec5;
-  font-size: 45px;
 }
 
 .tile10 {
-  color: #fff;
   background-color: #ec3;
-  font-size: 35px;
 }
 
 .tile11 {
-  color: #fff;
   background-color: #ec2;
+}
+
+.label3 {
+  color: #ffe;
+}
+
+.label4 {
+  color: #ffe;
+}
+
+.label5 {
+  color: #ffe;
+}
+
+.label6 {
+  color: #ffe;
+}
+
+.label7 {
+  color: #ffe;
+  font-size: 45px;
+}
+
+.label8 {
+  color: #ffe;
+  font-size: 45px;
+}
+
+.label9 {
+  color: #ffe;
+  font-size: 45px;
+}
+
+.label10 {
+  color: #fff;
+  font-size: 35px;
+}
+
+.label11 {
+  color: #fff;
   font-size: 35px;
 }
