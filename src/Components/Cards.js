@@ -82,7 +82,7 @@ class Cards extends React.Component {
           email: this.props.user.email,
           shipping: this.props.shipping,
           description: "Charge for order on Mango Bytes 2",
-          amount: 999,
+          amount: this.props.cart.productFinal,
           currency: "usd",
           userId: this.props.user.id,
           cartId: this.props.cart.id
@@ -107,7 +107,8 @@ class Cards extends React.Component {
         .then(() => {
           let data = {
             cart: {
-              isPaid: true
+              isPaid: true,
+              finalPrice: this.props.cart.productFinal
             }
           }
           cartAPI.update(this.props.cart.id, this.props.user.token, data)
