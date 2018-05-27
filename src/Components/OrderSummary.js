@@ -52,35 +52,35 @@ class OrderSummary extends Component {
             <h3>SUMMARY</h3>
           </div>
           <div className="summary-row">
-            <p>ITEMS:</p>
-            <p> {this.props.cart.items.length}</p>
+            <p className="summaryLabel">ITEMS:</p>
+            <p className="summaryText"> {this.props.cart.items.length}</p>
           </div>
           <div className="summary-row">
-            <p>GAINS:</p>
+            <p className="summaryLabel">GAINS:</p>
             <div>
               {this.props.cart.devCred > 0 ? <p>Dev Cred: <span className="increase-pts checkout-green">+{this.props.cart.devCred}</span></p> : <p></p>}
               {Object.keys(this.props.cart.attributes).map((key, index) => <p key={index}>{key}: <span className="increase-pts checkout-green">+{this.props.cart.attributes[key]}</span></p>)}
             </div>
           </div>
           <div className="summary-row">
-            <p>PRODUCT TOTAL:</p>
-            <p>{convertToDollars(this.props.cart.productTotal)}</p>
+            <p className="summaryLabel">PRODUCT TOTAL:</p>
+            <p className="summaryText">{convertToDollars(this.props.cart.productTotal)}</p>
           </div>
           <div className="summary-row">
-            <p>DELIVERY AND HANDLING:</p>
-            <p><span className="increase-pts">FREE</span></p>
+            <p className="summaryLabel">DELIVERY AND HANDLING:</p>
+            <p><span className="checkout-green">FREE</span></p>
           </div>
           <div className="summary-row">
-            <p>ESTIMATED TAXES:</p>
-            <p>{convertToDollars(taxes)}</p>
+            <p className="summaryLabel">ESTIMATED TAXES:</p>
+            <p className="summaryText" >{convertToDollars(taxes)}</p>
           </div>
           <div className="summary-row">
-            <p>DISCOUNTS:</p>
-            <p>{convertToDollars(discountValue)}</p>
+            <p className="summaryLabel">DISCOUNTS:</p>
+            <p className="summaryText">{convertToDollars(discountValue)}</p>
           </div>
           <div className="summary-row">
-            <p>TOTAL:</p>
-            <p>{convertToDollars(afterDiscount)}</p>
+            <p className="summaryLabel">TOTAL:</p>
+            <p className="summaryText">{convertToDollars(afterDiscount)}</p>
           </div>
         {
           this.props.stage === 0 ? <div><div className="summary-row">
