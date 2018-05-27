@@ -124,7 +124,15 @@ class Cards extends React.Component {
   render() {
       if (this.state.paid) {
         return(
-          <Redirect to="/confirmation" />
+          <Redirect to={{
+            pathname: '/confirmation',
+            state: {
+              cartId: this.props.cart.id,
+              attributes: this.props.cart.attributes,
+              devCred: this.props.cart.devCred,
+              items: this.props.cart.items
+            }
+          }}/>
         )
       }
       const { stripeLoading, loading } = this.state;

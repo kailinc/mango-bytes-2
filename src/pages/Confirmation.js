@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
+
+import { clearCart, clearAttributes, updateId, clearProductTotal, updateProductFinal, resetDevCred } from '../actions/cart';
 
 import chatImg from '../assets/chat.png';
 import callImg from '../assets/call.png';
@@ -10,14 +12,35 @@ class Confirmation extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      cartId: this.props.cart.id,
-      attributes: this.props.cart.attributes,
-      devCred: this.props.cart.devCred,
-      items: this.props.cart.items
+      cartId: '',
+      attributes: {},
+      devCred: 0,
+      items: []
     }
   }
 
+  componentWillMount(){
+    if (this.props.location.state) {
+      this.setState({
+        cartId: this.props.location.state.cartId,
+        attributes: this.props.location.state.attributes,
+        devCred: this.props.location.state.devCred,
+        items: this.props.location.state.items
+      })
+      this.props.dispatch(clearCart())
+      this.props.dispatch(clearAttributes())
+      this.props.dispatch(updateId(''))
+      this.props.dispatch(clearProductTotal())
+      this.props.dispatch(updateProductFinal(0))
+      this.props.dispatch(resetDevCred())
+    }
+  }
+
+
   render(){
+    if (!this.props.location.state) {
+      return (<Redirect to='/' />)
+    }
     const items = this.state.items.map((cur) => {
       const backgroundImg = {
         backgroundImage: "url(" + cur.img + ")"
