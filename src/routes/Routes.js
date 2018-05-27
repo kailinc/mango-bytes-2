@@ -10,6 +10,7 @@ import SignIn from '../pages/SignIn';
 import ChangePwd from '../pages/ChangePwd';
 import LogOut from '../pages/LogOut';
 import Shop from '../pages/Shop';
+import Profile from '../pages/Profile';
 import ItemPage from '../pages/ItemPage';
 import Footer from '../Components/Footer';
 import Confirmation from '../pages/Confirmation';
@@ -24,6 +25,7 @@ class Routes extends Component {
             <div className='content'>
               <Switch>
                 <Route path="/" component={Home} exact={true}/>
+                <Route path="/user-profile" component={Profile} exact={true}/>
                 <Route path="/checkout" render={()=> <Checkout exact={true}/>}/>
                 <Route path="/sign-up" render={() => <SignUp alertSuccess={this.alertSuccess} alertError={this.alertError} />} exact={true}/>
                 <Route path="/log-in" render={()=> <SignIn handleSignIn={this.props.handleSignIn}/>} exact={true}/>

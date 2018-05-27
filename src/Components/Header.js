@@ -46,7 +46,7 @@ const Header = (props) => {
 
 const LoggedIn = (props) => (
   <NavDropdown eventKey={2} title={props.coderName} id="basic-nav-dropdown" href="#">
-    <LinkContainer to="/view-profile" activeClassName="is-active" exact={true}>
+    <LinkContainer to="/user-profile" activeClassName="is-active" exact={true}>
       <MenuItem>VIEW PROFILE</MenuItem>
     </LinkContainer>
     <LinkContainer to="/change-pwd" activeClassName="is-active" exact={true}>
