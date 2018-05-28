@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import Jimbotron from '../Components/Jimbotron';
 import PowerThird from '../Components/PowerThird';
 import PowerSecond from '../Components/PowerSecond';
+import PowerOne from '../Components/PowerOne';
 
 import itemAPI from '../API/item';
 
@@ -43,6 +44,7 @@ class Superpower extends Component {
         <div>
           <PowerThird/>
           <PowerSecond/>
+          <PowerOne/>
         </div>
       </div>
     )
