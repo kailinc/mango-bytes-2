@@ -12,10 +12,10 @@ class Shop extends Component {
     super()
     this.state = {
       items: [],
-      headline: 'STICKERS',
-      header:'All Stickers',
-      msg: ['You see them at Hackathons, Career Fairs, Meet ups, and events. They may appear to be a symbol of passion for development, a medium to boost ego, or art. However, they are more than that. Stickers just make you a better developer. The more you have the better you are as a coder']
-    }
+      headline: '',
+      header:'',
+      msg: []
+     }
   }
 
   componentWillMount(){
@@ -23,6 +23,13 @@ class Shop extends Component {
       .then((response) => {
         this.setState({
           items: response.data.items
+        })
+      })
+      .then(() => {
+        this.setState({
+          headline: this.props.location.state.headline,
+          header: this.props.location.state.header,
+          msg: this.props.location.state.msg
         })
       })
       .catch((error)=> {

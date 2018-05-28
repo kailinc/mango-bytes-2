@@ -18,7 +18,13 @@ class Greeting extends Component {
             <div className="bottom">
               <Link to='/all'>SHOP ALL</Link>
               <Link to='/points'>POINTS</Link>
-              <Link to='/stickers'>STICKERS</Link>
+              <Link to={{
+                pathname: '/all',
+                state: {
+                  headline: 'STICKERS',
+                  header: 'All Stickers',
+                  msg: ['You see them at Hackathons, Career Fairs, Meet ups, and events. They may appear to be a symbol of passion for development, a medium to boost ego, or art. However, they are more than that. Stickers just make you a better developer. The more you have the better you are as a coder']
+                }}}>STICKERS</Link>
               <Link to='/swag'>SWAG</Link>
               <Link to='/super-power'>SUPER POWER</Link>
               <Link to='/misc'>MISC</Link>

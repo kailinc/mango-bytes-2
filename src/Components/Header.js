@@ -20,7 +20,14 @@ const Header = (props) => {
           <LinkContainer to="/points" activeClassName="is-active" exact={true}>
             <NavItem>POINTS</NavItem>
           </LinkContainer>
-          <LinkContainer to="/stickers" activeClassName="is-active" exact={true}>
+          <LinkContainer to={{
+            pathname: '/all',
+            state: {
+              headline: 'STICKERS',
+              header: 'All Stickers',
+              msg: ['You see them at Hackathons, Career Fairs, Meet ups, and events. They may appear to be a symbol of passion for development, a medium to boost ego, or art. However, they are more than that. Stickers just make you a better developer. The more you have the better you are as a coder']
+            }
+          }} activeClassName="is-active" exact={true}>
             <NavItem>STICKERS</NavItem>
           </LinkContainer>
           <LinkContainer to="/swag" activeClassName="is-active" exact={true}>
