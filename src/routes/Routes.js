@@ -14,8 +14,12 @@ import Profile from '../pages/Profile';
 import ItemPage from '../pages/ItemPage';
 import Footer from '../Components/Footer';
 import Confirmation from '../pages/Confirmation';
-import Superpower from '../pages/Superpower';
-import Section from '../pages/Section';
+import Superpowers from '../pages/Superpowers';
+import Stickers from '../pages/Stickers';
+import Swag from '../pages/Swag';
+import Misc from '../pages/Misc';
+import Points from '../pages/Points';
+import All from '../pages/All';
 
 class Routes extends Component {
 
@@ -33,12 +37,12 @@ class Routes extends Component {
                 <Route path="/log-in" render={()=> <SignIn handleSignIn={this.props.handleSignIn}/>} exact={true}/>
                 <Route path="/change-pwd" render={()=> <ChangePwd handleChangePwd={this.props.handleChangePwd}/>} exact={true}/>
                 <Route path="/log-out" render={()=> <LogOut handleLogOut={this.props.handleLogOut}/>} exact={true}/>
-                <Route path="/all" component={Section} />
-                <Route path="/superpowers" component={Superpower} />
-                <Route path="/points" component={Section} />
-                <Route path="/stickers" component={Section} />
-                <Route path="/swag" component={Section} />
-                <Route path="/misc" component={Section} />
+                <Route path="/all" component={All} />
+                <Route path="/superpowers" component={Superpowers} />
+                <Route path="/points" component={Points} />
+                <Route path="/stickers" component={Stickers} />
+                <Route path="/swag" component={Swag} />
+                <Route path="/misc" component={Misc} />
                 <Route path="/item/:id" component={ItemPage} />
                 <Route path="/confirmation" component={Confirmation} />
                 <Route component={ NotFoundPage }/>

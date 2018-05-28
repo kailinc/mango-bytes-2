@@ -7,29 +7,22 @@ import PowerOne from '../Components/PowerOne';
 
 import itemAPI from '../API/item';
 
-class Superpower extends Component {
+class Superpowers extends Component {
   constructor(){
     super()
     this.state = {
       items: [],
-      headline: '',
-      header:'',
-      msg: []
-     }
+      headline: 'superpower',
+      header: 'All Super Powers',
+      msg: ['Some coders just seem to write beautiful clean code, understand documentations easily, or refactor code like a machine. That is because they have super powers. You can get different super powers here. With great power comes great responsibility.']            
   }
+}
 
   componentWillMount(){
     itemAPI.getItems()
       .then((response) => {
         this.setState({
           items: response.data.items
-        })
-      })
-      .then(() => {
-        this.setState({
-          headline: this.props.location.state.headline,
-          header: this.props.location.state.header,
-          msg: this.props.location.state.msg
         })
       })
       .catch((error)=> {
@@ -51,4 +44,4 @@ class Superpower extends Component {
   }
 }
 
-export default Superpower;
+export default Superpowers;
