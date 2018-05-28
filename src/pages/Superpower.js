@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import Jimbotron from '../Components/Jimbotron';
 import PowerThird from '../Components/PowerThird';
+import PowerSecond from '../Components/PowerSecond';
 
 import itemAPI from '../API/item';
 
@@ -41,6 +42,7 @@ class Superpower extends Component {
         <Jimbotron headline={this.state.headline} msg={this.state.msg}/>
         <div>
           <PowerThird/>
+          <PowerSecond/>
         </div>
       </div>
     )

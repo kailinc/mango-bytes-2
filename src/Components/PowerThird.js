@@ -7,10 +7,10 @@ class PowerThird extends Component {
   render(){
     return(
       <div className="superpower">
-        <div className="sp3box1">
+        <div className="sp3box1 sp3box">
           <img className="sp3img" src={landingPic}/>
         </div>
-        <div className="sp3box2">
+        <div className="sp3box2 sp3box">
           <img className="sp3img" src={test}/>
         </div>
         <div className="sp3box3 sp3box">

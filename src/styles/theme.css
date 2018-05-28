@@ -891,18 +891,17 @@ label {
 
 .sp3box {
   border: 1px solid red;
+  max-width: 50%;
+  overflow: hidden;
+  object-fit: scale-down;
 }
 
 .sp3box1 {
   flex-basis: 40%;
-  object-fit: scale-down;
-  overflow: hidden;
 }
 
 .sp3box2 {
   flex-basis: 30%;
-  object-fit: scale-down;
-  overflow: hidden;
 }
 
 .sp3box3 {
