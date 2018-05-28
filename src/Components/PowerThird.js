@@ -1,18 +1,22 @@
 import React, { Component  } from 'react';
 
+import landingPic from '../assets/landing.jpg';
+import test from '../assets/test.jpg';
+
 class PowerThird extends Component {
   render(){
     return(
-      <div>
-        <div>
-          <h1>Image 1</h1>
+      <div className="superpower">
+        <div className="sp3box1">
+          <img className="sp3img" src={landingPic}/>
         </div>
-        <div>
-          <h1>Image 2</h1>
+        <div className="sp3box2">
+          <img className="sp3img" src={test}/>
         </div>
-        <div>
+        <div className="sp3box3 sp3box">
           <h1>Super Power Name</h1>
-          <p>needed text</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque quam tellus, gravida sed tellus quis, pharetra luctus mi. Ut feugiat, metus id molestie dignissim, justo dolor porta augue, nec egestas ante dui eu diam. Curabitur non posuere metus. Pellentesque dictum nec enim et ultrices. Suspendisse efficitur euismod auctor.</p>
+          <button className="promo-btn spBtn">Buy</button>
         </div>
       </div>
     )
