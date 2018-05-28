@@ -18,7 +18,7 @@ const Header = (props) => {
       <Navbar.Collapse>
         <Nav>
           <LinkContainer to={{
-            pathname: '/all',
+            pathname: '/points',
             state: {
               headline: 'points',
               header: 'All Points',
@@ -27,7 +27,7 @@ const Header = (props) => {
             <NavItem>POINTS</NavItem>
           </LinkContainer>
           <LinkContainer to={{
-            pathname: '/all',
+            pathname: '/stickers',
             state: {
               headline: 'sticker',
               header: 'All Stickers',
@@ -37,7 +37,7 @@ const Header = (props) => {
             <NavItem>STICKERS</NavItem>
           </LinkContainer>
           <LinkContainer to={{
-            pathname: '/all',
+            pathname: '/swag',
             state: {
               headline: 'swag',
               header: 'All Swag',
@@ -57,7 +57,7 @@ const Header = (props) => {
             <NavItem>SUPER POWERS</NavItem>
           </LinkContainer>
           <LinkContainer to={{
-            pathname: '/all',
+            pathname: '/misc',
             state: {
               headline: 'misc',
               header: 'All Miscellaneous',

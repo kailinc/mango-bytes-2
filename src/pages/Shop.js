@@ -12,9 +12,6 @@ class Shop extends Component {
     super()
     this.state = {
       items: [],
-      headline: '',
-      header:'',
-      msg: []
      }
   }
 
@@ -25,27 +22,16 @@ class Shop extends Component {
           items: response.data.items
         })
       })
-      .then(() => {
-        this.setState({
-          headline: this.props.location.state.headline,
-          header: this.props.location.state.header,
-          msg: this.props.location.state.msg
-        })
-      })
       .catch((error)=> {
         console.log(error)
       })
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-
-  }
-  
   render() {
     return(
       <div>
-        <Jimbotron headline={this.state.headline} msg={this.state.msg}/>
-        <Headline headline={this.state.header}/>
+        <Jimbotron headline={this.props.headline} msg={this.props.msg}/>
+        <Headline headline={this.props.header}/>
         <hr></hr>
         <div className='store'>
           <SideProfile/>
