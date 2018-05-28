@@ -3,6 +3,8 @@ import React, { Component  } from 'react';
 import landingPic from '../assets/landing.jpg';
 import test from '../assets/test.jpg';
 
+import SPForm from '../Components/SPForm';
+
 class PowerThird extends Component {
   render(){
     return(
@@ -14,9 +16,7 @@ class PowerThird extends Component {
           <img className="sp3img" src={test}/>
         </div>
         <div className="sp3box3 sp3box">
-          <h1>Super Power Name</h1>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque quam tellus, gravida sed tellus quis, pharetra luctus mi. Ut feugiat, metus id molestie dignissim, justo dolor porta augue, nec egestas ante dui eu diam. Curabitur non posuere metus. Pellentesque dictum nec enim et ultrices. Suspendisse efficitur euismod auctor.</p>
-          <button className="promo-btn spBtn">Buy</button>
+          <SPForm/>
         </div>
       </div>
     )
