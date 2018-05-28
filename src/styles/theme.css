@@ -906,13 +906,17 @@ label {
 
 .sp3box3 {
   flex-basis: 30%;
-  font-size: 16px;
-  text-align: center;
   padding: 30px 60px;
+  background-color: #121212;
 }
 
-.spBtn {
-  margin-top: 20px;
+.spForm {
+  font-size: 14px;
+  text-align: center;
+  padding: 20px;
+  background-color: #121212;
+  color: white;
+  height: 100%;
 }
 
 .sp3img {

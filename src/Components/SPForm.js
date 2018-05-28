@@ -12,8 +12,8 @@ class SPForm extends Component {
 
   render(){
     return(
-      <div>
-        <h1>Super Power Name</h1>
+      <div className="spForm">
+        <h3>Super Power</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque quam tellus, gravida sed tellus quis, pharetra luctus mi. Ut feugiat, metus id molestie dignissim, justo dolor porta augue, nec egestas ante dui eu diam. Curabitur non posuere metus. Pellentesque dictum nec enim et ultrices. Suspendisse efficitur euismod auctor.</p>
         <button className="promo-btn spBtn">Buy</button>
       </div>
