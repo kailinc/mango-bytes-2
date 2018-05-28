@@ -23,14 +23,21 @@ const Header = (props) => {
           <LinkContainer to={{
             pathname: '/all',
             state: {
-              headline: 'STICKERS',
+              headline: 'sticker',
               header: 'All Stickers',
               msg: ['You see them at Hackathons, Career Fairs, Meet ups, and events. They may appear to be a symbol of passion for development, a medium to boost ego, or art. However, they are more than that. Stickers just make you a better developer. The more you have the better you are as a coder']
             }
           }} activeClassName="is-active" exact={true}>
             <NavItem>STICKERS</NavItem>
           </LinkContainer>
-          <LinkContainer to="/swag" activeClassName="is-active" exact={true}>
+          <LinkContainer to={{
+            pathname: '/all',
+            state: {
+              headline: 'swag',
+              header: 'All Swag',
+              msg: ['Atheletes have jerseys. Rappers have sun glasses. Instagram Fitness Baes have followers. But we are Matheletes. We have SWAG! We represent a programming language, framework, company, or database PROUDLY! ']
+            }
+          }} activeClassName="is-active" exact={true}>
             <NavItem>SWAG</NavItem>
           </LinkContainer>
           <LinkContainer to="/super-powers" activeClassName="is-active" exact={true}>
