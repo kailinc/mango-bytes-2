@@ -6,7 +6,7 @@ class Jimbotron extends Component {
     const msg = this.props.msg.map((cur, index) => <h3>{cur}</h3>)
     return(
       <div className={"landingPic "+ this.props.headline + "Con"}>
-        <div className="profileLabel">
+        <div className="profileLabel pagesGreeting">
           <div>
             <span className="coderName">{this.props.headline.toUpperCase()}</span>
           </div>

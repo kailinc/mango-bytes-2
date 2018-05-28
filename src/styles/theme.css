@@ -875,3 +875,7 @@ label {
   width: 600px;
   color: black;
 }
+
+.pagesGreeting {
+  padding-top: 100px;
+}

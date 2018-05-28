@@ -17,7 +17,13 @@ class Greeting extends Component {
 
             <div className="bottom">
               <Link to='/all'>SHOP ALL</Link>
-              <Link to='/points'>POINTS</Link>
+              <Link to={{
+                pathname: '/all',
+                state: {
+                  headline: 'points',
+                  header: 'All Points',
+                  msg: ['There was only a few ways to become better at a language or a framework: read the documentation, take a class about it, or write a project using it. What if I told you there was an easier way? A much faster way. Here on Mango Bytes 2.0, you can buy experience in those languages and frameworks. #NoWork ']
+                }}}>POINTS</Link>
               <Link to={{
                 pathname: '/all',
                 state: {
@@ -30,7 +36,7 @@ class Greeting extends Component {
                 state: {
                   headline: 'swag',
                   header: 'All Swag',
-                  msg: ['Atheletes have jerseys. Rappers have sun glasses. Instagram Fitness Baes have followers. But we are Matheletes. We have SWAG! We represent a programming language, framework, company, or database PROUDLY! ']
+                  msg: ['Atheletes have jerseys. Rappers have sun glasses. Instagram Fitness Baes have followers. But we are Matheletes. We have SWAG! When we rock them, we feel legit. We represent a programming language, framework, company, or database PROUDLY! ']
                 }
               }}>SWAG</Link>
               <Link to='/super-power'>SUPER POWER</Link>

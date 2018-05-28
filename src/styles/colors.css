@@ -99,6 +99,14 @@
   background: linear-gradient(180deg,#a8ff78,#78ffd6);
 }
 
-.swagCon {
+.pointsCon {
   background: linear-gradient(90deg, #12c2e9,#c471ed, #f64f59);
+}
+
+.swagCon {
+  background: linear-gradient(90deg, #f4c4f3, #fc67fa);
+}
+
+.miscCon {
+  background: linear-gradient(90deg, #ef32d9,#89fffd);
 }
