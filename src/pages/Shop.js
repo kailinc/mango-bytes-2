@@ -37,6 +37,10 @@ class Shop extends Component {
       })
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+
+  }
+  
   render() {
     return(
       <div>

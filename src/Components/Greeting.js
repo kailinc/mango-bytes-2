@@ -16,7 +16,13 @@ class Greeting extends Component {
             </div>
 
             <div className="bottom">
-              <Link to='/all'>SHOP ALL</Link>
+              <Link to={{
+                pathname: '/all',
+                state: {
+                  headline: 'all',
+                  header: 'Everything',
+                  msg: ['Here is everything you need to become a better coder. We have experience in programming languages/frameworks, stickers, swag, miscellaneous, and super powers. We have what you need.']
+                }}}>SHOP ALL</Link>
               <Link to={{
                 pathname: '/all',
                 state: {
