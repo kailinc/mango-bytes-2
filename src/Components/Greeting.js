@@ -34,7 +34,14 @@ class Greeting extends Component {
                 }
               }}>SWAG</Link>
               <Link to='/super-power'>SUPER POWER</Link>
-              <Link to='/misc'>MISC</Link>
+              <Link to={{
+                pathname: '/all',
+                state: {
+                  headline: 'misc',
+                  header: 'All Miscellaneous',
+                  msg: ['When you make it with Cryptocurrency, you buy a lambo. When you make it in Football, you get a tattoo. Youtube = Drones. BodyBuilder = Gym Shark Gear. Rapper = Gold Chains. Developers have different things they get when they make it. At heart, we are all kids just trying to have fun.']
+                }
+              }}>MISC</Link>
             </div>
           </div>
 

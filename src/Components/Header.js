@@ -43,7 +43,14 @@ const Header = (props) => {
           <LinkContainer to="/super-powers" activeClassName="is-active" exact={true}>
             <NavItem>SUPER POWERS</NavItem>
           </LinkContainer>
-          <LinkContainer to="/misc" activeClassName="is-active" exact={true}>
+          <LinkContainer to={{
+            pathname: '/all',
+            state: {
+              headline: 'misc',
+              header: 'All Miscellaneous',
+              msg: ['When you make it with Cryptocurrency, you buy a lambo. When you make it in Football, you get a tattoo. Youtube = Drones. BodyBuilder = Gym Shark Gear. Rapper = Gold Chains. Developers have different things they get when they make it. At heart, we are all kids just trying to have fun.']
+            }
+          }} activeClassName="is-active" exact={true}>
             <NavItem>MISC</NavItem>
           </LinkContainer>
         </Nav>
