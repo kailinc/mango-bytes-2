@@ -39,7 +39,14 @@ class Greeting extends Component {
                   msg: ['Atheletes have jerseys. Rappers have sun glasses. Instagram Fitness Baes have followers. But we are Matheletes. We have SWAG! When we rock them, we feel legit. We represent a programming language, framework, company, or database PROUDLY! ']
                 }
               }}>SWAG</Link>
-              <Link to='/super-power'>SUPER POWER</Link>
+              <Link to={{
+                pathname: '/all',
+                state: {
+                  headline: 'superpower',
+                  header: 'All Super Powers',
+                  msg: ['Some coders just seem to write beautiful clean code, understand documentations easily, or refactor code like a machine. That is because they have super powers. You can get different super powers here. With great power comes great responsibility.']
+                }
+              }}>SUPER POWER</Link>
               <Link to={{
                 pathname: '/all',
                 state: {
