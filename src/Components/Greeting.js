@@ -40,7 +40,7 @@ class Greeting extends Component {
                 }
               }}>SWAG</Link>
               <Link to={{
-                pathname: '/all',
+                pathname: '/superpowers',
                 state: {
                   headline: 'superpower',
                   header: 'All Super Powers',

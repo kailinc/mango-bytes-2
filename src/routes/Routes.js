@@ -14,6 +14,7 @@ import Profile from '../pages/Profile';
 import ItemPage from '../pages/ItemPage';
 import Footer from '../Components/Footer';
 import Confirmation from '../pages/Confirmation';
+import Superpower from '../pages/Superpower';
 
 class Routes extends Component {
 
@@ -32,6 +33,7 @@ class Routes extends Component {
                 <Route path="/change-pwd" render={()=> <ChangePwd handleChangePwd={this.props.handleChangePwd}/>} exact={true}/>
                 <Route path="/log-out" render={()=> <LogOut handleLogOut={this.props.handleLogOut}/>} exact={true}/>
                 <Route path="/all" component={Shop} />
+                <Route path="/superpowers" component={Superpower} />
                 <Route path="/item/:id" component={ItemPage} />
                 <Route path="/confirmation" component={Confirmation} />
                 <Route component={ NotFoundPage }/>

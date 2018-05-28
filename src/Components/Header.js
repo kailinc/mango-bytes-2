@@ -46,7 +46,14 @@ const Header = (props) => {
           }} activeClassName="is-active" exact={true}>
             <NavItem>SWAG</NavItem>
           </LinkContainer>
-          <LinkContainer to="/super-powers" activeClassName="is-active" exact={true}>
+          <LinkContainer to={{
+            pathname: '/superpowers',
+            state: {
+              headline: 'superpower',
+              header: 'All Super Powers',
+              msg: ['Some coders just seem to write beautiful clean code, understand documentations easily, or refactor code like a machine. That is because they have super powers. You can get different super powers here. With great power comes great responsibility.']
+            }
+          }} activeClassName="is-active" exact={true}>
             <NavItem>SUPER POWERS</NavItem>
           </LinkContainer>
           <LinkContainer to={{
