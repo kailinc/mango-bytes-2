@@ -867,3 +867,11 @@ label {
   bottom: -200px;
   font-size: 14px;
 }
+
+.pageMsg h3 {
+  letter-spacing: normal;
+  font-size: 20px;
+  line-height: 2em;
+  width: 600px;
+  color: black;
+}

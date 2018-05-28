@@ -94,3 +94,7 @@
   color: #fff;
   font-size: 35px;
 }
+
+.stickerCon {
+  background: linear-gradient(180deg,#a8ff78,#78ffd6);
+}
