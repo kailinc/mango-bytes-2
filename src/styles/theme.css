@@ -960,4 +960,5 @@ label {
   display: flex;
   direction: column;
   flex-wrap: none;
+  justify-content: center;
 }

@@ -12,6 +12,7 @@ class ItemPage extends Component {
       attributes: [],
       quantity: 0
     }
+    this.getRec = this.getRec.bind(this)
   }
 
   componentWillMount(){
@@ -27,9 +28,15 @@ class ItemPage extends Component {
           attributes: attributes
         })
       })
+      .then(() => this.getRec(this.state.item.id))
       .catch((error)=> {
         console.log(error)
       })
+  }
+
+  getRec(id) {
+    let recommendations = []
+    this.attributes
   }
 
   render(){
