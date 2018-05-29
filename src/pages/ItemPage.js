@@ -1,12 +1,14 @@
 import React, { Component  } from 'react';
 
 import itemAPI from '../API/item';
+import ItemForm from '../Components/ItemForm';
 
 class ItemPage extends Component {
   constructor(){
     super()
     this.state = {
       item: {},
+      attributes: [],
       quantity: 0
     }
   }
@@ -17,6 +19,12 @@ class ItemPage extends Component {
         this.setState({
           item: response.data.item
         })
+        return response.data.item.attributes
+      })
+      .then((attributes) => {
+        this.setState({
+          attributes: attributes
+        })
       })
       .catch((error)=> {
         console.log(error)
@@ -24,12 +32,7 @@ class ItemPage extends Component {
   }
 
   render(){
-    const attributesArray = [{javascript: 10},{ python: 10}, {css: 10}]
-    const attributes = attributesArray.map((attribute, index)=> <li
-      key={index}
-      className='attributes'>
-      {Object.keys(attribute)[0]}: <span className='increase-pts'>+{Object.values(attribute)[0]}</span>
-    </li>)
+    let attributes = this.state.attributes.map((cur, index) =>  <li key={index} className='attributes'> {cur.name}: <span className='increase-pts'>+{cur.exp}</span></li>)
 
     return(
       <div className='itemPage'>
@@ -45,11 +48,7 @@ class ItemPage extends Component {
               <li>DevCred: {this.state.item.devCred}</li>
               { attributes }
             </ul>
-            <div className='items'>
-              <button>+</button>
-              <p>{this.state.quantity}</p>
-              <button>+</button>
-            </div>
+            <ItemForm item={this.state.item}/>
           </div>
         </div>
 
