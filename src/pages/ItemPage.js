@@ -16,6 +16,7 @@ class ItemPage extends Component {
       rec: []
     }
     this.getRec = this.getRec.bind(this)
+    this.reload = this.reload.bind(this)
   }
 
   componentWillMount(){
@@ -55,13 +56,19 @@ class ItemPage extends Component {
     }
 
     while (counter < 7) {
-      const ran = Math.floor(Math.random() * all.length) + 1
+      const ran = Math.floor(Math.random() * all.length)
       rec.push(all[ran])
       counter++;
     }
 
     this.setState({
       rec: rec
+    })
+  }
+
+  reload(item) {
+    this.setState({
+      item: item
     })
   }
 

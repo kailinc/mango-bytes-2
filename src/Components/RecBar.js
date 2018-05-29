@@ -17,7 +17,7 @@ class RecBar extends Component {
           <div className='item-img' style={backgroundImg}>
           </div>
           <div className='item-msg'>
-            <Link onClick={() => window.location.reload()} to={{
+            <Link onClick={() => this.props.reload(cur)} to={{
               pathname: '/item/' + cur.id,
               state: { itemId: cur.id }
             }}>{cur.name}</Link>
