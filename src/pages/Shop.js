@@ -6,6 +6,7 @@ import Feed from '../Components/Feed';
 import SideProfile from '../Components/SideProfile';
 import Jimbotron from '../Components/Jimbotron';
 import Headline from '../Components/Headline';
+import SearchBar from '../Components/SearchBar';
 
 import itemAPI from '../API/item';
 import { setShop } from '../actions/shop';
@@ -36,6 +37,7 @@ class Shop extends Component {
       <div>
         <Jimbotron headline={this.props.headline} msg={this.props.msg}/>
         <Headline headline={this.props.header}/>
+        <SearchBar/>
         <hr></hr>
         <div className='store'>
           <SideProfile/>
