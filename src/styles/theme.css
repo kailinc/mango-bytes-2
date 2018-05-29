@@ -950,3 +950,14 @@ label {
 .sp1box3 {
   flex-basis: 35%;
 }
+
+.recBar {
+  margin-top: 65px;
+  width: 100%;
+}
+
+.recBarCol {
+  display: flex;
+  direction: column;
+  flex-wrap: none;
+}

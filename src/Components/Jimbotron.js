@@ -2,7 +2,7 @@ import React, { Component  } from 'react';
 
 class Jimbotron extends Component {
   render(){
-    const msg = this.props.msg.map((cur, index) => <h3>{cur}</h3>)
+    const msg = this.props.msg.map((cur, index) => <h3 key={index}>{cur}</h3>)
     return(
       <div className={"landingPic "+ this.props.headline + "Con"}>
         <div className="profileLabel pagesGreeting">

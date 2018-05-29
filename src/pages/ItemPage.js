@@ -52,7 +52,7 @@ class ItemPage extends Component {
             <ItemForm item={this.state.item}/>
           </div>
         </div>
-        <RecBar items={['stuff', 'here', 'alot']}/>
+        <RecBar items={[this.state.item]}/>
       </div>
     )
   }
