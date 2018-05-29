@@ -32,12 +32,14 @@ class ItemPage extends Component {
         })
       })
       .then(() => this.getRec())
+      .then(() => window.scroll({ top: 0, left: 0, behavior: 'smooth'}))
       .catch((error)=> {
         console.log(error)
       })
   }
 
   getRec() {
+    let counter = 0;
     const rec = []
     let all = this.props.shop.all
     let attributes = this.state.attributes
@@ -45,10 +47,19 @@ class ItemPage extends Component {
       for (let j = 0; j < all.length; j++) {
         if (attributes[i].name.toLowerCase() === all[j].name.toLowerCase() && attributes[i].name.toLowerCase() != this.state.item.name.toLowerCase()) {
           rec.push(all[j])
+
+          counter += 1;
           break
         }
       }
     }
+
+    while (counter < 7) {
+      const ran = Math.floor(Math.random() * all.length) + 1
+      rec.push(all[ran])
+      counter++;
+    }
+
     this.setState({
       rec: rec
     })
