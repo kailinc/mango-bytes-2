@@ -1,5 +1,7 @@
 import React, { Component  } from 'react';
 
+import { connect } from 'react-redux';
+
 import itemAPI from '../API/item';
 import ItemForm from '../Components/ItemForm';
 import RecBar from '../Components/RecBar';
@@ -10,7 +12,8 @@ class ItemPage extends Component {
     this.state = {
       item: {},
       attributes: [],
-      quantity: 0
+      quantity: 0,
+      rec: []
     }
     this.getRec = this.getRec.bind(this)
   }
@@ -28,15 +31,27 @@ class ItemPage extends Component {
           attributes: attributes
         })
       })
-      .then(() => this.getRec(this.state.item.id))
+      .then(() => this.getRec())
       .catch((error)=> {
         console.log(error)
       })
   }
 
-  getRec(id) {
-    let recommendations = []
-    this.attributes
+  getRec() {
+    const rec = []
+    let all = this.props.shop.all
+    let attributes = this.state.attributes
+    for (let i = 0; i < attributes.length; i++) {
+      for (let j = 0; j < all.length; j++) {
+        if (attributes[i].name.toLowerCase() === all[j].name.toLowerCase() && attributes[i].name.toLowerCase() != this.state.item.name.toLowerCase()) {
+          rec.push(all[j])
+          break
+        }
+      }
+    }
+    this.setState({
+      rec: rec
+    })
   }
 
   render(){
@@ -59,10 +74,16 @@ class ItemPage extends Component {
             <ItemForm item={this.state.item}/>
           </div>
         </div>
-        <RecBar items={[this.state.item]}/>
+        <RecBar rec={this.state.rec}/>
       </div>
     )
   }
 }
 
-export default ItemPage;
+const mapStateToProps = (state) => {
+  return {
+    shop: state.shop
+  };
+};
+
+export default connect(mapStateToProps)(ItemPage);

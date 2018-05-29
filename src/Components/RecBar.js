@@ -8,7 +8,7 @@ class RecBar extends Component {
   }
 
   render(){
-    const items = this.props.items.map((cur, index) => {
+    const items = this.props.rec.map((cur, index) => {
       const backgroundImg = {
         backgroundImage: "url(" + cur.img + ")"
       }
