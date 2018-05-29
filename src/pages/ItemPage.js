@@ -2,6 +2,7 @@ import React, { Component  } from 'react';
 
 import itemAPI from '../API/item';
 import ItemForm from '../Components/ItemForm';
+import RecBar from '../Components/RecBar';
 
 class ItemPage extends Component {
   constructor(){
@@ -51,7 +52,7 @@ class ItemPage extends Component {
             <ItemForm item={this.state.item}/>
           </div>
         </div>
-
+        <RecBar items={['stuff', 'here', 'alot']}/>
       </div>
     )
   }
