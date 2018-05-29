@@ -79,9 +79,6 @@ class ForceLogin extends Component {
           })
         })
         .then(() => {
-          let data = {
-            credentials: this.state
-          }
           this.signIn()
         })
         .catch((error) => {

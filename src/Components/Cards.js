@@ -6,8 +6,6 @@ import { Redirect } from 'react-router-dom';
 import cartAPI from '../API/cart';
 import userAPI from '../API/user';
 import { updateAttr } from '../actions/user';
-import { clearCart, clearAttributes, updateId } from '../actions/cart';
-
 
 class Cards extends React.Component {
   constructor(props:Object) {
@@ -75,7 +73,6 @@ class Cards extends React.Component {
   }
 
   handleToken(token) {
-      let name = this.props.shipping.name
       let data = {
         charge: {
           stripeToken: null,

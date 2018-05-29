@@ -9,7 +9,6 @@ import SignUp from '../pages/SignUp';
 import SignIn from '../pages/SignIn';
 import ChangePwd from '../pages/ChangePwd';
 import LogOut from '../pages/LogOut';
-import Shop from '../pages/Shop';
 import Profile from '../pages/Profile';
 import ItemPage from '../pages/ItemPage';
 import Footer from '../Components/Footer';

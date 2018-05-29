@@ -1,18 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { newCart, updateQuantity, addItem, newAttributes, updateAttributes, updateId, updateDevCred, updateProductTotal } from '../actions/cart';
-import { itemExists, getQuantity } from '../helpers/cart';
-import cartAPI from '../API/cart';
-
 class SPForm extends Component {
   constructor(props){
     super(props)
   }
 
   render(){
-    let spClass = "spForm " + "sp" + this.props.pos
-    if (this.props.pos == 'Left' || this.props.pos == 'Right') {
+    let spClass = "spForm sp" + this.props.pos
+    if (this.props.pos === 'Left' || this.props.pos === 'Right') {
       spClass += " spOverlay";
     }
     return(

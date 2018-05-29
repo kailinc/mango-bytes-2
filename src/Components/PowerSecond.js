@@ -10,11 +10,11 @@ class PowerSecond extends Component {
     return(
       <div className="superpower">
         <div className="sp3box">
-          <img className="sp3img" src={landingPic}/>
+          <img className="sp3img" alt="primary power" src={landingPic}/>
           <SPForm pos="Right"/>
         </div>
         <div className="sp3box">
-          <img className="sp3img" src={test}/>
+          <img className="sp3img" alt="secondary power" src={test}/>
           <SPForm pos="Left"/>
         </div>
       </div>

@@ -18,9 +18,9 @@ class Profile extends Component {
       const tileNum = getNum(level)
       return (
           <div className="badgeContainer">
-            <span className={"tile " + "tile" +tileNum}>
+            <span className={"tile tile" +tileNum}>
             </span>
-            <p className={"tileLabel " + "label" +tileNum}>{cur}</p>
+            <p className={"tileLabel label" +tileNum}>{cur}</p>
             <p>{level}</p>
           </div>)
     })

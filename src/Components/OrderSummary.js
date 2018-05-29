@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { getTotal, convertToDollars } from '../helpers/cart';
+import { convertToDollars } from '../helpers/cart';
 import { updateProductFinal } from '../actions/cart';
 
 const dotenv = require('dotenv')
