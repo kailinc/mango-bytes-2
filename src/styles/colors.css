@@ -122,3 +122,8 @@
 .hrAdCon {
   background: linear-gradient(#1FA2FF,#12D8FA,#A6FFCB);
 }
+
+.VAdCon {
+  background: linear-gradient(90deg, #232526,#414345);
+  color: #f7ff00;
+}

@@ -6,6 +6,7 @@ import Feed from '../Components/Feed';
 import SideProfile from '../Components/SideProfile';
 import Jimbotron from '../Components/Jimbotron';
 import Headline from '../Components/Headline';
+import VAd from '../Components/VAd';
 
 import itemAPI from '../API/item';
 import { setShop } from '../actions/shop';
@@ -74,6 +75,7 @@ class Shop extends Component {
     return(
       <div>
         <Jimbotron headline={this.props.headline} msg={this.props.msg}/>
+        <VAd/>
         <Headline headline={this.props.header}/>
         <hr></hr>
         <div className='store'>

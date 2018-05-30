@@ -990,3 +990,9 @@ label {
   transform: rotate(-90deg) translate(-300px, -100px);
   width: 400px;
 }
+
+.VAdCon {
+  border: solid 1px black;
+  width: 100%;
+  height: 200px;
+}
