@@ -10,3 +10,7 @@
     color: #24FE41;
   }
 }
+
+.selected {
+  border: 2px solid #0f9b0f;
+}

@@ -7,6 +7,24 @@ import { convertToDollars } from '../helpers/cart';
 class Item extends Component {
   constructor(props){
     super()
+    this.state = {
+      selectClass: 'item '
+    }
+    this.select = this.select.bind(this)
+    this.unselect = this.unselect.bind(this)
+  }
+
+  select() {
+    this.setState((prevState) => ({
+      selectClass: prevState.selectClass += 'selected '
+    }))
+  }
+
+  unselect() {
+    this.setState({
+      selectClass: 'item '
+    })
+    console.log('wtfffff')
   }
 
   render() {
@@ -20,9 +38,8 @@ class Item extends Component {
     const backgroundImg = {
       backgroundImage: "url(" + imgUrl + ")"
     }
-
     return(
-      <div className='item'>
+      <div className={this.state.selectClass}>
         <div className='item-img-div'>
           <div className='item-img' style={backgroundImg}>
           </div>
@@ -40,8 +57,7 @@ class Item extends Component {
               </ul>
               <p>DevCred: <span className='increase-pts'>+{this.props.item.devCred}</span></p>
           <p>{convertToDollars(this.props.item.basePrice)}</p>
-
-          <ItemForm item={this.props.item}/>
+          <ItemForm handleSelect={this.select}  handleUnselect={this.unselect} item={this.props.item}/>
         </div>
       </div>
     )
