@@ -964,5 +964,20 @@ label {
 }
 
 .searchBarCon {
-  
+  width: inherit;
+  background: #f5f5f5;
+  padding: 14px 30px;
+  border-top: 1px solid black;
+}
+
+.searchBarForm input[type=text] {
+  padding: 6px;
+  border: none;
+  margin-top: 8px;
+  margin-right: 16px;
+  font-size: 17px;
+}
+
+.searchBar {
+  width: 100%;
 }
