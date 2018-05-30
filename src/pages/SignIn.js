@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
+import Form from '../Components/Form';
+import HRAd from '../Components/HRAd';
+
 import { signIn } from '../actions/user';
 import { setCurCart, updateAttributes, updateId } from '../actions/cart';
 import userAPI from '../API/user';
 import cartAPI from '../API/cart';
 import { formatAttributes, formatItems } from '../helpers/cart';
-
-import Form from '../Components/Form';
 
 class SignIn extends Component {
   constructor(props) {
@@ -98,6 +99,7 @@ class SignIn extends Component {
                     { label: 'password', value: this.state.password, size: 'half'}];
     return(
       <div>
+        <HRAd msg="Insert Funny Quote here"/>
         <div className='title'>
           <h1>Welcome Back!</h1>
         </div>

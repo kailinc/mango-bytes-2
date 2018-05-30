@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom';
 
 import userAPI from '../API/user';
 import Form from '../Components/Form';
-import HRAd from '../Components/HRAd';
+import VAd from '../Components/VAd';
 
 class SignUp extends Component {
   constructor(props) {
@@ -104,9 +104,9 @@ class SignUp extends Component {
           <h1>Sign Up to Join the Team!</h1>
         </div>
         <div className="signUpCon">
-          <HRAd msg="Insertion Motivation/Cheesy Ad Here"/>
+          <VAd msg="Insertion Motivation/Cheesy Ad Here"/>
           <Form fields={fields} updateValue={this.updateValue} uiType={this.state.ui.type} uiMsg={this.state.ui.msg} unmountMe={this.handleChildUnmount} onSubmit={this.onSignUp} uiDisplay={this.state.ui.display}/>
-          <HRAd msg="Insertion Totally Misleading/Profound Ad Here"/>
+          <VAd msg="Insertion Totally Misleading/Profound Ad Here"/>
         </div>
       </div>
       )

@@ -6,7 +6,7 @@ import Feed from '../Components/Feed';
 import SideProfile from '../Components/SideProfile';
 import Jimbotron from '../Components/Jimbotron';
 import Headline from '../Components/Headline';
-import VAd from '../Components/VAd';
+import HRAd from '../Components/HRAd';
 
 import itemAPI from '../API/item';
 import { setShop } from '../actions/shop';
@@ -75,13 +75,14 @@ class Shop extends Component {
     return(
       <div>
         <Jimbotron headline={this.props.headline} msg={this.props.msg}/>
-        <VAd msg="Stack Overflow where all the answer resides."/>
+        <HRAd msg="Stack Overflow where all the answer resides."/>
         <Headline headline={this.props.header}/>
         <hr></hr>
         <div className='store'>
           <SideProfile/>
           <Feed handleSearch={this.search} handleFilter={this.filter} items={this.state.searchResults}/>
         </div>
+        <HRAd msg="Stack Overflow where all the answer resides."/>
       </div>
     )
   }

@@ -2,8 +2,11 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import userAPI from '../API/user';
+
 import Form from '../Components/Form';
+import HRAd from '../Components/HRAd';
+
+import userAPI from '../API/user';
 
 class ChangePwd extends Component {
   constructor(props) {
@@ -89,6 +92,7 @@ class ChangePwd extends Component {
 
     return(
       <div>
+        <HRAd msg="insert funny add stuff here"/>
         <div className='title'>
           <h1>Change Your Password</h1>
         </div>

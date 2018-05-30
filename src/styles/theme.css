@@ -981,24 +981,24 @@ label {
   flex-direction: row;
 }
 
-.hrAdCon {
+.VAdCon {
   width: 200px;
 }
 
-.hrAdCon p {
+.VAdCon p {
   font-size: 30px;
   transform: rotate(-90deg) translate(-300px, -100px);
   width: 400px;
 }
 
-.VAdCon {
+.hrAdCon {
   border: solid 1px black;
   width: 100%;
   height: 200px;
   text-align: center;
 }
 
-.VAdCon h3 {
+.hrAdCon h3 {
   font-size: 40px;
   padding-top: 30px;
 }
