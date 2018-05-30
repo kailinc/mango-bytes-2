@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import SearchBar from '../Components/SearchBar';
+
 class Filters extends Component {
   render() {
     const filters = ['value', 'price', 'devcred', 'date']
@@ -10,6 +12,7 @@ class Filters extends Component {
           <ul>
             <li><a className='filter-header'>FILTER BY</a></li>
              { options }
+             <li><SearchBar handleSearch={this.props.handleSearch} /></li>
           </ul>
         </div>
       </div>
