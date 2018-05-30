@@ -75,7 +75,7 @@ class Shop extends Component {
     return(
       <div>
         <Jimbotron headline={this.props.headline} msg={this.props.msg}/>
-        <VAd/>
+        <VAd msg="Stack Overflow where all the answer resides."/>
         <Headline headline={this.props.header}/>
         <hr></hr>
         <div className='store'>

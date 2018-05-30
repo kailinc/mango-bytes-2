@@ -5,7 +5,7 @@ class VAd extends Component {
   render(){
     return(
       <div className="VAdCon">
-        <p>This is vertical add</p>
+        <h3>{this.props.msg}</h3>
       </div>
     )
   }
