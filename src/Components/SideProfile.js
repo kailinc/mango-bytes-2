@@ -18,15 +18,15 @@ class SideProfile extends Component {
         <div className='aside-container'>
           <div className='left'>
             <h3>{this.props.user.devCred}</h3>
-            <h5>{this.props.user.firstName}</h5>
-            <h5>{this.props.user.lastName}</h5>
+            <h3>{this.props.user.firstName}</h3>
+            <h3>{this.props.user.lastName}</h3>
           </div>
           <div className='right'>
             <img src='https://www.shareicon.net/data/128x128/2016/09/15/829444_man_512x512.png' alt='profile'></img>
           </div>
         </div>
         <div className='profile-hr'>
-          <p>{this.props.user.coderName}</p>
+          <p>{this.props.user.coderName.toUpperCase()}</p>
         </div>
         <div className='aside-container'>
           {skill1}

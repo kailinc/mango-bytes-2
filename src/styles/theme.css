@@ -172,13 +172,15 @@
 
 .aside-container {
   margin: 0;
-  padding: 0;
+  padding: 20px 0;
   border: 0;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: center;
   width: 100%;
+  color: #666;
+  font-size: 12px;
 }
 
 .asideText {
@@ -223,6 +225,8 @@ a {
   position: sticky;
   top: 100px;
   width: 350px;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
 }
 
 .feed-container {
@@ -249,10 +253,13 @@ a {
 
 .profile-hr p {
   margin-bottom: 0;
+  font-weight: bold;
+  font-size: 16px;
+  letter-spacing: 5px;
 }
 
 .left, .right {
-  padding: 0 20px;
+  padding: 0 14px;
 }
 
 .filters {
