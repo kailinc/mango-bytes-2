@@ -49,7 +49,21 @@ class Shop extends Component {
       this.setState({
         curFilter: option
       })
-      const searchResults = this.state.searchResults.sort(compareDate)
+      let searchResults = []
+      switch(this.state.curFilter) {
+        case 'price':
+          searchResults = this.state.searchResults.sort(comparePrice)
+          break;
+        case 'value':
+          searchResults = this.state.searchResults.sort(compareValue)
+          break;
+        case 'devcred':
+          searchResults = this.state.searchResults.sort(compareDevCred)
+          break;
+        default:
+          searchResults = this.state.searchResults.sort(compareDate)
+
+      }
       this.setState({
         searchResults: searchResults
       })
