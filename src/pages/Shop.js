@@ -9,6 +9,7 @@ import Headline from '../Components/Headline';
 
 import itemAPI from '../API/item';
 import { setShop } from '../actions/shop';
+import { comparePrice } from '../helpers/filter';
 
 class Shop extends Component {
   constructor(){
@@ -41,10 +42,10 @@ class Shop extends Component {
   }
 
   filter(option) {
-    // reorder it
-    // this.setState({
-    //   searchResults: searchResults
-    // })
+    const searchResults = this.state.searchResults.sort(comparePrice)
+    this.setState({
+      searchResults: searchResults
+    })
   }
 
   render() {
