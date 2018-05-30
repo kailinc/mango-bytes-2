@@ -103,10 +103,10 @@ class SignUp extends Component {
         <div className='title'>
           <h1>Sign Up to Join the Team!</h1>
         </div>
-        <div>
-          <HRAd/>
+        <div className="signUpCon">
+          <HRAd msg="Insertion Motivation/Cheesy Ad Here"/>
           <Form fields={fields} updateValue={this.updateValue} uiType={this.state.ui.type} uiMsg={this.state.ui.msg} unmountMe={this.handleChildUnmount} onSubmit={this.onSignUp} uiDisplay={this.state.ui.display}/>
-          <HRAd/>
+          <HRAd msg="Insertion Totally Misleading/Profound Ad Here"/>
         </div>
       </div>
       )

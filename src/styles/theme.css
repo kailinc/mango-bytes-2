@@ -709,6 +709,7 @@ label {
   display: flex;
   flex-direction: column;
   align-items: center;
+  flex-grow: 1;
 }
 
 .confirm {
@@ -972,4 +973,20 @@ label {
   border: none;
   margin: 8px 14px;
   font-size: 17px;
+}
+
+.signUpCon {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+}
+
+.hrAdCon {
+  width: 200px;
+}
+
+.hrAdCon p {
+  font-size: 30px;
+  transform: rotate(-90deg) translate(-300px, -100px);
+  width: 400px;
 }

@@ -5,7 +5,7 @@ class HRAd extends Component {
   render(){
     return(
       <div className="hrAdCon">
-        <h3>This is Horizontal Ad</h3>
+        <p>{this.props.msg}</p>
       </div>
     )
   }

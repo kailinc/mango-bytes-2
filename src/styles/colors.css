@@ -118,3 +118,7 @@
 .allCon {
   background: linear-gradient(90deg, #FDFC47,#24FE41);
 }
+
+.hrAdCon {
+  background: linear-gradient(#1FA2FF,#12D8FA,#A6FFCB);
+}
