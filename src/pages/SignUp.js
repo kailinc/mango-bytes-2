@@ -3,6 +3,7 @@ import { Redirect } from 'react-router-dom';
 
 import userAPI from '../API/user';
 import Form from '../Components/Form';
+import HRAd from '../Components/HRAd';
 
 class SignUp extends Component {
   constructor(props) {
@@ -102,7 +103,11 @@ class SignUp extends Component {
         <div className='title'>
           <h1>Sign Up to Join the Team!</h1>
         </div>
-        <Form fields={fields} updateValue={this.updateValue} uiType={this.state.ui.type} uiMsg={this.state.ui.msg} unmountMe={this.handleChildUnmount} onSubmit={this.onSignUp} uiDisplay={this.state.ui.display}/>
+        <div>
+          <HRAd/>
+          <Form fields={fields} updateValue={this.updateValue} uiType={this.state.ui.type} uiMsg={this.state.ui.msg} unmountMe={this.handleChildUnmount} onSubmit={this.onSignUp} uiDisplay={this.state.ui.display}/>
+          <HRAd/>
+        </div>
       </div>
       )
     }
