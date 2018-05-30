@@ -15,7 +15,8 @@ class Shop extends Component {
   constructor(){
     super()
     this.state = {
-      searchResults: []
+      searchResults: [],
+      curFilter: ''
      }
      this.search = this.search.bind(this)
      this.filter = this.filter.bind(this)
@@ -42,10 +43,17 @@ class Shop extends Component {
   }
 
   filter(option) {
-    const searchResults = this.state.searchResults.sort(compareDate)
-    this.setState({
-      searchResults: searchResults
-    })
+    if (this.state.curFilter === option) {
+      this.setState((prevState) => ({ searchResults: prevState.searchResults.reverse()}))
+    } else {
+      this.setState({
+        curFilter: option
+      })
+      const searchResults = this.state.searchResults.sort(compareDate)
+      this.setState({
+        searchResults: searchResults
+      })
+    }
   }
 
   render() {
