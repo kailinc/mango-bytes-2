@@ -9,7 +9,7 @@ import Headline from '../Components/Headline';
 
 import itemAPI from '../API/item';
 import { setShop } from '../actions/shop';
-import { comparePrice } from '../helpers/filter';
+import { comparePrice, compareValue, compareDevCred, compareDate } from '../helpers/filter';
 
 class Shop extends Component {
   constructor(){
@@ -42,7 +42,7 @@ class Shop extends Component {
   }
 
   filter(option) {
-    const searchResults = this.state.searchResults.sort(comparePrice)
+    const searchResults = this.state.searchResults.sort(compareDate)
     this.setState({
       searchResults: searchResults
     })
