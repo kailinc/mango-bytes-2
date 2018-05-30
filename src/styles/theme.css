@@ -179,7 +179,8 @@
   flex-wrap: nowrap;
   justify-content: center;
   width: 100%;
-  color: #666;
+  background-color: #191919;
+  color: #efefef;
   font-size: 12px;
 }
 
@@ -245,13 +246,14 @@ a {
 }
 
 .profile-hr {
-  background-color: white;
+  background-color: #FA5400;
   text-align: center;
   border-top: 1px solid black;
   border-bottom: 1px solid black;
 }
 
 .profile-hr p {
+  color: white;
   margin-bottom: 0;
   font-weight: bold;
   font-size: 16px;
