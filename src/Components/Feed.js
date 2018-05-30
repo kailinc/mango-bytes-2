@@ -10,7 +10,7 @@ class Feed extends Component {
     return(
       <div className='feed-container'>
         <SearchBar handleSearch={this.props.handleSearch}/>
-        <Filters />
+        <Filters handleFilter={this.props.handleFilter}/>
         <div className='items'>
           { items }
         </div>

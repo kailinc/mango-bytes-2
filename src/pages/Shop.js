@@ -17,6 +17,7 @@ class Shop extends Component {
       searchResults: []
      }
      this.search = this.search.bind(this)
+     this.filter = this.filter.bind(this)
   }
 
   componentWillMount(){
@@ -39,6 +40,13 @@ class Shop extends Component {
     })
   }
 
+  filter(option) {
+    // reorder it
+    // this.setState({
+    //   searchResults: searchResults
+    // })
+  }
+
   render() {
     return(
       <div>
@@ -47,7 +55,7 @@ class Shop extends Component {
         <hr></hr>
         <div className='store'>
           <SideProfile/>
-          <Feed handleSearch={this.search} items={this.state.searchResults}/>
+          <Feed handleSearch={this.search} handleFilter={this.filter} items={this.state.searchResults}/>
         </div>
       </div>
     )
