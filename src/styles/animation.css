@@ -1,0 +1,12 @@
+.increase {
+  animation: increasing 0.3s ease infinite;
+}
+
+@keyframes increasing {
+  from {
+    color: #0f9b0f;
+  }
+  to {
+    color: #24FE41;
+  }
+}
