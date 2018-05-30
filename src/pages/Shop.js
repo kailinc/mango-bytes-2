@@ -14,21 +14,29 @@ class Shop extends Component {
   constructor(){
     super()
     this.state = {
-      items: [],
+      searchResults: []
      }
+     this.search = this.search.bind(this)
   }
 
   componentWillMount(){
     itemAPI.getItems()
       .then((response) => {
         this.setState({
-          items: response.data.items
+          searchResults: response.data.items
         })
       })
-      .then(() => this.props.dispatch(setShop(this.state.items)))
+      .then(() => this.props.dispatch(setShop(this.state.searchResults)))
       .catch((error)=> {
         console.log(error)
       })
+  }
+
+  search(input) {
+    const searchResults = this.props.shop.all.filter((cur) => cur.name.toLowerCase() === input.toLowerCase())
+    this.setState({
+      searchResults: searchResults
+    })
   }
 
   render() {
@@ -39,11 +47,17 @@ class Shop extends Component {
         <hr></hr>
         <div className='store'>
           <SideProfile/>
-          <Feed items={this.state.items}/>
+          <Feed handleSearch={this.search} items={this.state.searchResults}/>
         </div>
       </div>
     )
   }
 }
 
-export default connect()(Shop);
+const mapStateToProps = (state, props) => {
+  return {
+    shop: state.shop
+  };
+};
+
+export default connect(mapStateToProps)(Shop);

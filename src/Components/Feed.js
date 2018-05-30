@@ -9,7 +9,7 @@ class Feed extends Component {
     const items = this.props.items.map((item, index) => <Item key={item.id} item={item}/>)
     return(
       <div className='feed-container'>
-        <SearchBar/>
+        <SearchBar handleSearch={this.props.handleSearch}/>
         <Filters />
         <div className='items'>
           { items }
