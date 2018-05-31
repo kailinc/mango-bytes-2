@@ -81,6 +81,7 @@ class ItemPage extends Component {
     this.setState({
       item: item
     })
+    this.getRec()
   }
 
   render(){
@@ -105,7 +106,7 @@ class ItemPage extends Component {
               <ItemForm handleSelect={this.select} handleUnselect={this.unselect} item={this.state.item}/>
             </div>
           </div>
-          <RecBar rec={this.state.rec}/>
+          <RecBar reload={this.reload} rec={this.state.rec}/>
         </div>
         <HRAd msg="Insert motivation caption slogan here"/>
       </div>
