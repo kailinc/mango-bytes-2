@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import itemAPI from '../API/item';
 import ItemForm from '../Components/ItemForm';
 import RecBar from '../Components/RecBar';
+import HRAd from '../Components/HRAd';
 
 class ItemPage extends Component {
   constructor(){
@@ -86,24 +87,29 @@ class ItemPage extends Component {
     let attributes = this.state.attributes.map((cur, index) =>  <li key={index} className='attributes'> {cur.name}: <span className='increase-pts'>+{cur.exp}</span></li>)
 
     return(
-      <div className='itemPage'>
-        <div className='itemProfile'>
-          <div className='itemImgs'>
-            <img className='mainImg' src={this.state.item.img} alt='item' />
+      <div>
+        <HRAd msg="Insert motivation caption slogan here"/>
+        <div className='itemPage'>
+          <div className='itemProfile'>
+            <div className='itemImgs'>
+              <img className='mainImg' src={this.state.item.img} alt='item' />
+            </div>
+            <div className='itemInfo'>
+              <h2>{this.state.item.name}</h2>
+              <p>${this.state.item.basePrice}</p>
+              <p>{this.state.item.des}</p>
+              <ul>
+                <li>DevCred: {this.state.item.devCred}</li>
+                { attributes }
+              </ul>
+              <ItemForm handleSelect={this.select} handleUnselect={this.unselect} item={this.state.item}/>
+            </div>
           </div>
-          <div className='itemInfo'>
-            <h2>{this.state.item.name}</h2>
-            <p>${this.state.item.basePrice}</p>
-            <p>{this.state.item.des}</p>
-            <ul>
-              <li>DevCred: {this.state.item.devCred}</li>
-              { attributes }
-            </ul>
-            <ItemForm handleSelect={this.select} handleUnselect={this.unselect} item={this.state.item}/>
-          </div>
+          <RecBar rec={this.state.rec}/>
         </div>
-        <RecBar rec={this.state.rec}/>
+        <HRAd msg="Insert motivation caption slogan here"/>
       </div>
+
     )
   }
 }
