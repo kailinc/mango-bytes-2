@@ -31,7 +31,7 @@ class ItemTable extends Component {
   render() {
     const items = this.props.cart.items.map((item, i)=> <CheckoutItem key={i} item={item}/>)
     const label = <div className='item-hr'><h4 className="firstLabel">Product</h4><h4 className="secondLabel">Description</h4><h4 className="thirdLabel">Price</h4><h4 className="fourthLabel">Quantity</h4><h4>Total</h4></div>
-    const itemsList = <div>{label}{items}<button onClick={this.clearCart}>Clear Cart</button></div>
+    const itemsList = <div>{label}{items}<button className="btn remove-btn clear-btn" onClick={this.clearCart}>Clear Cart</button></div>
     const emptyMsg = <p> <span>There are no items in your cart.</span><br></br>If you have an account with us, please login to see items you previously added.</p>
 
     return (

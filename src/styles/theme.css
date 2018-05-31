@@ -1050,3 +1050,7 @@ label {
   display: flex;
   flex-direction: column;
 }
+
+.clear-btn {
+  width: 100px;
+}
