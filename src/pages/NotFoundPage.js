@@ -18,7 +18,7 @@ class NotFoundPage extends Component {
           </ul>
         </div>
         <div>
-          <img src={notFound}/>
+          <img alt="sad pug" src={notFound}/>
         </div>
       </div>
     )

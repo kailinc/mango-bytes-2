@@ -41,12 +41,12 @@ class Confirmation extends Component {
     if (!this.props.location.state) {
       return (<Redirect to='/' />)
     }
-    const items = this.state.items.map((cur) => {
+    const items = this.state.items.map((cur, index) => {
       const backgroundImg = {
         backgroundImage: "url(" + cur.img + ")"
       }
       return (
-        <div className='item-img-div'>
+        <div key={index} className='item-img-div'>
           <div className='item-img' style={backgroundImg}>
           </div>
           <div className='item-msg'>

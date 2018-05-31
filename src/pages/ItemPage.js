@@ -57,7 +57,7 @@ class ItemPage extends Component {
     let attributes = this.state.attributes
     for (let i = 0; i < attributes.length; i++) {
       for (let j = 0; j < all.length; j++) {
-        if (attributes[i].name.toLowerCase() === all[j].name.toLowerCase() && attributes[i].name.toLowerCase() != this.state.item.name.toLowerCase()) {
+        if (attributes[i].name.toLowerCase() === all[j].name.toLowerCase() && attributes[i].name.toLowerCase() !== this.state.item.name.toLowerCase()) {
           rec.push(all[j])
 
           counter += 1;

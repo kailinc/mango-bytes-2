@@ -57,7 +57,7 @@ class CheckoutItem extends Component {
         </div>
         <div className="totalCon">
           <p>{convertToDollars(this.props.item.basePrice * this.props.item.quantity)}</p>
-          <button class="btn remove-btn" onClick={this.removeItem}>Remove</button>
+          <button className="btn remove-btn" onClick={this.removeItem}>Remove</button>
         </div>
       </div>
     )

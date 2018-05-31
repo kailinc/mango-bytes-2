@@ -57,6 +57,6 @@ export const updateAttr = ({ powers, devCred,JavaScript, Python, C, Css, Go, Htm
     MongoDB,
     Sql,
     Node,
-    Rails
+    Rails,
   }
 })
