@@ -119,10 +119,10 @@ class ItemForm extends Component {
     const item = this.formatItem();
 
     return(
-      <div className='items'>
-        <button onClick={this.addOne}>+</button>
-        <p>{this.props.item.quantity || getQuantity(this.props.cart.items, item.item_id)}</p>
-        <button onClick={this.minusOne}>-</button>
+      <div className='itemFormCon'>
+        <button className="promo-btn" onClick={this.addOne}>+</button>
+        <h3>{this.props.item.quantity || getQuantity(this.props.cart.items, item.item_id)}</h3>
+        <button className="promo-btn" onClick={this.minusOne}>-</button>
       </div>
     )
   }

@@ -250,6 +250,8 @@ a {
   text-align: center;
   border-top: 1px solid black;
   border-bottom: 1px solid black;
+  height: 30px;
+  vertical-align: center;
 }
 
 .profile-hr p {
@@ -258,6 +260,7 @@ a {
   font-weight: bold;
   font-size: 16px;
   letter-spacing: 5px;
+  padding-top: 2px;
 }
 
 .left, .right {
@@ -1010,4 +1013,18 @@ label {
 .hrAdCon h3 {
   font-size: 40px;
   padding-top: 30px;
+}
+
+.itemFormCon {
+  display: flex;
+  flex-wrap: none;
+  margin: 14px 16px;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.itemFormCon button {
+  flex-basis: 30%;
+  margin: 0 12px;
+  font-size: 20px;
 }
