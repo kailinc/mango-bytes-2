@@ -349,7 +349,7 @@ a {
 
 .attributes, ul {
   list-style: none;
-  padding: 2px 0px;
+  padding: 2px 0;
 }
 
 .item-img-div {
@@ -1053,4 +1053,26 @@ label {
 
 .clear-btn {
   width: 100px;
+}
+
+.notFoundCon {
+  margin: auto 125px;
+  display: flex;
+  flex-direction: row;
+  height: 650px;
+}
+
+.notFoundCon div {
+  width: 50%;
+  overflow: hidden;
+}
+
+.errorInfo {
+  padding-top: 150px;
+  padding-left: 14px;
+}
+
+.redirect {
+  list-style: disc;
+  padding-left: 20px;
 }
