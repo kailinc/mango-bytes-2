@@ -17,9 +17,9 @@ class SideProfile extends Component {
       <div className='profile-container'>
         <div className='aside-container'>
           <div className='left'>
-            <h3>{this.props.user.token ? this.props.user.devCred : 'DevCred'}</h3>
-            <h3>{this.props.user.token ? this.props.user.firstName : 'First'}</h3>
-            <h3>{this.props.user.token ? this.props.user.lastName : 'Last'}</h3>
+            <h3>{this.props.user.devCred || 'DevCred'}</h3>
+            <h3>{this.props.user.firstName || 'First'}</h3>
+            <h3>{this.props.user.lastName || 'Last'}</h3>
           </div>
           <div className='right'>
             <img src='https://www.shareicon.net/data/128x128/2016/09/15/829444_man_512x512.png' alt='profile'></img>
