@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { newCart, updateQuantity, addItem, newAttributes, updateAttributes, updateId, updateDevCred, updateProductTotal } from '../actions/cart';
-import { itemExists, getQuantity } from '../helpers/cart';
+import { getQuantity } from '../helpers/cart';
 import cartAPI from '../API/cart';
 
 class ItemForm extends Component {
@@ -83,7 +83,7 @@ class ItemForm extends Component {
       this.createCartAPI(item)
       this.props.handleSelect()
     } else {
-      if (itemExists(this.props.cart.items, item.item_id)) {
+      if (getQuantity(this.props.cart.items, item.item_id) > 0) {
         this.props.dispatch(updateQuantity(item.item_id, 1))
       } else {
         this.props.dispatch(addItem(item))
@@ -102,7 +102,11 @@ class ItemForm extends Component {
     let devCred = this.props.item.devCred * -1;
 
     if (this.props.cart.items.length > 0) {
-      if (itemExists(this.props.cart.items, item.item_id)) {
+      const quantity = getQuantity(this.props.cart.items, item.item_id)
+      if (quantity > 0) {
+        if (quantity === 1) {
+          this.props.handleUnselect();
+        }
         this.props.dispatch(updateQuantity(item.item_id, -1))
         this.props.dispatch(updateAttributes(attributes, -1))
         this.props.dispatch(updateDevCred(devCred))

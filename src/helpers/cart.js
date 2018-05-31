@@ -1,13 +1,3 @@
-
-export const itemExists = function (items, item_id) {
-  for (let i = 0; i < items.length; i++) {
-    if (items[i].item_id === item_id) {
-      return true
-    }
-  }
-  return false
-}
-
 export const getQuantity = function (items, itemId) {
   for (let i = 0; i < items.length; i++) {
     if (items[i].item_id === itemId) {

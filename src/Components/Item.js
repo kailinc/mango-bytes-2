@@ -24,7 +24,7 @@ class Item extends Component {
     this.setState({
       selectClass: 'item '
     })
-    console.log('wtfffff')
+    console.log('unselect()')
   }
 
   render() {
