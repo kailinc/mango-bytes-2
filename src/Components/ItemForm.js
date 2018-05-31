@@ -17,6 +17,13 @@ class ItemForm extends Component {
     this.updateCartAPI = this.updateCartAPI.bind(this)
   }
 
+  componentWillMount() {
+    let item = this.formatItem();
+    if (getQuantity(this.props.cart.items, item.item_id) > 0) {
+      this.props.handleSelect();
+    }
+  }
+
   formatItem() {
     return {
       item_id: this.props.item.id || this.props.item.item_id,
