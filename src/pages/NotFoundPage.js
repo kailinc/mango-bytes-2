@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import notFound from '../assets/notFound.jpg';
+import { Link } from 'react-router-dom';
 
 class NotFoundPage extends Component {
   render() {
@@ -11,8 +12,8 @@ class NotFoundPage extends Component {
           <h3>Thanks for your patience while we put the pieces back together.</h3>
           <p>In the meantime, you can...</p>
           <ul className="redirect">
-            <li>Shop through AWESOME items on this page.</li>
-            <li>Give me a start on GitHub.</li>
+            <li>Shop through AWESOME items on this <Link to="/all">page</Link></li>
+            <li>Give this project a star on <a href="https://github.com/kailinc/mango-bytes-2">GitHub.</a></li>
             <li>Donate Bitcoin/Ethereum/Litecoin to me!</li>
           </ul>
         </div>
