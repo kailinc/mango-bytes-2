@@ -20,6 +20,11 @@ const shippingReducer = (state = shippingReducerDefaultState, action) => {
         name: action.shipping.name,
         phone: action.shipping.phone
       }
+    case 'RESET_SHIPPING':
+      return {
+        ...state,
+        ...shippingReducerDefaultState
+      };
     default:
       return state;
   }

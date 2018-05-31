@@ -84,3 +84,7 @@ export const updateProductFinal = (productFinal) => ({
   type: 'UPDATE_PRODUCT_FINAL',
   productFinal: productFinal
 })
+
+export const resetCart = () => ({
+  type: 'RESET_CART'
+})

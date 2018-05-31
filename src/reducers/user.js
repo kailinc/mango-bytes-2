@@ -16,7 +16,7 @@ const userReducer = (state = userReducerDefaultState, action) => {
         ...state,
         ...action.user
       };
-    case 'SIGN_OUT':
+    case 'RESET_USER':
       return {
         ...state,
         ...userReducerDefaultState

@@ -31,8 +31,8 @@ export const signIn = ({id, firstName, lastName, coderName, token, skills, power
     }
 });
 
-export const signOut = () => ({
-  type: 'SIGN_OUT'
+export const resetUser = () => ({
+  type: 'RESET_USER'
 })
 
 export const updateAttr = ({ powers, devCred,JavaScript, Python, C, Css, Go, Html, Java, Ruby, Angular, React, BootStrap, Django, Ember, MongoDB, Sql, Node, Rails}, fourScreen = {}) => ({
