@@ -333,6 +333,9 @@ a {
 .item {
   padding: 5px;
   border: 1px solid white;
+  margin: 20px;
+  color: #666;
+  background-color:#eee;
 }
 
 .item:hover {
@@ -354,6 +357,7 @@ a {
   width: 200px;
   height: 200px;
   overflow: hidden;
+  background-color: white;
 }
 
 .item-msg {
