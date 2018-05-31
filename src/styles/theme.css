@@ -574,14 +574,7 @@ a {
 }
 
 .checkout-btn {
-  width: 100%;
-  padding: 5px 10px;
   background-color: #FA5400;
-  color: white;
-  border: 0;
-  border-radius: 2px;
-  font-size: 14px;
-  height: 48px;
 }
 
 .checkout-form {
@@ -605,14 +598,21 @@ a {
 }
 
 .promo-btn {
+  background-color: #0575e6;
+}
+
+.btn {
   width: 100%;
   padding: 0 14px;
   height: 48px;
-  background-color: #0575e6;
   color: white;
   border-radius: 2px;
   border: 0;
   margin-top: 20px;
+}
+
+.btn:hover {
+  color: white;
 }
 
 .checkout-info {
@@ -624,13 +624,14 @@ a {
 
 .item-hr {
   width: 100%;
-  display:flex;
+  display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-between;
   border-bottom: 1px solid black;
   margin-bottom: 20px;
   padding: 14px;
+  align-items: baseline;
 }
 
 .item-hr-img {
@@ -1031,4 +1032,21 @@ label {
   flex-basis: 30%;
   margin: 0 12px;
   font-size: 20px;
+}
+
+.firstLabel {
+  width: 100px;
+}
+
+.secondLabel {
+  width: 50px;
+}
+
+.thirdLabel {
+  width: 40px;
+}
+
+.totalCon {
+  display: flex;
+  flex-direction: column;
 }

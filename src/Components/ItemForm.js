@@ -120,9 +120,9 @@ class ItemForm extends Component {
 
     return(
       <div className='itemFormCon'>
-        <button className="promo-btn" onClick={this.addOne}>+</button>
+        <button className="promo-btn btn" onClick={this.addOne}>+</button>
         <h3>{this.props.item.quantity || getQuantity(this.props.cart.items, item.item_id)}</h3>
-        <button className="promo-btn" onClick={this.minusOne}>-</button>
+        <button className="promo-btn btn" onClick={this.minusOne}>-</button>
       </div>
     )
   }

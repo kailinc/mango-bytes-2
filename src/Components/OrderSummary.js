@@ -88,11 +88,11 @@ class OrderSummary extends Component {
               <p className="checkout-info">PROMO CODES ARE CASE SENSITIVE</p>
               <input placeholder="PROMO CODE" value={this.state.promoCode} onChange={this.handleChange}/>
               <p className="checkout-info">Casing & hyphens must be exact</p>
-              <button className="promo-btn" onSubmit={this.submitPromo}>APPLY</button>
+              <button className="promo-btn btn" onSubmit={this.submitPromo}>APPLY</button>
             </form>
           </div>
           <div className="summary-row">
-            <button className="checkout-btn" onClick={this.handleCheckout}>CHECKOUT</button>
+            <button className="checkout-btn btn" onClick={this.handleCheckout}>CHECKOUT</button>
           </div></div> : <p></p>
         }
         </div>

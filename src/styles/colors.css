@@ -127,3 +127,15 @@
 .increase {
   color: #24FE41;
 }
+
+.remove-btn {
+  background-color: #ED213A;
+}
+
+.promo-btn {
+  background-color: #0575e6;
+}
+
+.checkout-btn {
+  background-color: #FA5400;
+}
