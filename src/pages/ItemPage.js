@@ -17,6 +17,16 @@ class ItemPage extends Component {
     }
     this.getRec = this.getRec.bind(this)
     this.reload = this.reload.bind(this)
+    this.select = this.select.bind(this)
+    this.unselect = this.unselect.bind(this)
+  }
+
+  select() {
+    console.log('')
+  }
+
+  unselect() {
+    console.log('')
   }
 
   componentWillMount(){
@@ -89,7 +99,7 @@ class ItemPage extends Component {
               <li>DevCred: {this.state.item.devCred}</li>
               { attributes }
             </ul>
-            <ItemForm item={this.state.item}/>
+            <ItemForm handleSelect={this.select} handleUnselect={this.unselect} item={this.state.item}/>
           </div>
         </div>
         <RecBar rec={this.state.rec}/>
