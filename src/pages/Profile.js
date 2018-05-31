@@ -13,15 +13,19 @@ class Profile extends Component {
   }
 
   render(){
-    const attributes = Object.keys(this.props.user).filter((cur) => cur !== 'id' && cur !== 'token' && cur !== 'devCred' && cur !== 'email' && cur !== 'fourScreen' && cur !== 'powers' ).map( (cur, index) => {
+    const attributes = Object.keys(this.props.user).filter((cur) => cur !== 'id' && cur !== 'token' && cur !== 'devCred' && cur !== 'email' && cur !== 'fourScreen' && cur !== 'powers' && cur !== 'firstName' && cur !== 'coderName' && cur !== 'lastName' ).map( (cur, index) => {
       const level = this.props.user[cur]
       const tileNum = getNum(level)
+      let glow = "Glow"
+      if (tileNum >= 7) {
+        glow = " gold" + glow
+      }
       return (
           <div className="badgeContainer">
-            <span className={"tile tile" +tileNum}>
+            <span className={ glow+ " tile tile" +tileNum}>
             </span>
             <p className={"tileLabel label" +tileNum}>{cur}</p>
-            <p>{level}</p>
+            <p className={"label" + tileNum}>{level}</p>
           </div>)
     })
     return(
@@ -29,12 +33,12 @@ class Profile extends Component {
         <div className="profile landingPic">
           <div className="profileLabel">
             <div>
-              <span className="coderName">MUDA BISH</span>
+              <span className="coderName">{this.props.user.coderName || 'codername'}</span>
             </div>
             <div className="profileDes">
-              <h3>KAI-LIN </h3>
-              <h3>CHEN</h3>
-              <h3>DEVCRED 500,000</h3>
+              <h3>{this.props.user.firstName || 'First'}</h3>
+              <h3>{this.props.user.lastName || 'Last'}</h3>
+              <h3>{this.props.user.devCred || 'DevCred: 0'}</h3>
             </div>
           </div>
         </div>
