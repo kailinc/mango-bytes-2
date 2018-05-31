@@ -1075,3 +1075,25 @@ label {
   list-style: disc;
   padding-left: 30px;
 }
+
+.forceLoginCon {
+  display: flex;
+  flex-direction: row;
+}
+
+.forceLoginCon div {
+  flex-basis: 50%;
+  text-align: center;
+}
+
+.back-btn {
+  width: 100px;
+}
+
+.submit-btn {
+  width: 100px;
+}
+
+.pay-btn {
+  width: 200px;
+}

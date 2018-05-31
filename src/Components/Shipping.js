@@ -82,7 +82,7 @@ class Shipping extends Component {
 
             <InputBox label="PHONE NUMBER" size="full" updateValue={this.updateValue} value={this.state.phone} field="phone" type="number"/>
             <InputBox label="EMAIL" size="full" updateValue={this.updateValue} value={this.state.email} field="email" type="email"/>
-            <button onSubmit={this.handleSubmit} type="submit" value="Submit">Submit</button>
+            <button className="btn checkout-btn submit-btn" onSubmit={this.handleSubmit} type="submit" value="Submit">Submit</button>
           </form>
           <hr></hr>
           <h3>Delivery Method</h3>

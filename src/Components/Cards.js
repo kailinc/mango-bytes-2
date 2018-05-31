@@ -149,7 +149,7 @@ class Cards extends React.Component {
           <div>
               {(loading || stripeLoading)
                   ? <p></p>
-                  : <button onClick={this.onStripeUpdate}>Pay with Credit/Debit Card</button>
+                  : <button className="btn checkout-btn pay-btn" onClick={this.onStripeUpdate}>Pay with Credit/Debit Card</button>
               }
           </div>
       );

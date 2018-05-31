@@ -146,15 +146,15 @@ class ForceLogin extends Component {
         </div>
         <div className="cart-table">
           <BackBtn backward={this.props.handleBackward}/>
-          <div className="">
+          <div className="forceLoginCon">
 
-            <div className="right">
-              <p>Sign Up</p>
+            <div>
+              <h3>Sign Up</h3>
                 <Form fields={signUpfields} updateValue={this.updateValue} uiType={this.state.ui.type} uiMsg={this.state.ui.msg} unmountMe={this.handleChildUnmount} onSubmit={this.onSignUp} uiDisplay={this.state.ui.display}/>
             </div>
 
-            <div className="left">
-              <p>Sign In</p>
+            <div>
+              <h3>Sign In</h3>
                 <Form fields={signInfields} updateValue={this.updateValue} uiType={this.state.ui.type} uiMsg={this.state.ui.msg} unmountMe={this.handleChildUnmount} onSubmit={this.onSignIn} uiDisplay={this.state.ui.display}/>
             </div>
 

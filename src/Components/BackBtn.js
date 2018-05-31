@@ -3,7 +3,7 @@ import React, { Component  } from 'react';
 class BackBtn extends Component {
   render(){
     return(
-      <button onClick={this.props.backward}>Back</button>
+      <button className="btn promo-btn back-btn" onClick={this.props.backward}>Back</button>
     )
   }
 }

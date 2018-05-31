@@ -28,7 +28,7 @@ class Form extends Component {
                                             msg={this.props.uiMsg}
                                             unmountMe={this.props.unmountMe} /> : null}
         {inputs}
-        <button className='submit-button'>Submit</button>
+        <button className='btn checkout-btn submit-btn'>Submit</button>
       </form>
     )
   }
