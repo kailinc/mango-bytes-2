@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class SPForm extends Component {
-  constructor(props){
-    super(props)
-  }
-
   render(){
     let spClass = "spForm sp" + this.props.pos
     if (this.props.pos === 'Left' || this.props.pos === 'Right') {

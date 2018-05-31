@@ -3,10 +3,6 @@ import React, { Component  } from 'react';
 import { Link } from 'react-router-dom';
 
 class RecBar extends Component {
-  constructor() {
-    super()
-  }
-
   render(){
     const items = this.props.rec.map((cur, index) => {
       const backgroundImg = {

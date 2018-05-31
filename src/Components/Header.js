@@ -4,10 +4,6 @@ import { Navbar, Nav, NavItem, MenuItem, NavDropdown } from 'react-bootstrap';
 import { connect } from 'react-redux';
 
 class Header extends Component {
-  constructor() {
-    super()
-  }
-
   render() {
     return (<div className="header">
       <p className="headline">FREE Shipping on Orders Paid with Bitcoin.</p>
