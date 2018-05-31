@@ -53,7 +53,7 @@ class CheckoutItem extends Component {
           <p>{convertToDollars(this.props.item.basePrice)}</p>
         </div>
         <div>
-          <ItemForm item={this.props.item}/>
+          <ItemForm handleSelect={this.props.handleSelect} handleUnselect={this.props.handleUnselect} item={this.props.item}/>
         </div>
         <div className="totalCon">
           <p>{convertToDollars(this.props.item.basePrice * this.props.item.quantity)}</p>
