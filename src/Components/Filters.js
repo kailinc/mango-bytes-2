@@ -5,7 +5,7 @@ import SearchBar from '../Components/SearchBar';
 class Filters extends Component {
   render() {
     const filters = ['value', 'price', 'devcred', 'date']
-    const options = filters.map((cur, index) => <li key={index}><a onClick={() => this.props.handleFilter(cur)}className='filter-options'>{cur.toUpperCase()}</a></li>)
+    const options = filters.map((cur, index) => <li key={index}><a onClick={() => this.props.handleSorting(cur)}className='filter-options'>{cur.toUpperCase()}</a></li>)
     return(
       <div>
         <div className='filters'>

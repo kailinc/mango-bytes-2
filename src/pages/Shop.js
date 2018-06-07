@@ -20,7 +20,7 @@ class Shop extends Component {
       curFilter: ''
      }
      this.search = this.search.bind(this)
-     this.filter = this.filter.bind(this)
+     this.sorting = this.sorting.bind(this)
   }
 
   componentWillMount(){
@@ -43,7 +43,7 @@ class Shop extends Component {
     })
   }
 
-  filter(option) {
+  sorting(option) {
     if (this.state.curFilter === option) {
       this.setState((prevState) => ({ searchResults: prevState.searchResults.reverse()}))
     } else {
@@ -80,7 +80,7 @@ class Shop extends Component {
         <hr></hr>
         <div className='store'>
           <SideProfile/>
-          <Feed handleSearch={this.search} handleFilter={this.filter} items={this.state.searchResults}/>
+          <Feed handleSearch={this.search} handleSorting={this.sorting} items={this.state.searchResults}/>
         </div>
         <HRAd msg="Stack Overflow where all the answer resides."/>
       </div>
