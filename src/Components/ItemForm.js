@@ -32,7 +32,8 @@ class ItemForm extends Component {
       basePrice: this.props.item.basePrice,
       attributes: this.props.item.attributes,
       img: this.props.item.img,
-      quantity: 1
+      quantity: 1,
+      category: this.props.item.category
     }
   }
 

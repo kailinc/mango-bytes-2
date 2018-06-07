@@ -44,8 +44,10 @@ class Shop extends Component {
 
   filter(option, items) {
     if (option === 'none') {
+      let searchResults = this.props.shop.all
+      // let searchResults = this.props.shop.all.filter((cur) => cur.category !== 'superpowers' )
       this.setState({
-        searchResults: this.props.shop.all
+        searchResults: searchResults
       })
     } else {
       let searchResults = this.props.shop.all.filter((cur) => cur.category === option )

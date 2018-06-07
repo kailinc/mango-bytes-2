@@ -63,6 +63,12 @@ class OrderSummary extends Component {
             </div>
           </div>
           <div className="summary-row">
+            <p className="summaryLabel">Super Powers:</p>
+            <div>
+              {this.props.cart.items.filter((cur) => cur.category === 'superpowers').map((cur, index) => <span className="increase-pts checkout-green">{cur.name}</span>) }
+            </div>
+          </div>
+          <div className="summary-row">
             <p className="summaryLabel">PRODUCT TOTAL:</p>
             <p className="summaryText">{convertToDollars(this.props.cart.productTotal)}</p>
           </div>
