@@ -17,7 +17,8 @@ export const getTotal = function (items) {
 }
 
 export const convertToDollars = function (num) {
-  return '$' + num.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g)
+  const dollars = num / 100;
+  return dollars.toLocaleString("en-US", {style:"currency", currency:"USD"});
 }
 
 export const seperateAttr = function (curAttributes, attributes) {
