@@ -58,14 +58,12 @@ class Shop extends Component {
   }
 
   sorting(option) {
+    console.log('sorting: option is', option)
     if (this.state.curFilter === option) {
       this.setState((prevState) => ({ searchResults: prevState.searchResults.reverse()}))
     } else {
-      this.setState({
-        curFilter: option
-      })
       let searchResults = []
-      switch(this.state.curFilter) {
+      switch(option) {
         case 'price':
           searchResults = this.state.searchResults.sort(comparePrice)
           break;
@@ -77,10 +75,12 @@ class Shop extends Component {
           break;
         default:
           searchResults = this.state.searchResults.sort(compareDate)
-
       }
       this.setState({
         searchResults: searchResults
+      })
+      this.setState({
+        curFilter: option
       })
     }
   }
