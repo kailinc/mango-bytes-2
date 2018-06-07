@@ -20,17 +20,16 @@ class Shop extends Component {
       curFilter: ''
      }
      this.search = this.search.bind(this)
+     this.filter = this.filter.bind(this)
      this.sorting = this.sorting.bind(this)
   }
 
   componentWillMount(){
     itemAPI.getItems()
       .then((response) => {
-        this.setState({
-          searchResults: response.data.items
-        })
+        this.props.dispatch(setShop(response.data.items))
       })
-      .then(() => this.props.dispatch(setShop(this.state.searchResults)))
+      .then(() => this.filter(this.props.filter, this.props.shop.all))
       .catch((error)=> {
         console.log(error)
       })
@@ -41,6 +40,19 @@ class Shop extends Component {
     this.setState({
       searchResults: searchResults
     })
+  }
+
+  filter(option, items) {
+    if (option === 'none') {
+      this.setState({
+        searchResults: this.props.shop.all
+      })
+    } else {
+      let searchResults = this.props.shop.all.filter((cur) => cur.category === option )
+      this.setState({
+        searchResults: searchResults
+      })
+    }
   }
 
   sorting(option) {

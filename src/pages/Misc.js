@@ -17,7 +17,8 @@ class Misc extends Component {
       <Shop
         headline={this.state.headline}
         header={this.state.header}
-        msg={this.state.msg}/>
+        msg={this.state.msg}
+        filter='misc'/>
     )
   }
 }
