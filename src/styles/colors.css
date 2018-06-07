@@ -139,3 +139,11 @@
 .checkout-btn {
   background-color: #FA5400;
 }
+
+.hasPower {
+  background-color: #ec2;
+}
+
+.doesNotHavePower {
+  background-color: #999;
+}

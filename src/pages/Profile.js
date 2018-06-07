@@ -54,8 +54,14 @@ class Profile extends Component {
     })
     const powers = ['FireFingers', 'PestControlla', 'DocKing', 'CoffeeAngel', 'TypNO', 'WalkingGoogle']
     let powersContent = powers.map((cur, index) => {
+      let styles = 'superPowerContainer '
+      if (this.props.user[powers]) {
+        styles += 'hasPower'
+      } else {
+        styles += 'doesNotHavePower'
+      }
       return (
-        <div key={index} className='superPowerContainer'>
+        <div key={index} className={styles}>
           <h3 className='spLabel'>{cur}</h3>
           <img src={this.state[cur]}/>
         </div>

@@ -876,6 +876,11 @@ label {
   text-align: center;
 }
 
+.superPowerContainer img {
+  height: 200px;
+  width: auto;
+}
+
 .spLabel {
   font-size: 30px;
 }
