@@ -16,12 +16,12 @@ class Greeting extends Component {
             </div>
 
             <div className="bottom">
-              <Link to='/all'>SHOP ALL</Link>
-              <Link to='/points'>POINTS</Link>
-              <Link to='/stickers'>STICKERS</Link>
-              <Link to='/swag'>SWAG</Link>
-              <Link to='/superpowers'>SUPER POWER</Link>
-              <Link to='/misc'>MISC</Link>
+              <Link to='/mango-bytes-2/all'>SHOP ALL</Link>
+              <Link to='/mango-bytes-2/points'>POINTS</Link>
+              <Link to='/mango-bytes-2/stickers'>STICKERS</Link>
+              <Link to='/mango-bytes-2/swag'>SWAG</Link>
+              <Link to='/mango-bytes-2/superpowers'>SUPER POWER</Link>
+              <Link to='/mango-bytes-2/misc'>MISC</Link>
             </div>
           </div>
 

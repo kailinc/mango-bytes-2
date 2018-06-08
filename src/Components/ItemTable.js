@@ -47,7 +47,7 @@ class ItemTable extends Component {
     return (
       <div className="cart-col">
         <div className="cart-header bold">
-          <p><Link to='/all'>Continue Shopping</Link>
+          <p><Link to='/mango-bytes-2/all'>Continue Shopping</Link>
           <br></br>
             <span>YOUR BAG</span>
             <br></br>

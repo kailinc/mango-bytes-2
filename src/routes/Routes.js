@@ -29,21 +29,21 @@ class Routes extends Component {
             <Header />
             <div className='content'>
               <Switch>
-                <Route path="/" component={Home} exact={true}/>
-                <Route path="/user-profile" component={Profile} exact={true}/>
-                <Route path="/checkout" render={()=> <Checkout exact={true}/>}/>
-                <Route path="/sign-up" render={() => <SignUp alertSuccess={this.alertSuccess} alertError={this.alertError} />} exact={true}/>
-                <Route path="/log-in" render={()=> <SignIn handleSignIn={this.props.handleSignIn}/>} exact={true}/>
-                <Route path="/change-pwd" render={()=> <ChangePwd handleChangePwd={this.props.handleChangePwd}/>} exact={true}/>
-                <Route path="/log-out" render={()=> <LogOut handleLogOut={this.props.handleLogOut}/>} exact={true}/>
-                <Route path="/all" component={All} />
-                <Route path="/superpowers" component={Superpowers} />
-                <Route path="/points" component={Points} />
-                <Route path="/stickers" component={Stickers} />
-                <Route path="/swag" component={Swag} />
-                <Route path="/misc" component={Misc} />
-                <Route path="/item/:id" component={ItemPage} />
-                <Route path="/confirmation" component={Confirmation} />
+                <Route path="/mango-bytes-2" component={Home} exact={true}/>
+                <Route path="/mango-bytes-2/user-profile" component={Profile} exact={true}/>
+                <Route path="/mango-bytes-2/checkout" render={()=> <Checkout exact={true}/>}/>
+                <Route path="/mango-bytes-2/sign-up" render={() => <SignUp alertSuccess={this.alertSuccess} alertError={this.alertError} />} exact={true}/>
+                <Route path="/mango-bytes-2/log-in" render={()=> <SignIn handleSignIn={this.props.handleSignIn}/>} exact={true}/>
+                <Route path="/mango-bytes-2/change-pwd" render={()=> <ChangePwd handleChangePwd={this.props.handleChangePwd}/>} exact={true}/>
+                <Route path="/mango-bytes-2/log-out" render={()=> <LogOut handleLogOut={this.props.handleLogOut}/>} exact={true}/>
+                <Route path="/mango-bytes-2/all" component={All} />
+                <Route path="/mango-bytes-2/superpowers" component={Superpowers} />
+                <Route path="/mango-bytes-2/points" component={Points} />
+                <Route path="/mango-bytes-2/stickers" component={Stickers} />
+                <Route path="/mango-bytes-2/swag" component={Swag} />
+                <Route path="/mango-bytes-2/misc" component={Misc} />
+                <Route path="/mango-bytes-2/item/:id" component={ItemPage} />
+                <Route path="/mango-bytes-2/confirmation" component={Confirmation} />
                 <Route component={ NotFoundPage }/>
               </Switch>
             </div>

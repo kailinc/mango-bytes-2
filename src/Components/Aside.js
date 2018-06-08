@@ -8,7 +8,7 @@ class Aside extends Component {
         <div className='aside-img-div'>
           <img className="asideImg" src={this.props.img} alt='aside-img'/>
           <div className="middle">
-            <Link className='goal' to='/'>{this.props.hoverMsg}</Link>
+            <Link className='goal' to='/mango-bytes-2'>{this.props.hoverMsg}</Link>
           </div>
         </div>
         <div className='asideText'>

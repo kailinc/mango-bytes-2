@@ -14,7 +14,7 @@ class RecBar extends Component {
           </div>
           <div className='item-msg'>
             <Link onClick={() => this.props.reload(cur)} to={{
-              pathname: '/item/' + cur.id,
+              pathname: '/mango-bytes-2/item/' + cur.id,
               state: { itemId: cur.id }
             }}>{cur.name}</Link>
           </div>

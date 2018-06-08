@@ -90,7 +90,7 @@ class SignUp extends Component {
   render(){
     if (this.state.signedUp) {
       return(
-        <Redirect to='/log-in'/>
+        <Redirect to='/mango-bytes-2/log-in'/>
       )
     }
 

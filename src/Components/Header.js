@@ -10,7 +10,7 @@ class Header extends Component {
       <Navbar collapseOnSelect>
         <Navbar.Header>
           <Navbar.Brand>
-            <LinkContainer to="/" activeClassName="is-active" exact={true}>
+            <LinkContainer to="/mango-bytes-2" activeClassName="is-active" exact={true}>
               <a>Mango-Bytes 2.0</a>
             </LinkContainer>
           </Navbar.Brand>
@@ -18,25 +18,25 @@ class Header extends Component {
         </Navbar.Header>
         <Navbar.Collapse>
           <Nav>
-            <LinkContainer to='/points' activeClassName="is-active" exact={true}>
+            <LinkContainer to='/mango-bytes-2/points' activeClassName="is-active" exact={true}>
               <NavItem>POINTS</NavItem>
             </LinkContainer>
-            <LinkContainer to='/stickers' activeClassName="is-active" exact={true}>
+            <LinkContainer to='/mango-bytes-2/stickers' activeClassName="is-active" exact={true}>
               <NavItem>STICKERS</NavItem>
             </LinkContainer>
-            <LinkContainer to='/swag' activeClassName="is-active" exact={true}>
+            <LinkContainer to='/mango-bytes-2/swag' activeClassName="is-active" exact={true}>
               <NavItem>SWAG</NavItem>
             </LinkContainer>
-            <LinkContainer to='/superpowers' activeClassName="is-active" exact={true}>
+            <LinkContainer to='/mango-bytes-2/superpowers' activeClassName="is-active" exact={true}>
               <NavItem>SUPER POWERS</NavItem>
             </LinkContainer>
-            <LinkContainer to='/misc' activeClassName="is-active" exact={true}>
+            <LinkContainer to='/mango-bytes-2/misc' activeClassName="is-active" exact={true}>
               <NavItem>MISC</NavItem>
             </LinkContainer>
           </Nav>
           <Nav pullRight>
             {this.props.user.token ? <LoggedIn coderName={this.props.user.coderName}/> : <NotLoggedIn /> }
-            <LinkContainer to="/checkout" activeClassName="is-active" exact={true}>
+            <LinkContainer to="/mango-bytes-2/checkout" activeClassName="is-active" exact={true}>
               <NavItem>CART</NavItem>
             </LinkContainer>
           </Nav>
@@ -48,13 +48,13 @@ class Header extends Component {
 
 const LoggedIn = (props) => (
   <NavDropdown eventKey={2} title={props.coderName} id="basic-nav-dropdown" href="#">
-    <LinkContainer to="/user-profile" activeClassName="is-active" exact={true}>
+    <LinkContainer to="/mango-bytes-2/user-profile" activeClassName="is-active" exact={true}>
       <MenuItem>VIEW PROFILE</MenuItem>
     </LinkContainer>
-    <LinkContainer to="/change-pwd" activeClassName="is-active" exact={true}>
+    <LinkContainer to="/mango-bytes-2/change-pwd" activeClassName="is-active" exact={true}>
       <MenuItem>CHANGE PASSWORD</MenuItem>
     </LinkContainer>
-    <LinkContainer to="/log-out" activeClassName="is-active" exact={true}>
+    <LinkContainer to="/mango-bytes-2/log-out" activeClassName="is-active" exact={true}>
       <MenuItem>LOG OUT</MenuItem>
     </LinkContainer>
   </NavDropdown>
@@ -62,10 +62,10 @@ const LoggedIn = (props) => (
 
 const NotLoggedIn = (props) => (
   <NavDropdown eventKey={2} title="MEMBERS" id="basic-nav-dropdown" href="#">
-      <LinkContainer to="/sign-up" activeClassName="is-active" exact={true}>
+      <LinkContainer to="/mango-bytes-2/sign-up" activeClassName="is-active" exact={true}>
         <MenuItem>SIGN UP</MenuItem>
       </LinkContainer>
-      <LinkContainer to="/log-in" activeClassName="is-active" exact={true}>
+      <LinkContainer to="/mango-bytes-2/log-in" activeClassName="is-active" exact={true}>
         <MenuItem>LOG IN</MenuItem>
       </LinkContainer>
   </NavDropdown>

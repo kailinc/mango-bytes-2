@@ -149,7 +149,7 @@ class Cards extends React.Component {
       if (this.state.paid) {
         return(
           <Redirect to={{
-            pathname: '/confirmation',
+            pathname: '/mango-bytes-2/confirmation',
             state: {
               cartId: this.props.cart.id,
               attributes: this.props.cart.attributes,

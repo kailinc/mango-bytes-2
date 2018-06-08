@@ -92,7 +92,7 @@ class SignIn extends Component {
   render(){
     if (this.state.loggedIn) {
       return(
-        <Redirect to='/' />
+        <Redirect to='/mango-bytes-2' />
       )
     }
     const fields = [{ label: 'email', value: this.state.email, size: 'half'},

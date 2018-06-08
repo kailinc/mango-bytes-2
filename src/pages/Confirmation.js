@@ -39,7 +39,7 @@ class Confirmation extends Component {
 
   render(){
     if (!this.props.location.state) {
-      return (<Redirect to='/' />)
+      return (<Redirect to='/mango-bytes-2' />)
     }
     const items = this.state.items.map((cur, index) => {
       const backgroundImg = {
@@ -51,7 +51,7 @@ class Confirmation extends Component {
           </div>
           <div className='item-msg'>
             <Link to={{
-              pathname: '/item/' + cur.item_id,
+              pathname: '/mango-bytes-2/item/' + cur.item_id,
               state: { itemId: cur.id }
             }}>{cur.name} x {cur.quantity}</Link>
           </div>

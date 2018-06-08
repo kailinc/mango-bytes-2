@@ -12,7 +12,7 @@ class NotFoundPage extends Component {
           <h3>Thanks for your patience while we put the pieces back together.</h3>
           <p>In the meantime, you can...</p>
           <ul className="redirect">
-            <li>Shop through AWESOME items on this <Link to="/all">page</Link></li>
+            <li>Shop through AWESOME items on this <Link to="/mango-bytes-2/all">page</Link></li>
             <li>Give this project a star on <a href="https://github.com/kailinc/mango-bytes-2">GitHub.</a></li>
             <li>Donate Bitcoin/Ethereum/Litecoin to me!</li>
           </ul>

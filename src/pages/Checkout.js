@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-// import { StripeProvider } from 'react-stripe-elements';
-
 import OrderSummary from '../Components/OrderSummary';
 import ItemTable from '../Components/ItemTable';
 import Shipping from '../Components/Shipping';

@@ -23,7 +23,7 @@ class Payment extends Component {
 
   render() {
     if (this.state.paymentSuccess) {
-      return <Redirect to="/confirmation"/>
+      return <Redirect to="/mango-bytes-2/confirmation"/>
     }
     return (
       <div className="cart-col">

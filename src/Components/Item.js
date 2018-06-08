@@ -45,7 +45,7 @@ class Item extends Component {
           </div>
           <div className='item-msg'>
             <Link to={{
-              pathname: '/item/' + this.props.item.id,
+              pathname: '/mango-bytes-2/item/' + this.props.item.id,
               state: { itemId: this.props.item.id }
             }}>VIEW</Link>
           </div>
