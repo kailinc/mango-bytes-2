@@ -31,11 +31,11 @@ class Superpowers extends Component {
   }
 
   render() {
-    const content = this.state.items.map((cur) => {
+    const content = this.state.items.map((cur, index) => {
       if (Math.random() >= 0.5) {
-        return (<PowerOne item={cur} />)
+        return (<PowerOne key={index} item={cur} />)
       } else {
-        return (<PowerThird item={cur} />)
+        return (<PowerThird key={index} item={cur} />)
       }
     })
 

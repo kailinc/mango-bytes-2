@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
 
-import { addItem, updateDevCred, updateProductTotal } from '../actions/cart';
+import { addItem, updateDevCred, updateProductTotal, updateId } from '../actions/cart';
 import { convertToDollars } from '../helpers/cart';
+import cartAPI from '../API/cart';
 
 class SPForm extends Component {
   constructor() {
@@ -15,6 +16,8 @@ class SPForm extends Component {
 
     this.purchase = this.purchase.bind(this)
     this.formatItem = this.formatItem.bind(this)
+    this.updateCartAPI = this.updateCartAPI.bind(this)
+    this.createCartAPI = this.createCartAPI.bind(this)
   }
 
   componentWillMount() {
@@ -50,6 +53,11 @@ class SPForm extends Component {
     if (!this.props.user[powerName]) {
       if (!this.props.cart.items.filter((cur) => cur.name === powerName).length > 0) {
         const item = this.formatItem();
+        if (this.props.cart.items.length === 0 ) {
+          this.createCartAPI(item);
+        } else {
+          this.updateCartAPI();
+        }
         this.props.dispatch(addItem(item))
         this.props.dispatch(updateDevCred(this.props.item.devCred))
         this.props.dispatch(updateProductTotal(this.props.item.basePrice))
@@ -58,6 +66,38 @@ class SPForm extends Component {
           color: 'success-btn'
         })
       }
+    }
+  }
+
+  updateCartAPI() {
+    if (this.props.user.token) {
+      let data = {
+        cart: {
+          items: this.props.cart.items
+        }
+      }
+      cartAPI.update(this.props.cart.id, this.props.user.token, data)
+        .then(() => {
+          if (this.props.cart.items.length === 0) {
+            cartAPI.destroy(this.props.cart.id, this.props.user.token)
+              .then(() => this.props.dispatch(updateId("")))
+              .catch((err) => console.log(err))
+          }
+        })
+        .catch((err) => console.log(err))
+    }
+  }
+
+  createCartAPI (item) {
+    if (this.props.user.token != null) {
+      let data = {
+        cart: {
+          items: [item]
+        }
+      }
+      cartAPI.create(this.props.user.token, data)
+        .then((response) => this.props.dispatch(updateId(response.data.cart.id)))
+        .catch((err) => console.log(err))
     }
   }
 
