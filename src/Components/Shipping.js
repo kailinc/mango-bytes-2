@@ -65,6 +65,7 @@ class Shipping extends Component {
   }
 
   render() {
+      window.alert("ATTENTION! This is a demo, fake e-commerce website. Anything you purchase here, will NOT actually be yours. This is just a silly, fun, personal project. Use 4242-4242-4242-4242 and any number on checkout if you want to checkout.");
     return (
       <div className="cart-col">
         <div className="cart-header">
