@@ -39,6 +39,14 @@ class CheckoutItem extends Component {
   }
 
   render() {
+    let quantity = <p></p>
+    if (this.props.item.category === 'superpowers') {
+      quantity = <p>{this.props.item.quantity}</p>
+    } else {
+      quantity = <ItemForm handleSelect={this.props.handleSelect}
+                          handleUnselect={this.props.handleUnselect}
+                          item={this.props.item}/>
+    }
     return(
       <div className="item-hr">
         <div>
@@ -53,7 +61,7 @@ class CheckoutItem extends Component {
           <p>{convertToDollars(this.props.item.basePrice)}</p>
         </div>
         <div>
-          <ItemForm handleSelect={this.props.handleSelect} handleUnselect={this.props.handleUnselect} item={this.props.item}/>
+          {quantity}
         </div>
         <div className="totalCon">
           <p>{convertToDollars(this.props.item.basePrice * this.props.item.quantity)}</p>
