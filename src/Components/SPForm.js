@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
 
-import { addItem } from '../actions/cart';
+import { addItem, updateDevCred, updateProductTotal } from '../actions/cart';
+import { convertToDollars } from '../helpers/cart';
 
 class SPForm extends Component {
   constructor() {
@@ -50,6 +51,8 @@ class SPForm extends Component {
       if (!this.props.cart.items.filter((cur) => cur.name === powerName).length > 0) {
         const item = this.formatItem();
         this.props.dispatch(addItem(item))
+        this.props.dispatch(updateDevCred(this.props.item.devCred))
+        this.props.dispatch(updateProductTotal(this.props.item.basePrice))
         this.setState({
           msg: 'Added to Cart',
           color: 'success-btn'
@@ -66,6 +69,8 @@ class SPForm extends Component {
     return(
       <div className={spClass}>
         <h3>{this.props.item.name}</h3>
+        <p>{convertToDollars(this.props.item.basePrice)}</p>
+        <p>DevCred: {this.props.item.devCred}</p>
         <p>{this.props.item.des}</p>
         <button onClick={this.purchase} className={"spBtn btn " + this.state.color }>{this.state.msg}</button>
       </div>
