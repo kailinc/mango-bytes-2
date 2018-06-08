@@ -7,8 +7,23 @@ import { addItem } from '../actions/cart';
 class SPForm extends Component {
   constructor() {
     super()
+    this.state = {
+      msg: 'Buy',
+      hasPower: 'promo-btn'
+    }
+
     this.purchase = this.purchase.bind(this)
     this.formatItem = this.formatItem.bind(this)
+  }
+
+  componentWillMount() {
+    const powerName = this.props.item.name
+    if (this.props.user[powerName]) {
+      this.setState({
+        msg: 'You Have This Power!',
+        hasPower: 'hasPower'
+      })
+    }
   }
 
   formatItem() {
@@ -43,7 +58,7 @@ class SPForm extends Component {
       <div className={spClass}>
         <h3>{this.props.item.name}</h3>
         <p>{this.props.item.des}</p>
-        <button onClick={this.purchase} className="promo-btn spBtn btn">Buy</button>
+        <button onClick={this.purchase} className={"spBtn btn " + this.state.hasPower }>{this.state.msg}</button>
       </div>
     )
   }
