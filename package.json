@@ -2,10 +2,12 @@
   "name": "mango-bytes-2",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://kailinc.github.io/mango-bytes-2"
   "dependencies": {
     "axios": "^0.17.1",
     "bootstrap": "^3.3.7",
     "dotenv": "^5.0.1",
+    "gh-pages": "^1.2.0",
     "normalize.css": "^7.0.0",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
@@ -22,7 +24,9 @@
     "start": "set PORT=7165 && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "devDependencies": {
     "redux-devtools": "^3.4.1"
