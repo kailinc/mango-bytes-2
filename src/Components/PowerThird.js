@@ -16,7 +16,7 @@ class PowerThird extends Component {
           <img className="sp3img" alt="secondary power" src={test}/>
         </div>
         <div className="sp3box3 sp3box">
-          <SPForm/>
+          <SPForm item={this.props.item}/>
         </div>
       </div>
     )

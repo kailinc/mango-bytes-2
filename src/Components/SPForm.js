@@ -9,9 +9,9 @@ class SPForm extends Component {
     }
     return(
       <div className={spClass}>
-        <h3>Super Power</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque quam tellus, gravida sed tellus quis, pharetra luctus mi. Ut feugiat, metus id molestie dignissim, justo dolor porta augue, nec egestas ante dui eu diam. Curabitur non posuere metus. Pellentesque dictum nec enim et ultrices. Suspendisse efficitur euismod auctor.</p>
-        <button className="promo-btn spBtn">Buy</button>
+        <h3>{this.props.item.name}</h3>
+        <p>{this.props.item.des}</p>
+        <button className="promo-btn spBtn btn">Buy</button>
       </div>
     )
   }
