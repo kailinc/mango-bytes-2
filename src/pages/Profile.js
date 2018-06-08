@@ -55,7 +55,7 @@ class Profile extends Component {
     const powers = ['FireFingers', 'PestControlla', 'DocKing', 'CoffeeAngel', 'TypNO', 'WalkingGoogle']
     let powersContent = powers.map((cur, index) => {
       let styles = 'superPowerContainer '
-      if (this.props.user[powers]) {
+      if (this.props.user[cur]) {
         styles += 'hasPower'
       } else {
         styles += 'doesNotHavePower'
