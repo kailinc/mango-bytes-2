@@ -93,6 +93,7 @@ GitHub, and issue queue. I would modify the solution provided to fit my needs.
 ## Takeways
 
 1.  Technial Experience
+
     Before starting this project, I had no idea how to use Redux, React Router,
   Stripe API, Local Storage, and Axios. I learned the technologies along the way.
   In the end, I feel very comfortable using the technologies. I am most proud of
@@ -111,6 +112,7 @@ GitHub, and issue queue. I would modify the solution provided to fit my needs.
   in the future! You can find the code for it in src/Components/Cards.js
 
 2.  New Perspective
+
     The past few months were just about balancing school work and time to finish
   the project. While writing the code, I did take account of scalability and DRY
   code. However, it was never about improving preexisting code. It would be
