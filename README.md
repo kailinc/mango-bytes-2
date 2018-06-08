@@ -76,7 +76,7 @@ work.
 
 ## Problem Solving Strategy
 
-    Before writing any code, I always whiteboard the problem. I write down what feature
+  Before writing any code, I always whiteboard the problem. I write down what feature
 I want to implemente on the website. Then I write down the pseudo code for approaching
 the problem. After knowing the technical problems and having a rough solution,
 I would begin writing the code. If I face any issues along the way, I would use console.log,
