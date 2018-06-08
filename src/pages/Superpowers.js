@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 import Jimbotron from '../Components/Jimbotron';
 import PowerThird from '../Components/PowerThird';
-import PowerSecond from '../Components/PowerSecond';
 import PowerOne from '../Components/PowerOne';
 
 import itemAPI from '../API/item';
@@ -32,7 +31,14 @@ class Superpowers extends Component {
   }
 
   render() {
-    const content = this.state.items.map((cur, index) => <PowerOne item={cur} />)
+    const content = this.state.items.map((cur) => {
+      if (Math.random() >= 0.5) {
+        return (<PowerOne item={cur} />)
+      } else {
+        return (<PowerThird item={cur} />)
+      }
+    })
+
     return(
       <div>
         <Jimbotron headline={this.state.headline} msg={this.state.msg}/>

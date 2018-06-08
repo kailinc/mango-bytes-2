@@ -149,6 +149,10 @@
   opacity: 0.5;
 }
 
-.powerPicCon {
+.b2 {
   background: linear-gradient(#fc4a1a,#f7b733);
+}
+
+.b1 {
+  background: linear-gradient(#00c6ff,#0072ff);
 }
