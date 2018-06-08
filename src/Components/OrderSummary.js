@@ -4,8 +4,6 @@ import { connect } from 'react-redux';
 import { convertToDollars } from '../helpers/cart';
 import { updateProductFinal } from '../actions/cart';
 
-const dotenv = require('dotenv')
-
 class OrderSummary extends Component {
   constructor(props){
     super(props)
@@ -33,7 +31,7 @@ class OrderSummary extends Component {
 
   submitPromo(e) {
     e.preventDefault();
-    if ( this.state.promoCode === process.env.REACT_APP_PROMO_CODE) {
+    if ( this.state.promoCode === "monGOD99") {
       this.setState({
         promoValue: 10
       })
