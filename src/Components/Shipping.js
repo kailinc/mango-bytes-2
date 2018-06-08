@@ -29,7 +29,14 @@ class Shipping extends Component {
       this.setState({
         firstName: this.props.user.firstName,
         lastName: this.props.user.lastName,
-        email: this.props.user.email
+        email: this.props.user.email,
+        address: this.props.shipping.address.line1,
+        apt: this.props.shipping.address.line2,
+        city: this.props.shipping.address.city,
+        state: this.props.shipping.address.state,
+        zipCode: this.props.shipping.address.postal_code,
+        country: this.props.shipping.address.country,
+        phone: this.props.shipping.phone
       })
     }
   }
@@ -65,7 +72,6 @@ class Shipping extends Component {
           <h3>Step 2. Shipping Information</h3>
         </div>
         <div className="cart-table">
-          <BackBtn backward={this.props.handleBackward}/>
           <h3>Delivery Method</h3>
           <label>Please allow 2-3 days for processing</label>
           <hr></hr>
@@ -95,7 +101,8 @@ class Shipping extends Component {
 
 const mapStateToProps = (state, props) => {
   return {
-    user: state.user
+    user: state.user,
+    shipping: state.shipping
   };
 };
 

@@ -44,9 +44,9 @@ class Checkout extends Component {
       case 1:
         return <ForceLogin handleAdvance={() => this.advance()} handleBackward={() => this.backward()}/>
       case 2:
-        return <Shipping handleAdvance={() => this.advance()} handleBackward={() => this.backward()}/>
+        return <Shipping handleAdvance={() => this.advance()} />
       case 3:
-        return <Payment/>
+        return <Payment handleBackward={() => this.backward()}/>
       default:
         break;
     }

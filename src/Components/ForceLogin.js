@@ -55,8 +55,6 @@ class ForceLogin extends Component {
     document.body.scrollTop = 0
     document.documentElement.scrollTop = 0
     if (this.state.password !== this.state.password_confirmation) {
-      console.log('this is password', this.state.password)
-      console.log('this is password_confirmation', this.state.password_confirmation)
       this.setState({
         ui: {
           type: 'error',
