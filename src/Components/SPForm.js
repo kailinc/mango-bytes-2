@@ -9,7 +9,7 @@ class SPForm extends Component {
     super()
     this.state = {
       msg: 'Buy',
-      hasPower: 'promo-btn'
+      color: 'promo-btn'
     }
 
     this.purchase = this.purchase.bind(this)
@@ -21,7 +21,12 @@ class SPForm extends Component {
     if (this.props.user[powerName]) {
       this.setState({
         msg: 'You Have This Power!',
-        hasPower: 'hasPower'
+        color: 'hasPower'
+      })
+    } else if (this.props.cart.items.filter((cur) => cur.name === powerName).length > 0) {
+      this.setState({
+        msg: 'Added to Cart',
+        color: 'success-btn'
       })
     }
   }
@@ -45,6 +50,10 @@ class SPForm extends Component {
       if (!this.props.cart.items.filter((cur) => cur.name === powerName).length > 0) {
         const item = this.formatItem();
         this.props.dispatch(addItem(item))
+        this.setState({
+          msg: 'Added to Cart',
+          color: 'success-btn'
+        })
       }
     }
   }
@@ -58,7 +67,7 @@ class SPForm extends Component {
       <div className={spClass}>
         <h3>{this.props.item.name}</h3>
         <p>{this.props.item.des}</p>
-        <button onClick={this.purchase} className={"spBtn btn " + this.state.hasPower }>{this.state.msg}</button>
+        <button onClick={this.purchase} className={"spBtn btn " + this.state.color }>{this.state.msg}</button>
       </div>
     )
   }

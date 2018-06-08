@@ -140,6 +140,10 @@
   background-color: #FA5400;
 }
 
+.success-btn {
+  background-color: #52c234;
+}
+
 .hasPower {
   background-color: #ec2;
 }
