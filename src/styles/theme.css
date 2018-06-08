@@ -1113,3 +1113,7 @@ label {
   width: 250px;
   margin: 10px auto;
 }
+
+.powerList {
+  list-style: none;
+}
