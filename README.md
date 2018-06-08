@@ -5,14 +5,11 @@ and improve their skills in different programming languages, frameworks, technol
 Developers can also spend money to buy merch, swag, and super powers. This is the
 2nd version of Mango-Bytes. It was my capston project at General Assembly's Coding
 Bootcamp, Web Development Immersive. At the time, I wanted to make the website using
-React, but 1 week was not enough time for this project. I am currently working on it
-when I am free from CS homeworks at Boston University.
+React. However I had to learn react, learn react-router, and learn redux. 1 week was not enough time for this project. I work on it with whatever free time I have at Boston University.
 
 ![Landing  Page](https://raw.githubusercontent.com/kailinc/mango-bytes-2/master/public/HomePage.png)
+![Shipping](https://raw.githubusercontent.com/kailinc/mango-bytes-2/master/public/shipping.png)
 
-![Shopping Page ](https://raw.githubusercontent.com/kailinc/mango-bytes-2/master/public/shopping.png)
-
-![Checkout Page ](https://raw.githubusercontent.com/kailinc/mango-bytes-2/master/public/Checkout.png)
 
 ## Table of Contents
 
@@ -29,7 +26,7 @@ when I am free from CS homeworks at Boston University.
 
 ## URL of Website
 
-Still in Progress
+URL of Website: https://kailinc.github.io/mango-bytes-2
 
 ## API
 
