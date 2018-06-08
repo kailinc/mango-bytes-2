@@ -8,7 +8,10 @@ Bootcamp, Web Development Immersive. At the time, I wanted to make the website u
 React. However I had to learn react, learn react-router, and learn redux. 1 week was not enough time for this project. I work on it with whatever free time I have at Boston University.
 
 ![Landing  Page](https://raw.githubusercontent.com/kailinc/mango-bytes-2/master/public/HomePage.png)
+![Feed](https://raw.githubusercontent.com/kailinc/mango-bytes-2/master/public/feed.png)
+![Checkout](https://raw.githubusercontent.com/kailinc/mango-bytes-2/master/public/checkout.png)
 ![Shipping](https://raw.githubusercontent.com/kailinc/mango-bytes-2/master/public/shipping.png)
+![Payment](https://raw.githubusercontent.com/kailinc/mango-bytes-2/master/public/payment.png)
 
 
 ## Table of Contents
