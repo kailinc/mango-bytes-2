@@ -110,6 +110,22 @@ class Cards extends React.Component {
           }
           cartAPI.update(this.props.cart.id, this.props.user.token, data)
             .then(() => {
+              const powers = this.props.cart.items.filter((cur) => cur.category === 'superpowers')
+              if (powers.length > 0) {
+                for (let i = 0; i < powers.length; i++) {
+                  let data = {
+                    user: {
+                      [powers[i].name]: true
+                    }
+                  }
+                  console.log('this is data', data)
+                  userAPI.update(this.props.user.id, this.props.user.token, data)
+                    .then((response) => console.log('updated user power', response))
+                    .catch((err) => console.log(err))
+                }
+              }
+            })
+            .then(() => {
               let data = {
                 user: {
                   devCred: this.props.cart.devCred + this.props.user.devCred
@@ -119,7 +135,6 @@ class Cards extends React.Component {
                 .then(() => {
                   userAPI.showUser(this.props.user.id, this.props.user.token)
                     .then(response => {
-                      console.log('updating user: ', response)
                       this.props.dispatch(updateAttr(response.data.user))
                     })
                     .then(() => this.setState({ paid: true }))

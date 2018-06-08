@@ -63,7 +63,7 @@ class Profile extends Component {
       return (
         <div key={index} className={styles}>
           <h3 className='spLabel'>{cur}</h3>
-          <img src={this.state[cur]}/>
+          <img alt='powers' src={this.state[cur]}/>
         </div>
       )
     })

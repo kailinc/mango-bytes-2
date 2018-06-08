@@ -5,8 +5,13 @@ const userReducerDefaultState = {
   coderName: '',
   token: null,
   skills: [],
-  powers: [],
-  devCred: 0
+  devCred: 0,
+  FireFigngers: false,
+  PestControlla: false,
+  DocKing: false,
+  CoffeeAngel: false,
+  TypeNO: false,
+  WalkingGoogle: false
 };
 
 const userReducer = (state = userReducerDefaultState, action) => {

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import InputBox from './InputBox';
-import BackBtn from './BackBtn';
 import { newShipping } from '../actions/shipping';
 
 class Shipping extends Component {
