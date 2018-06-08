@@ -163,7 +163,7 @@ class Cards extends React.Component {
       return (
           <div>
               {(loading || stripeLoading)
-                  ? <p></p>
+                  ? <h3>Redirecting you to Confirmation Page. This will only take a few seconds.</h3>
                   : <button className="btn checkout-btn pay-btn" onClick={this.onStripeUpdate}>Pay with Credit/Debit Card</button>
               }
           </div>
