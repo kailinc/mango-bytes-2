@@ -32,7 +32,7 @@ class Superpowers extends Component {
   }
 
   render() {
-    const content = this.state.items.map((cur, index) => <PowerThird item={cur} />)
+    const content = this.state.items.map((cur, index) => <PowerOne item={cur} />)
     return(
       <div>
         <Jimbotron headline={this.state.headline} msg={this.state.msg}/>

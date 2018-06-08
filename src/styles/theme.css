@@ -1102,3 +1102,14 @@ label {
 .pay-btn {
   width: 200px;
 }
+
+.powerPicCon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.powerPic {
+  width: 250px;
+  margin: 10px auto;
+}
